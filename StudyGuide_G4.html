@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 4 Study Guide — Computing Assessment</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --accent:#ea580c;
+  --accent-light:#ffedd5;
+  --accent-mid:#fb923c;
+  --accent-dark:#9a3412;
+  --topic2:#3b82f6;
+  --topic2-light:#dbeafe;
+  --bg:#f8fafc;
+  --card:#ffffff;
+  --border:#e2e8f0;
+  --text:#1e293b;
+  --muted:#64748b;
+  --warn-bg:#fef9c3;
+  --warn-border:#fde047;
+}
+
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+.site-header{background:linear-gradient(135deg,#431407 0%,#9a3412 100%);padding:20px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.header-left{display:flex;align-items:center;gap:16px}
+.grade-badge{background:var(--accent-mid);color:#431407;font-family:'Fredoka One',cursive;font-size:0.8rem;letter-spacing:1.5px;text-transform:uppercase;padding:4px 14px;border-radius:100px}
+.header-title{font-family:'Fredoka One',cursive;font-size:1.9rem;color:#fff;line-height:1.1}
+.header-sub{font-size:0.85rem;color:#fed7aa;font-weight:600;margin-top:2px}
+.home-link{color:#fb923c;font-weight:700;font-size:0.85rem;text-decoration:none;border:1.5px solid rgba(251,146,60,0.4);padding:6px 14px;border-radius:8px;background:rgba(251,146,60,0.1);white-space:nowrap}
+.home-link:hover{background:rgba(251,146,60,0.25)}
+.assess-banner{background:#fff;border-bottom:3px solid var(--accent);padding:16px 32px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.assess-title{font-family:'Fredoka One',cursive;font-size:1rem;color:var(--accent-dark);text-transform:uppercase;letter-spacing:1px;white-space:nowrap}
+.assess-parts{display:flex;gap:12px;flex-wrap:wrap}
+.part-pill{display:flex;align-items:center;gap:8px;background:var(--accent-light);border:1.5px solid #fdba74;border-radius:100px;padding:6px 14px;font-size:0.85rem;font-weight:700;color:var(--accent-dark)}
+.part-pill .part-num{background:var(--accent);color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-family:'Fredoka One',cursive;flex-shrink:0}
+.assess-note{font-size:0.8rem;color:var(--muted);font-weight:600;margin-left:auto}
+.page-layout{display:flex;min-height:calc(100vh - 140px)}
+.sidebar{width:220px;flex-shrink:0;background:#fff;border-right:2px solid var(--border);padding:20px 0;position:sticky;top:0;height:calc(100vh - 140px);overflow-y:auto}
+.sidebar-section{padding:8px 16px 4px;font-size:0.68rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+.tab-btn{display:flex;align-items:center;gap:10px;width:100%;padding:10px 20px;border:none;background:none;text-align:left;cursor:pointer;font-family:'Nunito',sans-serif;font-size:0.9rem;font-weight:700;color:var(--muted);transition:all 0.15s;border-left:3px solid transparent}
+.tab-btn:hover{background:#f1f5f9;color:var(--text)}
+.tab-btn.active{background:var(--accent-light);color:var(--accent-dark);border-left-color:var(--accent)}
+.tab-btn .tab-icon{font-size:1.1rem;flex-shrink:0}
+.tab-divider{height:1px;background:var(--border);margin:8px 16px}
+.content{flex:1;padding:32px;overflow-y:auto;max-width:900px}
+.topic-panel{display:none}
+.topic-panel.active{display:block}
+.topic-header{display:flex;align-items:flex-start;gap:20px;margin-bottom:28px;padding:24px;border-radius:16px;background:linear-gradient(135deg,var(--accent-light),#fff)}
+.topic-emoji{font-size:3rem;flex-shrink:0;line-height:1}
+.topic-title{font-family:'Fredoka One',cursive;font-size:2rem;color:var(--accent-dark);line-height:1.1}
+.topic-desc{font-size:0.95rem;color:var(--muted);font-weight:600;margin-top:4px;line-height:1.5}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-bottom:24px}
+.card{background:var(--card);border:1.5px solid var(--border);border-radius:14px;padding:20px;transition:box-shadow 0.15s}
+.card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.08)}
+.card-label{font-size:0.68rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.card-label.blue{color:var(--topic2)}
+.card h3{font-family:'Fredoka One',cursive;font-size:1.1rem;color:var(--text);margin-bottom:8px}
+.vocab-grid{display:grid;grid-template-columns:1fr 2fr;gap:0;border:1.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:24px}
+.vocab-row{display:contents}
+.vocab-term{background:var(--accent-light);padding:11px 16px;font-weight:800;font-size:0.9rem;color:var(--accent-dark);border-bottom:1px solid #fed7aa;display:flex;align-items:center}
+.vocab-def{background:#fff;padding:11px 16px;font-size:0.88rem;color:var(--text);border-bottom:1px solid var(--border);display:flex;align-items:center;line-height:1.45}
+.vocab-row:last-child .vocab-term,.vocab-row:last-child .vocab-def{border-bottom:none}
+.checklist{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
+.checklist li{display:flex;align-items:flex-start;gap:10px;background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;font-size:0.9rem;line-height:1.4}
+.check-icon{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75rem;flex-shrink:0;margin-top:1px}
+.check-icon.orange{background:var(--accent);color:#fff}
+.check-icon.blue{background:var(--topic2);color:#fff}
+.tip-box{background:var(--warn-bg);border:1.5px solid var(--warn-border);border-radius:12px;padding:16px 20px;margin-bottom:20px;display:flex;gap:12px;align-items:flex-start}
+.tip-icon{font-size:1.4rem;flex-shrink:0}
+.tip-content{font-size:0.9rem;line-height:1.55;color:#713f12}
+.tip-content strong{font-weight:800;color:#92400e}
+.remember-box{background:linear-gradient(135deg,#431407,#9a3412);border-radius:14px;padding:20px 24px;margin-bottom:24px;color:#fff}
+.remember-box h3{font-family:'Fredoka One',cursive;font-size:1.1rem;color:#fb923c;margin-bottom:10px}
+.remember-box ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.remember-box li{font-size:0.88rem;color:#fed7aa;display:flex;gap:8px;line-height:1.4}
+.remember-box li::before{content:'★';color:#fb923c;flex-shrink:0}
+.block-row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 16px;align-items:center}
+.scratch-block{display:inline-flex;align-items:center;padding:5px 14px;border-radius:8px;font-weight:800;font-size:0.82rem;color:#fff;gap:6px}
+.block-yellow{background:#ca8a04}
+.block-blue{background:#2563eb}
+.block-red{background:#dc2626}
+.block-green{background:#16a34a}
+.block-orange{background:#ea580c}
+.block-purple{background:#7c3aed}
+.block-arrow{color:var(--muted);font-size:1.1rem;font-weight:900}
+.section-title{font-family:'Fredoka One',cursive;font-size:1.25rem;color:var(--text);margin:24px 0 12px;display:flex;align-items:center;gap:8px}
+.section-title::after{content:'';flex:1;height:1.5px;background:var(--border)}
+
+/* Frame strip for animation explainer */
+.frame-strip{display:flex;gap:6px;overflow-x:auto;padding:12px;background:#f1f5f9;border-radius:12px;margin-bottom:20px}
+.frame{width:60px;height:60px;flex-shrink:0;border:2px solid var(--border);border-radius:8px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:1.6rem;position:relative}
+.frame-num{position:absolute;bottom:2px;right:4px;font-size:0.6rem;font-weight:800;color:var(--muted)}
+
+@media print{
+  .sidebar,.site-header,.assess-banner{display:none}
+  .topic-panel{display:block!important;break-inside:avoid}
+  .page-layout{display:block}
+  .content{padding:0}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-left">
+    <div>
+      <div class="grade-badge">Grade 4 · Computing</div>
+      <div class="header-title">Assessment Study Guide</div>
+      <div class="header-sub">Piskel Stop Motion · ScratchJr</div>
+    </div>
+  </div>
+  <a href="ScratchJr_Hub.html" class="home-link">← Back to Hub</a>
+</header>
+
+<div class="assess-banner">
+  <div class="assess-title">📋 Your Assessment</div>
+  <div class="assess-parts">
+    <div class="part-pill"><div class="part-num">1</div>Quiz — 20 minutes · Multiple choice &amp; short answers</div>
+    <div class="part-pill"><div class="part-num">2</div>Practical Task — 20 minutes · Animation or ScratchJr build</div>
+  </div>
+  <div class="assess-note">Total: 40 minutes</div>
+</div>
+
+<div class="page-layout">
+
+  <nav class="sidebar">
+    <div class="sidebar-section">Topics</div>
+    <button class="tab-btn active" onclick="showTab('piskel')" id="btn-piskel">
+      <span class="tab-icon">🎬</span> Piskel &amp; Stop Motion
+    </button>
+    <button class="tab-btn" onclick="showTab('scratch')" id="btn-scratch">
+      <span class="tab-icon">🐱</span> ScratchJr Coding
+    </button>
+    <div class="tab-divider"></div>
+    <div class="sidebar-section">Concepts</div>
+    <button class="tab-btn" onclick="showTab('sequence')" id="btn-sequence">
+      <span class="tab-icon">➡️</span> Sequence
+    </button>
+    <button class="tab-btn" onclick="showTab('loop')" id="btn-loop">
+      <span class="tab-icon">🔄</span> Loop
+    </button>
+    <button class="tab-btn" onclick="showTab('event')" id="btn-event">
+      <span class="tab-icon">⚡</span> Event &amp; Trigger
+    </button>
+    <div class="tab-divider"></div>
+    <div class="sidebar-section">Prep</div>
+    <button class="tab-btn" onclick="showTab('checklist')" id="btn-checklist">
+      <span class="tab-icon">✅</span> Assessment Checklist
+    </button>
+  </nav>
+
+  <main class="content">
+
+    <!-- PISKEL & STOP MOTION -->
+    <div class="topic-panel active" id="panel-piskel">
+      <div class="topic-header">
+        <div class="topic-emoji">🎬</div>
+        <div>
+          <div class="topic-title">Piskel — Stop Motion &amp; Animation</div>
+          <div class="topic-desc">Learn how animation works using frames, and create your own pixel art animations with Piskel.</div>
+        </div>
+      </div>
+
+      <div class="section-title">What is Stop Motion?</div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-label">Key Idea</div>
+          <h3>Fooling Your Eyes</h3>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.5"><strong>Stop motion animation</strong> works by showing many still images (frames) one after another very quickly. Your brain sees them as smooth movement — this is called the <strong>persistence of vision</strong>.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Key Idea</div>
+          <h3>Frames Per Second (FPS)</h3>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.5"><strong>FPS</strong> means how many frames are shown every second. More FPS = smoother movement. Fewer FPS = choppy, jumpy movement. Most cartoons use 12–24 FPS.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Key Idea</div>
+          <h3>The Onion Skin Tool</h3>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.5">In Piskel, the <strong>Onion Skin</strong> shows a faded ghost of the previous frame while you draw the next one. This helps you place the new frame correctly so movement looks smooth.</p>
+        </div>
+      </div>
+
+      <div class="section-title">How Frames Create Movement</div>
+      <p style="font-size:0.9rem;color:var(--muted);margin-bottom:10px">Each frame is a slightly different image. Shown quickly in sequence, they create animation:</p>
+      <div class="frame-strip">
+        <div class="frame">🧍<div class="frame-num">F1</div></div>
+        <div class="frame">🚶<div class="frame-num">F2</div></div>
+        <div class="frame">🚶<div class="frame-num">F3</div></div>
+        <div class="frame">🏃<div class="frame-num">F4</div></div>
+        <div class="frame">🏃<div class="frame-num">F5</div></div>
+        <div class="frame">🏃<div class="frame-num">F6</div></div>
+        <div style="display:flex;align-items:center;color:var(--muted);font-size:0.8rem;font-weight:700;padding:0 6px">→ Play quickly → Animation!</div>
+      </div>
+
+      <div class="section-title">Piskel Tools &amp; Features</div>
+      <div class="vocab-grid">
+        <div class="vocab-row"><div class="vocab-term">Frame</div><div class="vocab-def">A single still image. Many frames played in sequence create an animation.</div></div>
+        <div class="vocab-row"><div class="vocab-term">Canvas</div><div class="vocab-def">The drawing area in Piskel — where you draw each frame of your animation.</div></div>
+        <div class="vocab-row"><div class="vocab-term">Pencil Tool</div><div class="vocab-def">The main drawing tool — draws pixel by pixel on the canvas.</div></div>
+        <div class="vocab-row"><div class="vocab-term">Fill Tool (Bucket)</div><div class="vocab-def">Fills a closed area with a colour in one click — much faster than colouring pixel by pixel.</div></div>
+        <div class="vocab-row"><div class="vocab-term">Eraser Tool</div><div class="vocab-def">Removes colour from pixels — makes them transparent (invisible).</div></div>
+        <div class="vocab-row"><div class="vocab-term">Onion Skin</div><div class="vocab-def">Shows a ghost image of the previous frame to help you draw the next frame in the right position.</div></div>
+        <div class="vocab-row"><div class="vocab-term">FPS (Frames Per Second)</div><div class="vocab-def">How fast the frames play. Higher FPS = smoother animation. Lower FPS = choppier, slower look.</div></div>
+        <div class="vocab-row"><div class="vocab-term">Duplicate Frame</div><div class="vocab-def">Makes a copy of the current frame — useful so you only need to change a small part instead of redrawing everything.</div></div>
+        <div class="vocab-row"><div class="vocab-term">Export / Download</div><div class="vocab-def">Save your animation as a GIF (moving image) or PNG (still image) to use it outside Piskel.</div></div>
+        <div class="vocab-row"><div class="vocab-term">GIF</div><div class="vocab-def">A file type that stores a short, looping animation. Your exported Piskel animation is saved as a GIF.</div></div>
+        <div class="vocab-row"><div class="vocab-term">Pixel Art</div><div class="vocab-def">Art made by placing individual coloured squares (pixels) carefully. It has a retro, blocky look — like old video games.</div></div>
+        <div class="vocab-row"><div class="vocab-term">Sprite Sheet</div><div class="vocab-def">A single image that contains all the frames of an animation laid out in a grid — used in games and apps.</div></div>
+      </div>
+
+      <div class="tip-box">
+        <div class="tip-icon">💡</div>
+        <div class="tip-content"><strong>Assessment Tip:</strong> Know the difference between <strong>FPS</strong> (speed of animation) and <strong>number of frames</strong> (how long the animation is). A 10-frame animation at 5 FPS plays for 2 seconds. A 10-frame animation at 10 FPS plays for 1 second — faster!</div>
+      </div>
+
+      <div class="section-title">Animation Principles to Know</div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-label">Principle</div>
+          <h3>Persistence of Vision</h3>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.5">Your brain holds onto an image for a tiny moment after it disappears. When frames change quickly, your brain "fills in" the gaps and sees smooth movement.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Principle</div>
+          <h3>Squash &amp; Stretch</h3>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.5">A ball flattens when it hits the ground (squash) and stretches when it bounces up (stretch). This makes animation feel alive and bouncy.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Principle</div>
+          <h3>Anticipation</h3>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.5">A small movement <em>before</em> a big action makes it look more realistic. Example: a character crouches down slightly before jumping up.</p>
+        </div>
+      </div>
+
+      <div class="remember-box">
+        <h3>⭐ Remember for the Assessment</h3>
+        <ul>
+          <li>Stop motion works by showing many still frames very quickly.</li>
+          <li><strong>FPS</strong> = Frames Per Second. More FPS = smoother movement.</li>
+          <li>The <strong>Onion Skin</strong> tool shows the previous frame as a ghost to guide drawing.</li>
+          <li>Use <strong>Duplicate Frame</strong> to copy a frame and only change what moves.</li>
+          <li>Export as a <strong>GIF</strong> to share your animation.</li>
+          <li>Pixel art is made by placing individual squares (pixels) to create images.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SCRATCHJR OVERVIEW -->
+    <div class="topic-panel" id="panel-scratch">
+      <div class="topic-header" style="background:linear-gradient(135deg,var(--topic2-light),#fff)">
+        <div class="topic-emoji">🐱</div>
+        <div>
+          <div class="topic-title" style="color:#1d4ed8">ScratchJr — Coding (Grade 4 Level)</div>
+          <div class="topic-desc">In Grade 4 you use ScratchJr with more confidence — combining sequences, loops, events, and triggers to build interactive projects and simple simulations.</div>
+        </div>
+      </div>
+
+      <div class="section-title">Building on Grade 3</div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-label blue">Review</div>
+          <h3>What You Already Know</h3>
+          <ul style="font-size:0.88rem;color:var(--muted);line-height:2;list-style:none">
+            <li>✅ Sequence — steps in order</li>
+            <li>✅ Loop — repeat actions</li>
+            <li>✅ Event — something that happens</li>
+            <li>✅ Trigger — yellow block that starts code</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-label blue">Grade 4 New Skills</div>
+          <h3>Going Further</h3>
+          <ul style="font-size:0.88rem;color:var(--muted);line-height:2;list-style:none">
+            <li>⚙️ Multiple sprites with their own scripts</li>
+            <li>⚙️ Messages coordinating two sprites</li>
+            <li>⚙️ Multi-page projects (scene changes)</li>
+            <li>⚙️ Hidden sprites as "invisible controllers"</li>
+            <li>⚙️ Timing with Wait blocks</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-title">Multi-Page Projects</div>
+      <div class="cards-grid">
+        <div class="card" style="border-color:var(--topic2)">
+          <div class="card-label blue">Concept</div>
+          <h3>Pages = Scenes</h3>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.5">In ScratchJr, a <strong>Page</strong> is like a different scene or level in your project. You can have many pages and send the player from one to another using code.</p>
+          <div class="block-row" style="margin-top:10px">
+            <span class="scratch-block block-red">Go to Page 2 →</span>
+          </div>
+        </div>
+        <div class="card" style="border-color:var(--accent)">
+          <div class="card-label">Concept</div>
+          <h3>Hidden Sprites</h3>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.5">A sprite can be made invisible using <strong>Hide</strong>. A hidden sprite can still run code! This is used for "controller" sprites that manage events behind the scenes.</p>
+          <div class="block-row" style="margin-top:10px">
+            <span class="scratch-block block-purple">👁 Hide</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title">Timing — The Wait Block</div>
+      <p style="font-size:0.9rem;color:var(--muted);margin-bottom:12px">The Wait block pauses the script for a set number of tenths of a second before the next block runs. This helps synchronise multiple sprites.</p>
+      <div class="block-row">
+        <span class="scratch-block block-yellow">▶ Green Flag</span>
+        <span class="block-arrow">→</span>
+        <span class="scratch-block block-red">⏱ Wait × 3</span>
+        <span class="block-arrow">→</span>
+        <span class="scratch-block block-blue">→ Move Right</span>
+        <span class="block-arrow">→</span>
+        <span class="scratch-block block-green">♪ Pop</span>
+      </div>
+      <p style="font-size:0.85rem;color:var(--muted);margin-bottom:20px">The sprite waits 0.3 seconds, then moves right, then plays a sound.</p>
+
+      <div class="tip-box">
+        <div class="tip-icon">💡</div>
+        <div class="tip-content"><strong>Assessment Tip:</strong> If two sprites need to do things at the same time in sequence, use <strong>Send &amp; Receive Message</strong> to coordinate them — Sprite A finishes its action and then sends a message; Sprite B receives it and starts its action.</div>
+      </div>
+
+      <div class="remember-box" style="background:linear-gradient(135deg,#0c1a4a,#1e3a8a)">
+        <h3 style="color:#60a5fa">⭐ Grade 4 ScratchJr — Remember</h3>
+        <ul>
+          <li>Multiple sprites can each have their own scripts running at the same time.</li>
+          <li>A <strong>Page</strong> is a scene — use the Go to Page block to switch scenes.</li>
+          <li>Hidden sprites can still run code — they're useful as invisible controllers.</li>
+          <li><strong>Wait</strong> blocks add a pause — useful for timing effects.</li>
+          <li>Messages coordinate two different sprites — send colour must match receive colour.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SEQUENCE -->
+    <div class="topic-panel" id="panel-sequence">
+      <div class="topic-header">
+        <div class="topic-emoji">➡️</div>
+        <div>
+          <div class="topic-title">Sequence</div>
+          <div class="topic-desc">Steps that run one after another, in order. The foundation of all programming.</div>
+        </div>
+      </div>
+      <div class="section-title">Sequence — Quick Review</div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-label">Definition</div>
+          <h3>In Order, One at a Time</h3>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.5">A sequence is a set of instructions that execute one after another. Each step must finish before the next begins. In ScratchJr, blocks connect left-to-right and run in that order.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Grade 4 Focus</div>
+          <h3>Sequence Across Sprites</h3>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.5">Each sprite has its own sequence of blocks. Two sprites can run their own sequences at the same time — called <strong>parallel execution</strong>. They don't wait for each other.</p>
+        </div>
+      </div>
+      <div class="section-title">Example — Two Parallel Sequences</div>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:20px">
+        <div style="background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:14px;flex:1;min-width:200px">
+          <div style="font-size:0.75rem;font-weight:800;color:var(--muted);margin-bottom:8px">SPRITE 1 — runs at the same time as Sprite 2</div>
+          <div class="block-row">
+            <span class="scratch-block block-yellow">▶ Flag</span>
+            <span class="block-arrow">→</span>
+            <span class="scratch-block block-blue">→ Move</span>
+            <span class="block-arrow">→</span>
+            <span class="scratch-block block-blue">↑ Jump</span>
+          </div>
+        </div>
+        <div style="background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:14px;flex:1;min-width:200px">
+          <div style="font-size:0.75rem;font-weight:800;color:var(--muted);margin-bottom:8px">SPRITE 2 — runs at the same time as Sprite 1</div>
+          <div class="block-row">
+            <span class="scratch-block block-yellow">▶ Flag</span>
+            <span class="block-arrow">→</span>
+            <span class="scratch-block block-red">♾ Forever</span>
+            <span class="block-arrow">→</span>
+            <span class="scratch-block block-blue">🔄 Spin</span>
+          </div>
+        </div>
+      </div>
+      <div class="vocab-grid">
+        <div class="vocab-row"><div class="vocab-term">Sequence</div><div class="vocab-def">Steps that run one at a time, in a specific order from start to finish.</div></div>
+        <div class="vocab-row"><div class="vocab-term">Parallel Execution</div><div class="vocab-def">Two or more sprites running their own sequences at the same time.</div></div>
+        <div class="vocab-row"><div class="vocab-term">Wait Block</div><div class="vocab-def">Pauses the sequence for a set time before the next block runs.</div></div>
+      </div>
+      <div class="remember-box">
+        <h3>⭐ Key Facts — Sequence</h3>
+        <ul>
+          <li>Each block in a sequence runs after the previous one finishes.</li>
+          <li>Changing the order of blocks changes the result.</li>
+          <li>Multiple sprites can run their own sequences at the same time.</li>
+          <li>Use <strong>Wait</strong> to pause a sequence and control timing.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- LOOP -->
+    <div class="topic-panel" id="panel-loop">
+      <div class="topic-header">
+        <div class="topic-emoji">🔄</div>
+        <div>
+          <div class="topic-title">Loop</div>
+          <div class="topic-desc">Makes part of a script repeat automatically — saving time and making code smarter.</div>
+        </div>
+      </div>
+      <div class="section-title">Loop — Quick Review</div>
+      <div class="cards-grid">
+        <div class="card" style="border-color:#dc2626">
+          <div class="card-label" style="color:#dc2626">Repeat Forever</div>
+          <h3>Runs Until Stopped</h3>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.5">Never stops on its own. Used for background effects, enemies patrolling, decorative animations. Must be at the end of a script or it will block everything after it.</p>
+          <div class="block-row" style="margin-top:8px">
+            <span class="scratch-block block-yellow">▶ Flag</span>
+            <span class="block-arrow">→</span>
+            <span class="scratch-block block-red">♾ Forever [ 🔄 Spin ]</span>
+          </div>
+        </div>
+        <div class="card" style="border-color:#ea580c">
+          <div class="card-label" style="color:#ea580c">Repeat N Times</div>
+          <h3>Runs a Set Number of Times</h3>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.5">Runs the inside blocks exactly N times, then the script continues. Used for things like jumping 3 times, flashing 5 times, or moving a set distance.</p>
+          <div class="block-row" style="margin-top:8px">
+            <span class="scratch-block block-yellow">▶ Flag</span>
+            <span class="block-arrow">→</span>
+            <span class="scratch-block block-red">🔁 ×4 [ → Move ]</span>
+            <span class="block-arrow">→</span>
+            <span class="scratch-block block-green">♪ Pop</span>
+          </div>
+        </div>
+      </div>
+      <div class="vocab-grid">
+        <div class="vocab-row"><div class="vocab-term">Loop</div><div class="vocab-def">A block (or set of blocks) that repeats automatically.</div></div>
+        <div class="vocab-row"><div class="vocab-term">Iteration</div><div class="vocab-def">One pass through the loop. "5 iterations" = the loop ran 5 times.</div></div>
+        <div class="vocab-row"><div class="vocab-term">Infinite Loop</div><div class="vocab-def">A loop that never ends — like Repeat Forever. Stops only when the program is stopped.</div></div>
+      </div>
+      <div class="tip-box">
+        <div class="tip-icon">⚠️</div>
+        <div class="tip-content"><strong>Common Mistake:</strong> A <strong>Repeat Forever</strong> block placed in the middle of a script will trap the code — any blocks AFTER the forever loop will never run. Put forever loops at the end of a script.</div>
+      </div>
+      <div class="remember-box">
+        <h3>⭐ Key Facts — Loop</h3>
+        <ul>
+          <li>Loops repeat code automatically — no need to write the same block over and over.</li>
+          <li><strong>Repeat Forever</strong> — never stops. <strong>Repeat N Times</strong> — stops after N runs.</li>
+          <li>Each run of the loop is called an <strong>iteration</strong>.</li>
+          <li>Forever loops should come at the END of a script.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EVENT & TRIGGER -->
+    <div class="topic-panel" id="panel-event">
+      <div class="topic-header">
+        <div class="topic-emoji">⚡</div>
+        <div>
+          <div class="topic-title">Event &amp; Trigger</div>
+          <div class="topic-desc">Events are things that happen. Triggers are yellow blocks that detect events and start scripts running.</div>
+        </div>
+      </div>
+      <div class="section-title">Events &amp; Triggers — Grade 4 Level</div>
+      <div class="vocab-grid">
+        <div class="vocab-row"><div class="vocab-term">Event</div><div class="vocab-def">Something that happens in the project — a tap, a bump, a message being received, the green flag being pressed.</div></div>
+        <div class="vocab-row"><div class="vocab-term">Trigger</div><div class="vocab-def">A yellow block at the start of a script that watches for a specific event and starts the script when it occurs.</div></div>
+        <div class="vocab-row"><div class="vocab-term">Green Flag ▶</div><div class="vocab-def">Triggers all scripts with this block when the project starts (flag is tapped).</div></div>
+        <div class="vocab-row"><div class="vocab-term">Start on Tap</div><div class="vocab-def">Triggers when the player taps that specific sprite.</div></div>
+        <div class="vocab-row"><div class="vocab-term">Start on Bump</div><div class="vocab-def">Triggers when this sprite physically touches another sprite on the stage.</div></div>
+        <div class="vocab-row"><div class="vocab-term">Receive Message</div><div class="vocab-def">Triggers when a matching coloured message is sent from another sprite.</div></div>
+        <div class="vocab-row"><div class="vocab-term">Send Message</div><div class="vocab-def">Sends a coloured message that triggers any sprite waiting with a matching Receive Message block.</div></div>
+      </div>
+
+      <div class="section-title">Grade 4 Example — Coordinated Scene</div>
+      <p style="font-size:0.9rem;color:var(--muted);margin-bottom:12px">A character completes a path, sends a message, and a second character reacts:</p>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:20px">
+        <div style="background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:14px;flex:1;min-width:200px">
+          <div style="font-size:0.75rem;font-weight:800;color:var(--muted);margin-bottom:8px">HERO — arrives at the castle</div>
+          <div class="block-row">
+            <span class="scratch-block block-yellow">▶ Flag</span>
+            <span class="block-arrow">→</span>
+            <span class="scratch-block block-blue">→→ Move</span>
+            <span class="block-arrow">→</span>
+            <span class="scratch-block block-orange">📤 Send 🔵</span>
+          </div>
+        </div>
+        <div style="background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:14px;flex:1;min-width:200px">
+          <div style="font-size:0.75rem;font-weight:800;color:var(--muted);margin-bottom:8px">CASTLE DOOR — opens when hero arrives</div>
+          <div class="block-row">
+            <span class="scratch-block block-orange">📩 Receive 🔵</span>
+            <span class="block-arrow">→</span>
+            <span class="scratch-block block-purple">📈 Grow ×3</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tip-box">
+        <div class="tip-icon">🔑</div>
+        <div class="tip-content"><strong>Key rule:</strong> Message colours must MATCH. A blue send only triggers a blue receive. If the colour doesn't match, nothing happens — this is a very common mistake to check for in the assessment!</div>
+      </div>
+      <div class="remember-box">
+        <h3>⭐ Key Facts — Event &amp; Trigger</h3>
+        <ul>
+          <li>Events are things that happen (tap, bump, message received).</li>
+          <li>Triggers are yellow blocks that watch for events and start scripts.</li>
+          <li>Without a trigger, a script will NEVER run.</li>
+          <li>Messages coordinate different sprites — but colours must match.</li>
+          <li>One send message can trigger multiple sprites if they all have matching receive blocks.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CHECKLIST -->
+    <div class="topic-panel" id="panel-checklist">
+      <div class="topic-header">
+        <div class="topic-emoji">✅</div>
+        <div>
+          <div class="topic-title">Assessment Checklist</div>
+          <div class="topic-desc">Go through each item before your assessment day. Can you explain it and do it?</div>
+        </div>
+      </div>
+
+      <div class="section-title">🎬 Piskel &amp; Stop Motion — Can I…</div>
+      <ul class="checklist">
+        <li><div class="check-icon orange">✓</div>Explain what stop motion animation is and how it works?</li>
+        <li><div class="check-icon orange">✓</div>Explain what FPS means and how it affects animation?</li>
+        <li><div class="check-icon orange">✓</div>Describe what the Onion Skin tool does in Piskel?</li>
+        <li><div class="check-icon orange">✓</div>Explain why you would use Duplicate Frame?</li>
+        <li><div class="check-icon orange">✓</div>Name 4 tools in Piskel and explain what each one does?</li>
+        <li><div class="check-icon orange">✓</div>Explain what a GIF is and how to export one from Piskel?</li>
+        <li><div class="check-icon orange">✓</div>Describe the principle of persistence of vision?</li>
+        <li><div class="check-icon orange">✓</div>Create a simple frame-by-frame animation showing movement?</li>
+      </ul>
+
+      <div class="section-title">🐱 ScratchJr — Can I…</div>
+      <ul class="checklist">
+        <li><div class="check-icon blue">✓</div>Build a sequence with at least 4 different blocks?</li>
+        <li><div class="check-icon blue">✓</div>Use both Repeat Forever and Repeat N Times correctly?</li>
+        <li><div class="check-icon blue">✓</div>Use at least 3 different trigger types (Flag, Tap, Bump, Message)?</li>
+        <li><div class="check-icon blue">✓</div>Make two sprites communicate using Send and Receive Message?</li>
+        <li><div class="check-icon blue">✓</div>Build a multi-page project (use Go to Page)?</li>
+        <li><div class="check-icon blue">✓</div>Explain what a hidden sprite can be used for?</li>
+        <li><div class="check-icon blue">✓</div>Use a Wait block to add timing to a script?</li>
+        <li><div class="check-icon blue">✓</div>Look at a row of blocks and predict what the sprite will do?</li>
+      </ul>
+
+      <div class="tip-box">
+        <div class="tip-icon">📋</div>
+        <div class="tip-content"><strong>For the Practical Task (20 min):</strong> You might be asked to create a short Piskel animation with a set number of frames, OR a ScratchJr project with specific features. Read the instructions carefully before you start — check what features are required (loops? messages? pages?) and plan quickly before you click.</div>
+      </div>
+
+      <div style="background:linear-gradient(135deg,#431407,#9a3412);border-radius:16px;padding:24px;color:#fff;margin-top:8px">
+        <div style="font-family:'Fredoka One',cursive;font-size:1.3rem;color:#fb923c;margin-bottom:12px">🎯 Assessment Day Tips</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px">
+          <li style="display:flex;gap:10px;font-size:0.9rem;color:#fed7aa"><span>1.</span>For animation questions: think about <strong>frames, FPS, and the Onion Skin</strong> — these three come up most often.</li>
+          <li style="display:flex;gap:10px;font-size:0.9rem;color:#fed7aa"><span>2.</span>For ScratchJr: trace through the blocks one by one — what happens first? Second? Does anything repeat?</li>
+          <li style="display:flex;gap:10px;font-size:0.9rem;color:#fed7aa"><span>3.</span>Check message colours in your projects — a common mistake is mismatched colours that mean nothing happens.</li>
+          <li style="display:flex;gap:10px;font-size:0.9rem;color:#fed7aa"><span>4.</span>In the practical task, get something working first, then improve it if you have time.</li>
+          <li style="display:flex;gap:10px;font-size:0.9rem;color:#fed7aa"><span>5.</span>You've built these projects before — trust what you know! 💪</li>
+        </ul>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.topic-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  document.getElementById('btn-' + id).classList.add('active');
+  document.querySelector('.content').scrollTop = 0;
+}
+</script>
+</body>
+</html>

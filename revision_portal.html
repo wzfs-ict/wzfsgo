@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment Revision Portal | WZFS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, .serif-heading {
+            font-family: 'Georgia', serif;
+        }
+        .chalk-border {
+            border: 2px solid #334155;
+            background-color: #1e293b;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .grade-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: #1e293b;
+            border: 2px solid #334155;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .grade-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+        .btn-guide {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            font-size: 1.25rem;
+            text-decoration: none;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: filter 0.2s;
+        }
+        .btn-guide:hover {
+            filter: brightness(1.1);
+        }
+        .tool-link {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 0.5rem 0;
+            transition: color 0.2s;
+        }
+        .tool-link:hover {
+            color: #ffffff;
+        }
+        .tool-icon {
+            margin-right: 0.5rem;
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+    </style>
+</head>
+<body class="min-h-screen w-screen flex flex-col items-center p-4 md:p-8">
+
+    <div class="w-full max-w-6xl chalk-border rounded-xl p-8 md:p-12 flex flex-col items-center text-center relative">
+        
+        <div class="absolute top-6 left-6">
+            <a href="index.html" class="bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded text-sm font-bold border border-slate-600 transition-colors inline-block text-decoration-none">← Back to Hub</a>
+        </div>
+
+        <!-- Logo Placement -->
+        <img src="Logo - Copy.png" alt="WZFS Logo" class="h-28 mb-6 object-contain" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzY0NzQ4YiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwb2x5Z29uIHBvaW50cz0iMTIgMiAyIDIyIDIyIDIyIi8+PC9zdmc+'; this.classList.add('opacity-50');">
+        
+        <!-- Typographical Hierarchy -->
+        <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight serif-heading mb-4">Detailed Revision Portal</h1>
+        <h2 class="text-xl text-slate-300 font-semibold mb-2">Mr Joshua (ICT Subject Coordinator)</h2>
+        <h3 class="text-lg text-slate-400 font-medium mb-8">WZFS 2026</h3>
+        
+        <!-- Academic Instructions -->
+        <div class="w-full max-w-4xl bg-slate-800 border-l-4 border-emerald-500 p-6 rounded-r-lg text-left mb-10 shadow-md">
+            <h4 class="text-2xl font-bold text-white mb-4 border-b border-slate-600 pb-2">Progressive Test Framework</h4>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                <div>
+                    <h5 class="font-bold text-blue-400 mb-1">Grade 3</h5>
+                    <ul class="text-sm text-slate-300 list-disc pl-4">
+                        <li><b>Classwork:</b> Sequence Build, 3D Design</li>
+                        <li><b>Homework:</b> Code Translation, 3D Hunt</li>
+                        <li><b>Progressive Test:</b> Digital Foundations & Logic</li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-green-400 mb-1">Grade 4</h5>
+                    <ul class="text-sm text-slate-300 list-disc pl-4">
+                        <li><b>Classwork:</b> Piskel Animation, Broadcast Task</li>
+                        <li><b>Homework:</b> Debugging, Frame Planner</li>
+                        <li><b>Progressive Test:</b> Animation & Advanced Logic</li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-purple-400 mb-1">Grade 5</h5>
+                    <ul class="text-sm text-slate-300 list-disc pl-4">
+                        <li><b>Classwork:</b> Vector Logo, Botley Algorithm</li>
+                        <li><b>Homework:</b> Pattern Task, Axis Plotting</li>
+                        <li><b>Progressive Test:</b> Systems, AI & Physical Code</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="text-base text-slate-300 border-t border-slate-600 pt-3 font-medium">
+                Select your Grade Level below to open the comprehensive study guide required to revise for your Progressive Test.
+            </p>
+        </div>
+
+        <!-- Grade Links Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+            
+            <!-- Grade 3 Card -->
+            <div class="grade-card hover:border-blue-500">
+                <div>
+                    <h3 class="text-3xl font-bold text-blue-400 mb-2">Grade 3</h3>
+                    <p class="text-slate-300 font-medium">Foundations & 3D</p>
+                </div>
+                
+                <a href="StudyGuide_G3.html" class="btn-guide bg-blue-600 text-white shadow-lg border border-blue-400">
+                    Open Detailed Guide
+                </a>
+
+                <div class="text-left border-t border-slate-600 pt-4">
+                    <p class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-3">Practice Tools:</p>
+                    <a href="https://www.scratchjr.org/" target="_blank" class="tool-link">
+                        <svg class="tool-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        ScratchJr
+                    </a>
+                    <br>
+                    <a href="https://www.makersempire.com/" target="_blank" class="tool-link">
+                        <svg class="tool-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                        Makers Empire
+                    </a>
+                </div>
+            </div>
+
+            <!-- Grade 4 Card -->
+            <div class="grade-card hover:border-green-500">
+                <div>
+                    <h3 class="text-3xl font-bold text-green-400 mb-2">Grade 4</h3>
+                    <p class="text-slate-300 font-medium">Animation & Logic</p>
+                </div>
+                
+                <a href="StudyGuide_G4.html" class="btn-guide bg-green-600 text-white shadow-lg border border-green-400">
+                    Open Detailed Guide
+                </a>
+
+                <div class="text-left border-t border-slate-600 pt-4">
+                    <p class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-3">Practice Tools:</p>
+                    <a href="https://www.scratchjr.org/" target="_blank" class="tool-link">
+                        <svg class="tool-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        ScratchJr
+                    </a>
+                    <br>
+                    <a href="https://www.piskelapp.com/" target="_blank" class="tool-link">
+                        <svg class="tool-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        Piskel
+                    </a>
+                </div>
+            </div>
+
+            <!-- Grade 5 Card -->
+            <div class="grade-card hover:border-purple-500">
+                <div>
+                    <h3 class="text-3xl font-bold text-purple-400 mb-2">Grade 5</h3>
+                    <p class="text-slate-300 font-medium">Systems & AI</p>
+                </div>
+                
+                <a href="StudyGuide_G5.html" class="btn-guide bg-purple-600 text-white shadow-lg border border-purple-400">
+                    Open Detailed Guide
+                </a>
+
+                <div class="text-left border-t border-slate-600 pt-4">
+                    <p class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-3">Practice Tools:</p>
+                    <a href="https://www.scratchjr.org/" target="_blank" class="tool-link">
+                        <svg class="tool-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        ScratchJr
+                    </a>
+                    <br>
+                    <a href="https://editor.method.ac/" target="_blank" class="tool-link">
+                        <svg class="tool-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                        Method Draw
+                    </a>
+                    <br>
+                    <a href="https://www.learningresources.co.uk/botley-the-coding-robot" target="_blank" class="tool-link">
+                        <svg class="tool-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+                        Botley Robot
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

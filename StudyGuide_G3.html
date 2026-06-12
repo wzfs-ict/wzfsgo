@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 3 Study Guide — Computing Assessment</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --accent:#16a34a;
+  --accent-light:#dcfce7;
+  --accent-mid:#4ade80;
+  --accent-dark:#14532d;
+  --topic2:#3b82f6;
+  --topic2-light:#dbeafe;
+  --bg:#f8fafc;
+  --card:#ffffff;
+  --border:#e2e8f0;
+  --text:#1e293b;
+  --muted:#64748b;
+  --warn-bg:#fef9c3;
+  --warn-border:#fde047;
+}
+
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+
+/* HEADER */
+.site-header{background:linear-gradient(135deg,#052e16 0%,#14532d 100%);padding:20px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.header-left{display:flex;align-items:center;gap:16px}
+.grade-badge{background:var(--accent-mid);color:#052e16;font-family:'Fredoka One',cursive;font-size:0.8rem;letter-spacing:1.5px;text-transform:uppercase;padding:4px 14px;border-radius:100px}
+.header-title{font-family:'Fredoka One',cursive;font-size:1.9rem;color:#fff;line-height:1.1}
+.header-sub{font-size:0.85rem;color:#86efac;font-weight:600;margin-top:2px}
+.home-link{color:#4ade80;font-weight:700;font-size:0.85rem;text-decoration:none;border:1.5px solid rgba(74,222,128,0.4);padding:6px 14px;border-radius:8px;background:rgba(74,222,128,0.1);white-space:nowrap}
+.home-link:hover{background:rgba(74,222,128,0.25)}
+
+/* ASSESSMENT BANNER */
+.assess-banner{background:#fff;border-bottom:3px solid var(--accent);padding:16px 32px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.assess-title{font-family:'Fredoka One',cursive;font-size:1rem;color:var(--accent-dark);text-transform:uppercase;letter-spacing:1px;white-space:nowrap}
+.assess-parts{display:flex;gap:12px;flex-wrap:wrap}
+.part-pill{display:flex;align-items:center;gap:8px;background:var(--accent-light);border:1.5px solid #86efac;border-radius:100px;padding:6px 14px;font-size:0.85rem;font-weight:700;color:var(--accent-dark)}
+.part-pill .part-num{background:var(--accent);color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-family:'Fredoka One',cursive;flex-shrink:0}
+.assess-note{font-size:0.8rem;color:var(--muted);font-weight:600;margin-left:auto}
+
+/* LAYOUT */
+.page-layout{display:flex;min-height:calc(100vh - 140px)}
+
+/* SIDEBAR TABS */
+.sidebar{width:220px;flex-shrink:0;background:#fff;border-right:2px solid var(--border);padding:20px 0;position:sticky;top:0;height:calc(100vh - 140px);overflow-y:auto}
+.sidebar-section{padding:8px 16px 4px;font-size:0.68rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+.tab-btn{display:flex;align-items:center;gap:10px;width:100%;padding:10px 20px;border:none;background:none;text-align:left;cursor:pointer;font-family:'Nunito',sans-serif;font-size:0.9rem;font-weight:700;color:var(--muted);transition:all 0.15s;border-left:3px solid transparent}
+.tab-btn:hover{background:#f1f5f9;color:var(--text)}
+.tab-btn.active{background:var(--accent-light);color:var(--accent-dark);border-left-color:var(--accent)}
+.tab-btn .tab-icon{font-size:1.1rem;flex-shrink:0}
+.tab-divider{height:1px;background:var(--border);margin:8px 16px}
+
+/* CONTENT AREA */
+.content{flex:1;padding:32px;overflow-y:auto;max-width:900px}
+.topic-panel{display:none}
+.topic-panel.active{display:block}
+
+/* TOPIC HEADER */
+.topic-header{display:flex;align-items:flex-start;gap:20px;margin-bottom:28px;padding:24px;border-radius:16px;background:linear-gradient(135deg,var(--accent-light),#fff)}
+.topic-emoji{font-size:3rem;flex-shrink:0;line-height:1}
+.topic-title{font-family:'Fredoka One',cursive;font-size:2rem;color:var(--accent-dark);line-height:1.1}
+.topic-desc{font-size:0.95rem;color:var(--muted);font-weight:600;margin-top:4px;line-height:1.5}
+.topic-tool-link{display:inline-flex;align-items:center;gap:6px;margin-top:8px;background:var(--accent);color:#fff;padding:5px 14px;border-radius:8px;font-size:0.8rem;font-weight:700;text-decoration:none}
+.topic-tool-link:hover{background:var(--accent-dark)}
+
+/* CARDS */
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-bottom:24px}
+.card{background:var(--card);border:1.5px solid var(--border);border-radius:14px;padding:20px;transition:box-shadow 0.15s}
+.card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.08)}
+.card-label{font-size:0.68rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.card-label.blue{color:var(--topic2)}
+.card h3{font-family:'Fredoka One',cursive;font-size:1.1rem;color:var(--text);margin-bottom:8px}
+
+/* VOCAB TABLE */
+.vocab-grid{display:grid;grid-template-columns:1fr 2fr;gap:0;border:1.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:24px}
+.vocab-row{display:contents}
+.vocab-term{background:var(--accent-light);padding:11px 16px;font-weight:800;font-size:0.9rem;color:var(--accent-dark);border-bottom:1px solid #bbf7d0;display:flex;align-items:center}
+.vocab-def{background:#fff;padding:11px 16px;font-size:0.88rem;color:var(--text);border-bottom:1px solid var(--border);display:flex;align-items:center;line-height:1.45}
+.vocab-row:last-child .vocab-term,.vocab-row:last-child .vocab-def{border-bottom:none}
+
+/* CHECKLIST */
+.checklist{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
+.checklist li{display:flex;align-items:flex-start;gap:10px;background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;font-size:0.9rem;line-height:1.4}
+.check-icon{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75rem;flex-shrink:0;margin-top:1px}
+.check-icon.green{background:var(--accent);color:#fff}
+.check-icon.blue{background:var(--topic2);color:#fff}
+
+/* TIP BOX */
+.tip-box{background:var(--warn-bg);border:1.5px solid var(--warn-border);border-radius:12px;padding:16px 20px;margin-bottom:20px;display:flex;gap:12px;align-items:flex-start}
+.tip-icon{font-size:1.4rem;flex-shrink:0}
+.tip-content{font-size:0.9rem;line-height:1.55;color:#713f12}
+.tip-content strong{font-weight:800;color:#92400e}
+
+/* REMEMBER BOX */
+.remember-box{background:linear-gradient(135deg,#022c22,#14532d);border-radius:14px;padding:20px 24px;margin-bottom:24px;color:#fff}
+.remember-box h3{font-family:'Fredoka One',cursive;font-size:1.1rem;color:#4ade80;margin-bottom:10px}
+.remember-box ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.remember-box li{font-size:0.88rem;color:#bbf7d0;display:flex;gap:8px;line-height:1.4}
+.remember-box li::before{content:'★';color:#4ade80;flex-shrink:0}
+
+/* BLOCK DEMO */
+.block-row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 16px;align-items:center}
+.scratch-block{display:inline-flex;align-items:center;padding:5px 14px;border-radius:8px;font-weight:800;font-size:0.82rem;color:#fff;gap:6px}
+.block-yellow{background:#ca8a04}
+.block-blue{background:#2563eb}
+.block-red{background:#dc2626}
+.block-green{background:#16a34a}
+.block-orange{background:#ea580c}
+.block-purple{background:#7c3aed}
+.block-arrow{color:var(--muted);font-size:1.1rem;font-weight:900}
+
+/* SECTION DIVIDER */
+.section-title{font-family:'Fredoka One',cursive;font-size:1.25rem;color:var(--text);margin:24px 0 12px;display:flex;align-items:center;gap:8px}
+.section-title::after{content:'';flex:1;height:1.5px;background:var(--border)}
+
+/* PRINT */
+@media print{
+  .sidebar,.site-header,.assess-banner{display:none}
+  .topic-panel{display:block!important;break-inside:avoid}
+  .page-layout{display:block}
+  .content{padding:0}
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="header-left">
+    <div>
+      <div class="grade-badge">Grade 3 · Computing</div>
+      <div class="header-title">Assessment Study Guide</div>
+      <div class="header-sub">Makers Empire · ScratchJr</div>
+    </div>
+  </div>
+  <a href="ScratchJr_Hub.html" class="home-link">← Back to Hub</a>
+</header>
+
+<!-- Assessment Banner -->
+<div class="assess-banner">
+  <div class="assess-title">📋 Your Assessment</div>
+  <div class="assess-parts">
+    <div class="part-pill"><div class="part-num">1</div>Quiz — 20 minutes · Multiple choice &amp; short answers</div>
+    <div class="part-pill"><div class="part-num">2</div>Practical Task — 20 minutes · Build something in ScratchJr or Makers Empire</div>
+  </div>
+  <div class="assess-note">Total: 40 minutes</div>
+</div>
+
+<!-- Layout -->
+<div class="page-layout">
+
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="sidebar-section">Topics</div>
+    <button class="tab-btn active" onclick="showTab('makers')" id="btn-makers">
+      <span class="tab-icon">🏗️</span> Makers Empire 3D
+    </button>
+    <button class="tab-btn" onclick="showTab('scratch')" id="btn-scratch">
+      <span class="tab-icon">🐱</span> ScratchJr Coding
+    </button>
+    <div class="tab-divider"></div>
+    <div class="sidebar-section">Concepts</div>
+    <button class="tab-btn" onclick="showTab('sequence')" id="btn-sequence">
+      <span class="tab-icon">➡️</span> Sequence
+    </button>
+    <button class="tab-btn" onclick="showTab('loop')" id="btn-loop">
+      <span class="tab-icon">🔄</span> Loop
+    </button>
+    <button class="tab-btn" onclick="showTab('event')" id="btn-event">
+      <span class="tab-icon">⚡</span> Event &amp; Trigger
+    </button>
+    <div class="tab-divider"></div>
+    <div class="sidebar-section">Prep</div>
+    <button class="tab-btn" onclick="showTab('checklist')" id="btn-checklist">
+      <span class="tab-icon">✅</span> Assessment Checklist
+    </button>
+  </nav>
+
+  <!-- Content -->
+  <main class="content">
+
+    <!-- MAKERS EMPIRE -->
+    <div class="topic-panel active" id="panel-makers">
+      <div class="topic-header">
+        <div class="topic-emoji">🏗️</div>
+        <div>
+          <div class="topic-title">Makers Empire — 3D Modelling</div>
+          <div class="topic-desc">Learn to design 3D objects using shapes, colours, and the building tools inside Makers Empire.</div>
+        </div>
+      </div>
+
+      <div class="section-title">What is 3D Modelling?</div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-label">Key Idea</div>
+          <h3>3D vs 2D</h3>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.5">A 2D shape is flat — like a drawing on paper. A <strong>3D shape</strong> has width, height, AND depth — like a real object you can hold. Makers Empire lets you design 3D shapes on a screen!</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Key Idea</div>
+          <h3>What is a Designer?</h3>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.5">A designer thinks about <strong>what a product looks like</strong> and <strong>how it works</strong>. In Makers Empire, you are the designer — you choose the shapes, size, and purpose of your object.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Key Idea</div>
+          <h3>Design Thinking</h3>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.5">Good designers ask: <strong>Who is this for? What problem does it solve?</strong> Before you build in Makers Empire, think about what you want to make and why.</p>
+        </div>
+      </div>
+
+      <div class="section-title">Makers Empire Tools to Know</div>
+      <div class="vocab-grid">
+        <div class="vocab-row"><div class="vocab-term">Shape Library</div><div class="vocab-def">A collection of basic 3D shapes you can use to start building — like cubes, cylinders, cones, and spheres.</div></div>
+        <div class="vocab-row"><div class="vocab-term">Move</div><div class="vocab-def">Drag a shape to a new position on the building platform.</div></div>
+        <div class="vocab-row"><div class="vocab-term">Resize</div><div class="vocab-def">Make a shape bigger or smaller by dragging its handles.</div></div>
+        <div class="vocab-row"><div class="vocab-term">Rotate</div><div class="vocab-def">Turn a shape so it faces a different direction.</div></div>
+        <div class="vocab-row"><div class="vocab-term">Combine / Group</div><div class="vocab-def">Put two or more shapes together to create a new, more complex object.</div></div>
+        <div class="vocab-row"><div class="vocab-term">Hole Tool</div><div class="vocab-def">Cuts a hole or opening into a shape — useful for making containers, windows, or tunnels.</div></div>
+        <div class="vocab-row"><div class="vocab-term">Colour</div><div class="vocab-def">Choose a colour for each shape — think about what makes your design clear and appealing.</div></div>
+        <div class="vocab-row"><div class="vocab-term">3D Print Ready</div><div class="vocab-def">A model that has no floating pieces and is solid — ready to be printed by a real 3D printer!</div></div>
+      </div>
+
+      <div class="tip-box">
+        <div class="tip-icon">💡</div>
+        <div class="tip-content"><strong>Assessment Tip:</strong> Know the difference between the <strong>Hole Tool</strong> (removes material) and the <strong>Shape Tool</strong> (adds material). You may be asked which tool you would use for a task.</div>
+      </div>
+
+      <div class="section-title">Shapes to Recognise</div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-label">3D Shapes</div>
+          <ul style="font-size:0.88rem;color:var(--muted);line-height:2;list-style:none">
+            <li>🟦 <strong>Cube / Box</strong> — 6 flat square faces</li>
+            <li>🔵 <strong>Sphere</strong> — perfectly round, like a ball</li>
+            <li>🔶 <strong>Cylinder</strong> — round tube, like a tin can</li>
+            <li>🔺 <strong>Cone</strong> — round base with a point on top</li>
+            <li>⬡ <strong>Prism</strong> — has two matching flat ends</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-label">Design Process Steps</div>
+          <ul style="font-size:0.88rem;color:var(--muted);line-height:2;list-style:none">
+            <li>1️⃣ <strong>Identify</strong> — What is the problem?</li>
+            <li>2️⃣ <strong>Design</strong> — Sketch your idea on paper</li>
+            <li>3️⃣ <strong>Build</strong> — Create it in Makers Empire</li>
+            <li>4️⃣ <strong>Evaluate</strong> — Does it work? Is it good?</li>
+            <li>5️⃣ <strong>Improve</strong> — Change what doesn't work</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="remember-box">
+        <h3>⭐ Remember for the Assessment</h3>
+        <ul>
+          <li>3D modelling means designing objects that have width, height AND depth.</li>
+          <li>You use the <strong>Shape Library</strong> to pick basic shapes, then combine them.</li>
+          <li>The <strong>Hole Tool</strong> removes material from a shape.</li>
+          <li>The design process: Identify → Design → Build → Evaluate → Improve.</li>
+          <li>Good designers always think about <em>who the design is for</em>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SCRATCHJR OVERVIEW -->
+    <div class="topic-panel" id="panel-scratch">
+      <div class="topic-header" style="background:linear-gradient(135deg,var(--topic2-light),#fff)">
+        <div class="topic-emoji">🐱</div>
+        <div>
+          <div class="topic-title" style="color:#1d4ed8">ScratchJr — Coding Basics</div>
+          <div class="topic-desc">Use colourful code blocks to make characters move, talk, dance, and react! In Grade 3 you'll learn the four big coding ideas: Sequence, Loop, Event, and Trigger.</div>
+        </div>
+      </div>
+
+      <div class="section-title">The ScratchJr Screen</div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-label blue">Interface</div>
+          <h3>Key Areas</h3>
+          <ul style="font-size:0.88rem;color:var(--muted);line-height:2;list-style:none">
+            <li>🎬 <strong>Stage</strong> — Where your characters move and your story plays</li>
+            <li>🐱 <strong>Sprite</strong> — A character or object in your project</li>
+            <li>📦 <strong>Block Area</strong> — All the coloured code blocks you can use</li>
+            <li>🧱 <strong>Script Area</strong> — Where you drag blocks to build your code</li>
+            <li>🎨 <strong>Paint Editor</strong> — Draw or change how your sprite looks</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-label blue">Block Colours</div>
+          <h3>What Each Colour Does</h3>
+          <ul style="font-size:0.88rem;color:var(--muted);line-height:2;list-style:none">
+            <li><span style="background:#ca8a04;color:#fff;padding:1px 8px;border-radius:4px;font-size:0.8rem">Yellow</span> Trigger blocks — start your code</li>
+            <li><span style="background:#2563eb;color:#fff;padding:1px 8px;border-radius:4px;font-size:0.8rem">Blue</span> Motion — move &amp; jump</li>
+            <li><span style="background:#dc2626;color:#fff;padding:1px 8px;border-radius:4px;font-size:0.8rem">Red</span> Control — loops &amp; wait</li>
+            <li><span style="background:#7c3aed;color:#fff;padding:1px 8px;border-radius:4px;font-size:0.8rem">Purple</span> Looks — grow, shrink, hide</li>
+            <li><span style="background:#16a34a;color:#fff;padding:1px 8px;border-radius:4px;font-size:0.8rem">Green</span> Sound — play music &amp; pops</li>
+            <li><span style="background:#ea580c;color:#fff;padding:1px 8px;border-radius:4px;font-size:0.8rem">Orange</span> Messages — send &amp; receive</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tip-box">
+        <div class="tip-icon">💡</div>
+        <div class="tip-content"><strong>Remember:</strong> Every script must start with a <strong>Yellow Trigger block</strong>. Without a trigger, your code will never run! The most common trigger is the <strong>Green Flag</strong> block.</div>
+      </div>
+
+      <div class="remember-box" style="background:linear-gradient(135deg,#0c1a4a,#1e3a8a)">
+        <h3 style="color:#60a5fa">⭐ Remember for the Assessment</h3>
+        <ul>
+          <li>A <strong>Sprite</strong> is a character or object in ScratchJr.</li>
+          <li>Code blocks are dragged into the Script Area to build a program.</li>
+          <li>Every script must start with a Yellow trigger block.</li>
+          <li>ScratchJr runs code from <strong>left to right</strong>, one block at a time.</li>
+          <li>You can have more than one script for the same sprite.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SEQUENCE -->
+    <div class="topic-panel" id="panel-sequence">
+      <div class="topic-header">
+        <div class="topic-emoji">➡️</div>
+        <div>
+          <div class="topic-title">Sequence</div>
+          <div class="topic-desc">The order in which code blocks run — always one after another, from left to right.</div>
+        </div>
+      </div>
+
+      <div class="section-title">What is Sequence?</div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-label">Definition</div>
+          <h3>Steps in Order</h3>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.5">A <strong>sequence</strong> is a set of instructions that run one after another, in a specific order. In ScratchJr, blocks connected in a row form a sequence — the first block runs, then the second, then the third.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Real Life Example</div>
+          <h3>Getting Ready for School</h3>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.5">Wake up → Get dressed → Eat breakfast → Go to school. If you change the order (eat breakfast THEN wake up?), things go wrong! The same is true in code — <strong>order matters.</strong></p>
+        </div>
+      </div>
+
+      <div class="section-title">Sequence in ScratchJr</div>
+      <p style="font-size:0.9rem;color:var(--muted);margin-bottom:12px">A simple sequence that makes a cat move right, then jump, then play a sound:</p>
+      <div class="block-row">
+        <span class="scratch-block block-yellow">▶ Green Flag</span>
+        <span class="block-arrow">→</span>
+        <span class="scratch-block block-blue">→ Move Right</span>
+        <span class="block-arrow">→</span>
+        <span class="scratch-block block-blue">↑ Jump</span>
+        <span class="block-arrow">→</span>
+        <span class="scratch-block block-green">♪ Pop Sound</span>
+      </div>
+      <p style="font-size:0.85rem;color:var(--muted);margin-bottom:20px">Each block waits for the one before it to finish before it runs.</p>
+
+      <div class="vocab-grid">
+        <div class="vocab-row"><div class="vocab-term">Sequence</div><div class="vocab-def">A set of steps that happen one after another in a specific order.</div></div>
+        <div class="vocab-row"><div class="vocab-term">Script</div><div class="vocab-def">A group of connected code blocks that run together as a program.</div></div>
+        <div class="vocab-row"><div class="vocab-term">Order</div><div class="vocab-def">The position of each step — first, second, third, etc. Changing the order changes the result.</div></div>
+      </div>
+
+      <div class="tip-box">
+        <div class="tip-icon">🧪</div>
+        <div class="tip-content"><strong>Test yourself:</strong> If you swap block 2 and block 3 in a sequence, what changes? In an exam, you may be shown a row of blocks and asked what happens — read them left to right, one at a time.</div>
+      </div>
+
+      <div class="remember-box">
+        <h3>⭐ Key Facts — Sequence</h3>
+        <ul>
+          <li>Sequence = steps in order, one at a time.</li>
+          <li>ScratchJr always runs blocks <strong>left to right</strong>.</li>
+          <li>Changing the order of blocks changes what the program does.</li>
+          <li>A sequence starts with a <strong>trigger block</strong> (usually the Green Flag).</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- LOOP -->
+    <div class="topic-panel" id="panel-loop">
+      <div class="topic-header">
+        <div class="topic-emoji">🔄</div>
+        <div>
+          <div class="topic-title">Loop</div>
+          <div class="topic-desc">A loop makes part of your code run again and again — so you don't have to repeat the same block over and over.</div>
+        </div>
+      </div>
+
+      <div class="section-title">What is a Loop?</div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-label">Definition</div>
+          <h3>Repeat, Repeat, Repeat</h3>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.5">A <strong>loop</strong> is a block (or group of blocks) that runs more than once. Instead of writing "Move Right" 10 times, you use a loop to do it automatically. Loops make code shorter and smarter.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Real Life Example</div>
+          <h3>Clapping in Music Class</h3>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.5">If a teacher says "clap 4 times," you clap, clap, clap, clap — that's a loop that runs 4 times! If she says "keep clapping until I stop you," that's a <strong>forever loop</strong>.</p>
+        </div>
+      </div>
+
+      <div class="section-title">Two Types of Loop in ScratchJr</div>
+      <div class="cards-grid">
+        <div class="card" style="border-color:#dc2626">
+          <div class="card-label" style="color:#dc2626">Type 1</div>
+          <h3>Repeat Forever ♾️</h3>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.5">Runs the blocks inside it <strong>again and again without stopping</strong>, until you press the red Stop button.</p>
+          <div class="block-row" style="margin-top:10px">
+            <span class="scratch-block block-yellow">▶ Flag</span>
+            <span class="block-arrow">→</span>
+            <span class="scratch-block block-red">♾ Repeat Forever</span>
+          </div>
+          <p style="font-size:0.8rem;color:var(--muted);margin-top:6px">Example: A character spinning forever as decoration.</p>
+        </div>
+        <div class="card" style="border-color:#ea580c">
+          <div class="card-label" style="color:#ea580c">Type 2</div>
+          <h3>Repeat N Times 🔢</h3>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.5">Runs the blocks inside a set number of times, then <strong>stops and continues</strong> with the rest of the script.</p>
+          <div class="block-row" style="margin-top:10px">
+            <span class="scratch-block block-yellow">▶ Flag</span>
+            <span class="block-arrow">→</span>
+            <span class="scratch-block block-red">🔁 Repeat × 3</span>
+            <span class="block-arrow">→</span>
+            <span class="scratch-block block-green">♪ Pop</span>
+          </div>
+          <p style="font-size:0.8rem;color:var(--muted);margin-top:6px">Example: A character jumping exactly 3 times.</p>
+        </div>
+      </div>
+
+      <div class="vocab-grid">
+        <div class="vocab-row"><div class="vocab-term">Loop</div><div class="vocab-def">A block or group of blocks that runs more than once automatically.</div></div>
+        <div class="vocab-row"><div class="vocab-term">Repeat Forever</div><div class="vocab-def">A loop that keeps running until you stop the program. It never ends on its own.</div></div>
+        <div class="vocab-row"><div class="vocab-term">Repeat N Times</div><div class="vocab-def">A loop that runs a specific number of times (e.g. 3 times), then stops.</div></div>
+        <div class="vocab-row"><div class="vocab-term">Iteration</div><div class="vocab-def">One single run of the loop. If a loop runs 5 times, it has 5 iterations.</div></div>
+      </div>
+
+      <div class="tip-box">
+        <div class="tip-icon">⚠️</div>
+        <div class="tip-content"><strong>Watch out:</strong> If you put a <strong>Repeat Forever</strong> block in the middle of a script, the blocks after it will <em>never run</em> — because the forever loop never ends! Put forever loops at the <strong>end</strong> of a script, or use them on their own.</div>
+      </div>
+
+      <div class="remember-box">
+        <h3>⭐ Key Facts — Loop</h3>
+        <ul>
+          <li>Loops make blocks run more than once without re-writing them.</li>
+          <li><strong>Repeat Forever</strong> — runs until you press Stop.</li>
+          <li><strong>Repeat N Times</strong> — runs a set number of times, then continues.</li>
+          <li>Loops save time and make code much shorter.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EVENT & TRIGGER -->
+    <div class="topic-panel" id="panel-event">
+      <div class="topic-header">
+        <div class="topic-emoji">⚡</div>
+        <div>
+          <div class="topic-title">Event &amp; Trigger</div>
+          <div class="topic-desc">Events are things that happen in your project. Triggers are the blocks that watch for those events and start your code running when they occur.</div>
+        </div>
+      </div>
+
+      <div class="section-title">What is an Event?</div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-label">Definition</div>
+          <h3>Something Happens</h3>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.5">An <strong>event</strong> is something that happens that your program can detect — like tapping a sprite, pressing the green flag, or two characters bumping into each other.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Definition</div>
+          <h3>A Trigger Watches &amp; Responds</h3>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.5">A <strong>trigger</strong> is a yellow block at the start of a script. It watches for a specific event, and <strong>starts the script running</strong> when that event happens. No trigger = code never runs.</p>
+        </div>
+      </div>
+
+      <div class="section-title">ScratchJr Trigger Blocks (Yellow)</div>
+      <div class="vocab-grid">
+        <div class="vocab-row"><div class="vocab-term">Green Flag ▶</div><div class="vocab-def">The most common trigger. Starts the script when the green flag is tapped to begin the project.</div></div>
+        <div class="vocab-row"><div class="vocab-term">Start on Tap 👆</div><div class="vocab-def">Starts the script when the player taps (touches) that specific sprite.</div></div>
+        <div class="vocab-row"><div class="vocab-term">Start on Bump 💥</div><div class="vocab-def">Starts the script when this sprite bumps (touches) another sprite.</div></div>
+        <div class="vocab-row"><div class="vocab-term">Receive Message 📩</div><div class="vocab-def">Starts the script when a matching message is sent from another sprite. Messages match by colour.</div></div>
+        <div class="vocab-row"><div class="vocab-term">Send Message 📤</div><div class="vocab-def">Sends a coloured message to any sprite waiting for it with a Receive Message block.</div></div>
+      </div>
+
+      <div class="section-title">Event Example — A Bump Reaction</div>
+      <p style="font-size:0.9rem;color:var(--muted);margin-bottom:12px">When the cat bumps an obstacle, it goes back to the start:</p>
+      <div class="block-row">
+        <span class="scratch-block block-yellow">💥 Start on Bump</span>
+        <span class="block-arrow">→</span>
+        <span class="scratch-block block-blue">🏠 Go Home</span>
+      </div>
+      <p style="font-size:0.85rem;color:var(--muted);margin:8px 0 20px">The event is the bump. The trigger watches for it. When it happens, "Go Home" runs.</p>
+
+      <div class="section-title">Message Example — Two Sprites Talking</div>
+      <p style="font-size:0.9rem;color:var(--muted);margin-bottom:12px">Sprite 1 sends a message when tapped. Sprite 2 receives it and starts dancing:</p>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:20px">
+        <div style="background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:14px;flex:1;min-width:200px">
+          <div style="font-size:0.75rem;font-weight:800;color:var(--muted);margin-bottom:8px">SPRITE 1 — Cat</div>
+          <div class="block-row">
+            <span class="scratch-block block-yellow">👆 On Tap</span>
+            <span class="block-arrow">→</span>
+            <span class="scratch-block block-orange">📤 Send 🟠</span>
+          </div>
+        </div>
+        <div style="background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:14px;flex:1;min-width:200px">
+          <div style="font-size:0.75rem;font-weight:800;color:var(--muted);margin-bottom:8px">SPRITE 2 — Dog</div>
+          <div class="block-row">
+            <span class="scratch-block block-orange">📩 Receive 🟠</span>
+            <span class="block-arrow">→</span>
+            <span class="scratch-block block-blue">🔄 Spin</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tip-box">
+        <div class="tip-icon">🔑</div>
+        <div class="tip-content"><strong>Matching Messages:</strong> A Send Message and Receive Message only work together if they are the <strong>same colour</strong>. An orange send only triggers an orange receive. Colours must match!</div>
+      </div>
+
+      <div class="remember-box">
+        <h3>⭐ Key Facts — Event &amp; Trigger</h3>
+        <ul>
+          <li>An <strong>event</strong> is something that happens (tap, bump, message).</li>
+          <li>A <strong>trigger</strong> is the yellow block that watches for an event and starts the script.</li>
+          <li>Every script needs a trigger at the beginning — otherwise it won't run.</li>
+          <li>Messages must be the <strong>same colour</strong> to match and work.</li>
+          <li>One sprite can send a message that starts code in a completely different sprite.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ASSESSMENT CHECKLIST -->
+    <div class="topic-panel" id="panel-checklist">
+      <div class="topic-header">
+        <div class="topic-emoji">✅</div>
+        <div>
+          <div class="topic-title">Assessment Checklist</div>
+          <div class="topic-desc">Use this to check you're ready. Tick each one off before your assessment day!</div>
+        </div>
+      </div>
+
+      <div class="section-title">🏗️ Makers Empire — Can I…</div>
+      <ul class="checklist">
+        <li><div class="check-icon green">✓</div>Explain the difference between a 2D and a 3D shape?</li>
+        <li><div class="check-icon green">✓</div>Name at least 4 basic 3D shapes (cube, sphere, cylinder, cone)?</li>
+        <li><div class="check-icon green">✓</div>Explain what the Hole Tool does?</li>
+        <li><div class="check-icon green">✓</div>Describe the 5 steps of the design process?</li>
+        <li><div class="check-icon green">✓</div>Say what a designer thinks about when building something (who it's for, what problem it solves)?</li>
+        <li><div class="check-icon green">✓</div>Use the Move, Resize, and Rotate tools in Makers Empire?</li>
+      </ul>
+
+      <div class="section-title">🐱 ScratchJr — Can I…</div>
+      <ul class="checklist">
+        <li><div class="check-icon blue">✓</div>Name the main areas of the ScratchJr screen (Stage, Sprite, Block Area, Script Area)?</li>
+        <li><div class="check-icon blue">✓</div>Explain what a Sequence is and why order matters?</li>
+        <li><div class="check-icon blue">✓</div>Tell the difference between Repeat Forever and Repeat N Times?</li>
+        <li><div class="check-icon blue">✓</div>Explain what a Trigger is and give two examples?</li>
+        <li><div class="check-icon blue">✓</div>Explain what an Event is and give two examples?</li>
+        <li><div class="check-icon blue">✓</div>Explain how Send Message and Receive Message work together?</li>
+        <li><div class="check-icon blue">✓</div>Read a row of ScratchJr blocks and say what will happen?</li>
+        <li><div class="check-icon blue">✓</div>Build a simple project that uses a sequence, a loop, and at least one trigger?</li>
+      </ul>
+
+      <div class="tip-box">
+        <div class="tip-icon">📋</div>
+        <div class="tip-content"><strong>For the Practical Task (20 min):</strong> You will be asked to build something in ScratchJr or Makers Empire. Read the instructions carefully, plan quickly in your head, and start with the most important part. You don't need it to be perfect — show that you understand the concept.</div>
+      </div>
+
+      <div style="background:linear-gradient(135deg,#052e16,#14532d);border-radius:16px;padding:24px;color:#fff;margin-top:8px">
+        <div style="font-family:'Fredoka One',cursive;font-size:1.3rem;color:#4ade80;margin-bottom:12px">🎯 Assessment Day Tips</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px">
+          <li style="display:flex;gap:10px;font-size:0.9rem;color:#bbf7d0"><span>1.</span>Read every question fully before you answer — look for key words like "Sequence," "Loop," "Event."</li>
+          <li style="display:flex;gap:10px;font-size:0.9rem;color:#bbf7d0"><span>2.</span>For the quiz, if you're unsure, move on and come back — don't get stuck on one question.</li>
+          <li style="display:flex;gap:10px;font-size:0.9rem;color:#bbf7d0"><span>3.</span>For the task, start with what you know — a trigger block and one or two motion blocks is a great beginning.</li>
+          <li style="display:flex;gap:10px;font-size:0.9rem;color:#bbf7d0"><span>4.</span>Use the vocabulary — write "sequence," "loop," "trigger" in your answers where they fit.</li>
+          <li style="display:flex;gap:10px;font-size:0.9rem;color:#bbf7d0"><span>5.</span>Take a breath! You've practised this. You can do it. 💪</li>
+        </ul>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.topic-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  document.getElementById('btn-' + id).classList.add('active');
+  document.querySelector('.content').scrollTop = 0;
+}
+</script>
+</body>
+</html>

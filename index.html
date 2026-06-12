@@ -3,58 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Computing Study Guides - Mr. Joshua WZFS</title>
+    <title>Computing Hub - Primary School | WZFS</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Open Sans', sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: #0f172a;
             color: #f8fafc;
             overflow-x: hidden;
             user-select: none;
         }
-        h1, h2, h3 {
-            font-family: 'Merriweather', serif;
+        h1, h2, h3, h4, h5, .serif-heading {
+            font-family: 'Georgia', serif;
         }
         .chalk-border {
-            border: 3px solid #475569;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.5), 0 10px 30px rgba(0,0,0,0.8);
+            border: 2px solid #334155;
             background-color: #1e293b;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
         .vocab-word {
-            color: #38bdf8;
             font-weight: 700;
-            background-color: rgba(56, 189, 248, 0.1);
             padding: 4px 8px;
             border-radius: 4px;
-            border: 1px solid rgba(56, 189, 248, 0.3);
             display: inline-block;
             margin-bottom: 4px;
         }
-        .vocab-word-g4 {
-            color: #4ade80;
-            font-weight: 700;
-            background-color: rgba(74, 222, 128, 0.1);
-            padding: 4px 8px;
-            border-radius: 4px;
-            border: 1px solid rgba(74, 222, 128, 0.3);
-            display: inline-block;
-            margin-bottom: 4px;
-        }
-        .vocab-word-g5 {
-            color: #c084fc;
-            font-weight: 700;
-            background-color: rgba(192, 132, 252, 0.1);
-            padding: 4px 8px;
-            border-radius: 4px;
-            border: 1px solid rgba(192, 132, 252, 0.3);
-            display: inline-block;
-            margin-bottom: 4px;
-        }
+        .vocab-g3 { color: #60a5fa; background-color: rgba(96, 165, 250, 0.1); border: 1px solid rgba(96, 165, 250, 0.3); }
+        .vocab-g4 { color: #4ade80; background-color: rgba(74, 222, 128, 0.1); border: 1px solid rgba(74, 222, 128, 0.3); }
+        .vocab-g5 { color: #c084fc; background-color: rgba(192, 132, 252, 0.1); border: 1px solid rgba(192, 132, 252, 0.3); }
+        
         .svg-container {
             background-color: #020617;
-            border: 2px solid #334155;
+            border: 1px solid #334155;
             border-radius: 0.5rem;
             padding: 1.5rem;
             display: flex;
@@ -63,450 +44,277 @@
             width: 100%;
             height: 100%;
             min-height: 280px;
-            box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
         }
         .slide {
             display: none;
             opacity: 0;
-            transition: opacity 0.3s ease-in-out;
+            transition: opacity 0.2s ease-in-out;
         }
         .slide.active {
             display: flex;
             opacity: 1;
-        }
-        .info-box {
-            background-color: #334155;
-            border-left: 4px solid #38bdf8;
-            padding: 1rem;
-            margin-top: 1rem;
-            border-radius: 0 0.5rem 0.5rem 0;
-        }
-        .info-box-g4 {
-            background-color: #334155;
-            border-left: 4px solid #4ade80;
-            padding: 1rem;
-            margin-top: 1rem;
-            border-radius: 0 0.5rem 0.5rem 0;
-        }
-        .info-box-g5 {
-            background-color: #334155;
-            border-left: 4px solid #c084fc;
-            padding: 1rem;
-            margin-top: 1rem;
-            border-radius: 0 0.5rem 0.5rem 0;
         }
     </style>
 </head>
 <body class="h-screen w-screen flex flex-col justify-center items-center p-4">
 
     <!-- HOME VIEW (DASHBOARD) -->
-    <div id="home-view" class="w-full max-w-5xl chalk-border rounded-xl p-12 flex flex-col items-center text-center space-y-8">
-        <svg class="w-28 h-28 text-slate-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-        <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight">Computing Study Portal</h1>
-        <h2 class="text-3xl text-slate-300 font-bold border-b-4 border-slate-600 pb-4 px-8">Prepared by: Mr. Joshua WZFS</h2>
+    <div id="home-view" class="w-full max-w-5xl chalk-border rounded-xl p-12 flex flex-col items-center text-center">
+        <!-- Logo Placement -->
+        <img src="Logo - Copy.png" alt="WZFS Logo" class="h-28 mb-6 object-contain" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzY0NzQ4YiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwb2x5Z29uIHBvaW50cz0iMTIgMiAyIDIyIDIyIDIyIi8+PC9zdmc+'; this.classList.add('opacity-50');">
         
-        <p class="text-2xl text-slate-400 max-w-3xl leading-relaxed mt-4">
-            A strong foundation built today engineers the advanced technology of tomorrow. Select your grade level below to review the traditional rules, terminology, and logic required for your assessment.
-        </p>
+        <h1 class="text-4xl md:text-6xl font-bold text-white tracking-tight serif-heading mb-4">Primary Computing Hub</h1>
+        <h2 class="text-2xl text-slate-300 font-semibold mb-2">Mr Joshua (ICT Subject Coordinator)</h2>
+        <h3 class="text-xl text-slate-400 font-medium mb-8">WZFS 2026</h3>
+        
+        <!-- Link to the Detailed Revision Portal -->
+        <div class="w-full max-w-3xl bg-slate-800 border-2 border-emerald-600 rounded-lg p-6 mb-8 shadow-lg">
+            <h4 class="text-2xl font-bold text-white mb-2">Final Exams & Progressive Tests</h4>
+            <p class="text-slate-300 mb-6">Click below to access the detailed study guides required to revise for your assessments.</p>
+            <a href="revision_portal.html" class="inline-block bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xl py-3 px-8 rounded transition-colors shadow">
+                Open Detailed Revision Portal ➔
+            </a>
+        </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full mt-10">
-            <button onclick="openGrade('g3')" class="bg-slate-800 hover:bg-blue-900 text-blue-400 hover:text-white p-8 rounded-xl font-bold text-3xl shadow-lg transition-all border-2 border-blue-500/50 hover:border-blue-400">
-                Grade 3<br><span class="text-lg font-normal text-slate-400 block mt-2">Foundations & 3D</span>
+        <div class="w-full max-w-3xl border-t border-slate-600 pt-8 mt-2">
+            <p class="text-xl text-slate-200 font-semibold">
+                Classroom Basics (Interactive Slides)
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl mt-6">
+            <button onclick="openGrade('g3')" class="bg-slate-800 hover:bg-slate-700 text-blue-400 p-6 rounded-lg font-bold text-xl shadow transition-colors border border-slate-600 hover:border-blue-400">
+                Grade 3 Slides
             </button>
-            <button onclick="openGrade('g4')" class="bg-slate-800 hover:bg-green-900 text-green-400 hover:text-white p-8 rounded-xl font-bold text-3xl shadow-lg transition-all border-2 border-green-500/50 hover:border-green-400">
-                Grade 4<br><span class="text-lg font-normal text-slate-400 block mt-2">Animation & Logic</span>
+            <button onclick="openGrade('g4')" class="bg-slate-800 hover:bg-slate-700 text-green-400 p-6 rounded-lg font-bold text-xl shadow transition-colors border border-slate-600 hover:border-green-400">
+                Grade 4 Slides
             </button>
-            <button onclick="openGrade('g5')" class="bg-slate-800 hover:bg-purple-900 text-purple-400 hover:text-white p-8 rounded-xl font-bold text-3xl shadow-lg transition-all border-2 border-purple-500/50 hover:border-purple-400">
-                Grade 5<br><span class="text-lg font-normal text-slate-400 block mt-2">Systems & AI</span>
+            <button onclick="openGrade('g5')" class="bg-slate-800 hover:bg-slate-700 text-purple-400 p-6 rounded-lg font-bold text-xl shadow transition-colors border border-slate-600 hover:border-purple-400">
+                Grade 5 Slides
             </button>
         </div>
     </div>
 
-    <!-- PRESENTATION VIEW -->
-    <div id="presentation-view" class="hidden relative w-full max-w-7xl h-[90vh] chalk-border rounded-xl p-10 flex-col justify-between shadow-2xl overflow-hidden">
+    <!-- PRESENTATION VIEW (SLIDES) -->
+    <div id="presentation-view" class="hidden relative w-full max-w-6xl h-[88vh] chalk-border rounded-xl p-10 flex-col justify-between shadow-2xl overflow-hidden">
         
         <div class="absolute top-6 left-6 z-50">
-            <button onclick="goHome()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white px-5 py-2 rounded-lg text-sm font-bold border-2 border-slate-600 transition-colors shadow">← Back to Portal</button>
+            <button onclick="goHome()" class="bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded text-sm font-bold border border-slate-600 transition-colors">← Back to Hub</button>
         </div>
 
         <!-- ========================================== -->
         <!-- ================ GRADE 3 ================= -->
         <!-- ========================================== -->
         
-        <!-- G3 Slide 1: Title -->
-        <div class="slide g3 flex-col items-center justify-center h-full text-center space-y-6">
-            <span class="bg-blue-600 text-white px-8 py-3 rounded-full font-bold text-3xl uppercase tracking-widest shadow-lg">Grade 3</span>
-            <h1 class="text-6xl font-bold text-white mt-8">Building Digital Foundations</h1>
-            <div class="w-24 h-2 bg-blue-500 my-6 mx-auto rounded"></div>
-            <h2 class="text-3xl text-slate-300 font-bold mb-8">Mr. Joshua WZFS</h2>
-            <div class="bg-slate-800 p-8 rounded-xl border border-slate-600 max-w-3xl shadow-xl mt-4">
-                <p class="text-2xl text-left text-slate-200 leading-relaxed">
-                    <strong>Instructions:</strong> Read carefully. You must memorize the blue <span class="vocab-word">Vocabulary Words</span>. Computers are not smart; they rely on the exact instructions provided by disciplined engineers.
-                </p>
+        <!-- G3 Slide 1 -->
+        <div class="slide g3 flex-col items-center justify-center h-full text-center">
+            <h1 class="text-5xl font-bold text-white mb-4 serif-heading text-blue-400">Grade 3: Digital Foundations</h1>
+            <h2 class="text-2xl text-slate-300 mb-8">Classroom Basics</h2>
+            <div class="bg-slate-800 p-6 rounded border border-slate-600 max-w-2xl text-left">
+                <h3 class="text-xl font-bold text-white mb-4">Instructions:</h3>
+                <ul class="text-lg text-slate-200 list-disc pl-6 space-y-2">
+                    <li>Read the definitions carefully.</li>
+                    <li>Revise the vocabulary words highlighted in blue.</li>
+                </ul>
             </div>
         </div>
 
-        <!-- G3 Slide 2: Sequence -->
+        <!-- G3 Slide 2: Sequence & Triggers -->
         <div class="slide g3 flex-col md:flex-row items-center justify-between h-full w-full">
-            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center">
-                <h2 class="text-5xl font-bold text-blue-400 border-b-2 border-slate-600 pb-4 mb-6">ScratchJr: Sequence</h2>
-                <p class="text-2xl text-white leading-relaxed mb-6">A computer reads instructions exactly as they are written. We must be precise.</p>
-                <span class="vocab-word">Sequence:</span>
-                <p class="text-slate-300 text-xl leading-relaxed mt-2">Putting code blocks in the exact right order. The computer reads the sequence from <b>left to right</b>, like reading a book.</p>
-                
-                <div class="info-box">
-                    <p class="text-lg text-slate-200">If your blocks are in the wrong order, the character will do the wrong action. The sequence must be perfect.</p>
+            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center space-y-6">
+                <h2 class="text-4xl font-bold text-white border-b border-slate-600 pb-4 serif-heading">ScratchJr: Code Basics</h2>
+                <div>
+                    <span class="vocab-word vocab-g3">Sequence:</span>
+                    <p class="text-slate-300 text-xl mt-2">Arranging code blocks in the correct order. The computer reads the sequence from left to right.</p>
+                </div>
+                <div>
+                    <span class="vocab-word vocab-g3">Event / Trigger:</span>
+                    <p class="text-slate-300 text-xl mt-2">The action that starts the code sequence. Examples include tapping the Green Flag or tapping a character.</p>
                 </div>
             </div>
-            <div class="w-full md:w-1/2 svg-container flex-col mt-6 md:mt-0">
+            <div class="w-full md:w-1/2 svg-container flex-col">
                 <svg viewBox="0 0 350 150" class="w-full h-auto">
-                    <rect x="20" y="50" width="50" height="50" fill="#facc15" rx="6" stroke="#fff" stroke-width="2"/>
+                    <rect x="20" y="50" width="50" height="50" fill="#facc15" rx="4"/>
                     <polygon points="35,65 55,75 35,85" fill="#22c55e"/> 
-                    
-                    <rect x="70" y="50" width="50" height="50" fill="#3b82f6" rx="6" stroke="#fff" stroke-width="2"/>
+                    <rect x="70" y="50" width="50" height="50" fill="#3b82f6" rx="4"/>
                     <path d="M85,75 L105,75 M95,65 L105,75 L95,85" stroke="#fff" stroke-width="3" fill="none"/>
-                    
-                    <rect x="120" y="50" width="50" height="50" fill="#3b82f6" rx="6" stroke="#fff" stroke-width="2"/>
+                    <rect x="120" y="50" width="50" height="50" fill="#3b82f6" rx="4"/>
                     <path d="M145,85 L145,65 M135,75 L145,65 L155,75" stroke="#fff" stroke-width="3" fill="none"/>
-
-                    <rect x="170" y="50" width="50" height="50" fill="#ef4444" rx="6" stroke="#fff" stroke-width="2"/>
-
-                    <path d="M20,120 L220,120" stroke="#94a3b8" stroke-width="3" stroke-dasharray="6"/>
+                    <path d="M20,120 L220,120" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4"/>
                     <polygon points="220,115 230,120 220,125" fill="#94a3b8"/>
                     <text x="120" y="140" fill="#94a3b8" font-size="14" font-weight="bold" text-anchor="middle">Read Left to Right</text>
                 </svg>
             </div>
         </div>
 
-        <!-- G3 Slide 3: Triggers -->
+        <!-- G3 Slide 3: Loops -->
         <div class="slide g3 flex-col md:flex-row items-center justify-between h-full w-full">
-            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center">
-                <h2 class="text-5xl font-bold text-blue-400 border-b-2 border-slate-600 pb-4 mb-6">ScratchJr: Triggers</h2>
-                <span class="vocab-word">Event / Trigger:</span>
-                <p class="text-slate-300 text-xl leading-relaxed mt-2 mb-6">The yellow blocks. This is the specific action that tells the computer to start running the code sequence.</p>
-                
-                <div class="info-box">
-                    <p class="text-lg text-yellow-400 font-bold mb-2">Two Main Triggers:</p>
-                    <ul class="list-disc pl-5 text-slate-200 space-y-2">
-                        <li><b>Start on Green Flag:</b> Tapping the flag at the top of the screen starts the code.</li>
-                        <li><b>Start on Tap:</b> Touching the character itself with your finger starts the code.</li>
-                    </ul>
+            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center space-y-6">
+                <h2 class="text-4xl font-bold text-white border-b border-slate-600 pb-4 serif-heading">ScratchJr: Efficiency</h2>
+                <div>
+                    <span class="vocab-word vocab-g3">Loop:</span>
+                    <p class="text-slate-300 text-xl mt-2">A block used to repeat a sequence of actions automatically. This makes code shorter and more efficient.</p>
+                </div>
+                <div>
+                    <span class="vocab-word vocab-g3">Number Parameter:</span>
+                    <p class="text-slate-300 text-xl mt-2">The number written on a block. It specifies how many times to loop or how far to move.</p>
                 </div>
             </div>
-            <div class="w-full md:w-1/2 svg-container flex-col mt-6 md:mt-0">
-                <svg viewBox="0 0 300 200" class="w-full h-auto">
-                    <!-- Tap Flag Trigger -->
-                    <rect x="50" y="30" width="60" height="60" fill="#facc15" rx="8" stroke="#fff" stroke-width="3"/>
-                    <polygon points="70,50 95,60 70,70" fill="#22c55e"/> 
-                    <text x="140" y="65" fill="#fff" font-size="16" font-weight="bold">Start on Green Flag</text>
-
-                    <!-- Tap Character Trigger -->
-                    <rect x="50" y="110" width="60" height="60" fill="#facc15" rx="8" stroke="#fff" stroke-width="3"/>
-                    <path d="M75,130 L75,150 M65,140 L85,140" stroke="#fff" stroke-width="3" fill="none"/>
-                    <circle cx="80" cy="125" r="5" fill="#fff"/>
-                    
-                    <!-- Finger tapping -->
-                    <path d="M60,180 L80,145 L90,145 L100,180 Z" fill="#cbd5e1" stroke="#475569" stroke-width="2"/>
-                    <text x="140" y="145" fill="#fff" font-size="16" font-weight="bold">Start on Tap (Touch)</text>
+            <div class="w-full md:w-1/2 svg-container flex-col">
+                <svg viewBox="0 0 250 150" class="w-full h-auto">
+                    <rect x="50" y="40" width="150" height="70" fill="#f97316" rx="4"/>
+                    <rect x="70" y="55" width="50" height="40" fill="#3b82f6" rx="2"/>
+                    <path d="M85,85 L85,65 M75,75 L85,65 L95,75" stroke="#fff" stroke-width="3" fill="none"/> 
+                    <path d="M140,75 A15,15 0 1,1 170,75 A15,15 0 1,1 140,75" fill="none" stroke="#fff" stroke-width="4" stroke-dasharray="4"/>
+                    <polygon points="165,65 175,75 155,75" fill="#fff"/>
+                    <text x="180" y="100" fill="#fff" font-size="20" font-weight="bold">5</text>
                 </svg>
             </div>
         </div>
 
-        <!-- G3 Slide 4: Loops & Parameters -->
+        <!-- G3 Slide 4: 3D Basics -->
         <div class="slide g3 flex-col md:flex-row items-center justify-between h-full w-full">
-            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center">
-                <h2 class="text-5xl font-bold text-blue-400 border-b-2 border-slate-600 pb-4 mb-6">ScratchJr: Efficiency</h2>
-                <p class="text-2xl text-white leading-relaxed mb-6">Engineers do not waste time writing the same code over and over.</p>
-                
-                <span class="vocab-word">Loop:</span>
-                <p class="text-slate-300 text-xl leading-relaxed mt-2 mb-4">The orange block. It wraps around a sequence to repeat an action automatically.</p>
-
-                <span class="vocab-word">Number Parameter:</span>
-                <p class="text-slate-300 text-xl leading-relaxed mt-2">The number typed on a block. It dictates <i>how many times</i> to loop or <i>how far</i> to move.</p>
+            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center space-y-6">
+                <h2 class="text-4xl font-bold text-white border-b border-slate-600 pb-4 serif-heading">Makers Empire: 3D Basics</h2>
+                <div>
+                    <span class="vocab-word vocab-g3">3D Shape:</span>
+                    <p class="text-slate-300 text-xl mt-2">A solid object. It has Width, Height, and Depth.</p>
+                </div>
+                <div>
+                    <span class="vocab-word vocab-g3">Workplane:</span>
+                    <p class="text-slate-300 text-xl mt-2">The flat grid area on the screen where you place and build 3D models.</p>
+                </div>
             </div>
-            <div class="w-full md:w-1/2 svg-container flex-col mt-6 md:mt-0">
-                <svg viewBox="0 0 300 200" class="w-full h-auto">
-                    <!-- Bad Code -->
-                    <text x="150" y="40" fill="#ef4444" font-size="14" font-weight="bold" text-anchor="middle">Inefficient (Too long)</text>
-                    <rect x="50" y="50" width="30" height="30" fill="#3b82f6" rx="4"/>
-                    <rect x="80" y="50" width="30" height="30" fill="#3b82f6" rx="4"/>
-                    <rect x="110" y="50" width="30" height="30" fill="#3b82f6" rx="4"/>
-                    <rect x="140" y="50" width="30" height="30" fill="#3b82f6" rx="4"/>
-                    
-                    <line x1="50" y1="100" x2="250" y2="100" stroke="#475569" stroke-width="2" stroke-dasharray="4"/>
-
-                    <!-- Good Code -->
-                    <text x="150" y="130" fill="#22c55e" font-size="14" font-weight="bold" text-anchor="middle">Efficient Loop</text>
-                    <rect x="80" y="140" width="100" height="50" fill="#f97316" rx="6" stroke="#fff" stroke-width="2"/>
-                    <rect x="95" y="145" width="40" height="40" fill="#3b82f6" rx="4" stroke="#fff" stroke-width="2"/>
-                    <text x="160" y="175" fill="#fff" font-size="20" font-weight="bold">4</text>
-                    <!-- Parameter highlight -->
-                    <circle cx="165" cy="168" r="15" fill="none" stroke="#facc15" stroke-width="3" stroke-dasharray="2"/>
-                    <text x="210" y="173" fill="#facc15" font-size="12" font-weight="bold">Parameter</text>
-                </svg>
-            </div>
-        </div>
-
-        <!-- G3 Slide 5: Debugging -->
-        <div class="slide g3 flex-col md:flex-row items-center justify-between h-full w-full">
-            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center">
-                <h2 class="text-5xl font-bold text-blue-400 border-b-2 border-slate-600 pb-4 mb-6">ScratchJr: Fixing Errors</h2>
-                <p class="text-2xl text-white leading-relaxed mb-6">Computers make no mistakes. If the program fails, the human engineer wrote bad instructions.</p>
-                
-                <span class="vocab-word">Bug:</span>
-                <p class="text-slate-300 text-xl leading-relaxed mt-2 mb-4">An error or mistake in your code sequence that stops the program from working correctly.</p>
-
-                <span class="vocab-word">Debugging:</span>
-                <p class="text-slate-300 text-xl leading-relaxed mt-2">The process of finding the mistake and fixing it so the sequence runs perfectly.</p>
-            </div>
-            <div class="w-full md:w-1/2 svg-container flex-col mt-6 md:mt-0">
-                <svg viewBox="0 0 300 200" class="w-full h-auto">
-                    <!-- Buggy Code -->
-                    <rect x="50" y="60" width="40" height="40" fill="#facc15" rx="4"/>
-                    <rect x="90" y="60" width="40" height="40" fill="#3b82f6" rx="4"/>
-                    <rect x="130" y="60" width="40" height="40" fill="#ef4444" rx="4"/> <!-- The Bug -->
-                    <rect x="170" y="60" width="40" height="40" fill="#3b82f6" rx="4"/>
-                    
-                    <!-- Magnifying glass / Debugging -->
-                    <circle cx="150" cy="80" r="30" fill="none" stroke="#60a5fa" stroke-width="4"/>
-                    <line x1="170" y1="100" x2="200" y2="130" stroke="#60a5fa" stroke-width="6" stroke-linecap="round"/>
-                    
-                    <path d="M140,70 L160,90 M160,70 L140,90" stroke="#fff" stroke-width="4"/>
-                    
-                    <text x="150" y="150" fill="#60a5fa" font-size="16" font-weight="bold" text-anchor="middle">Find the Bug & Remove It</text>
-                </svg>
-            </div>
-        </div>
-
-        <!-- G3 Slide 6: 3D Space -->
-        <div class="slide g3 flex-col md:flex-row items-center justify-between h-full w-full">
-            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center">
-                <h2 class="text-5xl font-bold text-blue-400 border-b-2 border-slate-600 pb-4 mb-6">Makers Empire: Space</h2>
-                <p class="text-2xl text-white leading-relaxed mb-6">To build digital structures, you must understand physical space.</p>
-                
-                <span class="vocab-word">3D Shape:</span>
-                <p class="text-slate-300 text-xl leading-relaxed mt-2 mb-4">A solid object. It has <b>Width</b>, <b>Height</b>, AND <b>Depth</b>. (A 2D shape is flat, like a drawing on paper).</p>
-
-                <span class="vocab-word">Workplane:</span>
-                <p class="text-slate-300 text-xl leading-relaxed mt-2">The flat floor or grid on the screen where you place shapes to begin building.</p>
-            </div>
-            <div class="w-full md:w-1/2 svg-container relative mt-6 md:mt-0">
+            <div class="w-full md:w-1/2 svg-container relative">
                 <svg viewBox="0 0 350 250" class="w-full h-auto">
-                    <!-- Workplane -->
-                    <path d="M50,200 L300,200 L230,120 L80,120 Z" fill="#1e293b" stroke="#64748b" stroke-width="3"/>
+                    <path d="M50,200 L300,200 L230,120 L80,120 Z" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
                     <text x="260" y="190" fill="#64748b" font-size="14" font-weight="bold">Workplane</text>
-                    
-                    <!-- 3D Box -->
-                    <polygon points="140,160 190,140 190,90 140,110" fill="#3b82f6" stroke="#fff" stroke-width="2"/>
-                    <polygon points="90,140 140,160 140,110 90,90" fill="#60a5fa" stroke="#fff" stroke-width="2"/>
-                    <polygon points="140,40 190,90 140,110 90,90" fill="#93c5fd" stroke="#fff" stroke-width="2"/>
-                    
-                    <!-- Labels -->
+                    <polygon points="140,160 190,140 190,90 140,110" fill="#3b82f6" stroke="#fff" stroke-width="1"/>
+                    <polygon points="90,140 140,160 140,110 90,90" fill="#60a5fa" stroke="#fff" stroke-width="1"/>
+                    <polygon points="140,40 190,90 140,110 90,90" fill="#93c5fd" stroke="#fff" stroke-width="1"/>
                     <line x1="75" y1="90" x2="75" y2="140" stroke="#facc15" stroke-width="2"/>
-                    <text x="65" y="120" fill="#facc15" font-size="14" font-weight="bold" transform="rotate(-90 65,120)">Height</text>
-                    
+                    <text x="65" y="120" fill="#facc15" font-size="14" transform="rotate(-90 65,120)">Height</text>
                     <line x1="90" y1="150" x2="140" y2="170" stroke="#facc15" stroke-width="2"/>
-                    <text x="115" y="185" fill="#facc15" font-size="14" font-weight="bold">Width</text>
-
+                    <text x="115" y="185" fill="#facc15" font-size="14">Width</text>
                     <line x1="150" y1="165" x2="200" y2="145" stroke="#facc15" stroke-width="2"/>
-                    <text x="180" y="170" fill="#facc15" font-size="14" font-weight="bold">Depth</text>
+                    <text x="180" y="170" fill="#facc15" font-size="14">Depth</text>
                 </svg>
             </div>
         </div>
 
-        <!-- G3 Slide 7: 3D Tools -->
+        <!-- G3 Slide 5: 3D Tools -->
         <div class="slide g3 flex-col md:flex-row items-center justify-between h-full w-full">
-            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center">
-                <h2 class="text-5xl font-bold text-blue-400 border-b-2 border-slate-600 pb-4 mb-6">Makers Empire: Tools</h2>
-                <p class="text-2xl text-white leading-relaxed mb-6">Tools allow engineers to shape objects to their exact needs.</p>
-                
-                <span class="vocab-word">Move:</span>
-                <p class="text-slate-300 text-xl leading-relaxed mt-2 mb-4">Sliding an object up, down, left, or right across the workplane.</p>
-
-                <span class="vocab-word">Resize:</span>
-                <p class="text-slate-300 text-xl leading-relaxed mt-2 mb-4">Pulling the corners of an object to make it larger or smaller.</p>
-
-                <span class="vocab-word">Rotate:</span>
-                <p class="text-slate-300 text-xl leading-relaxed mt-2">Turning an object around in a circle to view or attach different sides.</p>
+            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center space-y-6">
+                <h2 class="text-4xl font-bold text-white border-b border-slate-600 pb-4 serif-heading">Makers Empire: Tools</h2>
+                <ul class="text-xl space-y-6 list-none mt-2 text-slate-300">
+                    <li><span class="vocab-word vocab-g3">Move:</span> Sliding an object up, down, left, or right on the workplane.</li>
+                    <li><span class="vocab-word vocab-g3">Resize:</span> Modifying the object to make it larger or smaller.</li>
+                    <li><span class="vocab-word vocab-g3">Rotate:</span> Turning an object around to view or attach different sides.</li>
+                </ul>
             </div>
-            <div class="w-full md:w-1/2 svg-container mt-6 md:mt-0">
+            <div class="w-full md:w-1/2 svg-container">
                 <svg viewBox="0 0 350 250" class="w-full h-auto">
-                    <!-- Base Object -->
-                    <rect x="135" y="85" width="80" height="80" fill="#60a5fa" rx="4"/>
-                    
-                    <!-- Move / Resize arrows -->
-                    <path d="M175,40 L175,75 M165,50 L175,40 L185,50" stroke="#facc15" stroke-width="4" fill="none"/>
-                    <path d="M175,210 L175,175 M165,200 L175,210 L185,200" stroke="#facc15" stroke-width="4" fill="none"/>
-                    <path d="M40,125 L75,125 M50,115 L40,125 L50,135" stroke="#facc15" stroke-width="4" fill="none"/>
-                    <path d="M310,125 L275,125 M300,115 L310,125 L300,135" stroke="#facc15" stroke-width="4" fill="none"/>
-                    
-                    <!-- Rotate Path -->
-                    <path d="M80,70 A100,100 0 0,1 270,70" fill="none" stroke="#ef4444" stroke-width="4" stroke-dasharray="8"/>
+                    <rect x="135" y="85" width="80" height="80" fill="#60a5fa" rx="2"/>
+                    <path d="M175,40 L175,75 M165,50 L175,40 L185,50" stroke="#facc15" stroke-width="3" fill="none"/>
+                    <path d="M175,210 L175,175 M165,200 L175,210 L185,200" stroke="#facc15" stroke-width="3" fill="none"/>
+                    <path d="M40,125 L75,125 M50,115 L40,125 L50,135" stroke="#facc15" stroke-width="3" fill="none"/>
+                    <path d="M310,125 L275,125 M300,115 L310,125 L300,135" stroke="#facc15" stroke-width="3" fill="none"/>
+                    <path d="M80,70 A100,100 0 0,1 270,70" fill="none" stroke="#ef4444" stroke-width="3" stroke-dasharray="6"/>
                     <polygon points="270,55 285,75 255,75" fill="#ef4444"/>
-                    
-                    <text x="175" y="25" fill="#facc15" font-weight="bold" text-anchor="middle">Resize / Move</text>
-                    <text x="280" y="45" fill="#ef4444" font-weight="bold">Rotate</text>
                 </svg>
             </div>
         </div>
-
 
         <!-- ========================================== -->
         <!-- ================ GRADE 4 ================= -->
         <!-- ========================================== -->
         
-        <!-- G4 Slide 1: Title -->
-        <div class="slide g4 flex-col items-center justify-center h-full text-center space-y-6">
-            <span class="bg-green-600 text-white px-8 py-3 rounded-full font-bold text-3xl uppercase tracking-widest shadow-lg">Grade 4</span>
-            <h1 class="text-6xl font-bold text-white mt-8">Animation and Logic</h1>
-            <div class="w-24 h-2 bg-green-500 my-6 mx-auto rounded"></div>
-            <h2 class="text-3xl text-slate-300 font-bold mb-8">Mr. Joshua WZFS</h2>
-            <div class="bg-slate-800 p-8 rounded-xl border border-slate-600 max-w-3xl shadow-xl mt-4">
-                <p class="text-2xl text-left text-slate-200 leading-relaxed">
-                    <strong>Instructions:</strong> Master the green <span class="vocab-word-g4">Vocabulary Words</span>. You will learn the strict rules of programming events and the traditional methods of frame-by-frame animation.
-                </p>
+        <!-- G4 Slide 1 -->
+        <div class="slide g4 flex-col items-center justify-center h-full text-center">
+            <h1 class="text-5xl font-bold text-white mb-4 serif-heading text-green-400">Grade 4: Animation & Logic</h1>
+            <h2 class="text-2xl text-slate-300 mb-8">Classroom Basics</h2>
+            <div class="bg-slate-800 p-6 rounded border border-slate-600 max-w-2xl text-left">
+                <h3 class="text-xl font-bold text-white mb-4">Instructions:</h3>
+                <ul class="text-lg text-slate-200 list-disc pl-6 space-y-2">
+                    <li>Read the definitions carefully.</li>
+                    <li>Revise the vocabulary words highlighted in green.</li>
+                </ul>
             </div>
         </div>
 
         <!-- G4 Slide 2: Strict Logic -->
         <div class="slide g4 flex-col md:flex-row items-center justify-between h-full w-full">
-            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center">
-                <h2 class="text-5xl font-bold text-green-400 border-b-2 border-slate-600 pb-4 mb-6">ScratchJr: Strict Logic</h2>
-                <p class="text-2xl text-white leading-relaxed mb-6">Programming requires discipline. If one step is wrong, the system breaks.</p>
-                
-                <span class="vocab-word-g4">Sequence:</span>
-                <p class="text-slate-300 text-xl leading-relaxed mt-2 mb-4">A strict list of steps. If a block is out of order, the program fails. This error is called a <b>Bug</b>.</p>
-
-                <span class="vocab-word-g4">Loop Parameter:</span>
-                <p class="text-slate-300 text-xl leading-relaxed mt-2">You must calculate the exact number required in the orange loop block to reach your target perfectly, rather than guessing.</p>
+            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center space-y-6">
+                <h2 class="text-4xl font-bold text-white border-b border-slate-600 pb-4 serif-heading">ScratchJr: Program Logic</h2>
+                <div>
+                    <span class="vocab-word vocab-g4">Sequence:</span>
+                    <p class="text-slate-300 text-xl mt-2">A precise list of instructions. If an instruction is incorrect or out of order, it is called a <b>Bug</b>.</p>
+                </div>
+                <div>
+                    <span class="vocab-word vocab-g4">Loop:</span>
+                    <p class="text-slate-300 text-xl mt-2">A block that repeats instructions. You must define the exact number of repetitions required to reach the objective.</p>
+                </div>
             </div>
-            <div class="w-full md:w-1/2 svg-container flex-col mt-6 md:mt-0">
+            <div class="w-full md:w-1/2 svg-container flex-col">
                 <svg viewBox="0 0 350 200" class="w-full h-auto">
-                    <!-- Sequence 1 - Bug -->
-                    <rect x="20" y="30" width="50" height="40" fill="#facc15" rx="4"/>
-                    <rect x="75" y="30" width="50" height="40" fill="#3b82f6" rx="4"/>
-                    <!-- Bug Block -->
-                    <rect x="130" y="30" width="50" height="40" fill="#ef4444" rx="4"/> 
-                    <rect x="185" y="30" width="50" height="40" fill="#3b82f6" rx="4"/>
-                    <path d="M120,20 L190,80 M190,20 L120,80" stroke="#ef4444" stroke-width="5"/> 
-                    <text x="260" y="55" fill="#ef4444" font-size="20" font-weight="bold">BUG!</text>
-                    
-                    <line x1="20" y1="100" x2="330" y2="100" stroke="#475569" stroke-width="2"/>
-
-                    <!-- Sequence 2 - Loop fix -->
                     <rect x="20" y="130" width="50" height="40" fill="#facc15" rx="4"/>
-                    <rect x="75" y="120" width="110" height="60" fill="#f97316" rx="6"/> <!-- Loop -->
+                    <rect x="75" y="120" width="110" height="60" fill="#f97316" rx="4"/> 
                     <rect x="95" y="130" width="50" height="40" fill="#3b82f6" rx="4"/> 
                     <text x="165" y="165" fill="#fff" font-weight="bold" font-size="18">x3</text>
-                    <path d="M210,140 L230,160 L270,120" stroke="#22c55e" stroke-width="6" fill="none"/> 
+                    <path d="M210,140 L230,160 L270,120" stroke="#22c55e" stroke-width="4" fill="none"/> 
                 </svg>
             </div>
         </div>
 
         <!-- G4 Slide 3: Advanced Events -->
         <div class="slide g4 flex-col md:flex-row items-center justify-between h-full w-full">
-            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center">
-                <h2 class="text-5xl font-bold text-green-400 border-b-2 border-slate-600 pb-4 mb-6">ScratchJr: Interactions</h2>
-                <p class="text-2xl text-white leading-relaxed mb-6">How do multiple characters interact?</p>
-                
-                <div class="info-box-g4 mb-4">
-                    <span class="vocab-word-g4">Start on Bump:</span>
-                    <p class="text-slate-200 mt-2">A trigger that starts code ONLY when two characters crash into each other.</p>
+            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center space-y-6">
+                <h2 class="text-4xl font-bold text-white border-b border-slate-600 pb-4 serif-heading">ScratchJr: Event Triggers</h2>
+                <div>
+                    <span class="vocab-word vocab-g4">Start on Bump:</span>
+                    <p class="text-slate-300 text-xl mt-2">An event block that starts a sequence only when two characters collide on screen.</p>
                 </div>
-
-                <div class="info-box-g4">
-                    <span class="vocab-word-g4">Send Message:</span>
-                    <p class="text-slate-200 mt-2">The closed envelope block. Sprite A sends a hidden color signal to Sprite B to tell it to start moving.</p>
+                <div>
+                    <span class="vocab-word vocab-g4">Send Message:</span>
+                    <p class="text-slate-300 text-xl mt-2">The envelope block. Character A sends a colored message signal to Character B to trigger an action.</p>
                 </div>
             </div>
-            <div class="w-full md:w-1/2 svg-container flex-col mt-6 md:mt-0">
+            <div class="w-full md:w-1/2 svg-container flex-col">
                 <svg viewBox="0 0 350 200" class="w-full h-auto">
-                    <!-- Bump -->
-                    <rect x="30" y="30" width="40" height="40" fill="#3b82f6" rx="6"/>
-                    <circle cx="150" cy="50" r="20" fill="#ef4444"/>
-                    <path d="M80,40 L120,40 M90,50 L120,50 M80,60 L120,60" stroke="#facc15" stroke-width="4" stroke-dasharray="6"/>
-                    <text x="210" y="55" fill="#facc15" font-weight="bold" font-size="16">Start on Bump</text>
-                    
-                    <line x1="20" y1="100" x2="330" y2="100" stroke="#475569" stroke-width="2"/>
-
-                    <!-- Messages -->
-                    <rect x="30" y="130" width="40" height="40" fill="#3b82f6" rx="6"/>
+                    <rect x="30" y="130" width="40" height="40" fill="#3b82f6" rx="4"/>
                     <rect x="85" y="135" width="40" height="30" fill="#facc15" stroke="#fff" stroke-width="2"/>
                     <path d="M85,135 L105,155 L125,135" fill="none" stroke="#fff" stroke-width="2"/>
-                    
-                    <!-- Signal -->
-                    <path d="M135,150 L195,150" stroke="#fff" stroke-width="3" stroke-dasharray="6"/>
+                    <path d="M135,150 L195,150" stroke="#fff" stroke-width="2" stroke-dasharray="4"/>
                     <polygon points="195,145 205,150 195,155" fill="#fff"/>
-
                     <path d="M220,145 L240,165 L260,145 Z" fill="#facc15" stroke="#fff" stroke-width="2"/>
                     <rect x="220" y="145" width="40" height="20" fill="#facc15" stroke="#fff" stroke-width="2"/>
-                    <rect x="270" y="130" width="40" height="40" fill="#ef4444" rx="6"/>
+                    <rect x="270" y="130" width="40" height="40" fill="#ef4444" rx="4"/>
                 </svg>
             </div>
         </div>
 
-        <!-- G4 Slide 4: Planning -->
+        <!-- G4 Slide 4: Stop Motion -->
         <div class="slide g4 flex-col md:flex-row items-center justify-between h-full w-full">
-            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center">
-                <h2 class="text-5xl font-bold text-green-400 border-b-2 border-slate-600 pb-4 mb-6">Algorithm Planning</h2>
-                <p class="text-2xl text-white leading-relaxed mb-6">We never touch the tablet until the design is approved on paper.</p>
-                
-                <span class="vocab-word-g4">Storyboard:</span>
-                <p class="text-slate-300 text-xl leading-relaxed mt-2 mb-4">A paper plan showing what characters will do in each scene, drawn step by step.</p>
-
-                <span class="vocab-word-g4">Algorithm:</span>
-                <p class="text-slate-300 text-xl leading-relaxed mt-2">A set of rules to solve a problem. Writing down the exact sequence of blocks you need <i>before</i> you code.</p>
+            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center space-y-6">
+                <h2 class="text-4xl font-bold text-white border-b border-slate-600 pb-4 serif-heading">Piskel: Stop Motion Basics</h2>
+                <div>
+                    <span class="vocab-word vocab-g4">Frame:</span>
+                    <p class="text-slate-300 text-xl mt-2">A single, still picture. Animations are created by displaying multiple frames in sequence.</p>
+                </div>
+                <div>
+                    <span class="vocab-word vocab-g4">Duplicate:</span>
+                    <p class="text-slate-300 text-xl mt-2">A tool used to make an exact copy of a frame, allowing you to make small changes incrementally.</p>
+                </div>
             </div>
-            <div class="w-full md:w-1/2 svg-container flex-col mt-6 md:mt-0">
-                <svg viewBox="0 0 300 200" class="w-full h-auto">
-                    <!-- Paper Blueprint -->
-                    <rect x="50" y="20" width="200" height="160" fill="#f8fafc" rx="4"/>
-                    <line x1="50" y1="50" x2="250" y2="50" stroke="#cbd5e1" stroke-width="2"/>
-                    <text x="150" y="40" fill="#334155" font-weight="bold" font-size="14" text-anchor="middle">My Algorithm Plan</text>
-                    
-                    <!-- Drawn blocks -->
-                    <rect x="60" y="70" width="30" height="20" fill="#facc15" stroke="#000"/>
-                    <rect x="95" y="70" width="30" height="20" fill="#3b82f6" stroke="#000"/>
-                    <rect x="130" y="70" width="30" height="20" fill="#3b82f6" stroke="#000"/>
-                    
-                    <!-- Pencil -->
-                    <polygon points="220,120 240,100 270,130 250,150" fill="#facc15" stroke="#000"/>
-                    <polygon points="220,120 210,130 230,130" fill="#cbd5e1" stroke="#000"/>
-                    <polygon points="210,130 215,140 220,130" fill="#000"/>
-                </svg>
-            </div>
-        </div>
-
-        <!-- G4 Slide 5: Stop Motion Basics -->
-        <div class="slide g4 flex-col md:flex-row items-center justify-between h-full w-full">
-            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center">
-                <h2 class="text-5xl font-bold text-green-400 border-b-2 border-slate-600 pb-4 mb-6">Piskel: Stop Motion</h2>
-                <p class="text-2xl text-white leading-relaxed mb-6">Animation is the classic art of displaying still pictures very quickly to fake movement.</p>
-                
-                <span class="vocab-word-g4">Frame:</span>
-                <p class="text-slate-300 text-xl leading-relaxed mt-2 mb-4">One single, flat picture. An animation is made of many frames played in sequence.</p>
-
-                <span class="vocab-word-g4">Duplicate:</span>
-                <p class="text-slate-300 text-xl leading-relaxed mt-2">To make an exact copy of a frame so you only have to make a tiny change for the next step.</p>
-            </div>
-            <div class="w-full md:w-1/2 svg-container mt-6 md:mt-0 relative">
+            <div class="w-full md:w-1/2 svg-container relative">
                 <svg viewBox="0 0 350 200" class="w-full h-auto">
-                    <!-- Film Strip -->
-                    <rect x="10" y="40" width="330" height="120" fill="#1e293b" stroke="#94a3b8" stroke-width="3"/>
-                    
-                    <!-- Holes -->
-                    <path d="M30,50 h5 M60,50 h5 M90,50 h5 M120,50 h5 M150,50 h5 M180,50 h5 M210,50 h5 M240,50 h5 M270,50 h5 M300,50 h5" stroke="#94a3b8" stroke-width="6"/>
-                    <path d="M30,150 h5 M60,150 h5 M90,150 h5 M120,150 h5 M150,150 h5 M180,150 h5 M210,150 h5 M240,150 h5 M270,150 h5 M300,150 h5" stroke="#94a3b8" stroke-width="6"/>
-                    
-                    <!-- Frames -->
+                    <rect x="10" y="40" width="330" height="120" fill="#1e293b" stroke="#94a3b8" stroke-width="2"/>
                     <rect x="30" y="60" width="80" height="80" fill="#334155" stroke="#fff" stroke-width="1"/>
                     <circle cx="70" cy="80" r="15" fill="#4ade80"/>
                     <text x="70" y="130" fill="#fff" font-size="12" text-anchor="middle">Frame 1</text>
-                    
                     <rect x="135" y="60" width="80" height="80" fill="#334155" stroke="#fff" stroke-width="1"/>
                     <circle cx="175" cy="100" r="15" fill="#4ade80"/>
                     <text x="175" y="130" fill="#fff" font-size="12" text-anchor="middle">Frame 2</text>
-                    
                     <rect x="240" y="60" width="80" height="80" fill="#334155" stroke="#fff" stroke-width="1"/>
                     <circle cx="280" cy="120" r="15" fill="#4ade80"/>
                     <text x="280" y="130" fill="#fff" font-size="12" text-anchor="middle">Frame 3</text>
@@ -514,32 +322,27 @@
             </div>
         </div>
 
-        <!-- G4 Slide 6: Animation Control -->
+        <!-- G4 Slide 5: Piskel Tools -->
         <div class="slide g4 flex-col md:flex-row items-center justify-between h-full w-full">
-            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center">
-                <h2 class="text-5xl font-bold text-green-400 border-b-2 border-slate-600 pb-4 mb-6">Piskel: Speed & Shadow</h2>
-                <p class="text-2xl text-white leading-relaxed mb-6">How do we control and perfect our animation?</p>
-
-                <span class="vocab-word-g4">FPS (Frames Per Second):</span>
-                <p class="text-slate-300 text-xl leading-relaxed mt-2 mb-4">This number controls the <b>Speed</b>. A high FPS plays the animation fast. A low FPS plays it slow.</p>
-
-                <span class="vocab-word-g4">Onion Skinning:</span>
-                <p class="text-slate-300 text-xl leading-relaxed mt-2">A tool that shows a faded ghost of your last frame. You use this shadow to draw the next frame perfectly in line.</p>
+            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center space-y-6">
+                <h2 class="text-4xl font-bold text-white border-b border-slate-600 pb-4 serif-heading">Piskel: Animation Tools</h2>
+                <div>
+                    <span class="vocab-word vocab-g4">FPS (Frames Per Second):</span>
+                    <p class="text-slate-300 text-xl mt-2">Controls the speed of the animation. A high number plays fast; a low number plays slow.</p>
+                </div>
+                <div>
+                    <span class="vocab-word vocab-g4">Onion Skinning:</span>
+                    <p class="text-slate-300 text-xl mt-2">A tool that displays a faded outline of the previous frame to guide the drawing of the next frame.</p>
+                </div>
             </div>
-            <div class="w-full md:w-1/2 svg-container mt-6 md:mt-0 relative">
+            <div class="w-full md:w-1/2 svg-container relative">
                 <svg viewBox="0 0 350 200" class="w-full h-auto">
-                    <!-- Onion Skinning Canvas -->
-                    <rect x="100" y="30" width="150" height="120" fill="#334155" stroke="#f8fafc" stroke-width="4"/>
-                    <!-- Frame 1 (Shadow) -->
+                    <rect x="100" y="30" width="150" height="120" fill="#334155" stroke="#f8fafc" stroke-width="2"/>
                     <circle cx="140" cy="110" r="25" fill="#4ade80" opacity="0.3"/>
-                    <!-- Frame 2 (Active) -->
                     <circle cx="180" cy="70" r="25" fill="#4ade80"/>
-                    
-                    <!-- Slider -->
-                    <rect x="80" y="170" width="190" height="15" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="4"/>
-                    <rect x="82" y="172" width="120" height="11" fill="#4ade80" rx="3"/>
-                    <circle cx="202" cy="177" r="8" fill="#fff" stroke="#64748b" stroke-width="2"/>
-                    <text x="290" y="183" fill="#f8fafc" font-size="16" font-weight="bold">12 FPS</text>
+                    <rect x="80" y="170" width="190" height="15" fill="#1e293b" stroke="#64748b" stroke-width="1" rx="2"/>
+                    <rect x="82" y="172" width="120" height="11" fill="#4ade80" rx="2"/>
+                    <text x="290" y="183" fill="#f8fafc" font-size="14" font-weight="bold">12 FPS</text>
                 </svg>
             </div>
         </div>
@@ -548,40 +351,35 @@
         <!-- ================ GRADE 5 ================= -->
         <!-- ========================================== -->
         
-        <!-- G5 Slide 1: Title -->
-        <div class="slide g5 flex-col items-center justify-center h-full text-center space-y-6">
-            <span class="bg-purple-600 text-white px-8 py-3 rounded-full font-bold text-3xl uppercase tracking-widest shadow-lg">Grade 5</span>
-            <h1 class="text-6xl font-bold text-white mt-8">Systems & Artificial Intelligence</h1>
-            <div class="w-24 h-2 bg-purple-500 my-6 mx-auto rounded"></div>
-            <h2 class="text-3xl text-slate-300 font-bold mb-8">Mr. Joshua WZFS</h2>
-            <div class="bg-slate-800 p-8 rounded-xl border border-slate-600 max-w-3xl shadow-xl mt-4">
-                <p class="text-2xl text-left text-slate-200 leading-relaxed">
-                    <strong>Instructions:</strong> Master the purple <span class="vocab-word-g5">Vocabulary Words</span>. You are transitioning to real-world software engineering, physical robotics, and mathematical design.
-                </p>
+        <!-- G5 Slide 1 -->
+        <div class="slide g5 flex-col items-center justify-center h-full text-center">
+            <h1 class="text-5xl font-bold text-white mb-4 serif-heading text-purple-400">Grade 5: Systems & AI</h1>
+            <h2 class="text-2xl text-slate-300 mb-8">Classroom Basics</h2>
+            <div class="bg-slate-800 p-6 rounded border border-slate-600 max-w-2xl text-left">
+                <h3 class="text-xl font-bold text-white mb-4">Instructions:</h3>
+                <ul class="text-lg text-slate-200 list-disc pl-6 space-y-2">
+                    <li>Read the definitions carefully.</li>
+                    <li>Revise the vocabulary words highlighted in purple.</li>
+                </ul>
             </div>
         </div>
 
-        <!-- G5 Slide 2: Mastery of Logic -->
+        <!-- G5 Slide 2: ScratchJr Recap -->
         <div class="slide g5 flex-col md:flex-row items-center justify-between h-full w-full">
-            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center">
-                <h2 class="text-5xl font-bold text-purple-400 border-b-2 border-slate-600 pb-4 mb-6">ScratchJr: Mastery</h2>
-                <p class="text-2xl text-white leading-relaxed mb-6">You must master visual logic before moving to text-based code.</p>
-                
-                <span class="vocab-word-g5">Sequence:</span>
-                <p class="text-slate-300 text-xl leading-relaxed mt-1 mb-3">The strict, literal order of instructions.</p>
-                
-                <span class="vocab-word-g5">Loop:</span>
-                <p class="text-slate-300 text-xl leading-relaxed mt-1 mb-3">Repeating code to ensure efficiency and save time.</p>
-                
-                <span class="vocab-word-g5">Event / Trigger:</span>
-                <p class="text-slate-300 text-xl leading-relaxed mt-1">The action that starts the code. Grade 5 engineers rely on Message Envelopes to sync multiple characters.</p>
+            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center space-y-6">
+                <h2 class="text-4xl font-bold text-white border-b border-slate-600 pb-4 serif-heading">Programming Foundations</h2>
+                <ul class="text-xl space-y-6 list-none mt-2 text-slate-300">
+                    <li><span class="vocab-word vocab-g5">Sequence:</span> The required order of instructions.</li>
+                    <li><span class="vocab-word vocab-g5">Loop:</span> Repeating code to maintain efficiency.</li>
+                    <li><span class="vocab-word vocab-g5">Event / Trigger:</span> The action that starts the code. Grade 5 projects utilize Message Envelopes to synchronize multiple processes.</li>
+                </ul>
             </div>
-            <div class="w-full md:w-1/2 svg-container flex-col mt-6 md:mt-0">
+            <div class="w-full md:w-1/2 svg-container flex-col">
                 <svg viewBox="0 0 300 200" class="w-full h-auto">
-                    <rect x="50" y="40" width="200" height="120" fill="#334155" rx="8" stroke="#cbd5e1" stroke-width="2"/>
-                    <rect x="70" y="80" width="40" height="40" fill="#facc15" rx="4"/>
-                    <rect x="110" y="70" width="80" height="60" fill="#f97316" rx="4"/>
-                    <rect x="130" y="80" width="40" height="40" fill="#3b82f6" rx="4"/>
+                    <rect x="50" y="40" width="200" height="120" fill="#334155" rx="4" stroke="#cbd5e1" stroke-width="1"/>
+                    <rect x="70" y="80" width="40" height="40" fill="#facc15" rx="2"/>
+                    <rect x="110" y="70" width="80" height="60" fill="#f97316" rx="2"/>
+                    <rect x="130" y="80" width="40" height="40" fill="#3b82f6" rx="2"/>
                     <text x="150" y="110" fill="#fff" font-weight="bold" font-size="20" text-anchor="middle">5</text>
                 </svg>
             </div>
@@ -589,155 +387,92 @@
 
         <!-- G5 Slide 3: Botley -->
         <div class="slide g5 flex-col md:flex-row items-center justify-between h-full w-full">
-            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center">
-                <h2 class="text-5xl font-bold text-purple-400 border-b-2 border-slate-600 pb-4 mb-6">Botley: Physical Code</h2>
-                <p class="text-2xl text-white leading-relaxed mb-6">Code doesn't just live on a screen; it controls physical machines.</p>
-                
-                <span class="vocab-word-g5">Physical Computing:</span>
-                <p class="text-slate-300 text-xl leading-relaxed mt-1 mb-4">Writing code to control a real object in the real world.</p>
-
-                <span class="vocab-word-g5">Command:</span>
-                <p class="text-slate-300 text-xl leading-relaxed mt-1 mb-4">Pressing buttons on the remote to build a Sequence (Forward, Left).</p>
-
-                <span class="vocab-word-g5">Transmit:</span>
-                <p class="text-slate-300 text-xl leading-relaxed mt-1">Sending the programmed instructions invisibly from the remote to the robot.</p>
+            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center space-y-6">
+                <h2 class="text-4xl font-bold text-white border-b border-slate-600 pb-4 serif-heading">Physical Computing</h2>
+                <div>
+                    <span class="vocab-word vocab-g5">Physical Computing:</span>
+                    <p class="text-slate-300 text-xl mt-2">Writing software code to control a physical hardware device, such as the Botley robot.</p>
+                </div>
+                <div>
+                    <span class="vocab-word vocab-g5">Command & Transmit:</span>
+                    <p class="text-slate-300 text-xl mt-2">Inputting a sequence of commands on a remote, and transmitting that data to the robot to execute.</p>
+                </div>
             </div>
-            <div class="w-full md:w-1/2 svg-container mt-6 md:mt-0">
+            <div class="w-full md:w-1/2 svg-container">
                 <svg viewBox="0 0 350 200" class="w-full h-auto">
-                    <!-- Remote -->
-                    <rect x="30" y="30" width="70" height="130" fill="#334155" rx="8" stroke="#cbd5e1" stroke-width="2"/>
-                    <circle cx="65" cy="60" r="12" fill="#ef4444"/> <!-- Transmit -->
-                    <rect x="50" y="100" width="30" height="30" fill="#3b82f6" rx="4"/> 
-                    <text x="65" y="160" fill="#94a3b8" font-size="12" text-anchor="middle">Remote</text>
-                    
-                    <!-- Transmit Signal -->
-                    <path d="M110,60 Q150,40 190,80" fill="none" stroke="#22c55e" stroke-width="5" stroke-dasharray="8"/>
-                    
-                    <!-- Robot -->
-                    <rect x="210" y="70" width="90" height="70" fill="#94a3b8" rx="10"/>
-                    <rect x="190" y="80" width="20" height="50" fill="#1e293b" rx="4"/> <!-- Wheel -->
-                    <rect x="300" y="80" width="20" height="50" fill="#1e293b" rx="4"/> <!-- Wheel -->
-                    <circle cx="235" cy="95" r="10" fill="#60a5fa"/> <!-- Eye -->
-                    <circle cx="275" cy="95" r="10" fill="#60a5fa"/> <!-- Eye -->
-                    <text x="255" y="160" fill="#94a3b8" font-size="12" text-anchor="middle">Robot</text>
+                    <rect x="30" y="30" width="70" height="130" fill="#334155" rx="4" stroke="#cbd5e1" stroke-width="1"/>
+                    <circle cx="65" cy="60" r="10" fill="#ef4444"/> 
+                    <rect x="50" y="100" width="30" height="30" fill="#3b82f6" rx="2"/> 
+                    <path d="M110,60 Q150,40 190,80" fill="none" stroke="#22c55e" stroke-width="3" stroke-dasharray="4"/>
+                    <rect x="210" y="70" width="90" height="70" fill="#94a3b8" rx="6"/>
+                    <rect x="190" y="80" width="20" height="50" fill="#1e293b" rx="2"/> 
+                    <rect x="300" y="80" width="20" height="50" fill="#1e293b" rx="2"/> 
                 </svg>
             </div>
         </div>
 
         <!-- G5 Slide 4: AI -->
         <div class="slide g5 flex-col md:flex-row items-center justify-between h-full w-full">
-            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center">
-                <h2 class="text-5xl font-bold text-purple-400 border-b-2 border-slate-600 pb-4 mb-6">AI & Logic</h2>
-                <p class="text-2xl text-white leading-relaxed mb-6">Artificial Intelligence uses data to mimic the human brain.</p>
-                
-                <span class="vocab-word-g5">Data:</span>
-                <p class="text-slate-300 text-xl leading-relaxed mt-1 mb-4">Information (images, numbers, text) fed to a computer to train it.</p>
-
-                <span class="vocab-word-g5">Pattern Recognition:</span>
-                <p class="text-slate-300 text-xl leading-relaxed mt-1">How AI processes huge amounts of data to find similarities (e.g., recognizing a face or a stop sign).</p>
+            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center space-y-6">
+                <h2 class="text-4xl font-bold text-white border-b border-slate-600 pb-4 serif-heading">Artificial Intelligence</h2>
+                <div>
+                    <span class="vocab-word vocab-g5">Data:</span>
+                    <p class="text-slate-300 text-xl mt-2">Information (images, numbers, text) provided to a computer system so it can learn.</p>
+                </div>
+                <div>
+                    <span class="vocab-word vocab-g5">Pattern Recognition:</span>
+                    <p class="text-slate-300 text-xl mt-2">The process where AI analyzes data to find similarities, allowing it to classify objects or make decisions.</p>
+                </div>
             </div>
-            <div class="w-full md:w-1/2 svg-container flex-col mt-6 md:mt-0">
+            <div class="w-full md:w-1/2 svg-container flex-col">
                 <svg viewBox="0 0 350 200" class="w-full h-auto">
-                    <!-- AI Brain -->
-                    <path d="M120,150 A50,50 0 1,1 220,150 A50,50 0 1,1 120,150" fill="none" stroke="#c084fc" stroke-width="4" stroke-dasharray="8"/>
-                    
-                    <!-- Data inputs -->
-                    <rect x="20" y="30" width="50" height="35" fill="#3b82f6" rx="4"/>
-                    <rect x="20" y="80" width="50" height="35" fill="#facc15" rx="4"/>
-                    <rect x="20" y="130" width="50" height="35" fill="#ef4444" rx="4"/>
-                    <text x="45" y="185" fill="#94a3b8" font-size="14" font-weight="bold" text-anchor="middle">Data In</text>
-
-                    <!-- Flow lines -->
-                    <path d="M80,45 L140,100" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4"/>
-                    <path d="M80,95 L130,120" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4"/>
-                    <path d="M80,145 L130,140" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4"/>
-                    
-                    <!-- Output Pattern -->
-                    <circle cx="170" cy="120" r="18" fill="#c084fc"/>
-                    <text x="170" y="85" fill="#c084fc" font-size="16" font-weight="bold" text-anchor="middle">Pattern</text>
-                    <path d="M220,120 L280,120" stroke="#c084fc" stroke-width="4"/>
-                    <polygon points="280,110 295,120 280,130" fill="#c084fc"/>
-                    <text x="310" y="125" fill="#fff" font-size="16" font-weight="bold">Action</text>
+                    <path d="M120,150 A50,50 0 1,1 220,150 A50,50 0 1,1 120,150" fill="none" stroke="#c084fc" stroke-width="3" stroke-dasharray="4"/>
+                    <rect x="20" y="30" width="50" height="35" fill="#3b82f6" rx="2"/>
+                    <rect x="20" y="80" width="50" height="35" fill="#facc15" rx="2"/>
+                    <rect x="20" y="130" width="50" height="35" fill="#ef4444" rx="2"/>
+                    <text x="45" y="185" fill="#94a3b8" font-size="12" text-anchor="middle">Data Input</text>
+                    <path d="M80,45 L140,100" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="2"/>
+                    <path d="M80,95 L130,120" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="2"/>
+                    <path d="M80,145 L130,140" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="2"/>
+                    <circle cx="170" cy="120" r="14" fill="#c084fc"/>
+                    <text x="170" y="85" fill="#c084fc" font-size="14" text-anchor="middle">Pattern</text>
                 </svg>
             </div>
         </div>
 
-        <!-- G5 Slide 5: 3D Engineering -->
+        <!-- G5 Slide 5: 3D & Vector -->
         <div class="slide g5 flex-col md:flex-row items-center justify-between h-full w-full">
-            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center">
-                <h2 class="text-5xl font-bold text-purple-400 border-b-2 border-slate-600 pb-4 mb-6">3D Engineering</h2>
-                <p class="text-2xl text-white leading-relaxed mb-4">How do we precisely measure 3D space?</p>
-                
-                <span class="vocab-word-g5">Axes:</span>
-                <p class="text-slate-300 text-xl leading-relaxed mt-1 mb-2">The invisible math lines that show direction.</p>
-                <ul class="list-none pl-6 mb-4 space-y-2 text-xl text-slate-300 border-l-4 border-slate-600">
-                    <li><b>X-axis:</b> Left and Right</li>
-                    <li><b>Y-axis:</b> Up and Down</li>
-                    <li><b>Z-axis:</b> Forward and Backward (Depth)</li>
+            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center space-y-6">
+                <h2 class="text-4xl font-bold text-white border-b border-slate-600 pb-4 serif-heading">3D & Vector Graphics</h2>
+                <ul class="text-xl space-y-4 list-none mt-2 text-slate-300">
+                    <li><span class="vocab-word vocab-g5">Axes:</span> Lines defining 3D space. X (Left/Right), Y (Up/Down), Z (Depth).</li>
+                    <li><span class="vocab-word vocab-g5">Grouping:</span> Fusing different shapes into a single solid 3D object.</li>
+                    <li><span class="vocab-word vocab-g5">Vector:</span> An image created using mathematical formulas, preventing blurriness when resized.</li>
+                    <li><span class="vocab-word vocab-g5">Path & Node:</span> The <b>Path</b> connects points. The <b>Node</b> is an anchor point used to bend the path.</li>
                 </ul>
-
-                <span class="vocab-word-g5">Grouping:</span>
-                <p class="text-slate-300 text-xl leading-relaxed mt-1">Fusing two different 3D shapes together to form a single solid object.</p>
             </div>
-            <div class="w-full md:w-1/2 svg-container mt-6 md:mt-0">
+            <div class="w-full md:w-1/2 svg-container">
                 <svg viewBox="0 0 350 250" class="w-full h-auto">
-                    <!-- Y -->
-                    <line x1="175" y1="140" x2="175" y2="30" stroke="#ef4444" stroke-width="5"/> 
-                    <polygon points="175,20 183,40 167,40" fill="#ef4444"/>
-                    <text x="155" y="40" fill="#ef4444" font-weight="bold" font-size="20">Y</text>
+                    <line x1="175" y1="140" x2="175" y2="30" stroke="#ef4444" stroke-width="3"/> 
+                    <text x="155" y="40" fill="#ef4444" font-size="14">Y</text>
+                    <line x1="175" y1="140" x2="290" y2="140" stroke="#3b82f6" stroke-width="3"/> 
+                    <text x="310" y="145" fill="#3b82f6" font-size="14">X</text>
+                    <line x1="175" y1="140" x2="70" y2="210" stroke="#22c55e" stroke-width="3"/> 
+                    <text x="45" y="225" fill="#22c55e" font-size="14">Z</text>
                     
-                    <!-- X -->
-                    <line x1="175" y1="140" x2="290" y2="140" stroke="#3b82f6" stroke-width="5"/> 
-                    <polygon points="300,140 280,132 280,148" fill="#3b82f6"/>
-                    <text x="310" y="145" fill="#3b82f6" font-weight="bold" font-size="20">X</text>
-                    
-                    <!-- Z -->
-                    <line x1="175" y1="140" x2="70" y2="210" stroke="#22c55e" stroke-width="5"/> 
-                    <polygon points="60,217 78,215 70,203" fill="#22c55e"/>
-                    <text x="45" y="225" fill="#22c55e" font-weight="bold" font-size="20">Z</text>
-                    
-                    <circle cx="175" cy="140" r="6" fill="#fff"/>
-                </svg>
-            </div>
-        </div>
-
-        <!-- G5 Slide 6: Vector Graphics -->
-        <div class="slide g5 flex-col md:flex-row items-center justify-between h-full w-full">
-            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center">
-                <h2 class="text-5xl font-bold text-purple-400 border-b-2 border-slate-600 pb-4 mb-6">Vector Graphics</h2>
-                <p class="text-2xl text-white leading-relaxed mb-6">Professional designers use math (Method Draw), not pixels.</p>
-                
-                <span class="vocab-word-g5">Vector:</span>
-                <p class="text-slate-300 text-xl leading-relaxed mt-1 mb-4">An image drawn using math equations. It never becomes blurry, even if you make it huge.</p>
-
-                <span class="vocab-word-g5">Path & Node:</span>
-                <p class="text-slate-300 text-xl leading-relaxed mt-1">The <b>Path</b> is the line connecting points. The <b>Node (Anchor Point)</b> is the dot you drag to bend the shape.</p>
-            </div>
-            <div class="w-full md:w-1/2 svg-container mt-6 md:mt-0">
-                <svg viewBox="0 0 350 200" class="w-full h-auto">
-                    <!-- Vector Path -->
-                    <path d="M60,150 Q175,20 290,150" fill="none" stroke="#f8fafc" stroke-width="5"/>
-                    <!-- Control handles -->
-                    <line x1="60" y1="150" x2="175" y2="20" stroke="#64748b" stroke-width="2" stroke-dasharray="6"/>
-                    <line x1="290" y1="150" x2="175" y2="20" stroke="#64748b" stroke-width="2" stroke-dasharray="6"/>
-                    
-                    <!-- Nodes -->
-                    <rect x="53" y="143" width="14" height="14" fill="#a855f7" stroke="#fff" stroke-width="2"/> 
-                    <rect x="283" y="143" width="14" height="14" fill="#a855f7" stroke="#fff" stroke-width="2"/> 
-                    <circle cx="175" cy="20" r="8" fill="#facc15" stroke="#fff" stroke-width="2"/> 
-                    
-                    <text x="60" y="180" fill="#a855f7" font-size="16" font-weight="bold" text-anchor="middle">Node</text>
-                    <text x="175" y="100" fill="#f8fafc" font-size="20" font-weight="bold" text-anchor="middle">Path</text>
-                    <text x="175" y="45" fill="#facc15" font-size="14" font-weight="bold" text-anchor="middle">Control</text>
+                    <path d="M60,60 Q120,20 160,80" fill="none" stroke="#f8fafc" stroke-width="2"/>
+                    <rect x="55" y="55" width="10" height="10" fill="#a855f7"/> 
+                    <rect x="155" y="75" width="10" height="10" fill="#a855f7"/> 
+                    <text x="100" y="40" fill="#f8fafc" font-size="12">Path / Node</text>
                 </svg>
             </div>
         </div>
 
         <!-- Navigation Controls -->
         <div class="absolute bottom-6 left-0 right-0 flex justify-between px-10 items-center z-50">
-            <button id="prevBtn" class="bg-slate-800 hover:bg-slate-700 text-white px-8 py-3 rounded-lg shadow-lg font-bold disabled:opacity-30 transition-colors border-2 border-slate-600" onclick="changeSlide(-1)">← Previous</button>
-            <span id="slideCounter" class="text-slate-300 font-bold text-2xl tracking-widest bg-slate-900 px-6 py-2 rounded-lg border-2 border-slate-700 shadow-inner"></span>
-            <button id="nextBtn" class="bg-slate-800 hover:bg-slate-700 text-white px-8 py-3 rounded-lg shadow-lg font-bold disabled:opacity-30 transition-colors border-2 border-slate-600" onclick="changeSlide(1)">Next →</button>
+            <button id="prevBtn" class="bg-slate-800 hover:bg-slate-700 text-white px-6 py-2 rounded shadow font-semibold disabled:opacity-50 border border-slate-600 transition-colors" onclick="changeSlide(-1)">Previous</button>
+            <span id="slideCounter" class="text-slate-300 font-medium text-lg bg-slate-900 px-4 py-1 rounded border border-slate-700"></span>
+            <button id="nextBtn" class="bg-slate-800 hover:bg-slate-700 text-white px-6 py-2 rounded shadow font-semibold disabled:opacity-50 border border-slate-600 transition-colors" onclick="changeSlide(1)">Next</button>
         </div>
     </div>
 
@@ -773,7 +508,7 @@
                     setTimeout(() => slide.style.opacity = 1, 10);
                 } else {
                     slide.style.opacity = 0;
-                    setTimeout(() => slide.style.display = 'none', 300);
+                    setTimeout(() => slide.style.display = 'none', 200);
                 }
             });
             updateControls();
@@ -786,7 +521,7 @@
                 setTimeout(() => {
                     currentSlide = newIndex;
                     showSlide(currentSlide);
-                }, 300);
+                }, 200);
             }
         }
 
