@@ -61,9 +61,9 @@
     <!-- HOME VIEW (DASHBOARD) -->
     <div id="home-view" class="w-full max-w-5xl chalk-border rounded-xl p-12 flex flex-col items-center text-center">
         <!-- Logo Placement -->
-        <img src="Logo - Copy.png" alt="WZFS Logo" class="h-28 mb-6 object-contain" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGh[...]
+        <img src="Logo - Copy.png" alt="WZFS Logo" class="h-28 mb-6 object-contain" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzY0NzQ4YiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwb2x5Z29uIHBvaW50cz0iMTIgMiAyIDIyIDIyIDIyIi8+PC9zdmc+'; this.classList.add('opacity-50');">
         
-        <h1 class="text-4xl md:text-6xl font-bold text-white tracking-tight serif-heading mb-4">Primary Computing - ICT</h1>
+        <h1 class="text-4xl md:text-6xl font-bold text-white tracking-tight serif-heading mb-4">Primary Computing - SPRING 2026 </h1>
         <h2 class="text-2xl text-slate-300 font-semibold mb-2">Mr Joshua (ICT Subject Coordinator)</h2>
         <h3 class="text-xl text-slate-400 font-medium mb-8">WZFS 2026</h3>
         
@@ -83,13 +83,13 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl mt-6">
-            <button onclick="openGrade('g3')" class="bg-slate-800 hover:bg-slate-700 text-blue-400 p-6 rounded-lg font-bold text-xl shadow transition-colors border border-slate-600 hover:border-blue-4[...]
+            <button onclick="openGrade('g3')" class="bg-slate-800 hover:bg-slate-700 text-blue-400 p-6 rounded-lg font-bold text-xl shadow transition-colors border border-slate-600 hover:border-blue-400">
                 Grade 3 Slides
             </button>
-            <button onclick="openGrade('g4')" class="bg-slate-800 hover:bg-slate-700 text-green-400 p-6 rounded-lg font-bold text-xl shadow transition-colors border border-slate-600 hover:border-green[...]
+            <button onclick="openGrade('g4')" class="bg-slate-800 hover:bg-slate-700 text-green-400 p-6 rounded-lg font-bold text-xl shadow transition-colors border border-slate-600 hover:border-green-400">
                 Grade 4 Slides
             </button>
-            <button onclick="openGrade('g5')" class="bg-slate-800 hover:bg-slate-700 text-purple-400 p-6 rounded-lg font-bold text-xl shadow transition-colors border border-slate-600 hover:border-purp[...]
+            <button onclick="openGrade('g5')" class="bg-slate-800 hover:bg-slate-700 text-purple-400 p-6 rounded-lg font-bold text-xl shadow transition-colors border border-slate-600 hover:border-purple-400">
                 Grade 5 Slides
             </button>
         </div>
@@ -470,9 +470,9 @@
 
         <!-- Navigation Controls -->
         <div class="absolute bottom-6 left-0 right-0 flex justify-between px-10 items-center z-50">
-            <button id="prevBtn" class="bg-slate-800 hover:bg-slate-700 text-white px-6 py-2 rounded shadow font-semibold disabled:opacity-50 border border-slate-600 transition-colors" onclick="change[...]
+            <button id="prevBtn" class="bg-slate-800 hover:bg-slate-700 text-white px-6 py-2 rounded shadow font-semibold disabled:opacity-50 border border-slate-600 transition-colors" onclick="changeSlide(-1)">Previous</button>
             <span id="slideCounter" class="text-slate-300 font-medium text-lg bg-slate-900 px-4 py-1 rounded border border-slate-700"></span>
-            <button id="nextBtn" class="bg-slate-800 hover:bg-slate-700 text-white px-6 py-2 rounded shadow font-semibold disabled:opacity-50 border border-slate-600 transition-colors" onclick="change[...]
+            <button id="nextBtn" class="bg-slate-800 hover:bg-slate-700 text-white px-6 py-2 rounded shadow font-semibold disabled:opacity-50 border border-slate-600 transition-colors" onclick="changeSlide(1)">Next</button>
         </div>
     </div>
 
