@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grade 8 ICT — Study Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ============================================
+       DESIGN TOKENS
+    ============================================ */
+    :root {
+      --bg:        #0b0f1a;
+      --surface:   #131929;
+      --card:      #1a2235;
+      --border:    #243050;
+      --accent1:   #3b82f6;   /* blue  — spreadsheets */
+      --accent2:   #22d3ee;   /* cyan  — vector       */
+      --accent3:   #a78bfa;   /* violet — web         */
+      --gold:      #f59e0b;
+      --text:      #e2e8f0;
+      --muted:     #8899aa;
+      --code-bg:   #0d1117;
+      --pass:      #10b981;
+
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body:    'Inter', sans-serif;
+      --font-code:    'Space Mono', monospace;
+    }
+
+    /* ============================================
+       BASE
+    ============================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ============================================
+       HERO
+    ============================================ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(59,130,246,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,130,246,0.06) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 100%);
+    }
+
+    .hero-glow {
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-family: var(--font-code);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent1);
+      border: 1px solid rgba(59,130,246,0.3);
+      padding: 0.35rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      position: relative;
+    }
+
+    .hero h1 span { color: var(--accent2); }
+
+    .hero-sub {
+      max-width: 560px;
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin: 1.5rem auto 2.5rem;
+      position: relative;
+    }
+
+    .hero-topics {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      position: relative;
+    }
+
+    .topic-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 100px;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .topic-pill:hover { transform: translateY(-2px); }
+
+    .pill-1 { background: rgba(59,130,246,0.15); color: var(--accent1); border: 1px solid rgba(59,130,246,0.3); }
+    .pill-2 { background: rgba(34,211,238,0.15); color: var(--accent2); border: 1px solid rgba(34,211,238,0.3); }
+    .pill-3 { background: rgba(167,139,250,0.15); color: var(--accent3); border: 1px solid rgba(167,139,250,0.3); }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-family: var(--font-code);
+      letter-spacing: 0.1em;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ============================================
+       SECTION WRAPPERS
+    ============================================ */
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .section-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      font-family: var(--font-code);
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .badge-1 { background: rgba(59,130,246,0.15); color: var(--accent1); }
+    .badge-2 { background: rgba(34,211,238,0.15); color: var(--accent2); }
+    .badge-3 { background: rgba(167,139,250,0.15); color: var(--accent3); }
+
+    .section-title-wrap h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .section-title-wrap p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-top: 0.3rem;
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, var(--border), transparent);
+      margin: 0;
+    }
+
+    /* ============================================
+       CARDS GRID
+    ============================================ */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .card:hover { border-color: rgba(255,255,255,0.15); transform: translateY(-2px); }
+
+    .card-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .card h3 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p, .card li {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.65;
+    }
+
+    .card ul { list-style: none; }
+    .card li::before { content: "→ "; color: var(--accent1); }
+
+    /* ============================================
+       WIDE EXPLAINER CARD
+    ============================================ */
+    .explainer {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .explainer h3 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      display: inline-block;
+      font-family: var(--font-code);
+      font-size: 0.7rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .tag-blue { background: rgba(59,130,246,0.15); color: var(--accent1); }
+    .tag-cyan { background: rgba(34,211,238,0.15); color: var(--accent2); }
+    .tag-violet { background: rgba(167,139,250,0.15); color: var(--accent3); }
+    .tag-gold { background: rgba(245,158,11,0.15); color: var(--gold); }
+
+    /* ============================================
+       CODE BLOCKS
+    ============================================ */
+    pre {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent1);
+      border-radius: 10px;
+      padding: 1.25rem 1.4rem;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    code {
+      font-family: var(--font-code);
+      font-size: 0.82rem;
+      color: #93c5fd;
+      line-height: 1.8;
+    }
+
+    .code-c { color: #f9a8d4; }   /* cyan keys */
+    .code-v { color: #86efac; }   /* values */
+    .code-s { color: #fde68a; }   /* strings */
+    .code-k { color: #c4b5fd; }   /* keywords */
+    .code-cm{ color: #64748b; }   /* comments */
+    .code-attr { color: #93c5fd; }
+    .code-tag { color: #f472b6; }
+    .code-num { color: #6ee7b7; }
+
+    /* ============================================
+       COMPARISON TABLE
+    ============================================ */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin: 1.25rem 0;
+      font-size: 0.88rem;
+    }
+
+    .compare-table th {
+      background: rgba(255,255,255,0.04);
+      padding: 0.85rem 1.1rem;
+      text-align: left;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .compare-table td {
+      padding: 0.85rem 1.1rem;
+      border-bottom: 1px solid rgba(36,48,80,0.5);
+      color: var(--text);
+      vertical-align: top;
+    }
+
+    .compare-table tr:last-child td { border-bottom: none; }
+    .compare-table td:first-child {
+      font-family: var(--font-code);
+      font-size: 0.8rem;
+      color: var(--accent1);
+      white-space: nowrap;
+    }
+
+    /* ============================================
+       VISUAL DEMO BLOCKS
+    ============================================ */
+    .demo-box {
+      background: #0d1117;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+    }
+
+    .demo-label {
+      font-family: var(--font-code);
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .demo-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* SVG diagram containers */
+    .svg-wrap { display: flex; justify-content: center; margin: 1.5rem 0; }
+    .svg-wrap svg { max-width: 100%; height: auto; }
+
+    /* ============================================
+       FORMULA HIGHLIGHT
+    ============================================ */
+    .formula {
+      display: inline-block;
+      font-family: var(--font-code);
+      font-size: 0.85rem;
+      background: rgba(59,130,246,0.1);
+      border: 1px solid rgba(59,130,246,0.25);
+      color: var(--accent2);
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+    }
+
+    /* ============================================
+       TWO-COL LAYOUT
+    ============================================ */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 680px) {
+      .two-col { grid-template-columns: 1fr; }
+    }
+
+    /* ============================================
+       HIGHLIGHT ROW (key concept callout)
+    ============================================ */
+    .callout {
+      background: linear-gradient(135deg, rgba(59,130,246,0.08), rgba(34,211,238,0.05));
+      border: 1px solid rgba(59,130,246,0.2);
+      border-left: 3px solid var(--accent2);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .callout strong { color: var(--accent2); }
+
+    /* ============================================
+       BODMAS VISUAL
+    ============================================ */
+    .bodmas-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+
+    .bodmas-letter {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      min-width: 60px;
+      text-align: center;
+    }
+
+    .bodmas-letter strong {
+      font-family: var(--font-code);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent1);
+    }
+
+    .bodmas-letter span {
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
+    /* ============================================
+       NODE DIAGRAM (inline SVG style)
+    ============================================ */
+    .node-demo {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin: 1rem 0;
+    }
+
+    .node-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .node-item span {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* ============================================
+       BOOLEAN OP VISUALS
+    ============================================ */
+    .bool-ops {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 1.25rem 0;
+    }
+
+    .bool-op {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .bool-op .label {
+      font-family: var(--font-code);
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* ============================================
+       BROWSER MOCKUP
+    ============================================ */
+    .browser {
+      background: #1a1a2e;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+
+    .browser-bar {
+      background: #0f0f1f;
+      padding: 0.6rem 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .browser-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .b-r { background: #ef4444; }
+    .b-y { background: #f59e0b; }
+    .b-g { background: #10b981; }
+
+    .browser-url {
+      background: rgba(255,255,255,0.05);
+      border-radius: 6px;
+      padding: 0.25rem 0.7rem;
+      font-family: var(--font-code);
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-left: 0.5rem;
+    }
+
+    .browser-body { padding: 1.25rem 1.4rem; }
+
+    /* ============================================
+       PRINT BUTTON (screen only)
+    ============================================ */
+    .print-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--accent1);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.4rem;
+      border-radius: 100px;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 20px rgba(59,130,246,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+      z-index: 999;
+    }
+
+    .print-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(59,130,246,0.55);
+    }
+
+    /* ============================================
+       FOOTER
+    ============================================ */
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    footer strong { color: var(--accent2); }
+
+    /* ============================================
+       PRINT STYLES — high-contrast checklist mode
+    ============================================ */
+    @media print {
+
+      /* ── Force every element to white bg + black text ── */
+      *, *::before, *::after {
+        background: white !important;
+        color: #000 !important;
+        border-color: #aaa !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      body {
+        font-size: 10pt;
+        font-family: Arial, sans-serif;
+        line-height: 1.5;
+      }
+
+      /* ── Hide everything visual / decorative ── */
+      .hero, .hero-grid, .hero-glow, .scroll-hint,
+      .print-btn, footer, .svg-wrap, .bool-ops,
+      .browser, .demo-box, .node-demo, .bodmas-row { display: none !important; }
+
+      /* ── Layout ── */
+      .section {
+        padding: 0.4cm 0;
+        max-width: 100%;
+      }
+
+      .divider { display: none; }
+
+      /* ── Section headings ── */
+      .section-header {
+        margin-bottom: 0.4cm;
+        border-bottom: 2pt solid #000 !important;
+        padding-bottom: 0.25cm;
+      }
+
+      .section-badge { display: none; }
+
+      .section-title-wrap h2 {
+        font-size: 13pt;
+        font-weight: bold;
+        color: #000 !important;
+      }
+
+      .section-title-wrap p { display: none; }
+
+      /* ── Cards grid (three-layer intro cards etc.) ── */
+      .cards-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0.25cm;
+        margin-bottom: 0.3cm;
+      }
+
+      .card {
+        border: 1.5pt solid #555 !important;
+        border-radius: 0 !important;
+        padding: 0.35cm !important;
+        page-break-inside: avoid;
+      }
+
+      .card-icon { display: none !important; }
+
+      .card h3 {
+        font-size: 9pt !important;
+        font-weight: bold !important;
+        color: #000 !important;
+        margin-bottom: 0.15cm !important;
+        border-bottom: 0.5pt solid #999 !important;
+        padding-bottom: 0.1cm !important;
+      }
+
+      .card p, .card li {
+        font-size: 8.5pt !important;
+        color: #111 !important;
+        line-height: 1.4 !important;
+      }
+
+      .card pre { margin-top: 0.2cm !important; }
+
+      /* ── Explainer boxes ── */
+      .explainer {
+        border: 1.5pt solid #555 !important;
+        border-radius: 0 !important;
+        padding: 0.3cm !important;
+        margin-bottom: 0.3cm !important;
+        page-break-inside: avoid;
+      }
+
+      .explainer h3 {
+        font-size: 10pt !important;
+        font-weight: bold !important;
+        color: #000 !important;
+        margin-bottom: 0.2cm !important;
+        border-bottom: 0.5pt solid #aaa !important;
+        padding-bottom: 0.15cm !important;
+      }
+
+      .tag { display: none !important; }
+
+      /* ── Tables — full white with visible borders ── */
+      .compare-table {
+        width: 100% !important;
+        border: 1.5pt solid #333 !important;
+        border-radius: 0 !important;
+        border-collapse: collapse !important;
+        font-size: 8pt !important;
+        margin: 0.2cm 0 !important;
+      }
+
+      .compare-table th {
+        background: #ddd !important;
+        color: #000 !important;
+        font-weight: bold !important;
+        border: 1pt solid #555 !important;
+        padding: 0.15cm 0.25cm !important;
+        font-size: 7.5pt !important;
+        text-transform: uppercase !important;
+      }
+
+      .compare-table td {
+        background: white !important;
+        color: #000 !important;
+        border: 1pt solid #777 !important;
+        padding: 0.15cm 0.25cm !important;
+        font-size: 8pt !important;
+        vertical-align: top !important;
+      }
+
+      .compare-table tr:nth-child(even) td {
+        background: #f5f5f5 !important;
+      }
+
+      .compare-table td:first-child {
+        font-weight: bold !important;
+        color: #000 !important;
+        background: #efefef !important;
+        white-space: nowrap !important;
+      }
+
+      /* ── Code blocks — light grey, fully readable ── */
+      pre {
+        background: #f0f0f0 !important;
+        border: 1.5pt solid #555 !important;
+        border-left: 4pt solid #000 !important;
+        border-radius: 0 !important;
+        padding: 0.3cm 0.4cm !important;
+        white-space: pre-wrap !important;
+        word-break: break-word !important;
+        margin: 0.2cm 0 !important;
+        page-break-inside: avoid;
+      }
+
+      code {
+        background: transparent !important;
+        color: #000 !important;
+        font-family: 'Courier New', monospace !important;
+        font-size: 8pt !important;
+      }
+
+      /* all syntax colour spans → plain dark text */
+      .code-c, .code-v, .code-s, .code-k,
+      .code-attr, .code-tag, .code-num {
+        color: #222 !important;
+        font-weight: bold !important;
+      }
+
+      .code-cm {
+        color: #555 !important;
+        font-style: italic !important;
+        font-weight: normal !important;
+      }
+
+      /* inline code chips */
+      p code, li code, td code, div code {
+        background: #e8e8e8 !important;
+        color: #000 !important;
+        border: 0.5pt solid #aaa !important;
+        padding: 0 3pt !important;
+        font-size: 7.5pt !important;
+      }
+
+      /* ── Callout boxes ── */
+      .callout {
+        background: #f5f5f5 !important;
+        border: 1pt solid #888 !important;
+        border-left: 4pt solid #000 !important;
+        border-radius: 0 !important;
+        padding: 0.25cm 0.35cm !important;
+        margin: 0.2cm 0 !important;
+        font-size: 8.5pt !important;
+        color: #000 !important;
+      }
+
+      .callout strong { color: #000 !important; font-weight: bold !important; }
+
+      /* ── Formula chips ── */
+      .formula {
+        background: #e8e8e8 !important;
+        border: 1pt solid #666 !important;
+        color: #000 !important;
+        font-weight: bold !important;
+        padding: 0 4pt !important;
+      }
+
+      /* ── Two-col layout ── */
+      .two-col {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 0.25cm !important;
+      }
+
+      /* ── BODMAS row (show in print for quick ref) ── */
+      .bodmas-row {
+        display: flex !important;
+        flex-wrap: wrap;
+        gap: 0.2cm;
+        margin: 0.2cm 0 !important;
+      }
+
+      .bodmas-letter {
+        border: 1pt solid #555 !important;
+        border-radius: 0 !important;
+        padding: 0.2cm 0.3cm !important;
+        text-align: center;
+        min-width: 40pt;
+      }
+
+      .bodmas-letter strong {
+        font-size: 11pt !important;
+        font-weight: bold !important;
+        color: #000 !important;
+        display: block;
+      }
+
+      .bodmas-letter span {
+        font-size: 7pt !important;
+        color: #333 !important;
+      }
+
+      /* ── Print checklist titles ── */
+      .print-checklist-title {
+        font-size: 13pt !important;
+        font-weight: bold !important;
+        color: #000 !important;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border-bottom: 2pt solid #000 !important;
+        padding-bottom: 0.2cm;
+        margin-bottom: 0.35cm;
+        margin-top: 0.6cm;
+      }
+
+      .print-checklist { margin-bottom: 0.4cm; }
+
+      .check-item {
+        display: flex !important;
+        align-items: flex-start;
+        gap: 0.3cm;
+        padding: 0.18cm 0;
+        border-bottom: 0.5pt solid #ccc !important;
+        font-size: 9pt;
+        line-height: 1.45;
+        page-break-inside: avoid;
+      }
+
+      .check-box {
+        width: 13pt !important;
+        height: 13pt !important;
+        border: 1.5pt solid #000 !important;
+        border-radius: 2pt !important;
+        flex-shrink: 0;
+        margin-top: 1pt;
+        background: white !important;
+      }
+
+      .check-text { color: #000 !important; font-size: 9pt !important; }
+      .check-text strong { font-weight: bold !important; color: #000 !important; }
+
+      .page-break-after { page-break-after: always; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+
+  <div class="hero-eyebrow">Cambridge IGCSE ICT · Grade 8 · Midterm</div>
+
+  <h1>Your<br/><span>Study</span> Guide</h1>
+
+  <p class="hero-sub">Everything you need to know across three topics. Master the theory, understand the code, and revise with precision.</p>
+
+  <div class="hero-topics">
+    <a href="#spreadsheets" class="topic-pill pill-1">📊 Spreadsheet Modeling</a>
+    <a href="#vector" class="topic-pill pill-2">✏️ Vector Graphics</a>
+    <a href="#web" class="topic-pill pill-3">🌐 Web Authoring</a>
+  </div>
+
+  <div class="scroll-hint">↓ SCROLL</div>
+</section>
+
+
+<!-- ============================================================
+     TOPIC 1 — SPREADSHEETS
+============================================================ -->
+<div class="divider"></div>
+<section class="section" id="spreadsheets">
+
+  <div class="section-header">
+    <div class="section-badge badge-1">📊</div>
+    <div class="section-title-wrap">
+      <h2>Topic 1 — Spreadsheet Modeling</h2>
+      <p>Mathematical logic, formulas, functions, and conditional operations</p>
+    </div>
+  </div>
+
+  <!-- BODMAS -->
+  <div class="explainer">
+    <h3><span class="tag tag-blue">Foundation</span> &nbsp; BODMAS — Order of Operations</h3>
+    <p style="color:var(--muted); font-size:0.9rem; margin-bottom:1rem;">Every formula starts with <span class="formula">=</span>. The computer follows BODMAS strictly — brackets first, then orders (powers), then ÷ and ×, then + and −.</p>
+
+    <div class="bodmas-row">
+      <div class="bodmas-letter"><strong>B</strong><span>Brackets</span></div>
+      <div class="bodmas-letter"><strong>O</strong><span>Orders (²)</span></div>
+      <div class="bodmas-letter"><strong>D</strong><span>Division</span></div>
+      <div class="bodmas-letter"><strong>M</strong><span>Multiplication</span></div>
+      <div class="bodmas-letter"><strong>A</strong><span>Addition</span></div>
+      <div class="bodmas-letter"><strong>S</strong><span>Subtraction</span></div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="demo-label">❌ Flawed logic</div>
+        <pre><code>=10+5*2  <span class="code-cm">→ result: 20 (multiplies first!)</span></code></pre>
+      </div>
+      <div>
+        <div class="demo-label">✅ Correct logic</div>
+        <pre><code>=(10+5)*2  <span class="code-cm">→ result: 30 (brackets first)</span></code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Core Functions -->
+  <div class="explainer">
+    <h3><span class="tag tag-blue">Functions</span> &nbsp; Core Aggregation Functions</h3>
+    <table class="compare-table">
+      <thead>
+        <tr><th>Function</th><th>Syntax Example</th><th>What It Does</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>=SUM()</td>
+          <td><code>=SUM(B2:B10)</code></td>
+          <td>Totals all numbers in a continuous range. Never use =A1+B1+C1 on large datasets.</td>
+        </tr>
+        <tr>
+          <td>=AVERAGE()</td>
+          <td><code>=AVERAGE(C1:C20)</code></td>
+          <td>Calculates the mathematical mean of all selected cells.</td>
+        </tr>
+        <tr>
+          <td>=MAX()</td>
+          <td><code>=MAX(D1:D50)</code></td>
+          <td>Returns the highest value in the dataset.</td>
+        </tr>
+        <tr>
+          <td>=MIN()</td>
+          <td><code>=MIN(D1:D50)</code></td>
+          <td>Returns the lowest value in the dataset.</td>
+        </tr>
+        <tr>
+          <td>=COUNTIF()</td>
+          <td><code>=COUNTIF(A1:A20,"Passed")</code></td>
+          <td>Counts cells that match an exact condition (text or number).</td>
+        </tr>
+        <tr>
+          <td>=SUMIF()</td>
+          <td><code>=SUMIF(B1:B10,"Hardware",C1:C10)</code></td>
+          <td>Checks column B for a condition, then adds corresponding values in column C.</td>
+        </tr>
+        <tr>
+          <td>=IF()</td>
+          <td><code>=IF(A1>120,"Allowed","Too Short")</code></td>
+          <td>Returns one value if condition is TRUE, another if FALSE.</td>
+        </tr>
+        <tr>
+          <td>=VLOOKUP()</td>
+          <td><code>=VLOOKUP(A2,$D$1:$E$20,2,FALSE)</code></td>
+          <td>Searches a table for a value and returns data from a chosen column.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Absolute Referencing -->
+  <div class="explainer">
+    <h3><span class="tag tag-gold">Key Concept</span> &nbsp; Absolute Referencing with $</h3>
+    <p style="color:var(--muted); font-size:0.9rem; margin-bottom:1rem;">When you drag a formula down, cell references shift automatically. Use <span class="formula">$</span> to <strong>lock</strong> a cell — like locking the Tax Rate so every row uses the same one.</p>
+
+    <div class="two-col">
+      <div>
+        <div class="demo-label">Without $ — BREAKS when dragged</div>
+        <pre><code>=B1*E1  <span class="code-cm">→ becomes =B2*E2, then =B3*E3</span>
+<span class="code-cm">E1 shifts → wrong tax rate!</span></code></pre>
+      </div>
+      <div>
+        <div class="demo-label">With $ — LOCKED when dragged</div>
+        <pre><code>=B1*<span class="code-v">$E$1</span>  <span class="code-cm">→ becomes =B2*$E$1, then =B3*$E$1</span>
+<span class="code-cm">E1 stays fixed → correct!</span></code></pre>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>Rule:</strong> Put <code>$</code> before the column letter AND the row number to lock both axes: <span class="formula">$E$1</span>. This is used in VLOOKUP to lock the lookup table.
+    </div>
+  </div>
+
+  <!-- Print checklist for spreadsheets -->
+  <div class="print-checklist-title">📊 Spreadsheet Checklist</div>
+  <div class="print-checklist" id="ss-checklist">
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>BODMAS:</strong> I know the order of operations and can use brackets to control calculations.</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>=SUM(B2:B10):</strong> Totals all values in a range.</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>=AVERAGE(C1:C20):</strong> Finds the mathematical mean.</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>=MAX() / =MIN():</strong> Finds the highest or lowest value.</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>=COUNTIF(range, "condition"):</strong> Counts cells matching a text or number condition.</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>=SUMIF(range, "condition", sum_range):</strong> Checks one column, adds values from another.</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>=IF(test, "true_value", "false_value"):</strong> Makes a boolean True/False decision automatically.</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Absolute Referencing ($E$1):</strong> Locks a cell so formulas don't break when dragged down.</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>=VLOOKUP(lookup, $table, col, FALSE):</strong> Searches a lookup table and returns matching data.</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Formatting:</strong> Currency to 2 decimal places; merged headers; adjust column widths so no data is truncated.</div></div>
+  </div>
+
+</section>
+
+
+<!-- ============================================================
+     TOPIC 2 — VECTOR GRAPHICS
+============================================================ -->
+<div class="divider"></div>
+<section class="section" id="vector">
+
+  <div class="section-header">
+    <div class="section-badge badge-2">✏️</div>
+    <div class="section-title-wrap">
+      <h2>Topic 2 — Vector Graphics (Inkscape)</h2>
+      <p>Mathematical shapes, paths, nodes, boolean operations & SVG code</p>
+    </div>
+  </div>
+
+  <!-- Vector vs Bitmap -->
+  <div class="cards-grid">
+    <div class="card">
+      <span class="card-icon">🔢</span>
+      <h3>Vector Graphics</h3>
+      <p>Made of <strong>mathematical coordinates</strong> — lines and points. Scale to any size without ever losing quality. Used for logos, crests, icons, and print.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🟦</span>
+      <h3>Bitmap / Raster</h3>
+      <p>Made of tiny coloured squares called <strong>pixels</strong>. Blow it up too big and it looks blurry and blocky. Used for photographs.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">📐</span>
+      <h3>Align & Distribute</h3>
+      <ul>
+        <li><strong>Align</strong> — lines up edges or centers on an axis</li>
+        <li><strong>Distribute</strong> — equal space between each shape</li>
+        <li><strong>Group</strong> — many shapes move as one</li>
+        <li><strong>Ungroup</strong> — edit individual pieces again</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Boolean Ops -->
+  <div class="explainer">
+    <h3><span class="tag tag-cyan">Path Tools</span> &nbsp; Boolean Operations — Combining Shapes</h3>
+    <p style="color:var(--muted); font-size:0.9rem; margin-bottom:1.25rem;">Don't draw complex shapes by hand. Use basic shapes and combine them mathematically via <strong>Path menu</strong>.</p>
+
+    <div class="bool-ops">
+      <!-- Union SVG -->
+      <div class="bool-op">
+        <svg width="100" height="70" viewBox="0 0 100 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="38" cy="35" r="24" fill="rgba(34,211,238,0.7)" />
+          <circle cx="62" cy="35" r="24" fill="rgba(34,211,238,0.7)" />
+        </svg>
+        <div class="label">Union (Add)</div>
+        <div style="font-size:0.78rem;color:var(--muted);text-align:center;max-width:100px">Melts shapes into one outline</div>
+      </div>
+      <!-- Difference SVG -->
+      <div class="bool-op">
+        <svg width="100" height="70" viewBox="0 0 100 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="38" cy="35" r="24" fill="rgba(59,130,246,0.8)" />
+          <circle cx="62" cy="35" r="24" fill="rgba(15,20,40,0.95)" stroke="rgba(34,211,238,0.4)" stroke-width="1.5" stroke-dasharray="3 3"/>
+        </svg>
+        <div class="label">Difference (Cut)</div>
+        <div style="font-size:0.78rem;color:var(--muted);text-align:center;max-width:100px">Top shape cuts a hole in bottom</div>
+      </div>
+      <!-- Intersection SVG -->
+      <div class="bool-op">
+        <svg width="100" height="70" viewBox="0 0 100 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="38" cy="35" r="24" fill="rgba(59,130,246,0.2)" stroke="rgba(59,130,246,0.4)" stroke-width="1.5"/>
+          <circle cx="62" cy="35" r="24" fill="rgba(34,211,238,0.2)" stroke="rgba(34,211,238,0.4)" stroke-width="1.5"/>
+          <!-- intersection highlight -->
+          <path d="M50 14 A24 24 0 0 1 73 35 A24 24 0 0 1 50 56 A24 24 0 0 1 27 35 A24 24 0 0 1 50 14Z" fill="rgba(167,139,250,0.7)" clip-path="url(#cp)"/>
+          <clipPath id="cp">
+            <circle cx="62" cy="35" r="24"/>
+          </clipPath>
+          <circle cx="50" cy="35" r="12" fill="rgba(167,139,250,0.7)"/>
+        </svg>
+        <div class="label">Intersection</div>
+        <div style="font-size:0.78rem;color:var(--muted);text-align:center;max-width:100px">Keeps only overlapping part</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nodes & Paths -->
+  <div class="explainer">
+    <h3><span class="tag tag-cyan">Paths & Nodes</span> &nbsp; How Vectors Are Built</h3>
+    <p style="color:var(--muted); font-size:0.9rem; margin-bottom:1rem;">Vectors are mathematical coordinates called <strong>Nodes</strong>, joined by lines called <strong>Paths</strong>. You edit them with the <strong>Node Tool</strong>.</p>
+
+    <!-- node diagram -->
+    <div class="svg-wrap">
+      <svg width="480" height="160" viewBox="0 0 480 160" xmlns="http://www.w3.org/2000/svg">
+        <!-- Corner node group -->
+        <g transform="translate(60,80)">
+          <!-- path -->
+          <polyline points="-50,40 0,0 50,40" stroke="rgba(34,211,238,0.6)" stroke-width="2" fill="none"/>
+          <!-- node -->
+          <rect x="-7" y="-7" width="14" height="14" fill="var(--accent2)" rx="2"/>
+          <text y="28" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" fill="#8899aa">Corner Node</text>
+          <text y="40" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="10" fill="#64748b">(Sharp point)</text>
+        </g>
+        <!-- divider -->
+        <line x1="180" y1="20" x2="180" y2="140" stroke="rgba(36,48,80,0.8)" stroke-width="1" stroke-dasharray="4 3"/>
+        <!-- Smooth node group -->
+        <g transform="translate(320,80)">
+          <!-- curve path -->
+          <path d="M -80 40 C -30 -30, 30 -30, 80 40" stroke="rgba(167,139,250,0.6)" stroke-width="2" fill="none"/>
+          <!-- handles -->
+          <line x1="-30" y1="-15" x2="30" y2="-15" stroke="rgba(167,139,250,0.35)" stroke-width="1" stroke-dasharray="3 2"/>
+          <circle cx="-30" cy="-15" r="3.5" fill="none" stroke="rgba(167,139,250,0.7)" stroke-width="1.5"/>
+          <circle cx="30" cy="-15" r="3.5" fill="none" stroke="rgba(167,139,250,0.7)" stroke-width="1.5"/>
+          <!-- node -->
+          <circle cx="0" cy="-15" r="7" fill="var(--accent3)"/>
+          <text y="28" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" fill="#8899aa">Smooth Node</text>
+          <text y="40" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="10" fill="#64748b">(Flowing curve + handles)</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="callout">
+      <strong>Bezier Pen Tool:</strong> Click point-by-point to trace real images with straight lines. Then use the Node Tool to pull handles and bend lines to match organic curves.
+    </div>
+    <div class="callout" style="margin-top:0.5rem; border-left-color: var(--accent3);">
+      <strong>Text on a Path:</strong> Select text + a circular path → <em>Text &gt; Put on Path</em>. Essential for school crests and badges.
+    </div>
+    <div class="callout" style="margin-top:0.5rem; border-left-color: var(--gold);">
+      <strong>Linked Offset:</strong> Creates a thick, uniform border around complex shapes or text — exactly like a vinyl sticker or sports decal.
+    </div>
+  </div>
+
+  <!-- SVG Code -->
+  <div class="explainer">
+    <h3><span class="tag tag-cyan">SVG Code</span> &nbsp; XML Vector Code Basics</h3>
+    <p style="color:var(--muted); font-size:0.9rem; margin-bottom:1rem;">Vector graphics are actually written in code. The computer reads XML/SVG to draw shapes inside an <span class="formula">&lt;svg&gt;</span> tag.</p>
+
+    <div class="two-col">
+      <div>
+        <div class="demo-label">Drawing a Circle</div>
+        <pre><code><span class="code-tag">&lt;circle</span>
+  <span class="code-attr">cx</span>=<span class="code-s">"50"</span>   <span class="code-cm">← center X coordinate</span>
+  <span class="code-attr">cy</span>=<span class="code-s">"50"</span>   <span class="code-cm">← center Y coordinate</span>
+  <span class="code-attr">r</span>=<span class="code-s">"40"</span>    <span class="code-cm">← radius (size)</span>
+  <span class="code-attr">fill</span>=<span class="code-s">"red"</span>
+  <span class="code-attr">stroke</span>=<span class="code-s">"black"</span>
+  <span class="code-attr">stroke-width</span>=<span class="code-s">"3"</span> <span class="code-tag">/&gt;</span></code></pre>
+      </div>
+      <div>
+        <div class="demo-label">Drawing a Rectangle</div>
+        <pre><code><span class="code-tag">&lt;rect</span>
+  <span class="code-attr">x</span>=<span class="code-s">"50"</span>      <span class="code-cm">← start X position</span>
+  <span class="code-attr">y</span>=<span class="code-s">"50"</span>      <span class="code-cm">← start Y position</span>
+  <span class="code-attr">width</span>=<span class="code-s">"200"</span>
+  <span class="code-attr">height</span>=<span class="code-s">"100"</span>
+  <span class="code-attr">fill</span>=<span class="code-s">"blue"</span> <span class="code-tag">/&gt;</span></code></pre>
+        <div class="callout" style="margin-top:0.75rem; font-size:0.82rem;">
+          Circle uses <strong>cx/cy + r</strong> (center + radius).<br/>
+          Rect uses <strong>x/y + width/height</strong> (top-left corner + size).
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Print checklist for vector -->
+  <div class="print-checklist-title">✏️ Vector Graphics Checklist</div>
+  <div class="print-checklist">
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Vector vs Bitmap:</strong> Vectors = math (infinite scale, never blurry). Bitmaps = pixels (get blurry when enlarged).</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Align & Distribute:</strong> Align lines up edges/centers. Distribute puts equal space between shapes.</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Group / Ungroup:</strong> Group joins shapes into one object. Ungroup lets you edit individual parts.</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Path &gt; Union:</strong> Melts overlapping shapes into one unified outline.</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Path &gt; Difference:</strong> Top shape acts as a cookie cutter — cuts a hole in the bottom shape.</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Corner Node:</strong> Sharp, jagged point — line handles act independently.</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Smooth Node:</strong> Flowing curve — handles locked in a straight line like a seesaw.</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Bezier Pen Tool:</strong> Click point-by-point to trace images; bend lines with Node Tool.</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Text on a Path:</strong> Text &gt; Put on Path wraps text around a circle. Used for badges and logos.</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Linked Offset:</strong> Creates a thick, uniform border — replicates vinyl sticker / sports decal effect.</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>SVG &lt;circle&gt;:</strong> cx, cy = center position. r = radius. fill = inside colour. stroke = border colour. stroke-width = border thickness.</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>SVG &lt;rect&gt;:</strong> x, y = top-left corner. width + height = size. fill = colour.</div></div>
+  </div>
+
+</section>
+
+
+<!-- ============================================================
+     TOPIC 3 — WEB AUTHORING
+============================================================ -->
+<div class="divider"></div>
+<section class="section" id="web">
+
+  <div class="section-header">
+    <div class="section-badge badge-3">🌐</div>
+    <div class="section-title-wrap">
+      <h2>Topic 3 — Web Authoring (HTML, CSS & JavaScript)</h2>
+      <p>Structure, style, and behaviour — the three layers of every website</p>
+    </div>
+  </div>
+
+  <!-- Three layers -->
+  <div class="cards-grid">
+    <div class="card">
+      <span class="card-icon">🏗️</span>
+      <h3 style="color:var(--accent1)">HTML — Structure</h3>
+      <p><strong>HyperText Markup Language.</strong> The skeleton of the page. Uses tags like <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;img&gt;</code> to define content. It is a <em>markup</em> language, not a programming language.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🎨</span>
+      <h3 style="color:var(--accent2)">CSS — Style</h3>
+      <p><strong>Cascading Style Sheets.</strong> The paint, wallpaper, and furniture. Controls colours, fonts, spacing, and layout. Separated from HTML to keep code clean.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">⚡</span>
+      <h3 style="color:var(--accent3)">JavaScript — Behaviour</h3>
+      <p><strong>A programming language</strong> that makes pages interactive. It runs inside <code>&lt;script&gt;</code> tags. For this exam, you only need to know <strong>variables</strong>, <strong>alert()</strong>, and <strong>prompt()</strong>.</p>
+    </div>
+  </div>
+
+  <!-- HTML anatomy -->
+  <div class="explainer">
+    <h3><span class="tag tag-violet">HTML</span> &nbsp; Page Anatomy & Common Tags</h3>
+    <p style="color:var(--muted); font-size:0.9rem; margin-bottom:1rem;">Every HTML page has the same structure. The <code>&lt;head&gt;</code> holds invisible metadata; the <code>&lt;body&gt;</code> holds everything you see.</p>
+
+    <pre><code><span class="code-tag">&lt;html&gt;</span>
+  <span class="code-tag">&lt;head&gt;</span>
+    <span class="code-tag">&lt;title&gt;</span><span class="code-s">My Page</span><span class="code-tag">&lt;/title&gt;</span>           <span class="code-cm">← shows in browser tab</span>
+    <span class="code-tag">&lt;meta</span> <span class="code-attr">charset</span>=<span class="code-s">"UTF-8"</span><span class="code-tag">&gt;</span>         <span class="code-cm">← character encoding</span>
+    <span class="code-tag">&lt;meta</span> <span class="code-attr">name</span>=<span class="code-s">"description"</span> <span class="code-attr">content</span>=<span class="code-s">"..."</span><span class="code-tag">&gt;</span>
+    <span class="code-tag">&lt;meta</span> <span class="code-attr">name</span>=<span class="code-s">"author"</span> <span class="code-attr">content</span>=<span class="code-s">"..."</span><span class="code-tag">&gt;</span>
+    <span class="code-tag">&lt;link</span> <span class="code-attr">rel</span>=<span class="code-s">"stylesheet"</span> <span class="code-attr">href</span>=<span class="code-s">"style.css"</span><span class="code-tag">&gt;</span>  <span class="code-cm">← external CSS</span>
+  <span class="code-tag">&lt;/head&gt;</span>
+  <span class="code-tag">&lt;body&gt;</span>
+    <span class="code-tag">&lt;h1&gt;</span><span class="code-s">Main Heading</span><span class="code-tag">&lt;/h1&gt;</span>          <span class="code-cm">← h1 to h3 available</span>
+    <span class="code-tag">&lt;p&gt;</span><span class="code-s">A paragraph of text.</span><span class="code-tag">&lt;/p&gt;</span>
+    <span class="code-tag">&lt;img</span> <span class="code-attr">src</span>=<span class="code-s">"photo.jpg"</span> <span class="code-attr">alt</span>=<span class="code-s">"Description"</span><span class="code-tag">&gt;</span>
+    <span class="code-tag">&lt;a</span> <span class="code-attr">href</span>=<span class="code-s">"https://..."</span><span class="code-tag">&gt;</span><span class="code-s">Click me</span><span class="code-tag">&lt;/a&gt;</span>
+    <span class="code-tag">&lt;ul&gt;</span><span class="code-tag">&lt;li&gt;</span><span class="code-s">Item 1</span><span class="code-tag">&lt;/li&gt;&lt;li&gt;</span><span class="code-s">Item 2</span><span class="code-tag">&lt;/li&gt;&lt;/ul&gt;</span>
+    <span class="code-tag">&lt;div</span> <span class="code-attr">id</span>=<span class="code-s">"myBox"</span><span class="code-tag">&gt;</span><span class="code-s">A container</span><span class="code-tag">&lt;/div&gt;</span>
+  <span class="code-tag">&lt;/body&gt;</span>
+<span class="code-tag">&lt;/html&gt;</span></code></pre>
+  </div>
+
+  <!-- CSS -->
+  <div class="explainer">
+    <h3><span class="tag tag-cyan">CSS</span> &nbsp; How a CSS Rule Works</h3>
+    <p style="color:var(--muted); font-size:0.9rem; margin-bottom:1rem;">A CSS rule = Selector + Declaration Block. The <strong>selector</strong> targets an element. The block contains <strong>property: value</strong> pairs.</p>
+
+    <pre><code><span class="code-cm">/* Selector → targets all &lt;p&gt; tags */</span>
+p {
+  <span class="code-attr">color</span>: <span class="code-s">#215482</span>;     <span class="code-cm">← text colour</span>
+  <span class="code-attr">font-size</span>: <span class="code-num">16px</span>;    <span class="code-cm">← text size</span>
+  <span class="code-attr">font-family</span>: <span class="code-s">Arial, sans-serif</span>;
+  <span class="code-attr">background-color</span>: <span class="code-s">#fef08a</span>;
+  <span class="code-attr">padding</span>: <span class="code-num">10px</span>;      <span class="code-cm">← space INSIDE the border</span>
+  <span class="code-attr">margin</span>: <span class="code-num">15px</span>;       <span class="code-cm">← space OUTSIDE the border</span>
+  <span class="code-attr">border</span>: <span class="code-num">1px</span> <span class="code-s">solid</span> <span class="code-s">black</span>;
+}
+
+<span class="code-cm">/* Class selector — apply to any element */</span>
+<span class="code-k">.highlight</span> {
+  <span class="code-attr">background-color</span>: <span class="code-s">yellow</span>;
+  <span class="code-attr">font-weight</span>: <span class="code-s">bold</span>;
+}</code></pre>
+
+    <div class="callout">
+      <strong>Cascading rule:</strong> Inline styles &gt; Internal style sheet &gt; External style sheet. When multiple rules target the same element, the most specific one wins.
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <div class="explainer">
+    <h3><span class="tag tag-violet">JavaScript</span> &nbsp; The Three Things You Need to Know</h3>
+    <p style="color:var(--muted); font-size:0.9rem; margin-bottom:1.25rem;">JavaScript lives inside <code>&lt;script&gt;</code> tags at the bottom of the <code>&lt;body&gt;</code>. For this exam, master just these three concepts.</p>
+
+    <div class="cards-grid" style="margin-bottom:1rem;">
+      <div class="card" style="border-color:rgba(167,139,250,0.25);">
+        <span class="card-icon">📦</span>
+        <h3>1. Variables</h3>
+        <p>A named box that stores data in the computer's memory.</p>
+        <pre style="margin-top:0.75rem;"><code><span class="code-k">var</span> studentName = <span class="code-s">"Aisha"</span>;
+<span class="code-k">var</span> score = <span class="code-num">95</span>;</code></pre>
+      </div>
+      <div class="card" style="border-color:rgba(167,139,250,0.25);">
+        <span class="card-icon">💬</span>
+        <h3>2. alert()</h3>
+        <p>Pops up a message box on screen. The user reads it and clicks OK.</p>
+        <pre style="margin-top:0.75rem;"><code><span class="code-k">alert</span>(<span class="code-s">"Welcome to my page!"</span>);
+
+<span class="code-cm">// Can also display a variable:</span>
+<span class="code-k">alert</span>(<span class="code-s">"Hello, "</span> + studentName);</code></pre>
+      </div>
+      <div class="card" style="border-color:rgba(167,139,250,0.25);">
+        <span class="card-icon">⌨️</span>
+        <h3>3. prompt()</h3>
+        <p>Pops up an input box asking the user to type something. Saves the answer into a variable.</p>
+        <pre style="margin-top:0.75rem;"><code><span class="code-k">var</span> name = <span class="code-k">prompt</span>(<span class="code-s">"What is your name?"</span>);
+<span class="code-k">alert</span>(<span class="code-s">"Hello, "</span> + name + <span class="code-s">"!"</span>);</code></pre>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>How it all fits together:</strong> Put your JavaScript inside <code>&lt;script&gt;&lt;/script&gt;</code> tags at the bottom of the <code>&lt;body&gt;</code>. Use <code>prompt()</code> to get input, store it in a <code>var</code>, then display it with <code>alert()</code>.
+    </div>
+  </div>
+
+  <!-- Cambridge IGCSE layers note -->
+  <div class="callout" style="border-left-color: var(--gold); background: rgba(245,158,11,0.06);">
+    <strong>📋 Cambridge Note:</strong> Paper 3 does NOT examine JavaScript (behaviour layer). For the exam, focus on HTML structure and external CSS stylesheets linked with <code>&lt;link rel="stylesheet" href="..."&gt;</code>.
+  </div>
+
+  <!-- Print checklist for web -->
+  <div class="print-checklist-title">🌐 Web Authoring Checklist</div>
+  <div class="print-checklist">
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Three Layers:</strong> HTML = structure, CSS = style/presentation, JavaScript = behaviour/interactivity.</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>HTML document structure:</strong> &lt;html&gt; &gt; &lt;head&gt; + &lt;body&gt;. Head = metadata. Body = visible content.</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Meta tags in &lt;head&gt;:</strong> charset, description, keywords, author, viewport.</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Common tags:</strong> &lt;h1&gt;–&lt;h3&gt; headings, &lt;p&gt; paragraph, &lt;ul&gt;/&lt;ol&gt;/&lt;li&gt; lists, &lt;img src="" alt=""&gt;, &lt;a href=""&gt;, &lt;div&gt;, &lt;hr&gt;.</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Attributes:</strong> Extra info inside the opening tag in name="value" format (e.g. src, href, alt, id, class).</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>CSS Rule:</strong> selector { property: value; } — semicolons separate declarations.</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>CSS selectors:</strong> Tag selector (p) targets all &lt;p&gt; tags. Class selector (.highlight) targets class="highlight". ID selector (#myBox) targets id="myBox".</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Box Model:</strong> padding = space INSIDE border. margin = space OUTSIDE border.</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>External CSS:</strong> Linked in &lt;head&gt; with &lt;link rel="stylesheet" href="style.css"&gt;. Used for exam tasks.</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>JavaScript variable:</strong> var name = "value"; — a named container that stores data in memory.</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>alert("message"):</strong> Pops up a message box. Can display text or a variable: alert("Hello, " + name);</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>prompt("question"):</strong> Pops up an input box. Whatever the user types is saved: var name = prompt("Your name?");</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Script tag:</strong> All JavaScript goes inside &lt;script&gt;&lt;/script&gt; at the bottom of &lt;body&gt;.</div></div>
+  </div>
+
+</section>
+
+<footer>
+  Made with precision for <strong>Grade 8 ICT</strong> · Mr. Joshua · Cambridge IGCSE 0417<br/>
+  <span style="font-size:0.78rem; margin-top:0.3rem; display:inline-block;">Press <kbd style="background:var(--card); border:1px solid var(--border); border-radius:4px; padding:0.1rem 0.4rem; font-family:var(--font-code);">Ctrl+P</kbd> to get a printable checklist version</span>
+</footer>
+
+<button class="print-btn" onclick="window.print()">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+  Print Checklist
+</button>
+
+</body>
+</html>

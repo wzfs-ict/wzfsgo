@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambridge IGCSE ICT (0417) | 2026-2028 Revision Strategy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f4f5;
+            color: #1f2937;
+        }
+        h1, h2, h3, h4, .traditional-heading {
+            font-family: 'Merriweather', serif;
+        }
+        .sidebar-scroll::-webkit-scrollbar { width: 6px; }
+        .sidebar-scroll::-webkit-scrollbar-track { background: #1e293b; }
+        .sidebar-scroll::-webkit-scrollbar-thumb { background: #475569; border-radius: 3px; }
+        .main-scroll::-webkit-scrollbar { width: 8px; }
+        .main-scroll::-webkit-scrollbar-track { background: #f4f4f5; }
+        .main-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.2s ease-in-out; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .code-block {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 0.25rem;
+            font-family: monospace;
+            overflow-x: auto;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .task-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .task-item input[type="checkbox"] {
+            margin-top: 0.3rem;
+            width: 1.1rem;
+            height: 1.1rem;
+            accent-color: #1e293b;
+            cursor: pointer;
+        }
+
+        .task-text.completed {
+            text-decoration: line-through;
+            color: #94a3b8;
+        }
+
+        .warning-box {
+            border-left: 4px solid #ef4444;
+            background-color: #fff1f2;
+            padding: 1rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+            margin-top: 1.5rem;
+        }
+
+        .visual-example {
+            background-color: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+        }
+    </style>
+</head>
+<body class="flex h-screen overflow-hidden">
+
+    <!-- Sidebar -->
+    <nav class="w-72 bg-slate-900 text-slate-300 flex flex-col shadow-xl z-10 border-r border-slate-800">
+        <div class="p-6 border-b border-slate-700">
+            <h1 class="text-xl font-bold text-amber-500 traditional-heading tracking-wide">IGCSE ICT 0417</h1>
+            <p class="text-xs uppercase tracking-widest mt-1 text-slate-400">2026-2028 Study Guide</p>
+        </div>
+        
+        <div class="flex-1 overflow-y-auto sidebar-scroll p-4 space-y-1">
+            <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2 mt-2">Protocol</p>
+            <button onclick="switchTab('intro')" id="btn-intro" class="w-full text-left px-4 py-2 text-sm rounded transition-colors hover:bg-slate-800 bg-slate-800 text-white font-medium">Exam Integrity</button>
+            
+            <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2 mt-6">Paper 2: Practical A</p>
+            <button onclick="switchTab('docprod')" id="btn-docprod" class="w-full text-left px-4 py-2 text-sm rounded transition-colors hover:bg-slate-800">11-17: Document Production</button>
+            <button onclick="switchTab('database')" id="btn-database" class="w-full text-left px-4 py-2 text-sm rounded transition-colors hover:bg-slate-800">18: Data Manipulation</button>
+            <button onclick="switchTab('presentation')" id="btn-presentation" class="w-full text-left px-4 py-2 text-sm rounded transition-colors hover:bg-slate-800">19: Presentations</button>
+
+            <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2 mt-6">Paper 3: Practical B</p>
+            <button onclick="switchTab('spreadsheet')" id="btn-spreadsheet" class="w-full text-left px-4 py-2 text-sm rounded transition-colors hover:bg-slate-800">20: Spreadsheets</button>
+            <button onclick="switchTab('webauth')" id="btn-webauth" class="w-full text-left px-4 py-2 text-sm rounded transition-colors hover:bg-slate-800">21: Website Authoring</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-1 overflow-y-auto main-scroll bg-white relative">
+        <div class="max-w-4xl mx-auto p-8 lg:p-12 pb-24">
+
+            <!-- Intro Tab -->
+            <div id="intro" class="tab-content active">
+                <h2 class="text-3xl font-bold text-slate-900 mb-2 traditional-heading">Exam Integrity & File Management</h2>
+                <p class="text-slate-600 mb-6 text-sm">Master foundational protocols today to secure tomorrow's excellence. Check off each requirement to verify your competency. Both Practical Papers are strictly timed at <strong>2 hours and 15 minutes</strong> (70 marks each).</p>
+                
+                <h3 class="text-lg font-bold text-slate-800 mt-6 mb-3 traditional-heading border-b pb-2">The Zero-Tolerance Zone (Printing)</h3>
+                <div class="warning-box mb-6">
+                    <p class="text-sm text-red-900 font-medium"><strong>The Golden Rule:</strong> If a printout emerges from the printer and your Name, Centre Number, and Candidate Number were not typed onto it electronically BEFORE printing, it will go in the bin and score ZERO marks. Handwriting your name afterwards is strictly forbidden.</p>
+                </div>
+
+                <h3 class="text-lg font-bold text-slate-800 mt-8 mb-3 traditional-heading border-b pb-2">Unit 11: File Management & Setup</h3>
+                <div class="space-y-1">
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Create a new working folder and move all provided source files into it.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Immediately save .rtf (Rich Text Format) or .csv files into the software's native format (e.g., .docx or .xlsx) so formatting is not lost.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Take clear screenshots of your folder showing file names, file sizes, file types, and extensions (e.g., image.jpg).</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Set up the Evidence Document, ensuring identification details are placed in the header or footer so they appear on every single page.</span></label>
+                </div>
+
+                <div class="visual-example">
+                    <p class="font-bold text-slate-700 text-sm mb-2">Visual Example: Correct Folder Screenshot Evidence</p>
+                    <div class="border border-slate-300 bg-white p-2 text-xs font-mono text-slate-600 rounded">
+                        <div class="flex border-b border-slate-200 pb-1 font-bold">
+                            <span class="w-1/2">Name</span>
+                            <span class="w-1/4">Date modified</span>
+                            <span class="w-1/4">Type</span>
+                            <span class="w-1/4">Size</span>
+                        </div>
+                        <div class="flex py-1">
+                            <span class="w-1/2">logo.png</span>
+                            <span class="w-1/4">15/05/2026 10:00</span>
+                            <span class="w-1/4">PNG image</span>
+                            <span class="w-1/4">45 KB</span>
+                        </div>
+                        <div class="flex py-1 bg-slate-50">
+                            <span class="w-1/2">Evidence_9999.docx</span>
+                            <span class="w-1/4">15/05/2026 10:15</span>
+                            <span class="w-1/4">Word Document</span>
+                            <span class="w-1/4">120 KB</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-2">Notice how the file extensions (.png, .docx) and file types are clearly visible. The examiner needs to see this.</p>
+                </div>
+            </div>
+
+            <!-- Document Production Tab -->
+            <div id="docprod" class="tab-content">
+                <h2 class="text-3xl font-bold text-slate-900 mb-2 traditional-heading">Document Production</h2>
+                <p class="text-slate-600 mb-6 text-sm">Adhere strictly to standard house styles. Formatting must be immaculate.</p>
+
+                <h3 class="text-lg font-bold text-slate-800 mt-6 mb-3 traditional-heading border-b pb-2">Layout & Styles (Units 13 & 14)</h3>
+                <div class="space-y-1">
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Set the page size (A4), orientation (Portrait/Landscape), and exact margins as instructed.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Create and modify paragraph styles (e.g., sans-serif font, 14pt, center-aligned, with a 12pt space after).</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Format specific text into multiple columns, set the exact column spacing (e.g., 1cm gap), and insert Column Breaks.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Identify and correct widows and orphans (single lines of text separated from their paragraph).</span></label>
+                </div>
+
+                <div class="visual-example">
+                    <p class="font-bold text-slate-700 text-sm mb-2">Visual Example: Widows and Orphans</p>
+                    <div class="flex gap-4 text-xs">
+                        <div class="border border-red-300 bg-red-50 p-2 w-1/2 rounded">
+                            <p class="font-bold text-red-700 mb-1">INCORRECT (Orphan)</p>
+                            <div class="h-20 border-b-2 border-slate-400 border-dashed relative">
+                                <span class="absolute bottom-1 right-1 text-slate-400">Page 1</span>
+                                <p class="absolute bottom-1 bg-slate-200 h-2 w-3/4"></p>
+                            </div>
+                            <div class="h-10 relative mt-1">
+                                <span class="absolute top-1 right-1 text-slate-400">Page 2</span>
+                                <p class="bg-slate-200 h-2 w-full mb-1"></p>
+                                <p class="bg-slate-200 h-2 w-full mb-1"></p>
+                                <p class="bg-slate-200 h-2 w-1/2"></p>
+                            </div>
+                            <p class="text-slate-600 mt-2">A single line of a paragraph is left behind on the previous page.</p>
+                        </div>
+                        <div class="border border-green-300 bg-green-50 p-2 w-1/2 rounded">
+                            <p class="font-bold text-green-700 mb-1">CORRECT</p>
+                            <div class="h-20 border-b-2 border-slate-400 border-dashed relative">
+                                <span class="absolute bottom-1 right-1 text-slate-400">Page 1</span>
+                            </div>
+                            <div class="h-10 relative mt-1">
+                                <span class="absolute top-1 right-1 text-slate-400">Page 2</span>
+                                <p class="bg-slate-200 h-2 w-3/4 mb-1"></p>
+                                <p class="bg-slate-200 h-2 w-full mb-1"></p>
+                                <p class="bg-slate-200 h-2 w-full mb-1"></p>
+                                <p class="bg-slate-200 h-2 w-1/2"></p>
+                            </div>
+                            <p class="text-slate-600 mt-2">The paragraph is kept together using paragraph settings.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-lg font-bold text-slate-800 mt-8 mb-3 traditional-heading border-b pb-2">Image & Chart Integration (Units 12 & 16)</h3>
+                <div class="space-y-1">
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Insert images and precisely resize them while strictly maintaining aspect ratio.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Format text to wrap tightly around images (tight, square, top and bottom) as required.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Format tables: apply shading, merge cells, set text alignment, and turn off borders/gridlines so they do not show when printed.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Extract charts from spreadsheets: include 100% accurate Chart Titles, Axis Titles, Legends, and Data Labels.</span></label>
+                </div>
+            </div>
+
+            <!-- Databases Tab -->
+            <div id="database" class="tab-content">
+                <h2 class="text-3xl font-bold text-slate-900 mb-2 traditional-heading">Data Manipulation</h2>
+                <p class="text-slate-600 mb-6 text-sm">Design relational systems with absolute precision. Logic dictates the outcome.</p>
+
+                <h3 class="text-lg font-bold text-slate-800 mt-6 mb-3 traditional-heading border-b pb-2">Structure & Relationships</h3>
+                <div class="space-y-1">
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Import .csv files, assigning correct data types (Short Text, Logical/Boolean, Currency) and defining the Primary Key.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Establish One-to-Many relationships using common fields. Capture a screenshot showing the hidden relationship field types.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Create user-friendly Data Entry Forms with appropriate drop-down menus or radio buttons.</span></label>
+                </div>
+
+                <div class="visual-example">
+                    <p class="font-bold text-slate-700 text-sm mb-2">Visual Example: One-to-Many Relationship</p>
+                    <div class="flex items-center justify-center gap-4 text-xs font-mono">
+                        <div class="border border-slate-400 rounded bg-white p-2">
+                            <p class="font-bold border-b border-slate-300 pb-1 mb-1">Customers</p>
+                            <p class="text-amber-600 font-bold">🔑 Customer_ID</p>
+                            <p>Name</p>
+                            <p>Email</p>
+                        </div>
+                        <div class="flex items-center text-slate-400">
+                            <span>1</span>
+                            <span class="mx-2">━━━━━━━━━</span>
+                            <span>∞</span>
+                        </div>
+                        <div class="border border-slate-400 rounded bg-white p-2">
+                            <p class="font-bold border-b border-slate-300 pb-1 mb-1">Orders</p>
+                            <p class="text-amber-600 font-bold">🔑 Order_ID</p>
+                            <p>Customer_ID</p>
+                            <p>Date</p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-3 text-center">Ensure you enforce referential integrity to prevent orphan records.</p>
+                </div>
+
+                <h3 class="text-lg font-bold text-slate-800 mt-8 mb-3 traditional-heading border-b pb-2">Queries, Reports & Labels</h3>
+                <div class="code-block text-xs mb-4">
+                    Criteria Syntax Examples:<br>
+                    Contains text: *road*<br>
+                    Calculated Field (Runtime): New Price: [Cost] * 1.2
+                </div>
+                <div class="space-y-1">
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Create runtime calculated fields within a query using accurate mathematical operators.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Generate tabular reports from queries, sorting data (e.g., Category ascending, Price descending), and ensure it fits one page wide.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Add summary statistics (Sum, Average, Count) in the Report Footer with an appropriate label.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Produce Labels: use a query to filter data, arrange fields precisely, and format to fit two side-by-side on the page.</span></label>
+                </div>
+            </div>
+
+            <!-- Presentations Tab -->
+            <div id="presentation" class="tab-content">
+                <h2 class="text-3xl font-bold text-slate-900 mb-2 traditional-heading">Presentations</h2>
+                <p class="text-slate-600 mb-6 text-sm">Deliver clear communication. Control formatting globally.</p>
+
+                <h3 class="text-lg font-bold text-slate-800 mt-6 mb-3 traditional-heading border-b pb-2">Master Slide & Content</h3>
+                <div class="space-y-1">
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Import a rich text format (.rtf) file directly into the presentation software to automatically generate a deck of slides.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Access and modify the Primary Master Slide (the 1st slide in the master view). Apply global changes here.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Place an automated slide number, horizontal line, and candidate details on the master slide without overlapping any text.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Format specific slides: format bulleted lists, demote bullet points to a second level, or adjust title alignments.</span></label>
+                </div>
+
+                <div class="visual-example">
+                    <p class="font-bold text-slate-700 text-sm mb-2">Visual Example: Master Slide Hierarchy</p>
+                    <div class="flex gap-2">
+                        <div class="w-1/3 bg-slate-200 p-2 rounded border border-slate-300 text-xs text-center">
+                            <p class="font-bold text-amber-600">1. Primary Master</p>
+                            <p class="mt-2 text-slate-600">Apply logos, candidate details, and fonts here to affect ALL slides.</p>
+                        </div>
+                        <div class="w-2/3 flex flex-col gap-2">
+                            <div class="bg-white p-2 rounded border border-slate-300 text-xs">
+                                <p class="font-bold">Title Layout</p>
+                                <p class="text-slate-500">Only affects the title slide.</p>
+                            </div>
+                            <div class="bg-white p-2 rounded border border-slate-300 text-xs">
+                                <p class="font-bold">Title and Content Layout</p>
+                                <p class="text-slate-500">Affects standard bulleted slides.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-lg font-bold text-slate-800 mt-8 mb-3 traditional-heading border-b pb-2">Print Configurations</h3>
+                <div class="space-y-1">
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Print the presentation as handouts with 2 slides to the page.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Print a designated slide as a single full-page slide.</span></label>
+                </div>
+            </div>
+
+            <!-- Spreadsheets Tab -->
+            <div id="spreadsheet" class="tab-content">
+                <h2 class="text-3xl font-bold text-slate-900 mb-2 traditional-heading">Data Analysis</h2>
+                <p class="text-slate-600 mb-6 text-sm">Spreadsheets dictate financial truth. Execute formulas with zero errors.</p>
+
+                <h3 class="text-lg font-bold text-slate-800 mt-6 mb-3 traditional-heading border-b pb-2">Formula Cheat Sheet</h3>
+                <div class="code-block text-xs mb-4">
+                    <span class="text-slate-400">// External Lookup (Absolute Referencing is mandatory for table_array):</span><br>
+                    =VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])<br><br>
+                    <span class="text-slate-400">// Modern Lookup (No column counting needed):</span><br>
+                    =XLOOKUP(lookup_value, lookup_array, return_array, "[if_not_found]")<br><br>
+                    <span class="text-slate-400">// Nested IF logic:</span><br>
+                    =IF(B2>40000, "High", IF(B2>20000, "Medium", "Low"))
+                </div>
+                <div class="space-y-1">
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Deploy VLOOKUP using 0/FALSE for exact matches and 1/TRUE for approximate matches.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Deploy XLOOKUP as the preferred modern standard for data retrieval.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Utilize SUMIFS/COUNTIFS for multi-criteria aggregation.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Construct Nested IF statements to handle multiple condition logic.</span></label>
+                </div>
+
+                <h3 class="text-lg font-bold text-slate-800 mt-8 mb-3 traditional-heading border-b pb-2">Printing Protocols</h3>
+                <div class="warning-box mb-4">
+                    <p class="text-sm text-red-900">If a formula is cut off when printed (e.g., <code>=VLOOK...</code>) or a number is too big for the cell (<code>#####</code>), you will score zero marks for that cell.</p>
+                </div>
+                <div class="space-y-1">
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm"><strong>Formula View (Ctrl + `):</strong> Double-click column headers to autofit. Turn ON Row/Column headings (A,B,C.. 1,2,3). Turn ON Gridlines. Set to Landscape.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm"><strong>Value View:</strong> Turn formulas OFF. Autofit columns again. Format numbers correctly (e.g., Currency 2 dp). Set to print single page wide.</span></label>
+                </div>
+
+                <div class="visual-example">
+                    <p class="font-bold text-slate-700 text-sm mb-2">Visual Example: Formula View vs Value View</p>
+                    <div class="flex gap-4">
+                        <div class="w-1/2 border border-slate-300 bg-white rounded p-2 text-xs font-mono">
+                            <p class="bg-slate-200 text-center font-bold mb-1">Formula View (Ctrl + `)</p>
+                            <table class="w-full border-collapse">
+                                <tr><th class="border bg-slate-100 p-1">A</th><th class="border bg-slate-100 p-1">B</th></tr>
+                                <tr><td class="border p-1">Price</td><td class="border p-1">Tax</td></tr>
+                                <tr><td class="border p-1">150</td><td class="border p-1 text-amber-600">=A2*0.2</td></tr>
+                            </table>
+                        </div>
+                        <div class="w-1/2 border border-slate-300 bg-white rounded p-2 text-xs font-mono">
+                            <p class="bg-slate-200 text-center font-bold mb-1">Value View</p>
+                            <table class="w-full border-collapse">
+                                <tr><th class="border bg-slate-100 p-1">A</th><th class="border bg-slate-100 p-1">B</th></tr>
+                                <tr><td class="border p-1">Price</td><td class="border p-1">Tax</td></tr>
+                                <tr><td class="border p-1">$150.00</td><td class="border p-1">$30.00</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Web Authoring Tab -->
+            <div id="webauth" class="tab-content">
+                <h2 class="text-3xl font-bold text-slate-900 mb-2 traditional-heading">Website Authoring (HTML & CSS)</h2>
+                <p class="text-slate-600 mb-6 text-sm">Strict separation of structure (HTML) and presentation (CSS) is required. You must edit and refine code manually, as WYSIWYG editors will not generate perfect, exam-compliant code.</p>
+
+                <!-- 1. Head and Meta Tags -->
+                <h3 class="text-lg font-bold text-slate-800 mt-6 mb-3 traditional-heading border-b pb-2">1. Head & Meta Tags (Structure & Setup)</h3>
+                <p class="text-slate-600 text-sm mb-3">The <code>&lt;head&gt;</code> section contains metadata that is not displayed on the page itself but is critical for the browser and search engines.</p>
+                <div class="code-block text-xs mb-4">
+&lt;head&gt;
+  <span class="text-slate-400">&lt;!-- Sets the title in the browser tab --&gt;</span>
+  &lt;title&gt;Tawara Conservation&lt;/title&gt;
+  
+  <span class="text-slate-400">&lt;!-- Syllabus 2026: Mandatory Meta Tags --&gt;</span>
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;meta name="description" content="A website about local wildlife conservation"&gt;
+  
+  <span class="text-slate-400">&lt;!-- Linking the external CSS --&gt;</span>
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+                </div>
+                <div class="space-y-1 mb-6">
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Construct the required <code>&lt;meta&gt;</code> tags for character set and responsive viewport scaling.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Link an external stylesheet correctly using the <code>&lt;link&gt;</code> tag.</span></label>
+                </div>
+
+                <!-- 2. Text & Structural Tags -->
+                <h3 class="text-lg font-bold text-slate-800 mt-6 mb-3 traditional-heading border-b pb-2">2. Text & Structural Tags (Content Layer)</h3>
+                <p class="text-slate-600 text-sm mb-3">HTML structures content hierarchically. Use headings logically and format paragraphs and lists precisely.</p>
+                <div class="visual-example">
+                    <div class="flex gap-4">
+                        <div class="w-1/2">
+                            <p class="font-bold text-slate-700 text-xs mb-2">HTML Code</p>
+                            <div class="code-block text-xs !p-2 !m-0">
+&lt;h1&gt;Main Heading&lt;/h1&gt;
+&lt;h2&gt;Sub Heading&lt;/h2&gt;
+&lt;p&gt;This is a standard paragraph.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Unordered (Bullet) List Item&lt;/li&gt;
+  &lt;li&gt;Second Item&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Ordered (Numbered) List Item&lt;/li&gt;
+&lt;/ol&gt;
+                            </div>
+                        </div>
+                        <div class="w-1/2 bg-white border border-slate-300 p-4 rounded text-slate-800">
+                            <p class="font-bold text-slate-700 text-xs mb-2 border-b pb-1">Browser Output</p>
+                            <h1 class="text-2xl font-bold mb-1">Main Heading</h1>
+                            <h2 class="text-xl font-bold mb-2">Sub Heading</h2>
+                            <p class="text-sm mb-2">This is a standard paragraph.</p>
+                            <ul class="list-disc pl-5 text-sm mb-2">
+                                <li>Unordered (Bullet) List Item</li>
+                                <li>Second Item</li>
+                            </ul>
+                            <ol class="list-decimal pl-5 text-sm">
+                                <li>Ordered (Numbered) List Item</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-1 mb-6">
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Apply <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> tags to structure headings hierarchically.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Create unordered <code>&lt;ul&gt;</code> and ordered <code>&lt;ol&gt;</code> lists with correct <code>&lt;li&gt;</code> items.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Use <code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code> (table row), <code>&lt;td&gt;</code> (table data/cell), and <code>&lt;th&gt;</code> (table header) to create grid layouts.</span></label>
+                </div>
+
+                <!-- 3. Multimedia & Links -->
+                <h3 class="text-lg font-bold text-slate-800 mt-6 mb-3 traditional-heading border-b pb-2">3. Multimedia & Hyperlinks</h3>
+                <p class="text-slate-600 text-sm mb-3">You must know how to embed video with fallback text and controls. Images must always have alternate text. Links must direct the user accurately.</p>
+                <div class="code-block text-xs mb-4">
+<span class="text-slate-400">&lt;!-- Image with Alternate Text (MANDATORY) --&gt;</span>
+&lt;img src="images/logo.png" alt="Company Logo depicting a tree" width="200" height="100"&gt;
+
+<span class="text-slate-400">&lt;!-- Video with Controls and Fallback --&gt;</span>
+&lt;video width="600" height="400" <span class="text-amber-400">controls autoplay muted loop</span>&gt;
+  &lt;source src="wildlife.mp4" type="video/mp4"&gt;
+  Your browser does not support the video tag.
+&lt;/video&gt;
+
+<span class="text-slate-400">&lt;!-- Hyperlinks --&gt;</span>
+&lt;a href="https://www.cambridgeinternational.org" target="_blank"&gt;Opens in new window&lt;/a&gt;
+&lt;a href="mailto:info@tawara.org?subject=Website Enquiry"&gt;Send us an Email&lt;/a&gt;
+                </div>
+                <div class="space-y-1 mb-6">
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Insert the modern HTML5 <code>&lt;video&gt;</code> tag manually in Code View with correct attributes (controls, autoplay, loop).</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Always include the <code>alt</code> attribute for every <code>&lt;img&gt;</code>. Omitting this guarantees lost marks.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Set hyperlinks to open in a new browser window using the <code>target="_blank"</code> attribute.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Create an email hyperlink using the <code>mailto:</code> protocol with a predefined subject line.</span></label>
+                </div>
+
+                <!-- 4. CSS Formatting -->
+                <h3 class="text-lg font-bold text-slate-800 mt-8 mb-3 traditional-heading border-b pb-2">4. CSS Styling (Presentation Layer)</h3>
+                <p class="text-slate-600 text-sm mb-3">CSS controls how HTML elements look. You will be required to write external stylesheets and define specific classes.</p>
+                <div class="visual-example">
+                    <div class="flex gap-4">
+                        <div class="w-3/5">
+                            <p class="font-bold text-slate-700 text-xs mb-2">CSS Code (style.css)</p>
+                            <div class="code-block text-xs !p-2 !m-0">
+<span class="text-slate-400">/* Name, Centre, Cand No */</span>
+body {
+    background-color: #f0f8ff;
+    font-family: Arial, sans-serif;
+}
+table { 
+    border-collapse: collapse; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+<span class="text-slate-400">/* Defining a Class */</span>
+.highlight { 
+    color: #ff0000; 
+    font-weight: bold; 
+}
+                            </div>
+                        </div>
+                        <div class="w-2/5">
+                            <p class="font-bold text-slate-700 text-xs mb-2">HTML Usage</p>
+                            <div class="code-block text-xs !p-2 !m-0 h-full">
+&lt;p class="highlight"&gt;
+  This text will be red 
+  and bold because it 
+  uses the class.
+&lt;/p&gt;
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-1">
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Understand CSS Priority: The stylesheet attached last (lowest in the <code>&lt;head&gt;</code> list) overrides the ones above it.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Format tables with <code>border-collapse: collapse;</code> to remove double borders, and use auto margins to center tables.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Define a custom CSS class (e.g., <code>.highlight</code>) and apply it to a specific HTML element using <code>class="highlight"</code>.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Include candidate details as a CSS comment <code>/* Name, Centre, Cand No */</code> at the top of your stylesheet.</span></label>
+                </div>
+            </div>
+
+            <!-- Instructional Footer -->
+            <footer class="mt-16 pt-8 border-t border-slate-200 text-center">
+                <p class="text-sm font-bold text-slate-800 uppercase tracking-widest traditional-heading">Mr Glen Joshua (ICT 2025-26)</p>
+                <p class="text-xs text-slate-500 mt-1 font-medium">Upholding Traditional Educational Standards for Future Digital Excellence.</p>
+            </footer>
+
+        </div>
+    </main>
+
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('nav button').forEach(btn => {
+                btn.classList.remove('bg-slate-800', 'text-white', 'font-medium');
+                btn.classList.add('text-slate-300');
+            });
+            
+            document.getElementById(tabId).classList.add('active');
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.remove('text-slate-300');
+            activeBtn.classList.add('bg-slate-800', 'text-white', 'font-medium');
+            document.querySelector('main').scrollTop = 0;
+        }
+
+        function toggleStrike(checkbox) {
+            const textSpan = checkbox.nextElementSibling;
+            if (checkbox.checked) {
+                textSpan.classList.add('completed');
+            } else {
+                textSpan.classList.remove('completed');
+            }
+        }
+    </script>
+</body>
+</html>

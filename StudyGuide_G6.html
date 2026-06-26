@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 6 ICT Study Guide — First Semester</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Nunito:wght@400;600;700;800&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#16264A;
+    --navy-soft:#243A66;
+    --teal:#1C7C82;
+    --teal-soft:#E4F3F3;
+    --amber:#F2A93B;
+    --amber-soft:#FDF1DC;
+    --paper:#F7F8FB;
+    --ink:#222B3D;
+    --ink-soft:#5B6478;
+    --line:#E1E5EE;
+    --good:#2E8B57;
+    --bad:#C0392B;
+  }
+
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; }
+  body{
+    font-family:'Nunito', sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.55;
+    font-size:16px;
+  }
+  h1,h2,h3,h4{ font-family:'Poppins', sans-serif; margin:0; }
+  .wrap{ max-width:880px; margin:0 auto; padding:0 20px 60px; }
+
+  /* ---------- COVER ---------- */
+  .cover{
+    background:linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 60%, var(--teal) 130%);
+    color:#fff;
+    padding:56px 40px 44px;
+    border-radius:0 0 28px 28px;
+    position:relative;
+    overflow:hidden;
+  }
+  .cover::after{
+    content:"";
+    position:absolute;
+    right:-60px; top:-60px;
+    width:240px; height:240px;
+    background:var(--amber);
+    opacity:.18;
+    border-radius:50%;
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.25);
+    padding:6px 14px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+  }
+  .cover h1{
+    font-size:38px;
+    font-weight:800;
+    margin-top:18px;
+    line-height:1.15;
+  }
+  .cover p.lead{
+    margin-top:10px;
+    font-size:16.5px;
+    max-width:560px;
+    color:#DCE6F0;
+  }
+  .cover .pill-row{
+    margin-top:26px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .pill{
+    background:rgba(255,255,255,.10);
+    border:1px solid rgba(255,255,255,.22);
+    border-radius:10px;
+    padding:8px 14px;
+    font-size:13.5px;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section{ margin-top:52px; }
+  .section-head{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    border-bottom:3px solid var(--teal);
+    padding-bottom:10px;
+    margin-bottom:22px;
+    break-after:avoid;
+  }
+  .section-num{
+    flex:0 0 auto;
+    width:42px; height:42px;
+    border-radius:12px;
+    background:var(--navy);
+    color:#fff;
+    font-family:'Poppins',sans-serif;
+    font-weight:800;
+    font-size:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .section-head .icon{ font-size:28px; line-height:1; }
+  .section-head h2{ font-size:23px; color:var(--navy); }
+  .section-head .sub{
+    font-size:13.5px;
+    color:var(--ink-soft);
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.03em;
+  }
+  .section-intro{
+    color:var(--ink-soft);
+    font-size:15.5px;
+    margin-bottom:20px;
+  }
+
+  h3.subhead{
+    font-size:15.5px;
+    color:var(--teal);
+    text-transform:uppercase;
+    letter-spacing:.03em;
+    margin:28px 0 12px;
+    font-weight:700;
+    break-after:avoid;
+  }
+
+  /* ---------- VOCAB CARDS ---------- */
+  .vocab-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:12px;
+  }
+  .vocab-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-left:4px solid var(--teal);
+    border-radius:10px;
+    padding:13px 16px;
+    break-inside:avoid;
+  }
+  .vocab-card b{
+    color:var(--navy);
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    font-size:14.5px;
+  }
+  .vocab-card p{ margin:4px 0 0; font-size:14.5px; color:var(--ink); }
+
+  /* ---------- GENERIC CALLOUTS ---------- */
+  .box{
+    border-radius:12px;
+    padding:16px 18px;
+    margin:14px 0;
+    break-inside:avoid;
+  }
+  .box-rule{
+    background:var(--teal-soft);
+    border:1px solid #BFE0E0;
+  }
+  .box-rule .tag{
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    color:var(--teal);
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:.03em;
+    display:flex; align-items:center; gap:6px;
+    margin-bottom:6px;
+  }
+  .box-crucial{
+    background:var(--amber-soft);
+    border:1px solid #F3D69A;
+  }
+  .box-crucial .tag{
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    color:#9A6A14;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:.03em;
+    display:flex; align-items:center; gap:6px;
+    margin-bottom:6px;
+  }
+  code, .codey{
+    font-family:'Fira Code', monospace;
+    background:#EFF2F8;
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:1px 7px;
+    font-size:14px;
+    color:var(--navy);
+  }
+
+  /* ---------- TABLES ---------- */
+  table.ref{
+    width:100%;
+    border-collapse:collapse;
+    margin:10px 0 6px;
+    font-size:14.5px;
+    break-inside:avoid;
+  }
+  table.ref th{
+    background:var(--navy);
+    color:#fff;
+    text-align:left;
+    padding:9px 12px;
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:13px;
+  }
+  table.ref td{
+    padding:9px 12px;
+    border-bottom:1px solid var(--line);
+    background:#fff;
+  }
+  table.ref tr:last-child td{ border-bottom:none; }
+  table.ref th:first-child, table.ref td:first-child{ border-radius:0; }
+
+  /* ---------- AUDIENCE CARDS (Canva section) ---------- */
+  .audience-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:12px;
+  }
+  .aud-card{
+    border-radius:12px;
+    padding:16px 14px;
+    color:#fff;
+    break-inside:avoid;
+  }
+  .aud-card h4{ font-size:15px; margin-bottom:6px; }
+  .aud-card p{ font-size:13.5px; margin:0; opacity:.95; }
+  .aud-kids{ background:linear-gradient(160deg,#F2A93B,#E07A2A); }
+  .aud-pt{ background:linear-gradient(160deg,#1C7C82,#145C61); }
+  .aud-gamers{ background:linear-gradient(160deg,#16264A,#3A2E66); }
+
+  /* ---------- COPYRIGHT compare ---------- */
+  .compare-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-top:10px;
+  }
+  .compare-card{
+    border-radius:12px;
+    padding:14px 16px;
+    break-inside:avoid;
+  }
+  .compare-card.good{ background:#EAF6EE; border:1px solid #B9E4C4; }
+  .compare-card.bad{ background:#FBEAE8; border:1px solid #F1C3BC; }
+  .compare-card .lbl{
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    font-size:13.5px;
+    margin-bottom:6px;
+    display:flex; align-items:center; gap:6px;
+  }
+  .compare-card.good .lbl{ color:var(--good); }
+  .compare-card.bad .lbl{ color:var(--bad); }
+  .compare-card p{ margin:0; font-size:14px; }
+
+  /* ---------- handles strip (tinkercad) ---------- */
+  .handle-strip{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+  }
+  .handle-item{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:12px 14px;
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    break-inside:avoid;
+  }
+  .handle-item .dot{
+    flex:0 0 auto;
+    width:30px; height:30px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size:15px;
+    background:var(--navy);
+    color:#fff;
+  }
+  .handle-item p{ margin:0; font-size:14px; }
+  .handle-item b{ font-family:'Poppins',sans-serif; font-size:13.5px; color:var(--navy); }
+
+  /* ---------- exam tip strip ---------- */
+  .exam-strip{
+    margin-top:60px;
+    background:var(--navy);
+    color:#fff;
+    border-radius:16px;
+    padding:26px 30px;
+    text-align:center;
+  }
+  .exam-strip h3{ font-size:19px; color:#fff; margin-bottom:6px; }
+  .exam-strip p{ color:#C9D4E6; font-size:14.5px; margin:0; }
+
+  /* ---------- FOOTER ---------- */
+  .site-footer{
+    margin-top:46px;
+    border-top:2px solid var(--line);
+    padding:18px 0 0;
+    text-align:center;
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:.03em;
+    color:var(--navy-soft);
+  }
+  .site-footer .heart{ color:var(--amber); }
+
+  @media (max-width: 640px){
+    .vocab-grid, .audience-grid, .compare-grid, .handle-strip{ grid-template-columns:1fr; }
+    .cover h1{ font-size:29px; }
+  }
+
+  /* ---------- PRINT / PDF ---------- */
+  @page{
+    size:A4;
+    margin:18mm 14mm 22mm 14mm;
+    @bottom-center{
+      content:"Mr Joshua  •  ICT 2026  —  You got this !";
+      font-family:'Nunito', sans-serif;
+      font-size:9.5pt;
+      font-weight:700;
+      color:#16264A;
+    }
+  }
+  @media print{
+    body{ background:#fff; font-size:12.3px; }
+    .wrap{ max-width:100%; padding:0; }
+    .cover{ border-radius:0; padding:34px 30px 26px; }
+    .cover::after{ display:none; }
+    .site-footer{ display:none; }
+    .section{ margin-top:30px; }
+    a{ color:inherit; text-decoration:none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <span class="eyebrow">🖥️ ICT Department · Weihai Zhongshi Foreign School</span>
+  <h1>Grade 6 ICT Study Guide</h1>
+  <p class="lead">Your ultimate creator's toolkit — covering Spreadsheets, Scratch Programming, 3D Modelling with Tinkercad, and Web &amp; Graphic Design with Canva. Everything you need to walk into your final exam feeling confident.</p>
+  <div class="pill-row">
+    <span class="pill">📊 Spreadsheets</span>
+    <span class="pill">🐱 Scratch</span>
+    <span class="pill">🧊 Tinkercad</span>
+    <span class="pill">🎨 Canva</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- SECTION 1 — SPREADSHEETS -->
+  <div class="section">
+    <div class="section-head">
+      <span class="icon">📊</span>
+      <div>
+        <div class="sub">Section 1</div>
+        <h2>The Data Organizer — Spreadsheets</h2>
+      </div>
+    </div>
+    <p class="section-intro">Spreadsheets are powerful tools used for organizing information, doing calculations instantly, and discovering patterns using charts.</p>
+
+    <h3 class="subhead">Key Vocabulary</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><b>Cell</b><p>A single rectangular box where you enter data.</p></div>
+      <div class="vocab-card"><b>Column</b><p>A vertical group of data running top to bottom, labelled with <b>letters</b> (A, B, C).</p></div>
+      <div class="vocab-card"><b>Row</b><p>A horizontal line of data running left to right, labelled with <b>numbers</b> (1, 2, 3).</p></div>
+      <div class="vocab-card"><b>Cell Reference</b><p>The unique name of a cell — column letter + row number (e.g. <code>A1</code>, <code>C3</code>).</p></div>
+    </div>
+
+    <h3 class="subhead">Formulas &amp; Functions</h3>
+    <div class="box box-rule">
+      <div class="tag">⭐ The Golden Rule</div>
+      Every spreadsheet formula must always begin with an <b>equals sign (<code>=</code>)</b>.
+    </div>
+    <div class="box box-rule">
+      <div class="tag">🔁 Dynamic Referencing</div>
+      Never type static numbers directly into a formula if you can use a cell reference instead — use <code>=A1+B1</code> instead of <code>=5+10</code>. That way, if the input data changes, your results update automatically. This is called <b>"What If" modelling</b>.
+    </div>
+    <p><b>Basic Math:</b> add (<code>+</code>), subtract (<code>-</code>), multiply (<code>*</code>), divide (<code>/</code>).</p>
+    <p><b>Replication (Fill Handle):</b> drag the small cross at the corner of a cell to copy a formula down other rows — the software automatically adjusts the cell references for you.</p>
+
+    <h3 class="subhead">Functions Reference</h3>
+    <table class="ref">
+      <tr><th>Function</th><th>What it does</th></tr>
+      <tr><td><code>SUM</code></td><td>Adds a list of numbers together.</td></tr>
+      <tr><td><code>MAX</code> / <code>MIN</code></td><td>Finds the largest / smallest number in a list.</td></tr>
+      <tr><td><code>AVERAGE</code></td><td>Calculates the mean value.</td></tr>
+      <tr><td><code>COUNTA</code></td><td>Counts all cells in a range that are not empty.</td></tr>
+    </table>
+
+    <h3 class="subhead">Charts &amp; Formatting</h3>
+    <p>Use formatting to make data readable — e.g. bold headings, or <b>Currency (£)</b> number formats. <b>Charts</b> (bar charts, line graphs) help you see patterns and trends in your data at a glance.</p>
+  </div>
+
+  <!-- SECTION 2 — SCRATCH -->
+  <div class="section">
+    <div class="section-head">
+      <span class="icon">🐱</span>
+      <div>
+        <div class="sub">Section 2</div>
+        <h2>The Logic Builder — Scratch Programming</h2>
+      </div>
+    </div>
+    <p class="section-intro">Programming is about giving the computer instructions to solve a problem or run a game.</p>
+
+    <h3 class="subhead">Variables</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><b>Variable</b><p>A named piece of data stored in memory that holds a single value (like "Score" or "Timer").</p></div>
+      <div class="vocab-card"><b>Name vs. Value</b><p>The <b>Name</b> ("Score") stays the same, even when the <b>Value</b> inside it changes.</p></div>
+    </div>
+    <div class="box box-rule">
+      <div class="tag">🚩 Set vs. Change</div>
+      Use <b>Set [variable] to 0</b> at the very start of a game (under the Green Flag event) to reset the score. Use <b>Change [variable] by 1</b> to update the score during the game.
+    </div>
+
+    <h3 class="subhead">Programming Concepts</h3>
+    <table class="ref">
+      <tr><th>Concept</th><th>What it means</th></tr>
+      <tr><td>Sequence</td><td>Instructions performed in order, from top to bottom.</td></tr>
+      <tr><td>Iteration (Loops)</td><td>Blocks like <code>repeat</code> or <code>forever</code> that run the same instructions multiple times.</td></tr>
+      <tr><td>Selection</td><td>Running code only <b>IF</b> a condition is true (<code>if... then</code> blocks) — e.g. checking if score equals 10 to level up.</td></tr>
+    </table>
+  </div>
+
+  <!-- SECTION 3 — TINKERCAD -->
+  <div class="section">
+    <div class="section-head">
+      <span class="icon">🧊</span>
+      <div>
+        <div class="sub">Section 3</div>
+        <h2>The Digital Sculptor — 3D Modelling (Tinkercad)</h2>
+      </div>
+    </div>
+    <p class="section-intro">3D modelling lets you build digital objects using Constructive Solid Geometry (CSG) — combining simple shapes to make complex ones.</p>
+
+    <h3 class="subhead">The 3D Workspace</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><b>3D</b><p>Three Dimensions — a 3D shape has <b>height, width, and depth</b>.</p></div>
+      <div class="vocab-card"><b>Workplane</b><p>The flat, blue gridded surface where you place your designs.</p></div>
+      <div class="vocab-card"><b>Perspective / ViewCube</b><p>Change your viewing angle (top, front, side) to check shapes are truly touching, not floating.</p></div>
+      <div class="vocab-card"><b>Group</b><p>The tool used to permanently combine two or more shapes into a single solid object.</p></div>
+    </div>
+
+    <h3 class="subhead">Tools &amp; Handles</h3>
+    <div class="handle-strip">
+      <div class="handle-item"><span class="dot">⬜</span><div><b>White Corner Handles</b><p>Resize a shape in two dimensions at the same time.</p></div></div>
+      <div class="handle-item"><span class="dot">⬛</span><div><b>Black Side Handles</b><p>Resize a shape in one dimension.</p></div></div>
+      <div class="handle-item"><span class="dot">🔺</span><div><b>Black Cone-Shaped Handle</b><p>Lift or lower an object off the workplane (Z-axis).</p></div></div>
+      <div class="handle-item"><span class="dot">↻</span><div><b>Curved Arrows</b><p>Rotate your object.</p></div></div>
+    </div>
+
+    <h3 class="subhead">Combining &amp; Hollowing</h3>
+    <p><b>Placeholders (Holes):</b> a shape used to subtract volume or cut a hole into a solid object.</p>
+    <div class="box box-crucial">
+      <div class="tag">⚠️ Crucial Rule</div>
+      When hollowing out a container (like a desk tidy or jewel box), you must <b>lift the hole shape by about 2mm</b> using the black cone handle <i>before</i> grouping — otherwise your box will not have a floor!
+    </div>
+  </div>
+
+  <!-- SECTION 4 — CANVA -->
+  <div class="section">
+    <div class="section-head">
+      <span class="icon">🎨</span>
+      <div>
+        <div class="sub">Section 4</div>
+        <h2>Web &amp; Graphic Design — Canva</h2>
+      </div>
+    </div>
+    <p class="section-intro">A good website or poster must be easy to read, visually pleasing, and designed for a specific group of people.</p>
+
+    <h3 class="subhead">Design for Your Audience</h3>
+    <div class="audience-grid">
+      <div class="aud-card aud-kids"><h4>👧 Kids</h4><p>Bright colors, fun fonts, exciting pictures.</p></div>
+      <div class="aud-card aud-pt"><h4>👩‍🏫 Parents / Teachers</h4><p>Clean designs, neat fonts, easy-to-find information.</p></div>
+      <div class="aud-card aud-gamers"><h4>🎮 Gamers</h4><p>Dark backgrounds, bright colors, action pictures.</p></div>
+    </div>
+
+    <h3 class="subhead">Typography &amp; White Space</h3>
+    <p><b>The 2-Font Rule:</b> don't use too many fonts — stick to a maximum of 2 to 3 fonts to keep your design clean.</p>
+    <p><b>White Space:</b> the empty space around text and pictures. It helps your design "breathe" and makes it easier to read.</p>
+
+    <h3 class="subhead">Safe Sourcing &amp; Copyright</h3>
+    <p><b>Copyright:</b> you cannot just take any picture from Google.</p>
+    <div class="compare-grid">
+      <div class="compare-card good">
+        <div class="lbl">✅ Safe to use</div>
+        <p>Pictures and graphics inside the Canva <b>"Elements"</b> tab — Canva has already checked the licenses, so they're 100% safe for school projects.</p>
+      </div>
+      <div class="compare-card bad">
+        <div class="lbl">❌ Risky to use</div>
+        <p>Random images copied straight from a Google search — these may be protected by copyright.</p>
+      </div>
+    </div>
+    <p style="margin-top:10px;">If you must give credit, use a simple formula in a small text box at the bottom of your page: <span class="codey">Photo by [Name] on [Website]</span></p>
+
+    <h3 class="subhead">Website Navigation</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><b>Sitemap</b><p>The structure of your website (e.g. Home, About, Contact pages).</p></div>
+      <div class="vocab-card"><b>Hyperlinks</b><p>Navigation paths linking text or buttons so users can click between pages.</p></div>
+    </div>
+    <p style="margin-top:12px;"><b>Previewing:</b> always use the Desktop/Mobile preview buttons in Canva to check your design on both a computer and a phone screen before publishing.</p>
+  </div>
+
+  <div class="exam-strip">
+    <h3>You've got this! 🌟</h3>
+    <p>Review each section, try the formulas yourself, and remember the Crucial Rule for hollowing shapes. Good luck on your exam!</p>
+  </div>
+
+  <div class="site-footer">
+    Mr Joshua <span class="heart">·</span> ICT 2026 <span class="heart">—</span> You got this !
+  </div>
+
+</div>
+
+</body>
+</html>

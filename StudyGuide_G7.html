@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 7 ICT — Complete Study Guide | Mr Joshua</title>
+<style>
+  /* ─── TOKENS ─── */
+  :root {
+    --navy:   #0B1F4A;
+    --blue:   #1A56DB;
+    --cyan:   #06B6D4;
+    --amber:  #F59E0B;
+    --green:  #10B981;
+    --red:    #EF4444;
+    --purple: #8B5CF6;
+    --bg:     #F0F4FF;
+    --card:   #FFFFFF;
+    --text:   #1E293B;
+    --muted:  #64748B;
+    --border: #CBD5E1;
+
+    --t1: #1A56DB;   /* Spreadsheets */
+    --t2: #10B981;   /* Scratch */
+    --t3: #F59E0B;   /* Tinkercad */
+    --t4: #8B5CF6;   /* CS & AI */
+  }
+
+  /* ─── RESET & BASE ─── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ─── PRINT ─── */
+  @media print {
+    .no-print { display: none !important; }
+    body { background: white; font-size: 11pt; }
+    .page-wrap { max-width: 100%; padding: 0; }
+    .topic-section { page-break-before: always; }
+    .topic-section:first-of-type { page-break-before: avoid; }
+    .card { box-shadow: none; border: 1px solid var(--border); break-inside: avoid; }
+    .hero { background: var(--navy) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .topic-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .pill { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .key-box { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .function-row { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    h2.topic-title { color: inherit !important; }
+    a { color: var(--blue); text-decoration: underline; }
+    .toc { display: none; }
+  }
+
+  /* ─── PAGE WRAP ─── */
+  .page-wrap { max-width: 900px; margin: 0 auto; padding: 1.5rem 1rem; }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: var(--navy);
+    border-radius: 16px;
+    padding: 2.5rem 2rem 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: rgba(6,182,212,.12);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: .5rem;
+  }
+  .hero h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: .5rem;
+  }
+  .hero-sub {
+    color: #94A3B8;
+    font-size: 13px;
+    margin-bottom: 1.4rem;
+  }
+  .topic-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin-bottom: 1.5rem;
+  }
+  .pill {
+    padding: 4px 12px;
+    border-radius: 99px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    color: #fff;
+  }
+  .pill.t1 { background: var(--t1); }
+  .pill.t2 { background: var(--t2); }
+  .pill.t3 { background: var(--t3); color: var(--navy); }
+  .pill.t4 { background: var(--t4); }
+
+  .print-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    background: var(--cyan);
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 13px;
+    padding: 8px 18px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity .15s;
+  }
+  .print-btn:hover { opacity: .85; }
+
+  /* ─── HOW TO USE ─── */
+  .how-to {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1.8rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .how-to-icon { font-size: 1.6rem; flex-shrink: 0; margin-top: 2px; }
+  .how-to strong { display: block; margin-bottom: .3rem; color: var(--navy); }
+  .how-to p { color: var(--muted); font-size: 13px; }
+
+  /* ─── TOPIC SECTIONS ─── */
+  .topic-section { margin-bottom: 3rem; }
+
+  .topic-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.4rem;
+    border-radius: 12px 12px 0 0;
+    margin-bottom: 0;
+  }
+  .topic-header.t1 { background: var(--t1); }
+  .topic-header.t2 { background: var(--t2); }
+  .topic-header.t3 { background: var(--t3); }
+  .topic-header.t4 { background: var(--t4); }
+
+  .topic-num {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.7);
+  }
+  .topic-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #fff;
+  }
+  .topic-header.t3 .topic-title,
+  .topic-header.t3 .topic-num { color: var(--navy); }
+
+  .topic-body {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    padding: 1.5rem;
+  }
+
+  /* ─── CARDS ─── */
+  .card {
+    background: #F8FAFF;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.1rem 1.2rem;
+    margin-bottom: 1rem;
+  }
+  .card-title {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    margin-bottom: .6rem;
+  }
+  .card-title.t1 { color: var(--t1); }
+  .card-title.t2 { color: var(--t2); }
+  .card-title.t3 { color: var(--t3); }
+  .card-title.t4 { color: var(--t4); }
+
+  /* ─── GRID ─── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+  @media (max-width: 600px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  }
+
+  /* ─── KEY BOXES ─── */
+  .key-box {
+    padding: .5rem .9rem;
+    border-radius: 8px;
+    margin-bottom: .5rem;
+    font-size: 13px;
+  }
+  .key-box.blue   { background: #EFF6FF; border-left: 3px solid var(--t1); }
+  .key-box.green  { background: #ECFDF5; border-left: 3px solid var(--t2); }
+  .key-box.amber  { background: #FFFBEB; border-left: 3px solid var(--amber); }
+  .key-box.purple { background: #F5F3FF; border-left: 3px solid var(--t4); }
+  .key-box.red    { background: #FEF2F2; border-left: 3px solid var(--red); }
+  .key-box.cyan   { background: #ECFEFF; border-left: 3px solid var(--cyan); }
+
+  /* ─── FUNCTION TABLE ─── */
+  .fn-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .fn-table th {
+    background: #1E3A6E;
+    color: #fff;
+    padding: 7px 10px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+  .fn-table td { padding: 7px 10px; border-bottom: 1px solid var(--border); }
+  .fn-table tr:last-child td { border-bottom: none; }
+  .fn-table tr:nth-child(even) td { background: #F8FAFF; }
+  code {
+    font-family: 'Consolas', 'Fira Code', monospace;
+    background: #E2E8F0;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: var(--navy);
+  }
+
+  /* ─── CHECKLIST ─── */
+  .checklist { list-style: none; margin-top: .5rem; }
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: .6rem;
+    padding: .35rem 0;
+    font-size: 13px;
+    border-bottom: 1px dashed var(--border);
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .check-box {
+    width: 16px; height: 16px;
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    display: inline-block;
+  }
+
+  /* ─── TIP BOX ─── */
+  .tip {
+    background: #FFFBEB;
+    border: 1px solid var(--amber);
+    border-radius: 8px;
+    padding: .8rem 1rem;
+    font-size: 13px;
+    margin-top: .8rem;
+    display: flex;
+    gap: .5rem;
+  }
+
+  /* ─── WARNING BOX ─── */
+  .warn {
+    background: #FEF2F2;
+    border: 1px solid var(--red);
+    border-radius: 8px;
+    padding: .8rem 1rem;
+    font-size: 13px;
+    margin-top: .8rem;
+    display: flex;
+    gap: .5rem;
+  }
+
+  /* ─── SCRATCH BLOCK VISUAL ─── */
+  .scratch-block {
+    display: inline-block;
+    border-radius: 6px;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    margin: 2px;
+  }
+  .s-motion   { background: #4C97FF; }
+  .s-control  { background: #FFAB19; color: var(--navy); }
+  .s-variable { background: #FF8C1A; }
+  .s-operator { background: #59C059; }
+  .s-looks    { background: #9966FF; }
+  .s-myblock  { background: #FF6680; }
+  .s-sensing  { background: #5CB1D6; }
+
+  /* ─── TINKERCAD DIAGRAM ─── */
+  .tc-step {
+    display: flex;
+    align-items: flex-start;
+    gap: .7rem;
+    margin-bottom: .6rem;
+    font-size: 13px;
+  }
+  .tc-num {
+    min-width: 24px; height: 24px;
+    background: var(--t3);
+    color: var(--navy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 11px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ─── REVIEW Q's ─── */
+  .review-q {
+    background: #F0F4FF;
+    border: 1px solid #C7D7F9;
+    border-radius: 8px;
+    padding: .7rem 1rem;
+    margin-bottom: .5rem;
+    font-size: 13px;
+    display: flex;
+    gap: .6rem;
+  }
+  .q-num {
+    font-weight: 800;
+    color: var(--blue);
+    min-width: 20px;
+  }
+
+  /* ─── SEPARATOR ─── */
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 1.2rem 0 .6rem;
+    padding-bottom: .3rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    padding: 2rem 0 1rem;
+  }
+  .footer a { color: var(--blue); }
+
+  /* ─── AI CONCEPT CARDS ─── */
+  .ai-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  .ai-card-head {
+    background: var(--t4);
+    color: #fff;
+    padding: .5rem 1rem;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .ai-card-body {
+    padding: .8rem 1rem;
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <!-- ══════════ HERO ══════════ -->
+  <header class="hero">
+    <div class="hero-eyebrow">Mr Joshua · WZFS · Grade 7 ICT</div>
+    <h1>Complete Study Guide<br>End-of-Year Exam 2026</h1>
+    <p class="hero-sub">All four topics in one place. Read every section, tick every checklist, and you're ready.</p>
+    <div class="topic-pills">
+      <span class="pill t1">T1 · Spreadsheets & Data</span>
+      <span class="pill t2">T2 · Scratch Programming</span>
+      <span class="pill t3">T3 · 3D Design – Tinkercad</span>
+      <span class="pill t4">T4 · Computer Systems & AI</span>
+    </div>
+    <button class="print-btn no-print" onclick="window.print()">🖨 Print / Save as PDF</button>
+  </header>
+
+  <!-- ══════════ HOW TO USE ══════════ -->
+  <div class="how-to no-print">
+    <div class="how-to-icon">📋</div>
+    <div>
+      <strong>How to use this guide</strong>
+      <p>Work through each topic section. Read the key concepts, study the formula tables and examples, then tick off each item in the checklist. Use the review questions to test yourself. Print to PDF for offline studying.</p>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       TOPIC 1 — SPREADSHEETS & DATA
+  ══════════════════════════════════════ -->
+  <section class="topic-section" id="t1">
+    <div class="topic-header t1">
+      <div>
+        <div class="topic-num">Topic 1</div>
+        <h2 class="topic-title">Data Modelling with Spreadsheets</h2>
+      </div>
+    </div>
+    <div class="topic-body">
+
+      <!-- Core vocabulary -->
+      <div class="section-label">Core Vocabulary</div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title t1">Spreadsheet Components</div>
+          <div class="key-box blue"><strong>Cell</strong> — The single box where data lives, identified by column letter + row number (e.g. <code>C3</code>).</div>
+          <div class="key-box blue"><strong>Column</strong> — A vertical set of cells, labelled A, B, C …</div>
+          <div class="key-box blue"><strong>Row</strong> — A horizontal set of cells, labelled 1, 2, 3 …</div>
+          <div class="key-box blue"><strong>Range</strong> — A group of cells from one corner to another, written as <code>A1:C5</code>.</div>
+          <div class="key-box blue"><strong>Fill Handle</strong> — The small square at the bottom-right of a selected cell. Drag it to copy a formula down or across.</div>
+        </div>
+        <div class="card">
+          <div class="card-title t1">Data vs. Information</div>
+          <div class="key-box amber"><strong>Data</strong> — Raw facts or figures with no context (e.g. the numbers <em>150, 75, 125</em>).</div>
+          <div class="key-box green"><strong>Information</strong> — Data that has been organised, labelled, and given context so it carries meaning (e.g. a chart titled "Monthly Sales").</div>
+          <div class="tip">💡 <span>A spreadsheet turns <em>data</em> into <em>information</em> through formulas, sorting, and charts.</span></div>
+        </div>
+      </div>
+
+      <!-- Formulas -->
+      <div class="section-label">Formulas & Operators</div>
+      <div class="card">
+        <div class="card-title t1">Writing Formulas — Always Start with <code>=</code></div>
+        <p style="font-size:13px;margin-bottom:.8rem;">Every formula must begin with an equals sign. Use <strong>cell references</strong> (e.g. <code>=A1+B1</code>), not typed numbers — that way if the data changes, the result updates automatically.</p>
+        <table class="fn-table">
+          <thead>
+            <tr><th>Operator</th><th>Symbol</th><th>Example</th><th>Result</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Addition</td><td><code>+</code></td><td><code>=C2+D2</code></td><td>Adds the values in C2 and D2</td></tr>
+            <tr><td>Subtraction</td><td><code>-</code></td><td><code>=C2-D2</code></td><td>Subtracts D2 from C2</td></tr>
+            <tr><td>Multiplication</td><td><code>*</code></td><td><code>=C2*D2</code></td><td>Multiplies C2 by D2</td></tr>
+            <tr><td>Division</td><td><code>/</code></td><td><code>=C2/D2</code></td><td>Divides C2 by D2</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Cell References -->
+      <div class="card">
+        <div class="card-title t1">Absolute vs. Relative Cell References</div>
+        <div class="grid-2">
+          <div>
+            <div class="key-box blue"><strong>Relative</strong> — <code>=A1+B1</code><br>Changes when you copy the formula to another cell. The reference shifts with it.</div>
+          </div>
+          <div>
+            <div class="key-box amber"><strong>Absolute</strong> — <code>=$A$1+B1</code><br>The <code>$</code> locks that part of the address. It stays fixed even when copied.</div>
+          </div>
+        </div>
+        <div class="tip">💡 <span>Use absolute references when one cell (like a tax rate) must stay the same across many formulas. Add <code>$</code> in front of the column letter, the row number, or both.</span></div>
+      </div>
+
+      <!-- Functions -->
+      <div class="section-label">Key Functions</div>
+      <div class="card">
+        <div class="card-title t1">Pre-Built Functions</div>
+        <table class="fn-table">
+          <thead>
+            <tr><th>Function</th><th>What it does</th><th>Example</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>=SUM(range)</code></td><td>Adds all numbers in a range</td><td><code>=SUM(B2:B10)</code></td></tr>
+            <tr><td><code>=AVERAGE(range)</code></td><td>Calculates the mean</td><td><code>=AVERAGE(B2:B10)</code></td></tr>
+            <tr><td><code>=MIN(range)</code></td><td>Finds the smallest value</td><td><code>=MIN(B2:B10)</code></td></tr>
+            <tr><td><code>=MAX(range)</code></td><td>Finds the largest value</td><td><code>=MAX(B2:B10)</code></td></tr>
+            <tr><td><code>=COUNT(range)</code></td><td>Counts cells that contain numbers</td><td><code>=COUNT(B2:B10)</code></td></tr>
+            <tr><td><code>=COUNTA(range)</code></td><td>Counts all non-empty cells</td><td><code>=COUNTA(A2:A10)</code></td></tr>
+            <tr><td><code>=COUNTIF(range, criteria)</code></td><td>Counts cells matching a condition</td><td><code>=COUNTIF(B2:B10,"Yes")</code></td></tr>
+            <tr><td><code>=IF(condition, true, false)</code></td><td>Returns one value if true, another if false</td><td><code>=IF(C2&gt;50,"Pass","Fail")</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Worked Example -->
+      <div class="section-label">Worked Example — Party Shopping List</div>
+      <div class="card">
+        <div class="card-title t1">Step-by-Step Problem</div>
+        <p style="font-size:13px;margin-bottom:.8rem;">You have a table: <strong>Item | Price per pack | Quantity | Cost | Total Cost</strong></p>
+        <div class="tc-step"><div class="tc-num">1</div><div>In the <strong>Cost</strong> column for the first item (e.g. cell E2), type: <code>=C2*D2</code> (Price × Quantity).</div></div>
+        <div class="tc-step"><div class="tc-num">2</div><div>Use the <strong>Fill Handle</strong> to drag the formula down to E6 to fill in all items automatically.</div></div>
+        <div class="tc-step"><div class="tc-num">3</div><div>In the <strong>Total Cost</strong> cell, type: <code>=SUM(E2:E6)</code> to add up all costs.</div></div>
+        <div class="tc-step"><div class="tc-num">4</div><div>Select the Item column and Cost column, then <strong>Insert → Chart</strong> to visualise the data.</div></div>
+        <div class="tip">💡 <span>The exam may ask you to write the formula for a specific cell. Always use cell references, never typed numbers.</span></div>
+      </div>
+
+      <!-- Formatting & Data Tools -->
+      <div class="section-label">Formatting & Data Tools</div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title t1">Formatting</div>
+          <p style="font-size:13px;">Change fonts, text alignment, borders, and cell fill colour. Apply number formats: <strong>currency</strong>, <strong>percentage</strong>, <strong>date</strong>. Merge cells to create neat headings.</p>
+        </div>
+        <div class="card">
+          <div class="card-title t1">Sorting & Filtering</div>
+          <p style="font-size:13px;"><strong>Sort</strong> data A→Z or 1→9 (or reverse). Do a <strong>multi-level sort</strong>: e.g. sort by class, then by score within each class. <strong>Filter</strong> to show only rows that match a condition.</p>
+        </div>
+        <div class="card">
+          <div class="card-title t1">Conditional Formatting</div>
+          <p style="font-size:13px;">Automatically changes the appearance of a cell based on its value. Example: highlight all scores below 40 in red so low marks stand out instantly.</p>
+        </div>
+      </div>
+
+      <!-- Charts -->
+      <div class="section-label">Choosing the Right Chart</div>
+      <div class="card">
+        <div class="card-title t1">Chart Types</div>
+        <table class="fn-table">
+          <thead><tr><th>Chart Type</th><th>Best used for</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Bar / Column Chart</strong></td><td>Comparing different categories</td><td>Sales by product</td></tr>
+            <tr><td><strong>Pie Chart</strong></td><td>Showing percentages / parts of a whole</td><td>Cost of each party item as % of total</td></tr>
+            <tr><td><strong>Line Graph</strong></td><td>Showing change over time</td><td>Temperature each month</td></tr>
+          </tbody>
+        </table>
+        <div class="warn">⚠️ <span>Always add a <strong>chart title</strong>, <strong>axis labels</strong>, and a <strong>legend</strong>. Marks are lost for missing labels.</span></div>
+      </div>
+
+      <!-- Checklist T1 -->
+      <div class="section-label">Topic 1 Checklist — Tick When You Can Do It</div>
+      <ul class="checklist">
+        <li><span class="check-box"></span> I can identify a cell, row, column, and range by name (e.g. C3, A1:B5).</li>
+        <li><span class="check-box"></span> I can write formulas using <code>+</code> <code>-</code> <code>*</code> <code>/</code> and always start with <code>=</code>.</li>
+        <li><span class="check-box"></span> I understand the difference between relative and absolute cell references.</li>
+        <li><span class="check-box"></span> I can use SUM, AVERAGE, MIN, MAX, COUNT, COUNTA, and COUNTIF.</li>
+        <li><span class="check-box"></span> I can use the Fill Handle to replicate a formula down a column.</li>
+        <li><span class="check-box"></span> I can sort data by one or more columns and filter rows by criteria.</li>
+        <li><span class="check-box"></span> I can create a bar chart, pie chart, and line graph and add proper labels.</li>
+        <li><span class="check-box"></span> I can apply conditional formatting to highlight data automatically.</li>
+        <li><span class="check-box"></span> I understand the difference between data and information.</li>
+      </ul>
+
+      <!-- Review Questions T1 -->
+      <div class="section-label">Review Questions</div>
+      <div class="review-q"><span class="q-num">Q1</span>A cell contains <code>=C2*D2</code>. The price in C2 is 1.50 and quantity in D2 is 3. What value is displayed?</div>
+      <div class="review-q"><span class="q-num">Q2</span>You copy a formula with a relative reference from E2 to E3. What happens to the cell addresses inside the formula?</div>
+      <div class="review-q"><span class="q-num">Q3</span>Which function would you use to count how many students scored "Pass" in a range of results?</div>
+      <div class="review-q"><span class="q-num">Q4</span>A student wants to show how the total cost is split across five items. Which chart type is most appropriate?</div>
+      <div class="review-q"><span class="q-num">Q5</span>What is the difference between sorting and filtering?</div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       TOPIC 2 — SCRATCH PROGRAMMING
+  ══════════════════════════════════════ -->
+  <section class="topic-section" id="t2">
+    <div class="topic-header t2">
+      <div>
+        <div class="topic-num">Topic 2</div>
+        <h2 class="topic-title">Programming Concepts with Scratch</h2>
+      </div>
+    </div>
+    <div class="topic-body">
+
+      <!-- Core concepts -->
+      <div class="section-label">Core Programming Concepts</div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title t2">Sequence</div>
+          <p style="font-size:13px;">The order in which commands are executed. A computer follows instructions exactly as written — one after another, top to bottom.</p>
+          <div class="key-box green" style="margin-top:.6rem;font-size:12px;">Example: <code>say "Hi" → wait 1s → say "Bye"</code></div>
+        </div>
+        <div class="card">
+          <div class="card-title t2">Selection (IF/THEN/ELSE)</div>
+          <p style="font-size:13px;">Allows a program to make decisions. It checks a condition — if <strong>True</strong>, one set of blocks runs; if <strong>False</strong>, the other runs.</p>
+          <div class="key-box green" style="margin-top:.6rem;font-size:12px;">Scratch block: <span class="scratch-block s-control">if &lt;condition&gt; then … else …</span></div>
+        </div>
+        <div class="card">
+          <div class="card-title t2">Decomposition</div>
+          <p style="font-size:13px;">Breaking a complex problem into smaller, manageable subproblems. Each subproblem becomes easier to solve on its own.</p>
+          <div class="key-box green" style="margin-top:.6rem;font-size:12px;">Example: Break "Dance Game" into: move1, move2, move3</div>
+        </div>
+      </div>
+
+      <!-- Variables -->
+      <div class="section-label">Variables</div>
+      <div class="card">
+        <div class="card-title t2">What is a Variable?</div>
+        <p style="font-size:13px;margin-bottom:.7rem;">A <strong>variable</strong> is a named storage location in the computer's memory that holds a piece of data — like a labelled box. The value inside can change as the program runs.</p>
+        <div class="grid-2">
+          <div>
+            <div class="key-box green"><strong>Use variables to:</strong> keep a score, store a player's name, count how many times something happened, track lives remaining.</div>
+          </div>
+          <div>
+            <div class="key-box green">
+              In Scratch: <br>
+              <span class="scratch-block s-variable">set [score] to 0</span><br>
+              <span class="scratch-block s-variable">change [score] by 1</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Subroutines -->
+      <div class="section-label">Subroutines (My Blocks)</div>
+      <div class="card">
+        <div class="card-title t2">Custom Blocks in Scratch</div>
+        <p style="font-size:13px;margin-bottom:.7rem;">A <strong>subroutine</strong> (called a <em>My Block</em> in Scratch) is a named sequence of instructions grouped together to perform a specific task. You <strong>define</strong> it once and <strong>call</strong> it whenever you need it.</p>
+        <div class="grid-2">
+          <div>
+            <div class="key-box green"><strong>Benefits:</strong>
+              <ul style="margin-left:1rem;margin-top:.3rem;font-size:13px;">
+                <li>Avoids repeating the same code</li>
+                <li>Makes code easier to read</li>
+                <li>Easier to find and fix bugs</li>
+                <li>Can accept <strong>parameters</strong> (inputs) so it works with different values</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <div class="key-box green" style="font-size:12px;">
+              <strong>Example:</strong><br>
+              <span class="scratch-block s-myblock">define ask_name</span><br>
+              <span style="font-size:11px;margin-left:.5rem;">→ ask "What is your name?" and wait<br>
+              → set [name] to (answer)</span><br><br>
+              Then call it anywhere: <span class="scratch-block s-myblock">ask_name</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Loops -->
+      <div class="section-label">Loops (Repetition)</div>
+      <div class="card">
+        <div class="card-title t2">Types of Loops in Scratch</div>
+        <table class="fn-table">
+          <thead><tr><th>Loop Block</th><th>What it does</th><th>When to use it</th></tr></thead>
+          <tbody>
+            <tr><td><span class="scratch-block s-control" style="font-size:11px;">repeat (10)</span></td><td>Runs its contents a fixed number of times</td><td>When you know exactly how many repeats you need</td></tr>
+            <tr><td><span class="scratch-block s-control" style="font-size:11px;">forever</span></td><td>Runs its contents non-stop until the program stops</td><td>Main game loop — checking for key presses, collisions</td></tr>
+            <tr><td><span class="scratch-block s-control" style="font-size:11px;">repeat until &lt;condition&gt;</span></td><td>Keeps repeating until the condition becomes True</td><td>When you don't know how many times in advance</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Operators -->
+      <div class="section-label">Operators</div>
+      <div class="card">
+        <div class="card-title t2">Logical Operators — AND / OR</div>
+        <div class="grid-2">
+          <div>
+            <div class="key-box green"><strong>AND</strong> — Both conditions must be True for the result to be True.<br><br>
+              Example: <em>score &gt; 50</em> AND <em>lives &gt; 0</em> → True only if both are correct.</div>
+          </div>
+          <div>
+            <div class="key-box green"><strong>OR</strong> — At least one condition must be True for the result to be True.<br><br>
+              Example: <em>key = "a"</em> OR <em>key = "left arrow"</em> → True if either key is pressed.</div>
+          </div>
+        </div>
+        <div class="tip">💡 <span><strong>NOT</strong> reverses a Boolean: <code>NOT(touching wall?)</code> is True when the sprite is NOT touching a wall.</span></div>
+      </div>
+
+      <!-- Skill Drill Worked Example -->
+      <div class="section-label">Worked Example — Reading Code</div>
+      <div class="card">
+        <div class="card-title t2">Code Analysis: how_are_you Subroutine</div>
+        <p style="font-size:13px;margin-bottom:.7rem;">Study the block sequence below and trace what happens:</p>
+        <div class="key-box green" style="font-size:13px;line-height:1.8;">
+          <span class="scratch-block s-myblock">define how_are_you</span><br>
+          <span class="scratch-block s-sensing">ask "Are you OK?" and wait</span><br>
+          <span class="scratch-block s-variable">set [health] to (answer)</span><br>
+          <span class="scratch-block s-control">if &lt;health = "yes"&gt; then</span><br>
+          &nbsp;&nbsp;&nbsp;<span class="scratch-block s-looks">say "Good, glad to hear it" for 2 secs</span><br>
+          <span class="scratch-block s-control">else</span><br>
+          &nbsp;&nbsp;&nbsp;<span class="scratch-block s-looks">say "Oh no, hope you feel better soon" for 2 secs</span><br>
+          <span class="scratch-block s-looks">say "I have another question" for 2 secs</span>
+        </div>
+        <div class="tip" style="margin-top:.8rem;">✅ <span>If the user types <strong>"yes"</strong>, the sprite says <em>"Good, glad to hear it"</em>. It then always says <em>"I have another question"</em> regardless of the answer, because that block is outside the if/else.</span></div>
+      </div>
+
+      <!-- Checklist T2 -->
+      <div class="section-label">Topic 2 Checklist</div>
+      <ul class="checklist">
+        <li><span class="check-box"></span> I can explain what sequence, selection, and decomposition mean in programming.</li>
+        <li><span class="check-box"></span> I can create a variable, set its starting value, and change it during a program.</li>
+        <li><span class="check-box"></span> I can use IF/THEN/ELSE to make a program respond differently to different inputs.</li>
+        <li><span class="check-box"></span> I can use repeat, forever, and repeat-until loops correctly.</li>
+        <li><span class="check-box"></span> I can create a custom block (subroutine / My Block) and call it in my program.</li>
+        <li><span class="check-box"></span> I can use AND / OR logical operators in conditions.</li>
+        <li><span class="check-box"></span> I can read a block script and predict what it will do step by step.</li>
+        <li><span class="check-box"></span> I can plan a game using the Field Test template: Story, Characters, Variables, Selection, Subroutines.</li>
+        <li><span class="check-box"></span> I can debug a program by checking variable values and tracing through the sequence.</li>
+      </ul>
+
+      <!-- Review Q's T2 -->
+      <div class="section-label">Review Questions</div>
+      <div class="review-q"><span class="q-num">Q1</span>What is decomposition? Give an example from a game you could make in Scratch.</div>
+      <div class="review-q"><span class="q-num">Q2</span>A variable <em>score</em> starts at 0. After the sprite collects 3 coins, each adding 10 points, what is the final value of <em>score</em>?</div>
+      <div class="review-q"><span class="q-num">Q3</span>What is a subroutine? Why is it better to use one instead of copying the same blocks twice?</div>
+      <div class="review-q"><span class="q-num">Q4</span>The logical operator AND returns True only when …?</div>
+      <div class="review-q"><span class="q-num">Q5</span>A program has: <code>if &lt;score &gt; 100&gt; then say "Winner"</code>. The score is 80. What does the sprite say?</div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       TOPIC 3 — TINKERCAD 3D MODELLING
+  ══════════════════════════════════════ -->
+  <section class="topic-section" id="t3">
+    <div class="topic-header t3">
+      <div>
+        <div class="topic-num">Topic 3</div>
+        <h2 class="topic-title">3D Modelling with Tinkercad</h2>
+      </div>
+    </div>
+    <div class="topic-body">
+
+      <!-- The Workbench -->
+      <div class="section-label">The Digital Workbench</div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title t3">Key Interface Elements</div>
+          <div class="key-box amber"><strong>The Workplane</strong> — The blue grid. It is the floor where you build. All shapes should sit on (or above) this surface.</div>
+          <div class="key-box amber"><strong>View Cube</strong> — A cube in the corner of the screen. Click any face to jump to that camera angle (Top, Front, Side).</div>
+          <div class="key-box amber"><strong>Perspective View</strong> — The default 3D view; objects appear to get smaller with distance (realistic).</div>
+          <div class="key-box amber"><strong>Orthographic (Flat) View</strong> — Removes perspective. Use this to check shapes are <em>perfectly</em> touching or aligned.</div>
+        </div>
+        <div class="card">
+          <div class="card-title t3">Why Check Multiple Views?</div>
+          <p style="font-size:13px;margin-bottom:.6rem;">A shape can look correct from the front but be floating above the workplane or misaligned from the side. Always check <strong>Top, Front, and Side</strong> before finishing.</p>
+          <div class="warn">⚠️ <span>Only looking at one view is a common mistake. Shapes can be in the wrong position in 3D and you will not see it unless you rotate the camera.</span></div>
+        </div>
+      </div>
+
+      <!-- Moving & Measuring -->
+      <div class="section-label">Moving, Measuring, and Lifting</div>
+      <div class="card">
+        <div class="card-title t3">Precision Building — Never Guess</div>
+        <table class="fn-table">
+          <thead><tr><th>Action</th><th>How to do it</th><th>Why it matters</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Set exact dimensions</strong></td><td>Click the white corner boxes that appear when a shape is selected. Type the width, length, and height in mm.</td><td>Ensures your model is the correct size, not just "looks about right".</td></tr>
+            <tr><td><strong>Lift a shape (Z-axis)</strong></td><td>Click and drag the small <strong>black cone</strong> above the shape upward.</td><td>Raises the shape off the workplane so it can sit on top of another shape.</td></tr>
+            <tr><td><strong>Rotate precisely</strong></td><td>Use the curved arrows around the shape. Hold <strong>Shift</strong> while rotating to snap to exactly 45° increments.</td><td>Keeps angles accurate; avoids shapes at odd, unintentional angles.</td></tr>
+            <tr><td><strong>Overlapping shapes</strong></td><td>3D shapes can be placed inside or on top of each other — this is how holes and joins are made.</td><td>Foundation of all carving and combining techniques.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Making Holes -->
+      <div class="section-label">Advanced Techniques</div>
+      <div class="card">
+        <div class="card-title t3">Making Holes — Grouping Solids and Holes</div>
+        <div class="tc-step"><div class="tc-num">1</div><div>Place a <strong>smaller shape</strong> inside a bigger solid shape where you want the hole to be.</div></div>
+        <div class="tc-step"><div class="tc-num">2</div><div>Select the smaller shape and click <strong>Hole</strong> in the Inspector panel. It turns grey/transparent to show it is now a hole cutter.</div></div>
+        <div class="tc-step"><div class="tc-num">3</div><div>Select <strong>both</strong> the solid shape and the hole shape together (Shift+click or drag to select).</div></div>
+        <div class="tc-step"><div class="tc-num">4</div><div>Press <strong>Ctrl+G</strong> (or click Group). The hole shape carves out the solid, creating a hollow space.</div></div>
+        <div class="tip">💡 <span>The hole shape must overlap/be inside the solid to cut it. If it's outside, nothing is carved.</span></div>
+      </div>
+
+      <!-- Other tools -->
+      <div class="grid-2" style="margin-top:1rem;">
+        <div class="card">
+          <div class="card-title t3">Duplicate — Ctrl+D</div>
+          <p style="font-size:13px;">Copies the selected shape. It remembers the last direction and distance you moved the copy. This makes building <strong>stairs, fences, or repeating patterns</strong> very fast — just keep pressing Ctrl+D.</p>
+        </div>
+        <div class="card">
+          <div class="card-title t3">Scribble Tool</div>
+          <p style="font-size:13px;">Lets you <strong>draw a custom 2D outline</strong> that Tinkercad then extrudes into a 3D shape. Use it when none of the standard shapes (boxes, cylinders, spheres) match what you need.</p>
+        </div>
+      </div>
+
+      <!-- Master's Check -->
+      <div class="section-label">The Master's Check — Before You Submit</div>
+      <div class="card">
+        <div class="card-title t3">Ask Yourself These Four Questions</div>
+        <div class="key-box amber">✅ Did I check the <strong>Top, Front, and Side</strong> views to confirm nothing is floating or misaligned?</div>
+        <div class="key-box amber">✅ Did I type <strong>exact measurements</strong> (mm) instead of dragging and guessing?</div>
+        <div class="key-box amber">✅ Are my shapes in the correct <strong>proportion</strong> compared to each other?</div>
+        <div class="key-box amber">✅ Did I <strong>Group</strong> all my shapes into one final object at the end?</div>
+      </div>
+
+      <!-- Checklist T3 -->
+      <div class="section-label">Topic 3 Checklist</div>
+      <ul class="checklist">
+        <li><span class="check-box"></span> I can identify the Workplane, View Cube, and the difference between Perspective and Orthographic view.</li>
+        <li><span class="check-box"></span> I can set exact dimensions by typing numbers into the white corner boxes (in mm).</li>
+        <li><span class="check-box"></span> I can lift a shape off the workplane using the black cone.</li>
+        <li><span class="check-box"></span> I can rotate a shape and hold Shift to snap to 45° increments.</li>
+        <li><span class="check-box"></span> I can create a hole by grouping a solid shape with a hole shape (Ctrl+G).</li>
+        <li><span class="check-box"></span> I can use Ctrl+D to duplicate and repeat shapes efficiently.</li>
+        <li><span class="check-box"></span> I can use the Scribble tool to create custom 2D/3D shapes.</li>
+        <li><span class="check-box"></span> I always check Top, Front, and Side views before finishing a model.</li>
+        <li><span class="check-box"></span> I group all shapes at the end to create one final object.</li>
+      </ul>
+
+      <!-- Review Q's T3 -->
+      <div class="section-label">Review Questions</div>
+      <div class="review-q"><span class="q-num">Q1</span>What does the black cone above a shape do in Tinkercad?</div>
+      <div class="review-q"><span class="q-num">Q2</span>How do you make a wall that is exactly 50 mm long?</div>
+      <div class="review-q"><span class="q-num">Q3</span>What happens when you Group a Solid shape and a Hole shape together?</div>
+      <div class="review-q"><span class="q-num">Q4</span>Why is it dangerous to only look at the Front view of your Tinkercad model?</div>
+      <div class="review-q"><span class="q-num">Q5</span>You need to build a fence with 8 identical posts. What is the fastest way to do this?</div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       TOPIC 4 — COMPUTER SYSTEMS & AI
+  ══════════════════════════════════════ -->
+  <section class="topic-section" id="t4">
+    <div class="topic-header t4">
+      <div>
+        <div class="topic-num">Topic 4</div>
+        <h2 class="topic-title">Computer Systems & AI (Data Science)</h2>
+      </div>
+    </div>
+    <div class="topic-body">
+
+      <!-- Hardware & Software -->
+      <div class="section-label">Computer Systems Fundamentals</div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title t4">Hardware vs. Software</div>
+          <div class="key-box purple"><strong>Hardware</strong> — The physical parts of a computer you can touch: CPU, RAM, hard drive, screen, keyboard, mouse, GPU.</div>
+          <div class="key-box purple"><strong>Software</strong> — Programs and data that run on the hardware: operating systems (Windows, macOS), apps, games.</div>
+          <div class="key-box purple"><strong>Firmware</strong> — Software permanently stored in hardware (e.g. the BIOS chip that starts a computer).</div>
+        </div>
+        <div class="card">
+          <div class="card-title t4">The CPU — Brain of the Computer</div>
+          <div class="key-box purple"><strong>CPU (Central Processing Unit)</strong> — Carries out all instructions. Speed is measured in GHz (gigahertz).</div>
+          <div class="key-box purple"><strong>RAM (Random Access Memory)</strong> — Temporary working memory. Holds data and programs currently in use. Lost when the computer is turned off.</div>
+          <div class="key-box purple"><strong>Storage (HDD / SSD)</strong> — Permanent storage. Keeps files even when powered off. SSD (Solid State Drive) is faster than HDD.</div>
+        </div>
+      </div>
+
+      <!-- Input Output Storage -->
+      <div class="section-label">Input, Process, Output — The IPO Model</div>
+      <div class="card">
+        <div class="card-title t4">How Computers Process Data</div>
+        <div class="grid-3">
+          <div class="key-box purple" style="text-align:center;">
+            <div style="font-size:1.5rem;margin-bottom:.3rem;">⌨️</div>
+            <strong>Input</strong><br>
+            <span style="font-size:12px;">Data enters the system.<br>Keyboard, mouse, microphone, scanner, sensors.</span>
+          </div>
+          <div class="key-box purple" style="text-align:center;">
+            <div style="font-size:1.5rem;margin-bottom:.3rem;">⚙️</div>
+            <strong>Process</strong><br>
+            <span style="font-size:12px;">CPU performs calculations and applies instructions to the data.</span>
+          </div>
+          <div class="key-box purple" style="text-align:center;">
+            <div style="font-size:1.5rem;margin-bottom:.3rem;">🖥️</div>
+            <strong>Output</strong><br>
+            <span style="font-size:12px;">Result is produced.<br>Screen, printer, speaker, actuator.</span>
+          </div>
+        </div>
+        <div class="key-box purple" style="margin-top:.6rem;"><strong>Storage</strong> is sometimes added as a fourth stage — data can be saved and retrieved during any part of the process.</div>
+      </div>
+
+      <!-- Networks -->
+      <div class="section-label">Networks & the Internet</div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title t4">Network Types</div>
+          <div class="key-box purple"><strong>LAN (Local Area Network)</strong> — Connects devices in a small area like a school or home.</div>
+          <div class="key-box purple"><strong>WAN (Wide Area Network)</strong> — Connects devices across large distances. The Internet is the world's largest WAN.</div>
+          <div class="key-box purple"><strong>Router</strong> — Directs data packets between networks. Your home router connects your devices to the Internet.</div>
+        </div>
+        <div class="card">
+          <div class="card-title t4">Key Internet Concepts</div>
+          <div class="key-box purple"><strong>IP Address</strong> — A unique number identifying each device on a network (like a postal address).</div>
+          <div class="key-box purple"><strong>DNS</strong> — Translates human-readable website names (google.com) into IP addresses.</div>
+          <div class="key-box purple"><strong>HTTP / HTTPS</strong> — Protocols for sending web pages. HTTPS is encrypted and secure.</div>
+        </div>
+      </div>
+
+      <!-- Data Science & AI -->
+      <div class="section-label">Data Science & Artificial Intelligence</div>
+      <div class="card">
+        <div class="card-title t4">What is Data Science?</div>
+        <p style="font-size:13px;margin-bottom:.8rem;">Data Science is the process of collecting, cleaning, analysing, and visualising large sets of data to find patterns and make decisions. It combines maths, statistics, and computing.</p>
+        <div class="grid-3">
+          <div class="key-box purple"><strong>Collect</strong> — Gather raw data from sensors, surveys, databases, or the web.</div>
+          <div class="key-box purple"><strong>Clean</strong> — Remove errors, duplicates, and missing values so the data is accurate.</div>
+          <div class="key-box purple"><strong>Analyse</strong> — Use statistics and tools (like spreadsheets) to find patterns and trends.</div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:1rem;">
+        <div class="card-title t4">Artificial Intelligence (AI) Concepts</div>
+        <div class="ai-card">
+          <div class="ai-card-head">Machine Learning</div>
+          <div class="ai-card-body">AI learns patterns from large amounts of <strong>training data</strong> without being explicitly programmed. The more data it sees, the better it gets. Example: a spam filter learns to recognise spam emails from thousands of examples.</div>
+        </div>
+        <div class="ai-card">
+          <div class="ai-card-head">Training Data</div>
+          <div class="ai-card-body">The dataset used to teach an AI model. If the training data is biased or incomplete, the AI's decisions will also be biased — this is called <strong>algorithmic bias</strong>.</div>
+        </div>
+        <div class="ai-card">
+          <div class="ai-card-head">Classification</div>
+          <div class="ai-card-body">An AI task that assigns labels to data. Example: sorting images into "cat" or "dog". The AI looks at features (colour, shape, size) to decide.</div>
+        </div>
+        <div class="ai-card">
+          <div class="ai-card-head">Pattern Recognition</div>
+          <div class="ai-card-body">AI identifying repeating patterns in data. Used in face recognition, recommendation systems ("people who watched X also watched Y"), and medical diagnosis.</div>
+        </div>
+      </div>
+
+      <!-- Ethics -->
+      <div class="section-label">Ethics & Responsible Use of Data</div>
+      <div class="card">
+        <div class="card-title t4">Key Ethical Issues</div>
+        <div class="key-box purple"><strong>Privacy</strong> — Personal data should only be collected with consent and stored securely.</div>
+        <div class="key-box purple"><strong>Bias</strong> — AI trained on biased data makes unfair decisions. Diverse, representative data reduces bias.</div>
+        <div class="key-box purple"><strong>Transparency</strong> — People should be able to understand how AI decisions that affect them are made.</div>
+        <div class="key-box purple"><strong>Security</strong> — Data must be protected from unauthorised access using passwords, encryption, and access controls.</div>
+        <div class="tip">💡 <span>A key question for any AI system: <em>Who collected the data? Who does it represent? What decisions is it being used to make?</em></span></div>
+      </div>
+
+      <!-- Binary & Representation -->
+      <div class="section-label">Data Representation</div>
+      <div class="card">
+        <div class="card-title t4">How Computers Store Data</div>
+        <div class="grid-2">
+          <div>
+            <div class="key-box purple"><strong>Binary</strong> — Computers store all data as 1s and 0s (bits). A <strong>bit</strong> is the smallest unit of data.</div>
+            <div class="key-box purple"><strong>Byte</strong> — 8 bits = 1 byte. A single character (like "A") is stored in one byte.</div>
+            <div class="key-box purple"><strong>Kilobyte (KB)</strong> — 1,024 bytes. A short text message.<br><strong>Megabyte (MB)</strong> — ~1 million bytes. A photo.<br><strong>Gigabyte (GB)</strong> — ~1 billion bytes. A film.</div>
+          </div>
+          <div>
+            <table class="fn-table">
+              <thead><tr><th>Decimal</th><th>Binary</th></tr></thead>
+              <tbody>
+                <tr><td>0</td><td>0000</td></tr>
+                <tr><td>1</td><td>0001</td></tr>
+                <tr><td>2</td><td>0010</td></tr>
+                <tr><td>3</td><td>0011</td></tr>
+                <tr><td>4</td><td>0100</td></tr>
+                <tr><td>5</td><td>0101</td></tr>
+                <tr><td>10</td><td>1010</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Checklist T4 -->
+      <div class="section-label">Topic 4 Checklist</div>
+      <ul class="checklist">
+        <li><span class="check-box"></span> I can explain the difference between hardware and software, and give examples of each.</li>
+        <li><span class="check-box"></span> I can describe the roles of the CPU, RAM, and storage in a computer.</li>
+        <li><span class="check-box"></span> I understand the Input → Process → Output (IPO) model and can give examples.</li>
+        <li><span class="check-box"></span> I can explain the difference between a LAN and a WAN.</li>
+        <li><span class="check-box"></span> I understand what an IP address and DNS are used for.</li>
+        <li><span class="check-box"></span> I can explain what data science is and describe the collect → clean → analyse cycle.</li>
+        <li><span class="check-box"></span> I can explain what machine learning is and why training data matters.</li>
+        <li><span class="check-box"></span> I can describe what algorithmic bias is and how it can be reduced.</li>
+        <li><span class="check-box"></span> I understand that computers store all data in binary (1s and 0s).</li>
+        <li><span class="check-box"></span> I can identify ethical concerns about data: privacy, bias, transparency, and security.</li>
+      </ul>
+
+      <!-- Review Q's T4 -->
+      <div class="section-label">Review Questions</div>
+      <div class="review-q"><span class="q-num">Q1</span>What is the difference between RAM and a hard drive / SSD?</div>
+      <div class="review-q"><span class="q-num">Q2</span>Describe the IPO model and give a real-world example for each stage.</div>
+      <div class="review-q"><span class="q-num">Q3</span>An AI is trained only on data from one country. What problem might this cause when used globally?</div>
+      <div class="review-q"><span class="q-num">Q4</span>What is the binary representation of the number 5?</div>
+      <div class="review-q"><span class="q-num">Q5</span>Why is HTTPS safer than HTTP?</div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       QUICK REFERENCE CHEAT SHEET
+  ══════════════════════════════════════ -->
+  <section class="topic-section" id="cheatsheet">
+    <div class="topic-header" style="background: var(--navy);">
+      <div>
+        <div class="topic-num" style="color:var(--cyan);">Quick Reference</div>
+        <h2 class="topic-title">Formula & Concept Cheat Sheet</h2>
+      </div>
+    </div>
+    <div class="topic-body">
+      <div class="grid-2">
+        <!-- Formulas -->
+        <div class="card">
+          <div class="card-title t1">Essential Spreadsheet Formulas</div>
+          <table class="fn-table">
+            <tbody>
+              <tr><td><code>=SUM(A1:A10)</code></td><td>Total of range</td></tr>
+              <tr><td><code>=AVERAGE(A1:A10)</code></td><td>Mean of range</td></tr>
+              <tr><td><code>=MIN(A1:A10)</code></td><td>Smallest value</td></tr>
+              <tr><td><code>=MAX(A1:A10)</code></td><td>Largest value</td></tr>
+              <tr><td><code>=COUNTIF(range,"Yes")</code></td><td>Count matching cells</td></tr>
+              <tr><td><code>=IF(A1&gt;50,"Pass","Fail")</code></td><td>Conditional result</td></tr>
+              <tr><td><code>=C2*D2</code></td><td>Multiply two cells</td></tr>
+              <tr><td><code>=$A$1</code></td><td>Absolute reference</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- Scratch -->
+        <div class="card">
+          <div class="card-title t2">Key Scratch Concepts</div>
+          <table class="fn-table">
+            <tbody>
+              <tr><td>Variable</td><td>Stores data (score, name, lives)</td></tr>
+              <tr><td>IF/THEN/ELSE</td><td>Decision / selection</td></tr>
+              <tr><td>My Block (define)</td><td>Subroutine / custom block</td></tr>
+              <tr><td>repeat (n)</td><td>Fixed loop</td></tr>
+              <tr><td>forever</td><td>Infinite loop</td></tr>
+              <tr><td>AND / OR</td><td>Logical operators</td></tr>
+              <tr><td>Decomposition</td><td>Break problem into small steps</td></tr>
+              <tr><td>Sequence</td><td>Order of instructions</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- Tinkercad -->
+        <div class="card">
+          <div class="card-title t3">Tinkercad Key Actions</div>
+          <table class="fn-table">
+            <tbody>
+              <tr><td>Black cone</td><td>Lift shape (Z-axis)</td></tr>
+              <tr><td>White corner boxes</td><td>Type exact dimensions (mm)</td></tr>
+              <tr><td>Shift + rotate</td><td>Snap to 45° angles</td></tr>
+              <tr><td>Hole button → Ctrl+G</td><td>Carve/cut a shape</td></tr>
+              <tr><td>Ctrl+D</td><td>Duplicate shape</td></tr>
+              <tr><td>View Cube</td><td>Check Top/Front/Side</td></tr>
+              <tr><td>Orthographic</td><td>Flat view for precise alignment</td></tr>
+              <tr><td>Scribble tool</td><td>Draw custom shape</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- CS & AI -->
+        <div class="card">
+          <div class="card-title t4">Computer Systems & AI Terms</div>
+          <table class="fn-table">
+            <tbody>
+              <tr><td>CPU</td><td>Processes all instructions</td></tr>
+              <tr><td>RAM</td><td>Temporary working memory</td></tr>
+              <tr><td>SSD/HDD</td><td>Permanent file storage</td></tr>
+              <tr><td>LAN / WAN</td><td>Local / Wide area network</td></tr>
+              <tr><td>IP Address</td><td>Unique device identifier</td></tr>
+              <tr><td>Binary</td><td>1s and 0s — how data is stored</td></tr>
+              <tr><td>Machine Learning</td><td>AI learns from training data</td></tr>
+              <tr><td>Algorithmic Bias</td><td>Unfair AI from biased data</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Grade 7 ICT Study Guide · Mr Joshua · WZFS · 2026</p>
+    <p style="margin-top:.3rem;">Resource hub: <a href="https://grade7-hub.vercel.app/" target="_blank">grade7-hub.vercel.app</a></p>
+  </footer>
+
+</div><!-- end page-wrap -->
+
+</body>
+</html>
