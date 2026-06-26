@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Computing Hub - Primary School | WZFS</title>
+    <title>Primary ICT | WZFS</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -14,7 +14,7 @@
             overflow-x: hidden;
             user-select: none;
         }
-        h1, h2, h3, h4, h5, .serif-heading {
+        h1, h2, h3, h4, .serif-heading {
             font-family: 'Georgia', serif;
         }
         .chalk-border {
@@ -56,68 +56,416 @@
         }
     </style>
 </head>
-<body class="h-screen w-screen flex flex-col justify-center items-center p-4">
-
-    <!-- Top Navigation - Back to Home -->
-    <div class="absolute top-6 left-6 z-50">
-        <a href="index.html" 
-           class="bg-slate-800 hover:bg-slate-700 text-amber-400 hover:text-amber-300 px-5 py-2.5 rounded-lg text-sm font-bold border border-slate-600 transition-all flex items-center gap-2 shadow-md">
-            ← Back to ICT Department Portal
-        </a>
-    </div>
+<body class="min-h-screen w-screen flex flex-col justify-center items-center p-4 relative">
 
     <!-- HOME VIEW (DASHBOARD) -->
-    <div id="home-view" class="w-full max-w-5xl chalk-border rounded-xl p-12 flex flex-col items-center text-center">
-        <!-- Logo Placement -->
-        <img src="Logo - Copy.png" alt="WZFS Logo" class="h-28 mb-6 object-contain" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzY0NzQ4YiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwb2x5Z29uIHBvaW50cz0iMTIgMiAyIDIyIDIyIDIyIi8+PC9zdmc+'; this.classList.add('opacity-50');">
+    <div id="home-view" class="w-full max-w-5xl chalk-border rounded-xl p-10 md:p-12 flex flex-col items-center text-center relative mt-12 md:mt-0">
         
-        <h1 class="text-4xl md:text-6xl font-bold text-white tracking-tight serif-heading mb-4">Primary Computing - ICT </h1>
-        <h2 class="text-2xl text-slate-300 font-semibold mb-2">Mr Joshua (ICT Subject Coordinator)</h2>
-        <h3 class="text-xl text-slate-400 font-medium mb-8">WZFS - SPRING 2026</h3>
-        
-        <!-- Link to the Detailed Revision Portal -->
-        <div class="w-full max-w-3xl bg-slate-800 border-2 border-emerald-600 rounded-lg p-6 mb-8 shadow-lg">
-            <h4 class="text-2xl font-bold text-white mb-2">Final Exams Preperation</h4>
-            <p class="text-slate-300 mb-6">Click below to access the detailed study guides required to revise for your assessments.</p>
-            <a href="revision_portal.html" class="inline-block bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xl py-3 px-8 rounded transition-colors shadow">
-                Open Detailed Revision Section ➔
+        <!-- Back to Main ICT Portal Link -->
+        <div class="absolute top-6 left-6">
+            <a href="index.html" class="bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white px-5 py-2.5 rounded-lg text-sm font-bold border border-slate-600 transition-colors shadow flex items-center no-underline">
+                ← Back to ICT Portal
             </a>
         </div>
 
-        <div class="w-full max-w-3xl border-t border-slate-600 pt-8 mt-2">
-            <p class="text-xl text-slate-200 font-semibold">
-                Classroom Basics (Interactive Slides)
-            </p>
+        <!-- Logo -->
+        <img src="Logo - Copy.png" alt="WZFS Logo" class="h-28 mb-6 object-contain mt-10 md:mt-0" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzY0NzQ4YiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwb2x5Z29uIHBvaW50cz0iMTIgMiAyIDIyIDIyIDIyIi8+PC9zdmc+'; this.classList.add('opacity-50');">
+        
+        <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight serif-heading mb-4">Primary Computing Hub</h1>
+        <h2 class="text-2xl text-slate-300 font-semibold mb-2">Mr Joshua (ICT Subject Coordinator)</h2>
+        <h3 class="text-xl text-slate-400 font-medium mb-10">WZFS 2026</h3>
+        
+        <!-- Link to Detailed Revision Portal -->
+        <div class="w-full max-w-3xl bg-slate-800 border-l-4 border-emerald-500 rounded-lg p-8 mb-10 shadow-lg text-left">
+            <h4 class="text-2xl font-bold text-white mb-3">Assessment Revision Portal</h4>
+            <p class="text-lg text-slate-300 mb-6">Access the detailed study guides required to revise for your Progressive Tests and Final Exams.</p>
+            <a href="revision_portal.html" class="inline-block bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xl py-3 px-8 rounded-lg transition-colors shadow-md no-underline">
+                Open Revision Portal ➔
+            </a>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl mt-6">
-            <button onclick="openGrade('g3')" class="bg-slate-800 hover:bg-slate-700 text-blue-400 p-6 rounded-lg font-bold text-xl shadow transition-colors border border-slate-600 hover:border-blue-400">
-                Grade 3 Slides
-            </button>
-            <button onclick="openGrade('g4')" class="bg-slate-800 hover:bg-slate-700 text-green-400 p-6 rounded-lg font-bold text-xl shadow transition-colors border border-slate-600 hover:border-green-400">
-                Grade 4 Slides
-            </button>
-            <button onclick="openGrade('g5')" class="bg-slate-800 hover:bg-slate-700 text-purple-400 p-6 rounded-lg font-bold text-xl shadow transition-colors border border-slate-600 hover:border-purple-400">
-                Grade 5 Slides
-            </button>
+        <!-- Links to In-Page Classroom Slides -->
+        <div class="w-full max-w-3xl border-t border-slate-600 pt-8 mt-2">
+            <h4 class="text-xl text-white font-bold mb-6">Classroom Basics (Interactive Slides)</h4>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <button onclick="openGrade('g3')" class="bg-slate-800 hover:bg-slate-700 text-blue-400 py-6 px-4 rounded-lg font-bold text-xl shadow transition-colors border border-slate-600 hover:border-blue-400">
+                    Grade 3 Slides
+                </button>
+                <button onclick="openGrade('g4')" class="bg-slate-800 hover:bg-slate-700 text-green-400 py-6 px-4 rounded-lg font-bold text-xl shadow transition-colors border border-slate-600 hover:border-green-400">
+                    Grade 4 Slides
+                </button>
+                <button onclick="openGrade('g5')" class="bg-slate-800 hover:bg-slate-700 text-purple-400 py-6 px-4 rounded-lg font-bold text-xl shadow transition-colors border border-slate-600 hover:border-purple-400">
+                    Grade 5 Slides
+                </button>
+            </div>
         </div>
     </div>
 
-    <!-- PRESENTATION VIEW (SLIDES) - Full original content restored -->
-    <div id="presentation-view" class="hidden relative w-full max-w-6xl h-[88vh] chalk-border rounded-xl p-10 flex-col justify-between shadow-2xl overflow-hidden">
+    <!-- PRESENTATION VIEW (SLIDES) -->
+    <div id="presentation-view" class="hidden relative w-full max-w-7xl h-[90vh] chalk-border rounded-xl p-10 flex-col justify-between shadow-2xl overflow-hidden">
         
         <div class="absolute top-6 left-6 z-50">
-            <button onclick="goHome()" class="bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded text-sm font-bold border border-slate-600 transition-colors">← Back to Hub</button>
+            <button onclick="goHome()" class="bg-slate-800 hover:bg-slate-700 text-white px-5 py-2.5 rounded-lg text-sm font-bold border border-slate-600 transition-colors shadow flex items-center">
+                ← Back to Hub
+            </button>
         </div>
 
-        <!-- All your original slides (Grade 3, 4, 5) are fully restored here -->
-        <!-- G3, G4, G5 slides content (same as your original file) -->
+        <!-- ========================================== -->
+        <!-- ================ GRADE 3 ================= -->
+        <!-- ========================================== -->
+        
+        <div class="slide g3 flex-col items-center justify-center h-full text-center">
+            <span class="bg-blue-600 text-white px-8 py-3 rounded-full font-bold text-2xl uppercase tracking-widest shadow-lg">Grade 3</span>
+            <h1 class="text-5xl md:text-6xl font-bold text-white mt-8 serif-heading text-blue-400">Digital Foundations</h1>
+            <div class="w-24 h-2 bg-blue-500 my-6 mx-auto rounded"></div>
+            <h2 class="text-2xl text-slate-300 font-bold mb-8">Classroom Basics</h2>
+            <div class="bg-slate-800 p-6 rounded-xl border border-slate-600 max-w-2xl text-left">
+                <p class="text-lg text-slate-200">
+                    <strong>Instructions:</strong> Read the definitions carefully. Revise the vocabulary words highlighted in blue.
+                </p>
+            </div>
+        </div>
+
+        <div class="slide g3 flex-col md:flex-row items-center justify-between h-full w-full">
+            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center space-y-6">
+                <h2 class="text-4xl font-bold text-blue-400 border-b-2 border-slate-600 pb-4 serif-heading">ScratchJr: Sequence</h2>
+                <div>
+                    <span class="vocab-word vocab-g3">Sequence:</span>
+                    <p class="text-slate-300 text-xl mt-2">Arranging code blocks in the correct order. The computer reads the sequence from left to right.</p>
+                </div>
+                <div>
+                    <span class="vocab-word vocab-g3">Event / Trigger:</span>
+                    <p class="text-slate-300 text-xl mt-2">The action that starts the code sequence. Examples include tapping the Green Flag or tapping a character.</p>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 svg-container flex-col">
+                <svg viewBox="0 0 350 150" class="w-full h-auto">
+                    <rect x="20" y="50" width="50" height="50" fill="#facc15" rx="4"/>
+                    <polygon points="35,65 55,75 35,85" fill="#22c55e"/> 
+                    <rect x="70" y="50" width="50" height="50" fill="#3b82f6" rx="4"/>
+                    <path d="M85,75 L105,75 M95,65 L105,75 L95,85" stroke="#fff" stroke-width="3" fill="none"/>
+                    <rect x="120" y="50" width="50" height="50" fill="#3b82f6" rx="4"/>
+                    <path d="M145,85 L145,65 M135,75 L145,65 L155,75" stroke="#fff" stroke-width="3" fill="none"/>
+                    <path d="M20,120 L220,120" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4"/>
+                    <polygon points="220,115 230,120 220,125" fill="#94a3b8"/>
+                    <text x="120" y="140" fill="#94a3b8" font-size="14" font-weight="bold" text-anchor="middle">Read Left to Right</text>
+                </svg>
+            </div>
+        </div>
+
+        <div class="slide g3 flex-col md:flex-row items-center justify-between h-full w-full">
+            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center space-y-6">
+                <h2 class="text-4xl font-bold text-blue-400 border-b-2 border-slate-600 pb-4 serif-heading">ScratchJr: Efficiency</h2>
+                <div>
+                    <span class="vocab-word vocab-g3">Loop:</span>
+                    <p class="text-slate-300 text-xl mt-2">A block used to repeat a sequence of actions automatically. This makes code shorter and more efficient.</p>
+                </div>
+                <div>
+                    <span class="vocab-word vocab-g3">Number Parameter:</span>
+                    <p class="text-slate-300 text-xl mt-2">The number written on a block. It specifies how many times to loop or how far to move.</p>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 svg-container flex-col">
+                <svg viewBox="0 0 250 150" class="w-full h-auto">
+                    <rect x="50" y="40" width="150" height="70" fill="#f97316" rx="4"/>
+                    <rect x="70" y="55" width="50" height="40" fill="#3b82f6" rx="2"/>
+                    <path d="M85,85 L85,65 M75,75 L85,65 L95,75" stroke="#fff" stroke-width="3" fill="none"/> 
+                    <path d="M140,75 A15,15 0 1,1 170,75 A15,15 0 1,1 140,75" fill="none" stroke="#fff" stroke-width="4" stroke-dasharray="4"/>
+                    <polygon points="165,65 175,75 155,75" fill="#fff"/>
+                    <text x="180" y="100" fill="#fff" font-size="20" font-weight="bold">5</text>
+                </svg>
+            </div>
+        </div>
+
+        <div class="slide g3 flex-col md:flex-row items-center justify-between h-full w-full">
+            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center space-y-6">
+                <h2 class="text-4xl font-bold text-blue-400 border-b-2 border-slate-600 pb-4 serif-heading">Makers Empire: 3D Basics</h2>
+                <div>
+                    <span class="vocab-word vocab-g3">3D Shape:</span>
+                    <p class="text-slate-300 text-xl mt-2">A solid object. It has Width, Height, and Depth.</p>
+                </div>
+                <div>
+                    <span class="vocab-word vocab-g3">Workplane:</span>
+                    <p class="text-slate-300 text-xl mt-2">The flat grid area on the screen where you place and build 3D models.</p>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 svg-container relative">
+                <svg viewBox="0 0 350 250" class="w-full h-auto">
+                    <path d="M50,200 L300,200 L230,120 L80,120 Z" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
+                    <text x="260" y="190" fill="#64748b" font-size="14" font-weight="bold">Workplane</text>
+                    <polygon points="140,160 190,140 190,90 140,110" fill="#3b82f6" stroke="#fff" stroke-width="1"/>
+                    <polygon points="90,140 140,160 140,110 90,90" fill="#60a5fa" stroke="#fff" stroke-width="1"/>
+                    <polygon points="140,40 190,90 140,110 90,90" fill="#93c5fd" stroke="#fff" stroke-width="1"/>
+                    <line x1="75" y1="90" x2="75" y2="140" stroke="#facc15" stroke-width="2"/>
+                    <text x="65" y="120" fill="#facc15" font-size="14" transform="rotate(-90 65,120)">Height</text>
+                    <line x1="90" y1="150" x2="140" y2="170" stroke="#facc15" stroke-width="2"/>
+                    <text x="115" y="185" fill="#facc15" font-size="14">Width</text>
+                    <line x1="150" y1="165" x2="200" y2="145" stroke="#facc15" stroke-width="2"/>
+                    <text x="180" y="170" fill="#facc15" font-size="14">Depth</text>
+                </svg>
+            </div>
+        </div>
+
+        <div class="slide g3 flex-col md:flex-row items-center justify-between h-full w-full">
+            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center space-y-6">
+                <h2 class="text-4xl font-bold text-blue-400 border-b-2 border-slate-600 pb-4 serif-heading">Makers Empire: Tools</h2>
+                <ul class="text-xl space-y-6 list-none mt-2 text-slate-300">
+                    <li><span class="vocab-word vocab-g3">Move:</span> Sliding an object up, down, left, or right on the workplane.</li>
+                    <li><span class="vocab-word vocab-g3">Resize:</span> Modifying the object to make it larger or smaller.</li>
+                    <li><span class="vocab-word vocab-g3">Rotate:</span> Turning an object around to view or attach different sides.</li>
+                </ul>
+            </div>
+            <div class="w-full md:w-1/2 svg-container">
+                <svg viewBox="0 0 350 250" class="w-full h-auto">
+                    <rect x="135" y="85" width="80" height="80" fill="#60a5fa" rx="2"/>
+                    <path d="M175,40 L175,75 M165,50 L175,40 L185,50" stroke="#facc15" stroke-width="3" fill="none"/>
+                    <path d="M175,210 L175,175 M165,200 L175,210 L185,200" stroke="#facc15" stroke-width="3" fill="none"/>
+                    <path d="M40,125 L75,125 M50,115 L40,125 L50,135" stroke="#facc15" stroke-width="3" fill="none"/>
+                    <path d="M310,125 L275,125 M300,115 L310,125 L300,135" stroke="#facc15" stroke-width="3" fill="none"/>
+                    <path d="M80,70 A100,100 0 0,1 270,70" fill="none" stroke="#ef4444" stroke-width="3" stroke-dasharray="6"/>
+                    <polygon points="270,55 285,75 255,75" fill="#ef4444"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- ================ GRADE 4 ================= -->
+        <!-- ========================================== -->
+        
+        <div class="slide g4 flex-col items-center justify-center h-full text-center">
+            <span class="bg-green-600 text-white px-8 py-3 rounded-full font-bold text-2xl uppercase tracking-widest shadow-lg">Grade 4</span>
+            <h1 class="text-5xl md:text-6xl font-bold text-white mt-8 serif-heading text-green-400">Animation & Logic</h1>
+            <div class="w-24 h-2 bg-green-500 my-6 mx-auto rounded"></div>
+            <h2 class="text-2xl text-slate-300 font-bold mb-8">Classroom Basics</h2>
+            <div class="bg-slate-800 p-6 rounded-xl border border-slate-600 max-w-2xl text-left">
+                <p class="text-lg text-slate-200">
+                    <strong>Instructions:</strong> Read the definitions carefully. Revise the vocabulary words highlighted in green.
+                </p>
+            </div>
+        </div>
+
+        <div class="slide g4 flex-col md:flex-row items-center justify-between h-full w-full">
+            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center space-y-6">
+                <h2 class="text-4xl font-bold text-green-400 border-b-2 border-slate-600 pb-4 serif-heading">ScratchJr: Program Logic</h2>
+                <div>
+                    <span class="vocab-word vocab-g4">Sequence:</span>
+                    <p class="text-slate-300 text-xl mt-2">A precise list of instructions. If an instruction is incorrect or out of order, it is called a <b>Bug</b>.</p>
+                </div>
+                <div>
+                    <span class="vocab-word vocab-g4">Loop:</span>
+                    <p class="text-slate-300 text-xl mt-2">A block that repeats instructions. You must define the exact number of repetitions required to reach the objective.</p>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 svg-container flex-col">
+                <svg viewBox="0 0 350 200" class="w-full h-auto">
+                    <rect x="20" y="130" width="50" height="40" fill="#facc15" rx="4"/>
+                    <rect x="75" y="120" width="110" height="60" fill="#f97316" rx="4"/> 
+                    <rect x="95" y="130" width="50" height="40" fill="#3b82f6" rx="4"/> 
+                    <text x="165" y="165" fill="#fff" font-weight="bold" font-size="18">x3</text>
+                    <path d="M210,140 L230,160 L270,120" stroke="#22c55e" stroke-width="4" fill="none"/> 
+                </svg>
+            </div>
+        </div>
+
+        <div class="slide g4 flex-col md:flex-row items-center justify-between h-full w-full">
+            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center space-y-6">
+                <h2 class="text-4xl font-bold text-green-400 border-b-2 border-slate-600 pb-4 serif-heading">ScratchJr: Event Triggers</h2>
+                <div>
+                    <span class="vocab-word vocab-g4">Start on Bump:</span>
+                    <p class="text-slate-300 text-xl mt-2">An event block that starts a sequence only when two characters collide on screen.</p>
+                </div>
+                <div>
+                    <span class="vocab-word vocab-g4">Send Message:</span>
+                    <p class="text-slate-300 text-xl mt-2">The envelope block. Character A sends a colored message signal to Character B to trigger an action.</p>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 svg-container flex-col">
+                <svg viewBox="0 0 350 200" class="w-full h-auto">
+                    <rect x="30" y="130" width="40" height="40" fill="#3b82f6" rx="4"/>
+                    <rect x="85" y="135" width="40" height="30" fill="#facc15" stroke="#fff" stroke-width="2"/>
+                    <path d="M85,135 L105,155 L125,135" fill="none" stroke="#fff" stroke-width="2"/>
+                    <path d="M135,150 L195,150" stroke="#fff" stroke-width="2" stroke-dasharray="4"/>
+                    <polygon points="195,145 205,150 195,155" fill="#fff"/>
+                    <path d="M220,145 L240,165 L260,145 Z" fill="#facc15" stroke="#fff" stroke-width="2"/>
+                    <rect x="220" y="145" width="40" height="20" fill="#facc15" stroke="#fff" stroke-width="2"/>
+                    <rect x="270" y="130" width="40" height="40" fill="#ef4444" rx="4"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="slide g4 flex-col md:flex-row items-center justify-between h-full w-full">
+            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center space-y-6">
+                <h2 class="text-4xl font-bold text-green-400 border-b-2 border-slate-600 pb-4 serif-heading">Piskel: Stop Motion</h2>
+                <div>
+                    <span class="vocab-word vocab-g4">Frame:</span>
+                    <p class="text-slate-300 text-xl mt-2">A single, still picture. Animations are created by displaying multiple frames in sequence.</p>
+                </div>
+                <div>
+                    <span class="vocab-word vocab-g4">Duplicate:</span>
+                    <p class="text-slate-300 text-xl mt-2">A tool used to make an exact copy of a frame, allowing you to make small changes incrementally.</p>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 svg-container relative">
+                <svg viewBox="0 0 350 200" class="w-full h-auto">
+                    <rect x="10" y="40" width="330" height="120" fill="#1e293b" stroke="#94a3b8" stroke-width="2"/>
+                    <rect x="30" y="60" width="80" height="80" fill="#334155" stroke="#fff" stroke-width="1"/>
+                    <circle cx="70" cy="80" r="15" fill="#4ade80"/>
+                    <text x="70" y="130" fill="#fff" font-size="12" text-anchor="middle">Frame 1</text>
+                    <rect x="135" y="60" width="80" height="80" fill="#334155" stroke="#fff" stroke-width="1"/>
+                    <circle cx="175" cy="100" r="15" fill="#4ade80"/>
+                    <text x="175" y="130" fill="#fff" font-size="12" text-anchor="middle">Frame 2</text>
+                    <rect x="240" y="60" width="80" height="80" fill="#334155" stroke="#fff" stroke-width="1"/>
+                    <circle cx="280" cy="120" r="15" fill="#4ade80"/>
+                    <text x="280" y="130" fill="#fff" font-size="12" text-anchor="middle">Frame 3</text>
+                </svg>
+            </div>
+        </div>
+
+        <div class="slide g4 flex-col md:flex-row items-center justify-between h-full w-full">
+            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center space-y-6">
+                <h2 class="text-4xl font-bold text-green-400 border-b-2 border-slate-600 pb-4 serif-heading">Piskel: Animation Tools</h2>
+                <div>
+                    <span class="vocab-word vocab-g4">FPS (Frames Per Second):</span>
+                    <p class="text-slate-300 text-xl mt-2">Controls the speed of the animation. A high number plays fast; a low number plays slow.</p>
+                </div>
+                <div>
+                    <span class="vocab-word vocab-g4">Onion Skinning:</span>
+                    <p class="text-slate-300 text-xl mt-2">A tool that displays a faded outline of the previous frame to guide the drawing of the next frame.</p>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 svg-container relative">
+                <svg viewBox="0 0 350 200" class="w-full h-auto">
+                    <rect x="100" y="30" width="150" height="120" fill="#334155" stroke="#f8fafc" stroke-width="2"/>
+                    <circle cx="140" cy="110" r="25" fill="#4ade80" opacity="0.3"/>
+                    <circle cx="180" cy="70" r="25" fill="#4ade80"/>
+                    <rect x="80" y="170" width="190" height="15" fill="#1e293b" stroke="#64748b" stroke-width="1" rx="2"/>
+                    <rect x="82" y="172" width="120" height="11" fill="#4ade80" rx="2"/>
+                    <text x="290" y="183" fill="#f8fafc" font-size="14" font-weight="bold">12 FPS</text>
+                </svg>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- ================ GRADE 5 ================= -->
+        <!-- ========================================== -->
+        
+        <div class="slide g5 flex-col items-center justify-center h-full text-center">
+            <span class="bg-purple-600 text-white px-8 py-3 rounded-full font-bold text-2xl uppercase tracking-widest shadow-lg">Grade 5</span>
+            <h1 class="text-5xl md:text-6xl font-bold text-white mt-8 serif-heading text-purple-400">Systems & AI</h1>
+            <div class="w-24 h-2 bg-purple-500 my-6 mx-auto rounded"></div>
+            <h2 class="text-2xl text-slate-300 font-bold mb-8">Classroom Basics</h2>
+            <div class="bg-slate-800 p-6 rounded-xl border border-slate-600 max-w-2xl text-left">
+                <p class="text-lg text-slate-200">
+                    <strong>Instructions:</strong> Read the definitions carefully. Revise the vocabulary words highlighted in purple.
+                </p>
+            </div>
+        </div>
+
+        <div class="slide g5 flex-col md:flex-row items-center justify-between h-full w-full">
+            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center space-y-6">
+                <h2 class="text-4xl font-bold text-purple-400 border-b-2 border-slate-600 pb-4 serif-heading">Programming Foundations</h2>
+                <ul class="text-xl space-y-6 list-none mt-2 text-slate-300">
+                    <li><span class="vocab-word vocab-g5">Sequence:</span> The required order of instructions.</li>
+                    <li><span class="vocab-word vocab-g5">Loop:</span> Repeating code to maintain efficiency.</li>
+                    <li><span class="vocab-word vocab-g5">Event / Trigger:</span> The action that starts the code. Grade 5 projects utilize Message Envelopes to synchronize multiple processes.</li>
+                </ul>
+            </div>
+            <div class="w-full md:w-1/2 svg-container flex-col">
+                <svg viewBox="0 0 300 200" class="w-full h-auto">
+                    <rect x="50" y="40" width="200" height="120" fill="#334155" rx="4" stroke="#cbd5e1" stroke-width="1"/>
+                    <rect x="70" y="80" width="40" height="40" fill="#facc15" rx="2"/>
+                    <rect x="110" y="70" width="80" height="60" fill="#f97316" rx="2"/>
+                    <rect x="130" y="80" width="40" height="40" fill="#3b82f6" rx="2"/>
+                    <text x="150" y="110" fill="#fff" font-weight="bold" font-size="20" text-anchor="middle">5</text>
+                </svg>
+            </div>
+        </div>
+
+        <div class="slide g5 flex-col md:flex-row items-center justify-between h-full w-full">
+            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center space-y-6">
+                <h2 class="text-4xl font-bold text-purple-400 border-b-2 border-slate-600 pb-4 serif-heading">Physical Computing</h2>
+                <div>
+                    <span class="vocab-word vocab-g5">Physical Computing:</span>
+                    <p class="text-slate-300 text-xl mt-2">Writing software code to control a physical hardware device, such as the Botley robot.</p>
+                </div>
+                <div>
+                    <span class="vocab-word vocab-g5">Command & Transmit:</span>
+                    <p class="text-slate-300 text-xl mt-2">Inputting a sequence of commands on a remote, and transmitting that data to the robot to execute.</p>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 svg-container">
+                <svg viewBox="0 0 350 200" class="w-full h-auto">
+                    <rect x="30" y="30" width="70" height="130" fill="#334155" rx="4" stroke="#cbd5e1" stroke-width="1"/>
+                    <circle cx="65" cy="60" r="10" fill="#ef4444"/> 
+                    <rect x="50" y="100" width="30" height="30" fill="#3b82f6" rx="2"/> 
+                    <path d="M110,60 Q150,40 190,80" fill="none" stroke="#22c55e" stroke-width="3" stroke-dasharray="4"/>
+                    <rect x="210" y="70" width="90" height="70" fill="#94a3b8" rx="6"/>
+                    <rect x="190" y="80" width="20" height="50" fill="#1e293b" rx="2"/> 
+                    <rect x="300" y="80" width="20" height="50" fill="#1e293b" rx="2"/> 
+                </svg>
+            </div>
+        </div>
+
+        <div class="slide g5 flex-col md:flex-row items-center justify-between h-full w-full">
+            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center space-y-6">
+                <h2 class="text-4xl font-bold text-purple-400 border-b-2 border-slate-600 pb-4 serif-heading">Artificial Intelligence</h2>
+                <div>
+                    <span class="vocab-word vocab-g5">Data:</span>
+                    <p class="text-slate-300 text-xl mt-2">Information (images, numbers, text) provided to a computer system so it can learn.</p>
+                </div>
+                <div>
+                    <span class="vocab-word vocab-g5">Pattern Recognition:</span>
+                    <p class="text-slate-300 text-xl mt-2">The process where AI analyzes data to find similarities, allowing it to classify objects or make decisions.</p>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 svg-container flex-col">
+                <svg viewBox="0 0 350 200" class="w-full h-auto">
+                    <path d="M120,150 A50,50 0 1,1 220,150 A50,50 0 1,1 120,150" fill="none" stroke="#c084fc" stroke-width="3" stroke-dasharray="4"/>
+                    <rect x="20" y="30" width="50" height="35" fill="#3b82f6" rx="2"/>
+                    <rect x="20" y="80" width="50" height="35" fill="#facc15" rx="2"/>
+                    <rect x="20" y="130" width="50" height="35" fill="#ef4444" rx="2"/>
+                    <text x="45" y="185" fill="#94a3b8" font-size="12" text-anchor="middle">Data Input</text>
+                    <path d="M80,45 L140,100" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="2"/>
+                    <path d="M80,95 L130,120" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="2"/>
+                    <path d="M80,145 L130,140" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="2"/>
+                    <circle cx="170" cy="120" r="14" fill="#c084fc"/>
+                    <text x="170" y="85" fill="#c084fc" font-size="14" text-anchor="middle">Pattern</text>
+                </svg>
+            </div>
+        </div>
+
+        <div class="slide g5 flex-col md:flex-row items-center justify-between h-full w-full">
+            <div class="w-full md:w-1/2 pr-10 flex flex-col justify-center space-y-6">
+                <h2 class="text-4xl font-bold text-purple-400 border-b-2 border-slate-600 pb-4 serif-heading">3D & Vector Graphics</h2>
+                <ul class="text-xl space-y-4 list-none mt-2 text-slate-300">
+                    <li><span class="vocab-word vocab-g5">Axes:</span> Lines defining 3D space. X (Left/Right), Y (Up/Down), Z (Depth).</li>
+                    <li><span class="vocab-word vocab-g5">Grouping:</span> Fusing different shapes into a single solid 3D object.</li>
+                    <li><span class="vocab-word vocab-g5">Vector:</span> An image created using mathematical formulas, preventing blurriness when resized.</li>
+                    <li><span class="vocab-word vocab-g5">Path & Node:</span> The <b>Path</b> connects points. The <b>Node</b> is an anchor point used to bend the path.</li>
+                </ul>
+            </div>
+            <div class="w-full md:w-1/2 svg-container">
+                <svg viewBox="0 0 350 250" class="w-full h-auto">
+                    <line x1="175" y1="140" x2="175" y2="30" stroke="#ef4444" stroke-width="3"/> 
+                    <text x="155" y="40" fill="#ef4444" font-size="14">Y</text>
+                    <line x1="175" y1="140" x2="290" y2="140" stroke="#3b82f6" stroke-width="3"/> 
+                    <text x="310" y="145" fill="#3b82f6" font-size="14">X</text>
+                    <line x1="175" y1="140" x2="70" y2="210" stroke="#22c55e" stroke-width="3"/> 
+                    <text x="45" y="225" fill="#22c55e" font-size="14">Z</text>
+                    
+                    <path d="M60,60 Q120,20 160,80" fill="none" stroke="#f8fafc" stroke-width="2"/>
+                    <rect x="55" y="55" width="10" height="10" fill="#a855f7"/> 
+                    <rect x="155" y="75" width="10" height="10" fill="#a855f7"/> 
+                    <text x="100" y="40" fill="#f8fafc" font-size="12">Path / Node</text>
+                </svg>
+            </div>
+        </div>
 
         <!-- Navigation Controls -->
         <div class="absolute bottom-6 left-0 right-0 flex justify-between px-10 items-center z-50">
-            <button id="prevBtn" class="bg-slate-800 hover:bg-slate-700 text-white px-6 py-2 rounded shadow font-semibold disabled:opacity-50 border border-slate-600 transition-colors" onclick="changeSlide(-1)">Previous</button>
+            <button id="prevBtn" class="bg-slate-800 hover:bg-slate-700 text-white px-6 py-2 rounded-lg shadow font-semibold disabled:opacity-50 border border-slate-600 transition-colors" onclick="changeSlide(-1)">Previous</button>
             <span id="slideCounter" class="text-slate-300 font-medium text-lg bg-slate-900 px-4 py-1 rounded border border-slate-700"></span>
-            <button id="nextBtn" class="bg-slate-800 hover:bg-slate-700 text-white px-6 py-2 rounded shadow font-semibold disabled:opacity-50 border border-slate-600 transition-colors" onclick="changeSlide(1)">Next</button>
+            <button id="nextBtn" class="bg-slate-800 hover:bg-slate-700 text-white px-6 py-2 rounded-lg shadow font-semibold disabled:opacity-50 border border-slate-600 transition-colors" onclick="changeSlide(1)">Next</button>
         </div>
     </div>
 
