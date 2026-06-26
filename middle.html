@@ -3,32 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Middle School - Mr. Joshua's ICT</title>
+    <title>Middle School ICT | Mr. Joshua</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; }
         .traditional-heading { font-family: 'Merriweather', serif; }
+        .academic-card { transition: all 0.3s ease; }
+        .academic-card:hover { transform: translateY(-8px); border-color: #f59e0b; }
     </style>
 </head>
-<body class="min-h-screen">
-
-    <header class="py-12 px-6 text-center bg-slate-900/70 border-b border-slate-700">
-        <h1 class="text-4xl font-black traditional-heading">Middle School ICT</h1>
-        <p class="text-amber-500 mt-2">Grades 6 • 7 • 8</p>
+<body class="min-h-screen flex flex-col">
+    <header class="py-12 px-6 text-center bg-slate-900 border-b border-slate-700">
+        <h1 class="text-5xl font-bold traditional-heading tracking-tight">Middle School ICT</h1>
+        <p class="text-amber-500 text-xl mt-2">Grades 6 • 7 • 8</p>
     </header>
 
-    <main class="max-w-4xl mx-auto px-6 py-16">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <a href="StudyGuide_G6.html" class="block p-6 bg-slate-800 hover:bg-slate-700 rounded-xl transition">Grade 6 Study Guide</a>
-            <a href="StudyGuide_G7.html" class="block p-6 bg-slate-800 hover:bg-slate-700 rounded-xl transition">Grade 7 Study Guide</a>
-            <a href="StudyGuide_G8.html" class="block p-6 bg-slate-800 hover:bg-slate-700 rounded-xl transition">Grade 8 Study Guide</a>
+    <main class="flex-1 max-w-5xl mx-auto px-6 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <a href="StudyGuide_G6.html" class="academic-card bg-slate-800 border border-slate-700 rounded-2xl p-8 text-center hover:border-amber-500 group">
+                <div class="text-6xl mb-6">📘</div>
+                <h3 class="text-2xl font-bold mb-2">Grade 6</h3>
+                <p class="text-slate-400">Foundation Skills</p>
+            </a>
+            <a href="StudyGuide_G7.html" class="academic-card bg-slate-800 border border-slate-700 rounded-2xl p-8 text-center hover:border-amber-500 group">
+                <div class="text-6xl mb-6">📗</div>
+                <h3 class="text-2xl font-bold mb-2">Grade 7</h3>
+                <p class="text-slate-400">Intermediate Projects</p>
+            </a>
+            <a href="StudyGuide_G8.html" class="academic-card bg-slate-800 border border-slate-700 rounded-2xl p-8 text-center hover:border-amber-500 group">
+                <div class="text-6xl mb-6">📕</div>
+                <h3 class="text-2xl font-bold mb-2">Grade 8</h3>
+                <p class="text-slate-400">Advanced Applications</p>
+            </a>
         </div>
 
-        <div class="mt-12 text-center">
-            <a href="index.html" class="text-amber-500 hover:underline">← Back to Department Portal</a>
+        <div class="mt-16 text-center">
+            <a href="index.html" class="inline-flex items-center gap-2 text-amber-500 hover:text-amber-400 font-medium text-lg">
+                ← Back to ICT Department Portal
+            </a>
         </div>
     </main>
-
 </body>
 </html>
