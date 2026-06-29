@@ -3,131 +3,262 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cambridge IGCSE ICT (0417) | 2026-2028 Revision Strategy</title>
+    <title>Cambridge IGCSE ICT (0417) | Grade 9 Final Exam Revision Hub — 2026 Syllabus</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --ink: #1f2937;
+            --paper: #faf9f6;
+            --slate-deep: #0f172a;
+            --amber: #b45309;
+            --amber-bright: #f59e0b;
+            --stamp-red: #9f1d20;
+            --stamp-green: #2f6b3a;
+        }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f4f4f5;
-            color: #1f2937;
+            background-color: var(--paper);
+            color: var(--ink);
         }
         h1, h2, h3, h4, .traditional-heading {
             font-family: 'Merriweather', serif;
         }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
         .sidebar-scroll::-webkit-scrollbar { width: 6px; }
         .sidebar-scroll::-webkit-scrollbar-track { background: #1e293b; }
         .sidebar-scroll::-webkit-scrollbar-thumb { background: #475569; border-radius: 3px; }
         .main-scroll::-webkit-scrollbar { width: 8px; }
-        .main-scroll::-webkit-scrollbar-track { background: #f4f4f5; }
-        .main-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-        
+        .main-scroll::-webkit-scrollbar-track { background: var(--paper); }
+        .main-scroll::-webkit-scrollbar-thumb { background: #d6cfc0; border-radius: 4px; }
+
         .tab-content { display: none; }
-        .tab-content.active { display: block; animation: fadeIn 0.2s ease-in-out; }
-        
+        .tab-content.active { display: block; animation: fadeIn 0.25s ease-in-out; }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(5px); }
+            from { opacity: 0; transform: translateY(6px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* Sidebar nav buttons */
+        .nav-btn {
+            display: flex; align-items: center; gap: 0.6rem;
+            width: 100%; text-align: left; padding: 0.5rem 0.75rem;
+            font-size: 0.83rem; border-radius: 0.375rem;
+            transition: background-color .15s, color .15s;
+            color: #cbd5e1;
+        }
+        .nav-btn:hover { background-color: #1e293b; color: #fff; }
+        .nav-btn.is-active { background-color: #1e293b; color: #fbbf24; font-weight: 600; }
+        .nav-btn .dot {
+            width: 6px; height: 6px; border-radius: 50%; background: #475569; flex-shrink: 0;
+        }
+        .nav-btn.is-active .dot { background: #fbbf24; }
+
+        /* Code blocks */
         .code-block {
-            background-color: #1e293b;
+            background-color: #0f172a;
             color: #e2e8f0;
-            padding: 1rem;
-            border-radius: 0.25rem;
-            font-family: monospace;
+            padding: 1rem 1.1rem;
+            border-radius: 0.375rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            line-height: 1.65;
             overflow-x: auto;
-            border-left: 4px solid #f59e0b;
+            white-space: pre-wrap;
+            border-left: 4px solid var(--amber-bright);
         }
 
+        /* Checklist items */
         .task-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #e2e8f0;
+            display: flex; align-items: flex-start; gap: 0.75rem;
+            padding: 0.55rem 0; border-bottom: 1px solid #ece7da;
         }
-        
         .task-item input[type="checkbox"] {
-            margin-top: 0.3rem;
-            width: 1.1rem;
-            height: 1.1rem;
-            accent-color: #1e293b;
-            cursor: pointer;
+            margin-top: 0.3rem; width: 1.1rem; height: 1.1rem;
+            accent-color: #1e293b; cursor: pointer; flex-shrink: 0;
         }
+        .task-text.completed { text-decoration: line-through; color: #9ca3af; }
 
-        .task-text.completed {
-            text-decoration: line-through;
-            color: #94a3b8;
-        }
-
+        /* Callout boxes */
         .warning-box {
-            border-left: 4px solid #ef4444;
-            background-color: #fff1f2;
-            padding: 1rem;
-            border-radius: 0 0.5rem 0.5rem 0;
-            margin-top: 1.5rem;
+            border-left: 4px solid #b91c1c; background-color: #fff1f1;
+            padding: 0.9rem 1.1rem; border-radius: 0 0.5rem 0.5rem 0; margin: 1.25rem 0;
+        }
+        .info-box {
+            border-left: 4px solid #1d4ed8; background-color: #eff6ff;
+            padding: 0.9rem 1.1rem; border-radius: 0 0.5rem 0.5rem 0; margin: 1.25rem 0;
+        }
+        .syllabus-box {
+            border-left: 4px solid #6d28d9; background-color: #f5f3ff;
+            padding: 0.9rem 1.1rem; border-radius: 0 0.5rem 0.5rem 0; margin: 1.25rem 0;
+        }
+        .visual-example {
+            background-color: #fffefb;
+            border: 1px solid #e7e0cf;
+            border-radius: 0.5rem;
+            padding: 1.4rem;
+            margin: 1.1rem 0;
+            box-shadow: inset 0 2px 6px 0 rgb(0 0 0 / 0.04);
         }
 
-        .visual-example {
-            background-color: #f8fafc;
-            border: 1px solid #cbd5e1;
-            border-radius: 0.5rem;
-            padding: 1.5rem;
-            margin: 1rem 0;
-            box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+        /* Section heading rhythm */
+        .sec-h2 { font-size: 1.85rem; font-weight: 700; color: var(--slate-deep); margin-bottom: 0.35rem; }
+        .sec-lede { color: #57534e; font-size: 0.92rem; margin-bottom: 1.5rem; max-width: 56rem; }
+        .sec-h3 {
+            font-size: 1.05rem; font-weight: 700; color: #292524;
+            margin-top: 2.2rem; margin-bottom: 0.85rem;
+            border-bottom: 2px solid #e7e0cf; padding-bottom: 0.4rem;
+            display: flex; align-items: baseline; gap: 0.5rem;
         }
+        .sec-h3 .unit-tag {
+            font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; font-weight: 600;
+            color: var(--amber); background: #fef3e2; padding: 0.12rem 0.45rem;
+            border-radius: 0.25rem; letter-spacing: 0.03em;
+        }
+
+        /* Examiner's marking panel — the signature element */
+        .marking-panel {
+            background: #fffefb;
+            border: 1px solid #d8d0bb;
+            border-radius: 0.6rem;
+            margin: 1.5rem 0;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgb(0 0 0 / 0.06);
+        }
+        .marking-panel-head {
+            background: var(--slate-deep);
+            color: #f1f5f9;
+            padding: 0.85rem 1.2rem;
+            display: flex; align-items: center; justify-content: space-between;
+            flex-wrap: wrap; gap: 0.5rem;
+        }
+        .marking-panel-head .candidate {
+            font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: #94a3b8;
+        }
+        .marking-panel-body { padding: 1.1rem 1.2rem; }
+        .mark-row {
+            display: flex; gap: 0.85rem; padding: 0.7rem 0;
+            border-bottom: 1px dashed #e2dcc9;
+        }
+        .mark-row:last-child { border-bottom: none; }
+        .mark-stamp {
+            flex-shrink: 0; width: 3.1rem; height: 2.1rem;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 0.3rem; font-family: 'JetBrains Mono', monospace;
+            font-weight: 700; font-size: 0.78rem; transform: rotate(-2deg);
+        }
+        .stamp-full { background: #e7f3e9; color: var(--stamp-green); border: 1.5px solid #bfe0c6; }
+        .stamp-partial { background: #fdf1de; color: #92660a; border: 1.5px solid #f3dba8; }
+        .stamp-zero { background: #fbe9e9; color: var(--stamp-red); border: 1.5px solid #f0c4c4; }
+        .mark-detail .crit { font-weight: 600; color: #292524; font-size: 0.85rem; }
+        .mark-detail .comment { font-size: 0.81rem; color: #57534e; margin-top: 0.2rem; line-height: 1.55; }
+        .lesson-tag {
+            display: inline-block; font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.04em; padding: 0.1rem 0.5rem; border-radius: 99px; margin-top: 0.35rem;
+        }
+        .lesson-tag.fix { background: #fbe9e9; color: var(--stamp-red); }
+        .lesson-tag.tip { background: #e7f3e9; color: var(--stamp-green); }
+
+        .badge-pill {
+            display: inline-flex; align-items: center; gap: 0.3rem;
+            font-size: 0.7rem; font-weight: 700; padding: 0.15rem 0.6rem;
+            border-radius: 99px; text-transform: uppercase; letter-spacing: 0.03em;
+        }
+
+        ::selection { background: #fde68a; }
     </style>
 </head>
 <body class="flex h-screen overflow-hidden">
 
     <!-- Sidebar -->
-    <nav class="w-72 bg-slate-900 text-slate-300 flex flex-col shadow-xl z-10 border-r border-slate-800">
-        <div class="p-6 border-b border-slate-700">
-            <h1 class="text-xl font-bold text-amber-500 traditional-heading tracking-wide">IGCSE ICT 0417</h1>
-            <p class="text-xs uppercase tracking-widest mt-1 text-slate-400">2026-2028 Study Guide</p>
+    <nav class="w-72 bg-slate-900 text-slate-300 flex flex-col shadow-xl z-10 border-r border-slate-800 flex-shrink-0">
+        <div class="p-5 border-b border-slate-700">
+            <div class="flex items-center justify-between">
+                <h1 class="text-lg font-bold text-amber-500 traditional-heading tracking-wide leading-tight">IGCSE ICT<br>0417</h1>
+                <span class="mono text-[10px] bg-slate-800 text-amber-400 px-2 py-1 rounded border border-slate-700">2026–28</span>
+            </div>
+            <p class="text-[11px] uppercase tracking-widest mt-2 text-slate-400">Grade 9 Final Exam Revision Hub</p>
+            <div class="mt-3 flex gap-1.5">
+                <div class="h-1 flex-1 bg-amber-500 rounded-full"></div>
+                <div class="h-1 flex-1 bg-slate-700 rounded-full"></div>
+                <div class="h-1 flex-1 bg-slate-700 rounded-full"></div>
+            </div>
         </div>
-        
-        <div class="flex-1 overflow-y-auto sidebar-scroll p-4 space-y-1">
-            <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2 mt-2">Protocol</p>
-            <button onclick="switchTab('intro')" id="btn-intro" class="w-full text-left px-4 py-2 text-sm rounded transition-colors hover:bg-slate-800 bg-slate-800 text-white font-medium">Exam Integrity</button>
-            
-            <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2 mt-6">Paper 2: Practical A</p>
-            <button onclick="switchTab('docprod')" id="btn-docprod" class="w-full text-left px-4 py-2 text-sm rounded transition-colors hover:bg-slate-800">11-17: Document Production</button>
-            <button onclick="switchTab('database')" id="btn-database" class="w-full text-left px-4 py-2 text-sm rounded transition-colors hover:bg-slate-800">18: Data Manipulation</button>
-            <button onclick="switchTab('presentation')" id="btn-presentation" class="w-full text-left px-4 py-2 text-sm rounded transition-colors hover:bg-slate-800">19: Presentations</button>
 
-            <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2 mt-6">Paper 3: Practical B</p>
-            <button onclick="switchTab('spreadsheet')" id="btn-spreadsheet" class="w-full text-left px-4 py-2 text-sm rounded transition-colors hover:bg-slate-800">20: Spreadsheets</button>
-            <button onclick="switchTab('webauth')" id="btn-webauth" class="w-full text-left px-4 py-2 text-sm rounded transition-colors hover:bg-slate-800">21: Website Authoring</button>
+        <div class="flex-1 overflow-y-auto sidebar-scroll p-3 space-y-0.5">
+            <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest px-3 mb-1.5 mt-1">Before You Start</p>
+            <button onclick="switchTab('intro')" id="btn-intro" class="nav-btn is-active"><span class="dot"></span>Exam Integrity &amp; Files</button>
+            <button onclick="switchTab('layout')" id="btn-layout" class="nav-btn"><span class="dot"></span>Units 12–16: Layout, Styles &amp; Proofing</button>
+
+            <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest px-3 mb-1.5 mt-5">Paper 2 · Practical A (70 marks)</p>
+            <button onclick="switchTab('docprod')" id="btn-docprod" class="nav-btn"><span class="dot"></span>Unit 17 — Document Production</button>
+            <button onclick="switchTab('database')" id="btn-database" class="nav-btn"><span class="dot"></span>Unit 18 — Databases</button>
+            <button onclick="switchTab('presentation')" id="btn-presentation" class="nav-btn"><span class="dot"></span>Unit 19 — Presentations</button>
+
+            <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest px-3 mb-1.5 mt-5">Paper 3 · Practical B (70 marks)</p>
+            <button onclick="switchTab('spreadsheet')" id="btn-spreadsheet" class="nav-btn"><span class="dot"></span>Unit 20 — Spreadsheets</button>
+            <button onclick="switchTab('webauth')" id="btn-webauth" class="nav-btn"><span class="dot"></span>Unit 21 — Website Authoring</button>
+
+            <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest px-3 mb-1.5 mt-5">Learn From Real Marking</p>
+            <button onclick="switchTab('marking')" id="btn-marking" class="nav-btn"><span class="dot"></span>Candidate Mock Reviews</button>
+        </div>
+
+        <div class="p-4 bg-slate-950 border-t border-slate-800">
+            <p class="text-[11px] font-bold text-amber-500 uppercase tracking-widest traditional-heading">Mr Glen Joshua</p>
+            <p class="text-[10px] text-slate-500 mt-0.5">ICT Department · 2025–26</p>
         </div>
     </nav>
-
     <!-- Main Content -->
-    <main class="flex-1 overflow-y-auto main-scroll bg-white relative">
+    <main class="flex-1 overflow-y-auto main-scroll bg-[#faf9f6] relative">
         <div class="max-w-4xl mx-auto p-8 lg:p-12 pb-24">
 
-            <!-- Intro Tab -->
+            <!-- ============ INTRO TAB ============ -->
             <div id="intro" class="tab-content active">
-                <h2 class="text-3xl font-bold text-slate-900 mb-2 traditional-heading">Exam Integrity & File Management</h2>
-                <p class="text-slate-600 mb-6 text-sm">Master foundational protocols today to secure tomorrow's excellence. Check off each requirement to verify your competency. Both Practical Papers are strictly timed at <strong>2 hours and 15 minutes</strong> (70 marks each).</p>
-                
-                <h3 class="text-lg font-bold text-slate-800 mt-6 mb-3 traditional-heading border-b pb-2">The Zero-Tolerance Zone (Printing)</h3>
-                <div class="warning-box mb-6">
-                    <p class="text-sm text-red-900 font-medium"><strong>The Golden Rule:</strong> If a printout emerges from the printer and your Name, Centre Number, and Candidate Number were not typed onto it electronically BEFORE printing, it will go in the bin and score ZERO marks. Handwriting your name afterwards is strictly forbidden.</p>
+                <h2 class="sec-h2">Exam Integrity &amp; File Management</h2>
+                <p class="sec-lede">Two practical papers test sections 11–21 of the syllabus. Both are 2 hours 15 minutes, externally assessed, 70 marks each, no internet or email access, and candidates must demonstrate skills from sections 11–16 on top of the paper's own focus units.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
+                    <div class="bg-white border border-stone-200 rounded-lg p-4">
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-stone-400">Paper 1 — Theory</p>
+                        <p class="text-2xl font-bold text-slate-900 mt-1">80 <span class="text-sm font-medium text-stone-400">marks</span></p>
+                        <p class="text-xs text-stone-500 mt-1">1h 30m · 40% · Sections 1–21</p>
+                    </div>
+                    <div class="bg-white border border-amber-200 rounded-lg p-4 ring-1 ring-amber-100">
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-amber-600">Paper 2 — Practical A</p>
+                        <p class="text-2xl font-bold text-slate-900 mt-1">70 <span class="text-sm font-medium text-stone-400">marks</span></p>
+                        <p class="text-xs text-stone-500 mt-1">2h 15m · 30% · Doc Production, Databases, Presentations</p>
+                    </div>
+                    <div class="bg-white border border-amber-200 rounded-lg p-4 ring-1 ring-amber-100">
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-amber-600">Paper 3 — Practical B</p>
+                        <p class="text-2xl font-bold text-slate-900 mt-1">70 <span class="text-sm font-medium text-stone-400">marks</span></p>
+                        <p class="text-xs text-stone-500 mt-1">2h 15m · 30% · Spreadsheets, Website Authoring</p>
+                    </div>
                 </div>
 
-                <h3 class="text-lg font-bold text-slate-800 mt-8 mb-3 traditional-heading border-b pb-2">Unit 11: File Management & Setup</h3>
+                <div class="syllabus-box">
+                    <p class="text-sm text-violet-900"><strong>From the official syllabus:</strong> for Papers 2 and 3, candidates must not have access to the internet or email. Source files are loaded onto the candidate's machine before the exam starts. Candidates work through each task <em>in order</em> and produce evidence — screenshots placed in an Evidence Document, plus printouts.</p>
+                </div>
+
+                <h3 class="sec-h3"><span class="unit-tag">RULE</span>The Zero-Tolerance Zone</h3>
+                <div class="warning-box">
+                    <p class="text-sm text-red-900 font-medium"><strong>The Golden Rule:</strong> "It is essential that candidates remember to enter electronically their centre number, candidate number and name on each piece of evidence before it is sent to the printer." If a printout leaves the printer without this, it cannot be fixed afterwards — handwriting it on later scores zero. Every screenshot, every printed page, every document needs this baked in <em>before</em> you press print.</p>
+                </div>
+
+                <h3 class="sec-h3"><span class="unit-tag">11.1</span>File Management</h3>
+                <p class="text-stone-600 text-sm mb-3">Section 11 of the syllabus is assessed across both papers. You're expected to locate, open, import, save and export files confidently across multiple formats — and to know <em>why</em> generic formats exist.</p>
                 <div class="space-y-1">
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Create a new working folder and move all provided source files into it.</span></label>
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Immediately save .rtf (Rich Text Format) or .csv files into the software's native format (e.g., .docx or .xlsx) so formatting is not lost.</span></label>
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Take clear screenshots of your folder showing file names, file sizes, file types, and extensions (e.g., image.jpg).</span></label>
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Set up the Evidence Document, ensuring identification details are placed in the header or footer so they appear on every single page.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Create a new working folder and move all provided source files into it before starting any task.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Save files using a planned, hierarchical folder structure and sensible file names — not generic defaults like "Document1".</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Know application formats (<code>.docx</code>, <code>.xlsx</code>, <code>.accdb</code>, <code>.pptx</code>, <code>.rtf</code>) versus generic formats (<code>.csv</code>, <code>.txt</code>, <code>.pdf</code>, <code>.css</code>, <code>.htm</code>, <code>.jpg</code>, <code>.png</code>) and why generic formats exist — they can be opened by almost any software, which matters when files cross between systems.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Compress files using <code>.zip</code> or <code>.rar</code> when a task requires reducing file size for storage or transmission.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Take clear screenshots of your folder showing file names, types, and sizes as evidence — the examiner needs to see the full picture, not a cropped corner.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Set up your Evidence Document first, with identification details in the header or footer so they appear on every single page automatically.</span></label>
                 </div>
 
                 <div class="visual-example">
                     <p class="font-bold text-slate-700 text-sm mb-2">Visual Example: Correct Folder Screenshot Evidence</p>
-                    <div class="border border-slate-300 bg-white p-2 text-xs font-mono text-slate-600 rounded">
+                    <div class="border border-slate-300 bg-white p-2 text-xs mono text-slate-600 rounded">
                         <div class="flex border-b border-slate-200 pb-1 font-bold">
                             <span class="w-1/2">Name</span>
                             <span class="w-1/4">Date modified</span>
@@ -147,21 +278,104 @@
                             <span class="w-1/4">120 KB</span>
                         </div>
                     </div>
-                    <p class="text-xs text-slate-500 mt-2">Notice how the file extensions (.png, .docx) and file types are clearly visible. The examiner needs to see this.</p>
+                    <p class="text-xs text-slate-500 mt-2">File extensions and types are clearly visible — that's what the examiner is checking for.</p>
+                </div>
+
+                <h3 class="sec-h3"><span class="unit-tag">AO</span>How You're Actually Marked</h3>
+                <p class="text-stone-600 text-sm mb-3">Three assessment objectives sit behind every mark on the paper. Knowing what each one rewards tells you where to spend your time.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <div class="bg-white border border-stone-200 rounded-lg p-4">
+                        <p class="font-bold text-sm text-slate-800">AO1 — Recall &amp; communicate</p>
+                        <p class="text-xs text-stone-500 mt-1">32% overall · Paper 1 only.</p>
+                        <p class="text-xs text-stone-600 mt-2">Knowledge and understanding of ICT concepts and terminology.</p>
+                    </div>
+                    <div class="bg-white border border-amber-200 rounded-lg p-4 ring-1 ring-amber-100">
+                        <p class="font-bold text-sm text-slate-800">AO2 — Apply skills</p>
+                        <p class="text-xs text-stone-500 mt-1">60% overall · 100% of Papers 2 &amp; 3.</p>
+                        <p class="text-xs text-stone-600 mt-2">Producing accurate, exam-compliant practical outputs. This is where almost all your marks live.</p>
+                    </div>
+                    <div class="bg-white border border-stone-200 rounded-lg p-4">
+                        <p class="font-bold text-sm text-slate-800">AO3 — Analyse &amp; evaluate</p>
+                        <p class="text-xs text-stone-500 mt-1">8% overall · Paper 1 only.</p>
+                        <p class="text-xs text-stone-600 mt-2">Judging quality, comparing solutions, reasoned conclusions.</p>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <p class="text-sm text-blue-900"><strong>What this means for you:</strong> on Papers 2 and 3 there is no partial credit for "understanding" the concept — every mark is AO2, awarded for the practical output actually matching the instruction exactly. A beautiful document that's 2mm off on a margin scores the same as a blank page for that criterion.</p>
                 </div>
             </div>
+            <!-- ============ LAYOUT/STYLES/PROOFING TAB (Units 12-16) ============ -->
+            <div id="layout" class="tab-content">
+                <h2 class="sec-h2">Units 12–16: The Skills Behind Every Task</h2>
+                <p class="sec-lede">These five units aren't tested as a standalone task — they're the cross-cutting skills examiners expect inside <em>every</em> Document Production, Database, Presentation, Spreadsheet, and Website task. Get these solid and every other tab becomes easier.</p>
 
-            <!-- Document Production Tab -->
-            <div id="docprod" class="tab-content">
-                <h2 class="text-3xl font-bold text-slate-900 mb-2 traditional-heading">Document Production</h2>
-                <p class="text-slate-600 mb-6 text-sm">Adhere strictly to standard house styles. Formatting must be immaculate.</p>
-
-                <h3 class="text-lg font-bold text-slate-800 mt-6 mb-3 traditional-heading border-b pb-2">Layout & Styles (Units 13 & 14)</h3>
+                <h3 class="sec-h3"><span class="unit-tag">12</span>Images</h3>
+                <p class="text-stone-600 text-sm mb-3">The syllabus is specific: you must be able to place, resize, crop, rotate, reflect, and adjust images — and know how file size relates to resolution and colour depth.</p>
+                <div class="visual-example">
+                    <p class="font-bold text-slate-700 text-sm mb-2">Visual Example: Image Operations</p>
+                    <div class="grid grid-cols-4 gap-3 text-center text-xs">
+                        <div class="bg-white border border-slate-300 rounded p-3">
+                            <div class="w-full h-12 bg-slate-300 rounded mb-2 flex items-center justify-center text-[9px] text-slate-600">ROTATE</div>
+                            <p class="text-slate-600">90° clockwise</p>
+                        </div>
+                        <div class="bg-white border border-slate-300 rounded p-3">
+                            <div class="w-full h-12 bg-slate-300 rounded mb-2 flex items-center justify-center text-[9px] text-slate-600 scale-x-[-1]">REFLECT</div>
+                            <p class="text-slate-600">Flip horizontal</p>
+                        </div>
+                        <div class="bg-white border border-slate-300 rounded p-3">
+                            <div class="w-8 h-8 bg-slate-300 rounded mx-auto mb-2 flex items-center justify-center text-[8px] text-slate-600">CROP</div>
+                            <p class="text-slate-600">Cuts visible area</p>
+                        </div>
+                        <div class="bg-white border border-slate-300 rounded p-3">
+                            <div class="w-full h-12 bg-gradient-to-r from-slate-200 to-slate-500 rounded mb-2"></div>
+                            <p class="text-slate-600">Brightness / contrast</p>
+                        </div>
+                    </div>
+                </div>
                 <div class="space-y-1">
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Set the page size (A4), orientation (Portrait/Landscape), and exact margins as instructed.</span></label>
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Create and modify paragraph styles (e.g., sans-serif font, 14pt, center-aligned, with a 12pt space after).</span></label>
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Format specific text into multiple columns, set the exact column spacing (e.g., 1cm gap), and insert Column Breaks.</span></label>
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Identify and correct widows and orphans (single lines of text separated from their paragraph).</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Place an image with precision, then resize it as specified — maintaining <em>or</em> deliberately adjusting the aspect ratio depending on what's asked.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Crop, rotate, and reflect (flip horizontally or vertically) an image exactly as instructed — a rotation in the wrong direction scores zero even if the image looks "fine".</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Adjust brightness and contrast when requested, and group/layer/ungroup images, moving them to front or back.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Understand that file size reduction comes from lowering image resolution or colour depth — a Paper 1 theory favourite.</span></label>
+                </div>
+
+                <h3 class="sec-h3"><span class="unit-tag">13</span>Layout</h3>
+                <p class="text-stone-600 text-sm mb-3">"Document" here means any application across Units 16–21 — a presentation slide and a web page both count. Editing techniques, object placement, text wrap, tables, and headers/footers all live here.</p>
+                <div class="space-y-1">
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Enter and modify text/numbers with total accuracy; use highlight, delete, move, cut, copy, paste, and drag-and-drop confidently.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Place objects from any source — text, image, screenshot, shape, table, graph/chart, spreadsheet extract, database extract — into the document.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Wrap text around a table, chart, or image using the exact style named: above/below, square, or tight.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Build tables to a specified row/column count; insert/delete rows and columns; merge cells; set horizontal alignment (left/right/centre/justified) and vertical alignment (top/middle/bottom).</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Show or hide gridlines, wrap text within a cell, shade/colour cells, and adjust row height / column width on demand.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Build headers and footers with consistent alignment (left margin, right margin, or centred), placing automated objects: file information, page numbering, total pages, date, time.</span></label>
+                </div>
+
+                <h3 class="sec-h3"><span class="unit-tag">14</span>Styles</h3>
+                <p class="text-stone-600 text-sm mb-3">A style is a named, reusable formatting set. Building it correctly in the Styles pane (not applying formatting by hand) is what the mark scheme actually checks for.</p>
+                <div class="visual-example">
+                    <p class="font-bold text-slate-700 text-sm mb-2">What a Style Definition Controls</p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs">
+                        <div class="bg-white border border-slate-200 rounded p-2 text-center"><strong>Font</strong><br><span class="text-slate-500">face, serif/sans-serif, size, colour</span></div>
+                        <div class="bg-white border border-slate-200 rounded p-2 text-center"><strong>Alignment</strong><br><span class="text-slate-500">left / right / centre / justified</span></div>
+                        <div class="bg-white border border-slate-200 rounded p-2 text-center"><strong>Enhancement</strong><br><span class="text-slate-500">bold, underline, italic</span></div>
+                        <div class="bg-white border border-slate-200 rounded p-2 text-center"><strong>Spacing</strong><br><span class="text-slate-500">before/after paragraph, line spacing</span></div>
+                    </div>
+                </div>
+                <div class="space-y-1">
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Create, modify, and update named styles for consistency — this is how "house style" tasks are marked.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Set bullet shape, alignment, line spacing, and indent precisely when a bulleted style is specified.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Understand the purpose of a corporate house style: consistency across every document a company produces, regardless of who wrote it.</span></label>
+                </div>
+
+                <h3 class="sec-h3"><span class="unit-tag">15</span>Proofing</h3>
+                <p class="text-stone-600 text-sm mb-3">Spell-check is a tool, not a guarantee — the syllabus explicitly notes its suggestions "do not always give the correct response." Real proofing is visual and deliberate.</p>
+                <div class="space-y-1">
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Run spell-check / grammar-check, but visually verify every change — don't accept a suggestion blindly.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Apply validation routines (range, character, length, type, format, presence checks) to minimise data entry errors at the source.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Proofread for transposed numbers, incorrect spelling, inconsistent character spacing, and inconsistent case.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Check for inconsistent line spacing, blank pages/slides, widows/orphans, inconsistent style application, and tables/lists split awkwardly across a page or slide boundary.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Know the difference between validation (automatic, rule-based) and verification (human visual check or double-entry) — and that exams expect both.</span></label>
                 </div>
 
                 <div class="visual-example">
@@ -179,7 +393,7 @@
                                 <p class="bg-slate-200 h-2 w-full mb-1"></p>
                                 <p class="bg-slate-200 h-2 w-1/2"></p>
                             </div>
-                            <p class="text-slate-600 mt-2">A single line of a paragraph is left behind on the previous page.</p>
+                            <p class="text-slate-600 mt-2">A single line is left behind on the previous page.</p>
                         </div>
                         <div class="border border-green-300 bg-green-50 p-2 w-1/2 rounded">
                             <p class="font-bold text-green-700 mb-1">CORRECT</p>
@@ -193,35 +407,155 @@
                                 <p class="bg-slate-200 h-2 w-full mb-1"></p>
                                 <p class="bg-slate-200 h-2 w-1/2"></p>
                             </div>
-                            <p class="text-slate-600 mt-2">The paragraph is kept together using paragraph settings.</p>
+                            <p class="text-slate-600 mt-2">Kept together using paragraph "keep with next" settings.</p>
                         </div>
                     </div>
                 </div>
 
-                <h3 class="text-lg font-bold text-slate-800 mt-8 mb-3 traditional-heading border-b pb-2">Image & Chart Integration (Units 12 & 16)</h3>
+                <h3 class="sec-h3"><span class="unit-tag">16</span>Graphs &amp; Charts</h3>
+                <p class="text-stone-600 text-sm mb-3">Charts appear inside Document Production, Presentations, and Spreadsheets tasks — the labelling and formatting requirements are identical wherever they show up.</p>
+                <div class="code-block mb-4">
+<span class="text-slate-400">// What a fully-labelled chart needs:</span>
+Chart title · Legend · Category axis title · Value axis title
+Category axis labels · Value axis labels · Data value labels
+                </div>
                 <div class="space-y-1">
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Insert images and precisely resize them while strictly maintaining aspect ratio.</span></label>
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Format text to wrap tightly around images (tight, square, top and bottom) as required.</span></label>
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Format tables: apply shading, merge cells, set text alignment, and turn off borders/gridlines so they do not show when printed.</span></label>
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Extract charts from spreadsheets: include 100% accurate Chart Titles, Axis Titles, Legends, and Data Labels.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Select data correctly — contiguous, non-contiguous, or a specified range — and choose the appropriate chart type for that data.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Add every required label: chart title, legend, sector labels/values/percentages, category axis title, value axis title, axis labels, data value labels.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Add a second data series and a second axis when the task requires comparing two different scales on one chart.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Format numeric values to a specified number of decimal places or with currency symbols directly on the chart.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Set axis minimum, maximum, and increment values exactly as instructed (e.g., min 0, max 120, increments of 15).</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Enhance appearance correctly: extract (explode) a pie sector, and change colour scheme or fill pattern — black &amp; white printing often requires patterns instead of colour to stay legible.</span></label>
                 </div>
             </div>
+            <!-- ============ DOCUMENT PRODUCTION TAB ============ -->
+            <div id="docprod" class="tab-content">
+                <h2 class="sec-h2">Unit 17 — Document Production</h2>
+                <p class="sec-lede">Paper 2, Task 2. Page layout, text formatting, navigation, and pagination — built on top of everything in Units 12–16. Adhere strictly to the house style given; formatting must be immaculate, not approximate.</p>
 
-            <!-- Databases Tab -->
-            <div id="database" class="tab-content">
-                <h2 class="text-3xl font-bold text-slate-900 mb-2 traditional-heading">Data Manipulation</h2>
-                <p class="text-slate-600 mb-6 text-sm">Design relational systems with absolute precision. Logic dictates the outcome.</p>
-
-                <h3 class="text-lg font-bold text-slate-800 mt-6 mb-3 traditional-heading border-b pb-2">Structure & Relationships</h3>
+                <h3 class="sec-h3"><span class="unit-tag">17</span>Page Layout &amp; Pagination</h3>
                 <div class="space-y-1">
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Import .csv files, assigning correct data types (Short Text, Logical/Boolean, Currency) and defining the Primary Key.</span></label>
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Establish One-to-Many relationships using common fields. Capture a screenshot showing the hidden relationship field types.</span></label>
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Create user-friendly Data Entry Forms with appropriate drop-down menus or radio buttons.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Set page size, orientation (portrait/landscape), margins, number of columns, column width, and spacing between columns exactly as instructed.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Set and remove page, section, and column breaks — know <em>why</em> each exists: a section break lets you change layout (e.g., columns) partway through a document without affecting the rest.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Understand the purpose of a gutter margin: extra space reserved for binding, separate from the regular margin.</span></label>
+                </div>
+
+                <h3 class="sec-h3"><span class="unit-tag">17</span>Text Formatting</h3>
+                <div class="space-y-1">
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Set line spacing precisely: single, 1.5×, double, multiple, plus spacing before/after paragraphs in points.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Set tabulation: left, right, centred, and decimal tabs; create indented and hanging paragraphs.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Apply text enhancement: bold, underline, italic, superscript, subscript, and case changes.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Create or edit bulleted and numbered lists; use Find &amp; Replace with case-matching and whole-word options when required.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Add and delete bookmarks/hyperlinks for navigation within long documents.</span></label>
+                </div>
+
+                <h3 class="sec-h3"><span class="unit-tag">RULE</span>Headers, Footers &amp; House Style Evidence</h3>
+                <div class="warning-box mb-4">
+                    <p class="text-sm text-red-900"><strong>Zero-tolerance:</strong> manually typing a file name or path into a footer scores zero. It must be inserted as an automated field that updates live with the document.</p>
+                </div>
+                <div class="space-y-1">
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Header: full name left-aligned, automated page number right-aligned.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Footer: automated file name <em>and</em> full file path left-aligned, inserted as a field.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Define each named style exactly: typeface, point size, alignment, line spacing, space before/after, no stray enhancements — built in the Styles pane, not applied manually each time.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Print the Styles list/gallery as separate evidence — most mark schemes require proof the style was actually <em>built</em>, not just that the text looks right.</span></label>
+                </div>
+
+                <h3 class="sec-h3"><span class="unit-tag">12/16</span>Image &amp; Chart Integration</h3>
+                <div class="space-y-1">
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Insert images and resize precisely while maintaining aspect ratio unless told otherwise.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Format text wrap around images (tight, square, top-and-bottom) exactly as required.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Format tables: shading, merged cells, alignment, gridlines off so they don't show when printed if asked.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Extract charts from a spreadsheet with 100% accurate titles, axis titles, legends, and data labels carried across.</span></label>
+                </div>
+
+                <!-- MARKING PANEL: Document Production -->
+                <h3 class="sec-h3"><span class="unit-tag">★</span>Learn From Real Marking — Document Production</h3>
+                <p class="text-stone-600 text-sm mb-3">Below is genuine examiner-style marking from a mock Task 2, candidate Nancy (Hee Im). Notice how marks were lost — not from getting things "wrong", but from missing one specific, literal instruction.</p>
+
+                <div class="marking-panel">
+                    <div class="marking-panel-head">
+                        <span class="font-bold text-sm">Task 2: Document Production — Mock Marking</span>
+                        <span class="candidate">Candidate: Hee Im · CN565 · 0159 &nbsp;|&nbsp; 23 / 29 marks</span>
+                    </div>
+                    <div class="marking-panel-body">
+
+                        <div class="mark-row">
+                            <div class="mark-stamp stamp-full">4/4</div>
+                            <div class="mark-detail">
+                                <p class="crit">A4, landscape, margins 2cm T/B &amp; 1.5cm L/R, saved as <code>Life_Cycle</code></p>
+                                <p class="comment">Margins dialog showed every value correctly, paper size confirmed as A4, file saved with the exact name specified.</p>
+                                <span class="lesson-tag tip">What to copy</span>
+                            </div>
+                        </div>
+
+                        <div class="mark-row">
+                            <div class="mark-stamp stamp-full">2/2</div>
+                            <div class="mark-detail">
+                                <p class="crit">Header: name left, auto page number right. Footer: auto file name/path left</p>
+                                <p class="comment">Both the header and the full automated file path were present and correctly aligned — this is exactly the zero-tolerance rule above, done right.</p>
+                                <span class="lesson-tag tip">What to copy</span>
+                            </div>
+                        </div>
+
+                        <div class="mark-row">
+                            <div class="mark-stamp stamp-partial">1/2</div>
+                            <div class="mark-detail">
+                                <p class="crit">Two-column layout with an exact 1cm gap between columns</p>
+                                <p class="comment">The printed document clearly showed two columns — but there was no screenshot of the column-settings dialog to <em>prove</em> the gap was set to 1cm specifically. The visual result wasn't enough; the setting itself had to be evidenced.</p>
+                                <span class="lesson-tag fix">Common mistake</span>
+                            </div>
+                        </div>
+
+                        <div class="mark-row">
+                            <div class="mark-stamp stamp-partial">1/2</div>
+                            <div class="mark-detail">
+                                <p class="crit">Table style applied correctly with 6pt spacing before/after</p>
+                                <p class="comment">Gridlines were visible and text wrapped properly, but there was no evidence the named table style itself was applied (versus manual formatting that happens to look similar) or that spacing matched the 6pt spec.</p>
+                                <span class="lesson-tag fix">Common mistake</span>
+                            </div>
+                        </div>
+
+                        <div class="mark-row">
+                            <div class="mark-stamp stamp-zero">0/1</div>
+                            <div class="mark-detail">
+                                <p class="crit">Image rotated 90° clockwise</p>
+                                <p class="comment">The image appeared upright in the final printout. A rotation instruction is binary — it's either applied or it isn't. No partial credit exists for "I meant to."</p>
+                                <span class="lesson-tag fix">Common mistake</span>
+                            </div>
+                        </div>
+
+                        <div class="mark-row">
+                            <div class="mark-stamp stamp-partial">1/3</div>
+                            <div class="mark-detail">
+                                <p class="crit">Image: width 7cm, aspect ratio kept, text wraps, top-left aligned to column margin</p>
+                                <p class="comment">Text did wrap around the image correctly — but the 7cm width and top-left alignment couldn't be confirmed without a Format Picture dialog screenshot showing the exact dimension field.</p>
+                                <span class="lesson-tag fix">Common mistake</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="info-box">
+                    <p class="text-sm text-blue-900"><strong>The pattern across every lost mark:</strong> the visible output looked plausible, but the supporting evidence (a settings dialog screenshot) wasn't captured. When a mark scheme says "show evidence of," assume it means a screenshot of the actual dialog box — not just the finished result.</p>
+                </div>
+            </div>
+            <!-- ============ DATABASES TAB ============ -->
+            <div id="database" class="tab-content">
+                <h2 class="sec-h2">Unit 18 — Databases</h2>
+                <p class="sec-lede">Paper 2, Task 3. Design relational systems with absolute precision — a single incorrect data type or omitted record can invalidate everything downstream.</p>
+
+                <h3 class="sec-h3"><span class="unit-tag">18.1</span>Structure &amp; Relationships</h3>
+                <div class="space-y-1">
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Import <code>.csv</code>/<code>.txt</code> files using specified field names, setting accurate data types: text, numeric (integer/decimal/currency), date/time, Boolean/logical.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Set numeric sub-types (percentage, decimal places) and the display format of Boolean fields (Yes/No, True/False, checkbox) and date/time fields.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Create and edit primary and foreign keys, then build the relationship between tables — usually one-to-many.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Capture a screenshot showing the relationship type explicitly (the join-type indicator), not just a line connecting two tables.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Build a data entry form with specified fields, appropriate font styles/sizes, sensible spacing, and the right control type — radio buttons, check boxes, or drop-down menus.</span></label>
                 </div>
 
                 <div class="visual-example">
                     <p class="font-bold text-slate-700 text-sm mb-2">Visual Example: One-to-Many Relationship</p>
-                    <div class="flex items-center justify-center gap-4 text-xs font-mono">
+                    <div class="flex items-center justify-center gap-4 text-xs mono">
                         <div class="border border-slate-400 rounded bg-white p-2">
                             <p class="font-bold border-b border-slate-300 pb-1 mb-1">Customers</p>
                             <p class="text-amber-600 font-bold">🔑 Customer_ID</p>
@@ -229,9 +563,7 @@
                             <p>Email</p>
                         </div>
                         <div class="flex items-center text-slate-400">
-                            <span>1</span>
-                            <span class="mx-2">━━━━━━━━━</span>
-                            <span>∞</span>
+                            <span>1</span><span class="mx-2">━━━━━━━━━</span><span>∞</span>
                         </div>
                         <div class="border border-slate-400 rounded bg-white p-2">
                             <p class="font-bold border-b border-slate-300 pb-1 mb-1">Orders</p>
@@ -240,34 +572,100 @@
                             <p>Date</p>
                         </div>
                     </div>
-                    <p class="text-xs text-slate-500 mt-3 text-center">Ensure you enforce referential integrity to prevent orphan records.</p>
+                    <p class="text-xs text-slate-500 mt-3 text-center">Enforce referential integrity to prevent orphan records.</p>
                 </div>
 
-                <h3 class="text-lg font-bold text-slate-800 mt-8 mb-3 traditional-heading border-b pb-2">Queries, Reports & Labels</h3>
-                <div class="code-block text-xs mb-4">
-                    Criteria Syntax Examples:<br>
-                    Contains text: *road*<br>
-                    Calculated Field (Runtime): New Price: [Cost] * 1.2
+                <h3 class="sec-h3"><span class="unit-tag">18.2</span>Calculations, Sorting &amp; Searching</h3>
+                <div class="code-block mb-4">
+<span class="text-slate-400">// Search operators the syllabus specifically lists:</span>
+AND  OR  NOT  LIKE   &gt;   &lt;   =   &gt;=   &lt;=   &lt;&gt;
+<span class="text-slate-400">// Plus wildcard searches, e.g. contains text: *road*</span>
+<span class="text-slate-400">// Calculated field (runtime):</span>
+New_Price: [Cost] * 1.2
                 </div>
                 <div class="space-y-1">
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Create runtime calculated fields within a query using accurate mathematical operators.</span></label>
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Generate tabular reports from queries, sorting data (e.g., Category ascending, Price descending), and ensure it fits one page wide.</span></label>
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Add summary statistics (Sum, Average, Count) in the Report Footer with an appropriate label.</span></label>
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Produce Labels: use a query to filter data, arrange fields precisely, and format to fit two side-by-side on the page.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Use arithmetic operations or functions for calculated fields/controls at run time: add, subtract, multiply, divide, sum, average, max, min, count.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Sort data on a single or multiple criteria, ascending or descending, in the exact order requested.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Search and select subsets of data using a query with single or multiple criteria, the full operator set above, and wildcards.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Apply Data Validation (e.g., a drop-down list) to restrict entry to valid values, keeping data consistent for later calculations.</span></label>
+                </div>
+
+                <h3 class="sec-h3"><span class="unit-tag">18.3</span>Presenting Data: Reports &amp; Labels</h3>
+                <div class="space-y-1">
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Produce reports displaying all required data and labels in full — no truncated text, no cut-off columns.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Use report header, report footer, page header, and page footer correctly, and set an appropriate report title.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Control output layout — tabular or columnar — and align data appropriately: right-align numeric data with consistent decimal alignment.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Control numeric display format: decimal places, currency symbol, percentage — matching exactly what's specified.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Add summary statistics (sum, average, count) in the Report Footer with an appropriate label.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Produce labels from a filtered query, arranged precisely, formatted to fit the page layout specified (e.g., two side-by-side).</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Fit reports to a single page wide — a report that spills onto a second page loses marks even if every value is correct.</span></label>
+                </div>
+
+                <!-- MARKING PANEL: Database -->
+                <h3 class="sec-h3"><span class="unit-tag">★</span>Learn From Real Marking — Databases</h3>
+                <p class="text-stone-600 text-sm mb-3">Same candidate, Task 3. Watch how a single mismatched data type costs a mark even when everything else about the table is right.</p>
+
+                <div class="marking-panel">
+                    <div class="marking-panel-head">
+                        <span class="font-bold text-sm">Task 3: Databases — Mock Marking</span>
+                        <span class="candidate">Candidate: Hee Im · CN565 · 0159</span>
+                    </div>
+                    <div class="marking-panel-body">
+
+                        <div class="mark-row">
+                            <div class="mark-stamp stamp-partial">1/2</div>
+                            <div class="mark-detail">
+                                <p class="crit">Employees.csv imported; field names &amp; data types correct; Employee_ID is primary key</p>
+                                <p class="comment">Every field was present and the primary key icon showed correctly on Employee_ID — but Employee_ID itself was set to <strong>Number</strong> instead of <strong>Short Text</strong>. An ID field that's purely an identifier (never added or averaged) should almost always be text, not numeric.</p>
+                                <span class="lesson-tag fix">Common mistake</span>
+                            </div>
+                        </div>
+
+                        <div class="mark-row">
+                            <div class="mark-stamp stamp-full">1/1</div>
+                            <div class="mark-detail">
+                                <p class="crit">Jobs.csv imported; field names, data types accurate; primary key chosen</p>
+                                <p class="comment">Job_Code (Short Text, primary key), Job_Description (Short Text), and Starting_Salary (Currency) were all set correctly — this is the contrast case: same task, but the ID field was correctly typed as text.</p>
+                                <span class="lesson-tag tip">What to copy</span>
+                            </div>
+                        </div>
+
+                        <div class="mark-row">
+                            <div class="mark-stamp stamp-full">1/1</div>
+                            <div class="mark-detail">
+                                <p class="crit">Specified record deleted from the Employees table</p>
+                                <p class="comment">The deleted record didn't appear in either downstream report — a clean, simple delete, confirmed by checking it didn't resurface anywhere else.</p>
+                                <span class="lesson-tag tip">What to copy</span>
+                            </div>
+                        </div>
+
+                        <div class="mark-row">
+                            <div class="mark-stamp stamp-full">1/1</div>
+                            <div class="mark-detail">
+                                <p class="crit">One-to-many relationship: Job_Code in Employees → Job_Code in Jobs</p>
+                                <p class="comment">The relationship diagram screenshot clearly showed the "1" and "∞" notation between the linked fields — exactly the kind of explicit evidence the mark scheme rewards.</p>
+                                <span class="lesson-tag tip">What to copy</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="info-box">
+                    <p class="text-sm text-blue-900"><strong>The rule of thumb:</strong> if a field is ever used in a calculation (sum, average), it's numeric or currency. If it only identifies a record and is never calculated with, it's almost always Short Text — even if it looks like a number.</p>
                 </div>
             </div>
-
-            <!-- Presentations Tab -->
+            <!-- ============ PRESENTATIONS TAB ============ -->
             <div id="presentation" class="tab-content">
-                <h2 class="text-3xl font-bold text-slate-900 mb-2 traditional-heading">Presentations</h2>
-                <p class="text-slate-600 mb-6 text-sm">Deliver clear communication. Control formatting globally.</p>
+                <h2 class="sec-h2">Unit 19 — Presentations</h2>
+                <p class="sec-lede">Paper 2, Task 4. Deliver clear communication with global formatting control via the Master Slide, then layer in objects, animation, and navigation on individual slides.</p>
 
-                <h3 class="text-lg font-bold text-slate-800 mt-6 mb-3 traditional-heading border-b pb-2">Master Slide & Content</h3>
+                <h3 class="sec-h3"><span class="unit-tag">19</span>Master Slide &amp; Slide Editing</h3>
                 <div class="space-y-1">
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Import a rich text format (.rtf) file directly into the presentation software to automatically generate a deck of slides.</span></label>
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Access and modify the Primary Master Slide (the 1st slide in the master view). Apply global changes here.</span></label>
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Place an automated slide number, horizontal line, and candidate details on the master slide without overlapping any text.</span></label>
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Format specific slides: format bulleted lists, demote bullet points to a second level, or adjust title alignments.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Create a new presentation directly from a text file (often <code>.rtf</code>) — this auto-generates a deck of slides from the headings.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Insert and edit Master Slide objects consistently: images, text, shapes, logos, slide headers/footers, placeholder position, automated slide numbering.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Format Master Slide objects — headings, subheadings, bullets, background colour — so changes cascade to every slide using that layout.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Apply slide layouts, insert/move/delete slides, and insert/edit objects on individual slides: text, images (still/video/animated), charts, tables, audio, symbols, lines, arrows, call-out boxes, shapes.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Add alternative text / screentip to objects, and hide specific slides within the deck when instructed.</span></label>
                 </div>
 
                 <div class="visual-example">
@@ -275,7 +673,7 @@
                     <div class="flex gap-2">
                         <div class="w-1/3 bg-slate-200 p-2 rounded border border-slate-300 text-xs text-center">
                             <p class="font-bold text-amber-600">1. Primary Master</p>
-                            <p class="mt-2 text-slate-600">Apply logos, candidate details, and fonts here to affect ALL slides.</p>
+                            <p class="mt-2 text-slate-600">Logos, candidate details, fonts — affects ALL slides.</p>
                         </div>
                         <div class="w-2/3 flex flex-col gap-2">
                             <div class="bg-white p-2 rounded border border-slate-300 text-xs">
@@ -290,55 +688,198 @@
                     </div>
                 </div>
 
-                <h3 class="text-lg font-bold text-slate-800 mt-8 mb-3 traditional-heading border-b pb-2">Print Configurations</h3>
+                <h3 class="sec-h3"><span class="unit-tag">19</span>Animations &amp; Transitions</h3>
+                <p class="text-stone-600 text-sm mb-3">Transitions control how one slide changes to the next. Animations control how individual objects behave within a single slide. The syllabus requires <em>consistent</em> application of both.</p>
+                <div class="visual-example">
+                    <p class="font-bold text-slate-700 text-sm mb-2">Visual Example: Animation Pane Evidence</p>
+                    <div class="flex gap-4 text-xs mono">
+                        <div class="w-1/2 border border-slate-300 bg-white rounded p-3">
+                            <p class="font-bold text-slate-700 mb-2">Slide Sorter View (Transitions)</p>
+                            <div class="flex space-x-4">
+                                <div class="text-center"><div class="w-14 h-10 bg-slate-200 border border-slate-400 mb-1"></div><span>Slide 1 🌟</span></div>
+                                <div class="text-center"><div class="w-14 h-10 bg-slate-200 border border-slate-400 mb-1"></div><span>Slide 2 🌟</span></div>
+                            </div>
+                            <p class="text-slate-500 mt-2">The star icon confirms a transition is applied.</p>
+                        </div>
+                        <div class="w-1/2 border border-slate-300 bg-white rounded p-3">
+                            <p class="font-bold text-slate-700 mb-2">Animation Pane (Object Order)</p>
+                            <p class="text-slate-600">▶ 1. Item 1 (On Click)<br>▶ 2. Item 2 (With Previous)<br>▶ 3. Item 3 (After Previous)</p>
+                        </div>
+                    </div>
+                </div>
                 <div class="space-y-1">
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Print the presentation as handouts with 2 slides to the page.</span></label>
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Print a designated slide as a single full-page slide.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Apply consistent transitions between slides — the exact named effect on the exact slides specified.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Apply consistent animation effects to text, images, and other objects, setting the start trigger correctly: On Click, With Previous, or After Previous.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Reorder animations in the Animation Pane so objects appear in the exact sequence required.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Screenshot the open Animation Pane / Transitions ribbon as evidence — a static slide alone never proves a dynamic effect was applied.</span></label>
+                </div>
+
+                <h3 class="sec-h3"><span class="unit-tag">19</span>Hyperlinks, Action Buttons &amp; Charts</h3>
+                <div class="space-y-1">
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Insert and edit a hyperlink linking text or an object to: a slide within the presentation, an external file, or an email address.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Insert an Action Button, modifying its settings to navigate to a specified slide or file.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Create a chart, paste/embed it on the right slide, format its axes precisely (min/max/increment), and add accurate titles, legends, and data labels.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Extract (explode) a specific pie sector and apply black-and-white-safe fill patterns when a colour legend would be unreadable when printed.</span></label>
+                </div>
+
+                <h3 class="sec-h3"><span class="unit-tag">19</span>Output: Display &amp; Print</h3>
+                <div class="space-y-1">
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Display the presentation for different purposes: looped on-screen carousel, or presenter-controlled.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Print in the layout specified: full-page slides, presenter notes, or handouts with an exact number of slides per page (e.g., 2, 4, or 6).</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm"><strong>Crucial check:</strong> visually verify candidate details appear clearly on every single printed page before submitting.</span></label>
+                </div>
+
+                <!-- MARKING PANEL: Presentations -->
+                <h3 class="sec-h3"><span class="unit-tag">★</span>Learn From Real Marking — Presentations</h3>
+                <p class="text-stone-600 text-sm mb-3">Candidate Dogeun Kim's Task 4 mock — a 6-mark chart execution question, broken into its individual sub-criteria. This is what "6 marks" actually decomposes into.</p>
+
+                <div class="marking-panel">
+                    <div class="marking-panel-head">
+                        <span class="font-bold text-sm">Task 4: Presentations — Chart Execution Breakdown</span>
+                        <span class="candidate">Candidate: Dogeun Kim</span>
+                    </div>
+                    <div class="marking-panel-body">
+
+                        <div class="mark-row">
+                            <div class="mark-stamp stamp-full">1/1</div>
+                            <div class="mark-detail">
+                                <p class="crit">Chart title reads exactly "Top Contributors"</p>
+                                <p class="comment">Matched the exact wording specified — chart titles are checked character-for-character against the instruction, not just "a title is present."</p>
+                            </div>
+                        </div>
+                        <div class="mark-row">
+                            <div class="mark-stamp stamp-full">1/1</div>
+                            <div class="mark-detail">
+                                <p class="crit">Percentage labels placed outside the pie sectors</p>
+                                <p class="comment">Labels positioned outside, not overlapping the slice colours — a common readability requirement when slices are small.</p>
+                            </div>
+                        </div>
+                        <div class="mark-row">
+                            <div class="mark-stamp stamp-full">1/1</div>
+                            <div class="mark-detail">
+                                <p class="crit">Highest-value sector extracted (pulled out)</p>
+                                <p class="comment">The single largest contributor's slice was offset from the rest of the pie — exactly the "extract a sector" skill from Unit 16.</p>
+                            </div>
+                        </div>
+                        <div class="mark-row">
+                            <div class="mark-stamp stamp-full">1/1</div>
+                            <div class="mark-detail">
+                                <p class="crit">Black &amp; white-safe fill patterns instead of colour</p>
+                                <p class="comment">Each slice used a distinct pattern (not just shades of grey that blur together when printed) — critical for printed exam evidence.</p>
+                            </div>
+                        </div>
+                        <div class="mark-row">
+                            <div class="mark-stamp stamp-full">1/1</div>
+                            <div class="mark-detail">
+                                <p class="crit">No legend displayed</p>
+                                <p class="comment">Counter-intuitively, the instruction explicitly said no legend — and a legend was correctly omitted. Always re-read whether a chart element is required <em>or forbidden</em> for that specific task.</p>
+                            </div>
+                        </div>
+                        <div class="mark-row">
+                            <div class="mark-stamp stamp-full">1/1</div>
+                            <div class="mark-detail">
+                                <p class="crit">Chart placed to the right of the bullet list on the correct slide</p>
+                                <p class="comment">Object placement was checked against the named slide, not just "a chart exists somewhere in the deck."</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="info-box">
+                    <p class="text-sm text-blue-900"><strong>The pattern here:</strong> a single "create a chart" instruction is never one mark — it's six separate, individually-checked sub-criteria (title wording, label position, extraction, fill style, legend presence/absence, and placement). Treat every chart task as a checklist, not a single step.</p>
                 </div>
             </div>
-
-            <!-- Spreadsheets Tab -->
+            <!-- ============ SPREADSHEETS TAB ============ -->
             <div id="spreadsheet" class="tab-content">
-                <h2 class="text-3xl font-bold text-slate-900 mb-2 traditional-heading">Data Analysis</h2>
-                <p class="text-slate-600 mb-6 text-sm">Spreadsheets dictate financial truth. Execute formulas with zero errors.</p>
+                <h2 class="sec-h2">Unit 20 — Spreadsheets</h2>
+                <p class="sec-lede">Paper 3, Task 3. Spreadsheets dictate financial truth. Execute formulas with zero errors — a single wrong reference cascades through every dependent cell.</p>
 
-                <h3 class="text-lg font-bold text-slate-800 mt-6 mb-3 traditional-heading border-b pb-2">Formula Cheat Sheet</h3>
-                <div class="code-block text-xs mb-4">
-                    <span class="text-slate-400">// External Lookup (Absolute Referencing is mandatory for table_array):</span><br>
-                    =VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])<br><br>
-                    <span class="text-slate-400">// Modern Lookup (No column counting needed):</span><br>
-                    =XLOOKUP(lookup_value, lookup_array, return_array, "[if_not_found]")<br><br>
-                    <span class="text-slate-400">// Nested IF logic:</span><br>
-                    =IF(B2>40000, "High", IF(B2>20000, "Medium", "Low"))
+                <h3 class="sec-h3"><span class="unit-tag">20.1</span>Building the Model</h3>
+                <div class="code-block mb-4">
+<span class="text-slate-400">// Functions explicitly named in the syllabus:</span>
+SUM · AVERAGE · MAX · MIN · INT · ROUND family · COUNT family
+LOOKUP · VLOOKUP · HLOOKUP · XLOOKUP · IF (incl. nested)
                 </div>
                 <div class="space-y-1">
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Deploy VLOOKUP using 0/FALSE for exact matches and 1/TRUE for approximate matches.</span></label>
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Deploy XLOOKUP as the preferred modern standard for data retrieval.</span></label>
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Utilize SUMIFS/COUNTIFS for multi-criteria aggregation.</span></label>
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Construct Nested IF statements to handle multiple condition logic.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Insert/delete cells, rows, and columns; merge cells; create formulae using cell references.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Replicate formulae using absolute (<code>$A$1</code>) and relative cell references correctly — know exactly when each is needed.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Use all arithmetic operators (add, subtract, multiply, divide, indices) and apply correct order of operations, using brackets to force the right evaluation order.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Name cells and ranges, then reference those names inside formulas instead of raw cell addresses.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Know the difference between a formula (a specific calculation you write) and a function (a built-in named operation) — a recurring Paper 1 question.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Use external data sources within functions, and nest functions inside one another when a task needs combined logic.</span></label>
                 </div>
 
-                <h3 class="text-lg font-bold text-slate-800 mt-8 mb-3 traditional-heading border-b pb-2">Printing Protocols</h3>
+                <div class="code-block mb-4">
+<span class="text-slate-400">// Absolute referencing locks a cell so it doesn't shift when dragged:</span>
+=B2*$D$1   <span class="text-slate-400">// $D$1 stays fixed; B2 still changes per row</span>
+
+<span class="text-slate-400">// Lookups — VLOOKUP needs an absolute table_array:</span>
+=VLOOKUP(lookup_value, $A$2:$D$50, col_index_num, FALSE)
+=XLOOKUP(lookup_value, lookup_array, return_array, "Not found")
+
+<span class="text-slate-400">// Nested IF / IF with AND, OR, NOT:</span>
+=IF(B2&gt;40000, "High", IF(B2&gt;20000, "Medium", "Low"))
+=IF(AND(B2&gt;50, C2="Yes"), "Pass", "Fail")
+                </div>
+                <div class="space-y-1">
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Deploy VLOOKUP with <code>FALSE</code>/0 for exact matches, <code>TRUE</code>/1 for approximate — getting this backwards returns silently wrong values, not an error.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Deploy XLOOKUP as the modern equivalent — no column counting, built-in "not found" handling.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Use SUMIF/SUMIFS, AVERAGEIF, and COUNTIFS for single and multi-criteria aggregation.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Construct nested IF statements, and IF combined with AND/OR/NOT, for multi-condition logic.</span></label>
+                </div>
+
+                <h3 class="sec-h3"><span class="unit-tag">20</span>Counting, Text &amp; Rounding</h3>
+                <div class="code-block mb-4">
+=COUNT(range)      <span class="text-slate-400">// counts cells with numbers only</span>
+=COUNTA(range)     <span class="text-slate-400">// counts non-blank cells (numbers + text)</span>
+=COUNTBLANK(range) <span class="text-slate-400">// counts empty cells</span>
+
+=LEFT(text, n) / =RIGHT(text, n) / =MID(text, start, n)
+
+=ROUND(number, 2) / =ROUNDUP(number, 0) / =ROUNDDOWN(number, 1)
+=INT(number)       <span class="text-slate-400">// truncates to whole number</span>
+                </div>
+                <div class="space-y-1">
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Use COUNT, COUNTA, and COUNTBLANK correctly depending on whether cells hold numbers, any data, or are empty.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Extract characters with LEFT, RIGHT, and MID — often used to clean a code before feeding it into a lookup.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Distinguish ROUND (standard rounding) from ROUNDUP (always up) and ROUNDDOWN (always truncates down).</span></label>
+                </div>
+
+                <h3 class="sec-h3"><span class="unit-tag">20.2/20.3</span>Sorting, Searching &amp; Presenting Data</h3>
+                <div class="code-block mb-4">
+<span class="text-slate-400">// Search operators the syllabus specifically lists:</span>
+AND  OR  NOT   &gt;   &lt;   =   &gt;=   &lt;=   &lt;&gt;   <span class="text-slate-400">+ wildcards</span>
+                </div>
+                <div class="space-y-1">
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Sort on single or multiple criteria, ascending or descending, exactly as instructed.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Filter data to display only rows meeting stated criteria, using the operators above and wildcards, without deleting hidden rows.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Display either formulae or values on demand; adjust row height/column width/cell size so everything is fully visible; wrap text within cells; hide/display rows and columns.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Enhance formatting: text colour, cell colour, bold, underline, italic, shading — plus numeric formatting (decimal places, currency symbols, percentages).</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Apply Conditional Formatting so cells change appearance automatically based on their value (e.g., green if ≥90, red if &lt;50).</span></label>
+                </div>
+
+                <h3 class="sec-h3"><span class="unit-tag">RULE</span>Printing Protocols</h3>
                 <div class="warning-box mb-4">
-                    <p class="text-sm text-red-900">If a formula is cut off when printed (e.g., <code>=VLOOK...</code>) or a number is too big for the cell (<code>#####</code>), you will score zero marks for that cell.</p>
+                    <p class="text-sm text-red-900">If a formula is cut off when printed (e.g., <code>=VLOOK...</code>) or a number is too big for its cell (<code>#####</code>), that cell scores zero — regardless of whether the underlying formula was correct.</p>
                 </div>
                 <div class="space-y-1">
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm"><strong>Formula View (Ctrl + `):</strong> Double-click column headers to autofit. Turn ON Row/Column headings (A,B,C.. 1,2,3). Turn ON Gridlines. Set to Landscape.</span></label>
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm"><strong>Value View:</strong> Turn formulas OFF. Autofit columns again. Format numbers correctly (e.g., Currency 2 dp). Set to print single page wide.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm"><strong>Formula View:</strong> double-click column headers to autofit. Turn ON row/column headings (A,B,C / 1,2,3). Turn ON gridlines. Set to landscape if columns are wide.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm"><strong>Value View:</strong> turn formulas OFF. Autofit columns again. Format numbers correctly. Set to print on a single page wide, with gridlines and headings off unless told otherwise.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Set orientation (portrait/landscape) and the page layout — print area, number of pages, gridlines, row/column headings — to match the exact spec given.</span></label>
                 </div>
 
                 <div class="visual-example">
                     <p class="font-bold text-slate-700 text-sm mb-2">Visual Example: Formula View vs Value View</p>
                     <div class="flex gap-4">
-                        <div class="w-1/2 border border-slate-300 bg-white rounded p-2 text-xs font-mono">
-                            <p class="bg-slate-200 text-center font-bold mb-1">Formula View (Ctrl + `)</p>
+                        <div class="w-1/2 border border-slate-300 bg-white rounded p-2 text-xs mono">
+                            <p class="bg-slate-200 text-center font-bold mb-1">Formula View</p>
                             <table class="w-full border-collapse">
                                 <tr><th class="border bg-slate-100 p-1">A</th><th class="border bg-slate-100 p-1">B</th></tr>
                                 <tr><td class="border p-1">Price</td><td class="border p-1">Tax</td></tr>
                                 <tr><td class="border p-1">150</td><td class="border p-1 text-amber-600">=A2*0.2</td></tr>
                             </table>
                         </div>
-                        <div class="w-1/2 border border-slate-300 bg-white rounded p-2 text-xs font-mono">
+                        <div class="w-1/2 border border-slate-300 bg-white rounded p-2 text-xs mono">
                             <p class="bg-slate-200 text-center font-bold mb-1">Value View</p>
                             <table class="w-full border-collapse">
                                 <tr><th class="border bg-slate-100 p-1">A</th><th class="border bg-slate-100 p-1">B</th></tr>
@@ -348,38 +889,108 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- MARKING PANEL: Spreadsheets -->
+                <h3 class="sec-h3"><span class="unit-tag">★</span>Learn From Real Marking — Spreadsheets</h3>
+                <p class="text-stone-600 text-sm mb-3">From a mock Paper 3 (a Mount Kilimanjaro packing-list spreadsheet). This is the official-style grading rubric format — formulas and printouts are checked field by field.</p>
+
+                <div class="marking-panel">
+                    <div class="marking-panel-head">
+                        <span class="font-bold text-sm">Task 3: Spreadsheets — Examiner's Grading Sheet</span>
+                        <span class="candidate">Spring Mock · Component 32</span>
+                    </div>
+                    <div class="marking-panel-body">
+
+                        <div class="mark-row">
+                            <div class="mark-stamp stamp-full">3</div>
+                            <div class="mark-detail">
+                                <p class="crit">Conditional statement correct: IF + VLOOKUP combine to flag "Critical" items as Yes/No</p>
+                                <p class="comment">The nested logic (a VLOOKUP feeding into an IF test) returned the right Yes/No flag for every row — this is the IF/VLOOKUP combination pattern that appears across nearly every Paper 3 spreadsheet task.</p>
+                            </div>
+                        </div>
+                        <div class="mark-row">
+                            <div class="mark-stamp stamp-full">3</div>
+                            <div class="mark-detail">
+                                <p class="crit">Total Price correct: VLOOKUP × Quantity, formatted as currency to 2dp</p>
+                                <p class="comment">The looked-up unit price was multiplied by quantity and the result formatted with a currency symbol and exactly two decimal places — both the calculation <em>and</em> the display format were checked separately.</p>
+                            </div>
+                        </div>
+                        <div class="mark-row">
+                            <div class="mark-stamp stamp-full">1</div>
+                            <div class="mark-detail">
+                                <p class="crit">Formula replicated for every cell in the range</p>
+                                <p class="comment">Dragging the formula down the whole column, with absolute references locked correctly, meant every row calculated — not just the first one.</p>
+                            </div>
+                        </div>
+                        <div class="mark-row">
+                            <div class="mark-stamp stamp-full">2</div>
+                            <div class="mark-detail">
+                                <p class="crit">Formulae printout: full range, single page, landscape, headings and gridlines on</p>
+                                <p class="comment">Exactly the print protocol above — formulas visible, headings on, gridlines on, fit to one page in landscape.</p>
+                            </div>
+                        </div>
+                        <div class="mark-row">
+                            <div class="mark-stamp stamp-full">2</div>
+                            <div class="mark-detail">
+                                <p class="crit">Values printout: fits a single page, no gridlines, no row/column headings</p>
+                                <p class="comment">The mirror image of the formula printout — clean, presentation-ready, with all the technical scaffolding switched off.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="info-box">
+                    <p class="text-sm text-blue-900"><strong>What this shows:</strong> a single spreadsheet column might carry 8–9 marks once you split it into calculation, replication, formatting, and two separate printouts. Build the formula correctly first, then treat each printout as its own separate scored task — they're never "the same mark."</p>
+                </div>
             </div>
-
-            <!-- Web Authoring Tab -->
+            <!-- ============ WEB AUTHORING TAB ============ -->
             <div id="webauth" class="tab-content">
-                <h2 class="text-3xl font-bold text-slate-900 mb-2 traditional-heading">Website Authoring (HTML & CSS)</h2>
-                <p class="text-slate-600 mb-6 text-sm">Strict separation of structure (HTML) and presentation (CSS) is required. You must edit and refine code manually, as WYSIWYG editors will not generate perfect, exam-compliant code.</p>
+                <h2 class="sec-h2">Unit 21 — Website Authoring</h2>
+                <p class="sec-lede">Paper 3, Task 2. The syllabus splits a webpage into three layers — know which layer is responsible for what, because tasks are marked layer by layer. WYSIWYG editors won't generate exam-compliant code; you must edit markup directly.</p>
 
-                <!-- 1. Head and Meta Tags -->
-                <h3 class="text-lg font-bold text-slate-800 mt-6 mb-3 traditional-heading border-b pb-2">1. Head & Meta Tags (Structure & Setup)</h3>
-                <p class="text-slate-600 text-sm mb-3">The <code>&lt;head&gt;</code> section contains metadata that is not displayed on the page itself but is critical for the browser and search engines.</p>
-                <div class="code-block text-xs mb-4">
+                <h3 class="sec-h3"><span class="unit-tag">21.1</span>The Three Web Development Layers</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-2">
+                    <div class="bg-white border border-stone-200 rounded-lg p-4">
+                        <p class="font-bold text-sm text-slate-800">Content Layer</p>
+                        <p class="text-xs text-stone-500 mt-1 mono">HTML</p>
+                        <p class="text-xs text-stone-600 mt-2">Enters content and creates the structure of the page.</p>
+                    </div>
+                    <div class="bg-white border border-amber-200 rounded-lg p-4 ring-1 ring-amber-100">
+                        <p class="font-bold text-sm text-slate-800">Presentation Layer</p>
+                        <p class="text-xs text-stone-500 mt-1 mono">CSS</p>
+                        <p class="text-xs text-stone-600 mt-2">Displays and formats the elements within the page.</p>
+                    </div>
+                    <div class="bg-white border border-stone-200 rounded-lg p-4">
+                        <p class="font-bold text-sm text-slate-800">Behaviour Layer</p>
+                        <p class="text-xs text-stone-500 mt-1 mono">Scripting</p>
+                        <p class="text-xs text-stone-600 mt-2">Controls elements dynamically. <strong>Not required</strong> — the syllabus states no scripting language is needed.</p>
+                    </div>
+                </div>
+
+                <h3 class="sec-h3"><span class="unit-tag">21.2</span>Head &amp; Meta Tags (Structure &amp; Setup)</h3>
+                <div class="code-block mb-4">
 &lt;head&gt;
-  <span class="text-slate-400">&lt;!-- Sets the title in the browser tab --&gt;</span>
   &lt;title&gt;Tawara Conservation&lt;/title&gt;
-  
-  <span class="text-slate-400">&lt;!-- Syllabus 2026: Mandatory Meta Tags --&gt;</span>
+
+  <span class="text-slate-400">&lt;!-- Syllabus 2026: mandatory meta tags --&gt;</span>
   &lt;meta charset="UTF-8"&gt;
   &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
   &lt;meta name="description" content="A website about local wildlife conservation"&gt;
-  
-  <span class="text-slate-400">&lt;!-- Linking the external CSS --&gt;</span>
+  &lt;meta name="keywords" content="wildlife, conservation, Tanzania"&gt;
+  &lt;meta name="author" content="Candidate Name"&gt;
+
+  <span class="text-slate-400">&lt;!-- Relative file path, attached last so it wins the cascade --&gt;</span>
   &lt;link rel="stylesheet" href="style.css"&gt;
 &lt;/head&gt;
                 </div>
                 <div class="space-y-1 mb-6">
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Construct the required <code>&lt;meta&gt;</code> tags for character set and responsive viewport scaling.</span></label>
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Link an external stylesheet correctly using the <code>&lt;link&gt;</code> tag.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Insert a page title that displays in the browser tab.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Construct meta tags for charset, viewport, description, keywords, and author with the correct attributes.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Attach external stylesheets using the correct hierarchy and a <em>relative</em> file path — never absolute, since the site must work when moved between machines.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Set the default target window for links where specified.</span></label>
                 </div>
 
-                <!-- 2. Text & Structural Tags -->
-                <h3 class="text-lg font-bold text-slate-800 mt-6 mb-3 traditional-heading border-b pb-2">2. Text & Structural Tags (Content Layer)</h3>
-                <p class="text-slate-600 text-sm mb-3">HTML structures content hierarchically. Use headings logically and format paragraphs and lists precisely.</p>
+                <h3 class="sec-h3"><span class="unit-tag">21.2</span>Content: Text, Tables &amp; Objects</h3>
                 <div class="visual-example">
                     <div class="flex gap-4">
                         <div class="w-1/2">
@@ -387,15 +998,12 @@
                             <div class="code-block text-xs !p-2 !m-0">
 &lt;h1&gt;Main Heading&lt;/h1&gt;
 &lt;h2&gt;Sub Heading&lt;/h2&gt;
-&lt;p&gt;This is a standard paragraph.&lt;/p&gt;
-
+&lt;p&gt;A standard paragraph.&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;Unordered (Bullet) List Item&lt;/li&gt;
-  &lt;li&gt;Second Item&lt;/li&gt;
+  &lt;li&gt;Unordered item&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;ol&gt;
-  &lt;li&gt;Ordered (Numbered) List Item&lt;/li&gt;
+  &lt;li&gt;Ordered item&lt;/li&gt;
 &lt;/ol&gt;
                             </div>
                         </div>
@@ -403,50 +1011,22 @@
                             <p class="font-bold text-slate-700 text-xs mb-2 border-b pb-1">Browser Output</p>
                             <h1 class="text-2xl font-bold mb-1">Main Heading</h1>
                             <h2 class="text-xl font-bold mb-2">Sub Heading</h2>
-                            <p class="text-sm mb-2">This is a standard paragraph.</p>
-                            <ul class="list-disc pl-5 text-sm mb-2">
-                                <li>Unordered (Bullet) List Item</li>
-                                <li>Second Item</li>
-                            </ul>
-                            <ol class="list-decimal pl-5 text-sm">
-                                <li>Ordered (Numbered) List Item</li>
-                            </ol>
+                            <p class="text-sm mb-2">A standard paragraph.</p>
+                            <ul class="list-disc pl-5 text-sm mb-2"><li>Unordered item</li></ul>
+                            <ol class="list-decimal pl-5 text-sm"><li>Ordered item</li></ol>
                         </div>
                     </div>
                 </div>
                 <div class="space-y-1 mb-6">
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Apply <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> tags to structure headings hierarchically.</span></label>
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Create unordered <code>&lt;ul&gt;</code> and ordered <code>&lt;ol&gt;</code> lists with correct <code>&lt;li&gt;</code> items.</span></label>
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Use <code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code> (table row), <code>&lt;td&gt;</code> (table data/cell), and <code>&lt;th&gt;</code> (table header) to create grid layouts.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Apply <code>&lt;h1&gt;</code>–<code>&lt;h6&gt;</code> hierarchically and structure paragraphs and lists (<code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code>) correctly.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Insert a table using <code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;td&gt;</code>, <code>&lt;th&gt;</code>, with cells spanning multiple rows/columns when needed, and sizes set in pixels or %.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Insert text, images, sound, and video — controlling display controls, autoplay, size, aspect ratio, and alternate text.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Use the <code>&lt;div&gt;</code> tag to apply styles and classes to a block of content.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Create a bookmark using an <code>id</code> attribute, then create hyperlinks to: a bookmark on the same page, another local page, an external URL, an email address (<code>mailto:</code>), opening in a specified window target.</span></label>
                 </div>
 
-                <!-- 3. Multimedia & Links -->
-                <h3 class="text-lg font-bold text-slate-800 mt-6 mb-3 traditional-heading border-b pb-2">3. Multimedia & Hyperlinks</h3>
-                <p class="text-slate-600 text-sm mb-3">You must know how to embed video with fallback text and controls. Images must always have alternate text. Links must direct the user accurately.</p>
-                <div class="code-block text-xs mb-4">
-<span class="text-slate-400">&lt;!-- Image with Alternate Text (MANDATORY) --&gt;</span>
-&lt;img src="images/logo.png" alt="Company Logo depicting a tree" width="200" height="100"&gt;
-
-<span class="text-slate-400">&lt;!-- Video with Controls and Fallback --&gt;</span>
-&lt;video width="600" height="400" <span class="text-amber-400">controls autoplay muted loop</span>&gt;
-  &lt;source src="wildlife.mp4" type="video/mp4"&gt;
-  Your browser does not support the video tag.
-&lt;/video&gt;
-
-<span class="text-slate-400">&lt;!-- Hyperlinks --&gt;</span>
-&lt;a href="https://www.cambridgeinternational.org" target="_blank"&gt;Opens in new window&lt;/a&gt;
-&lt;a href="mailto:info@tawara.org?subject=Website Enquiry"&gt;Send us an Email&lt;/a&gt;
-                </div>
-                <div class="space-y-1 mb-6">
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Insert the modern HTML5 <code>&lt;video&gt;</code> tag manually in Code View with correct attributes (controls, autoplay, loop).</span></label>
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Always include the <code>alt</code> attribute for every <code>&lt;img&gt;</code>. Omitting this guarantees lost marks.</span></label>
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Set hyperlinks to open in a new browser window using the <code>target="_blank"</code> attribute.</span></label>
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Create an email hyperlink using the <code>mailto:</code> protocol with a predefined subject line.</span></label>
-                </div>
-
-                <!-- 4. CSS Formatting -->
-                <h3 class="text-lg font-bold text-slate-800 mt-8 mb-3 traditional-heading border-b pb-2">4. CSS Styling (Presentation Layer)</h3>
-                <p class="text-slate-600 text-sm mb-3">CSS controls how HTML elements look. You will be required to write external stylesheets and define specific classes.</p>
+                <h3 class="sec-h3"><span class="unit-tag">21.3</span>CSS — The Presentation Layer</h3>
+                <p class="text-stone-600 text-sm mb-3">CSS controls how HTML elements look. You'll write external stylesheets, inline styles, and custom classes — and must know exactly how they override one another.</p>
                 <div class="visual-example">
                     <div class="flex gap-4">
                         <div class="w-3/5">
@@ -457,43 +1037,218 @@ body {
     background-color: #f0f8ff;
     font-family: Arial, sans-serif;
 }
-table { 
-    border-collapse: collapse; 
-    margin-left: auto; 
-    margin-right: auto; 
+table {
+    width: 90%;
+    border: 2px solid #808000;
+    border-collapse: separate;
 }
-<span class="text-slate-400">/* Defining a Class */</span>
-.highlight { 
-    color: #ff0000; 
-    font-weight: bold; 
-}
+td { padding: 8px 20px 6px 20px; }
+h1 { font-size: 48px; color: #0000ff; text-align: right; }
+h2 { font-size: 24px; color: #ff0000; }
+.highlight { color: #ff0000; font-weight: bold; }
                             </div>
                         </div>
                         <div class="w-2/5">
                             <p class="font-bold text-slate-700 text-xs mb-2">HTML Usage</p>
                             <div class="code-block text-xs !p-2 !m-0 h-full">
 &lt;p class="highlight"&gt;
-  This text will be red 
-  and bold because it 
+  This text is red
+  and bold because it
   uses the class.
 &lt;/p&gt;
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="space-y-1">
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Understand CSS Priority: The stylesheet attached last (lowest in the <code>&lt;head&gt;</code> list) overrides the ones above it.</span></label>
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Format tables with <code>border-collapse: collapse;</code> to remove double borders, and use auto margins to center tables.</span></label>
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Define a custom CSS class (e.g., <code>.highlight</code>) and apply it to a specific HTML element using <code>class="highlight"</code>.</span></label>
-                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Include candidate details as a CSS comment <code>/* Name, Centre, Cand No */</code> at the top of your stylesheet.</span></label>
+                <div class="space-y-1 mb-6">
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Understand the cascade: the stylesheet attached <em>last</em> in the <code>&lt;head&gt;</code> wins, and an inline style overrides both attached stylesheets.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Style backgrounds (colour, image) and fonts (family, size, colour, alignment, bold, italic) generically and via classes.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Style tables, rows, headers, and cells: size, background colour, horizontal/vertical alignment, spacing, padding, and borders (collapsed or not, colour, thickness, visible/invisible).</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Define a custom class (e.g., <code>.highlight</code>) and apply it via <code>class="highlight"</code> — know the difference between a tag-based style and a class.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Attach a comment to the external stylesheet, and save styles in proper <code>.css</code> format — never inline-only when an external sheet is required.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Know why relative file paths must be used for attached stylesheets — an absolute path breaks the moment the site is opened on a different machine.</span></label>
+                    <label class="task-item"><input type="checkbox" onchange="toggleStrike(this)"> <span class="task-text text-sm">Include candidate details as a CSS comment <code>/* Name, Centre, Cand No */</code> at the top of the stylesheet.</span></label>
+                </div>
+
+                <!-- MARKING PANEL: Web Authoring -->
+                <h3 class="sec-h3"><span class="unit-tag">★</span>Learn From Real Marking — Website Authoring</h3>
+                <p class="text-stone-600 text-sm mb-3">From the same mock's Task 2 (web page banner image work) — a perfect example of how a single "edit this image" instruction hides four separately-checked sub-steps.</p>
+
+                <div class="marking-panel">
+                    <div class="marking-panel-head">
+                        <span class="font-bold text-sm">Task 2: Website Authoring — Image Editing Breakdown</span>
+                        <span class="candidate">Spring Mock · Component 32</span>
+                    </div>
+                    <div class="marking-panel-body">
+
+                        <div class="mark-row">
+                            <div class="mark-stamp stamp-full">1</div>
+                            <div class="mark-detail">
+                                <p class="crit">Banner image reflected horizontally; text remains readable</p>
+                                <p class="comment">A horizontal flip can sometimes mirror embedded text into nonsense — checked separately to confirm the flip didn't break legibility.</p>
+                            </div>
+                        </div>
+                        <div class="mark-row">
+                            <div class="mark-stamp stamp-full">1</div>
+                            <div class="mark-detail">
+                                <p class="crit">Image cropped so the specified element is no longer visible</p>
+                                <p class="comment">A precise crop boundary — "the rhinoceros is not visible" is a literal, checkable pass/fail, not a vague aesthetic judgement.</p>
+                            </div>
+                        </div>
+                        <div class="mark-row">
+                            <div class="mark-stamp stamp-full">1</div>
+                            <div class="mark-detail">
+                                <p class="crit">Image re-saved in the correct file format (<code>.png</code>)</p>
+                                <p class="comment">Editing the image isn't enough — it has to be exported in the exact format named in the instruction.</p>
+                            </div>
+                        </div>
+                        <div class="mark-row">
+                            <div class="mark-stamp stamp-full">1</div>
+                            <div class="mark-detail">
+                                <p class="crit">Saved with the exact file name specified</p>
+                                <p class="comment">A perfectly edited image saved under the wrong name will break the <code>&lt;img src=""&gt;</code> reference and can cost this mark independently of the editing itself.</p>
+                            </div>
+                        </div>
+                        <div class="mark-row">
+                            <div class="mark-stamp stamp-full">1</div>
+                            <div class="mark-detail">
+                                <p class="crit">Screenshot proves the file is saved in the correct directory</p>
+                                <p class="comment">Same evidence principle as Document Production: the mark scheme wants to <em>see</em> the saved file in its folder, not just see it work in the browser.</p>
+                            </div>
+                        </div>
+                        <div class="mark-row">
+                            <div class="mark-stamp stamp-full">13</div>
+                            <div class="mark-detail">
+                                <p class="crit">Table structure built to exact pixel dimensions across every column</p>
+                                <p class="comment">A single table-building question carried 13 marks here — every column width and row height checked individually against the spec. This is the single highest-value sub-task on the whole paper, and it comes from careful, literal CSS sizing, not visual guesswork.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="info-box">
+                    <p class="text-sm text-blue-900"><strong>Exam strategy:</strong> read every word — instructions are literal. Work through requirements one at a time and tick each off. Preview in the browser often to catch errors early, and keep screenshots/printouts ready as evidence. Match font sizes in exact <code>px</code> and colours in exact hex codes — never approximate. Even small mismatches in font, hex code, or alignment cost marks.</p>
                 </div>
             </div>
+            <!-- ============ MARKING / CANDIDATE REVIEWS TAB ============ -->
+            <div id="marking" class="tab-content">
+                <h2 class="sec-h2">Learn From Real Marking</h2>
+                <p class="sec-lede">Two real mock-exam scripts, marked the way an actual Cambridge examiner would: criterion by criterion, with no partial credit for "close enough." Use these to calibrate exactly how literal the mark scheme is before your own exam.</p>
 
-            <!-- Instructional Footer -->
-            <footer class="mt-16 pt-8 border-t border-slate-200 text-center">
-                <p class="text-sm font-bold text-slate-800 uppercase tracking-widest traditional-heading">Mr Glen Joshua (ICT 2025-26)</p>
-                <p class="text-xs text-slate-500 mt-1 font-medium">Upholding Traditional Educational Standards for Future Digital Excellence.</p>
-            </footer>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div class="bg-white border border-stone-200 rounded-lg p-5">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-bold text-slate-800">Hee Im (Nancy)</p>
+                            <span class="badge-pill bg-amber-100 text-amber-800">CN565 · 0159</span>
+                        </div>
+                        <p class="text-xs text-stone-500 mb-3">Paper 2 mock — Document Production &amp; Databases</p>
+                        <div class="flex items-end gap-2">
+                            <span class="text-3xl font-bold text-slate-900">23</span>
+                            <span class="text-stone-400 text-sm mb-1">/ 29 on Task 2</span>
+                        </div>
+                        <div class="w-full bg-stone-100 rounded-full h-2 mt-2">
+                            <div class="bg-amber-500 h-2 rounded-full" style="width: 79%"></div>
+                        </div>
+                        <p class="text-xs text-stone-500 mt-3">Lost marks almost entirely on missing <em>evidence screenshots</em> for settings dialogs — not on getting the visual result wrong.</p>
+                    </div>
+                    <div class="bg-white border border-stone-200 rounded-lg p-5">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-bold text-slate-800">Dogeun Kim</p>
+                            <span class="badge-pill bg-blue-100 text-blue-800">Self-assessment</span>
+                        </div>
+                        <p class="text-xs text-stone-500 mb-3">Paper 2 mock — full 70-mark allocation across 3 tasks</p>
+                        <div class="flex gap-3 mt-3">
+                            <div class="flex-1 text-center bg-stone-50 rounded p-2">
+                                <p class="text-[10px] text-stone-400 uppercase">Doc (30)</p>
+                                <p class="font-bold text-slate-800">Task 2</p>
+                            </div>
+                            <div class="flex-1 text-center bg-stone-50 rounded p-2">
+                                <p class="text-[10px] text-stone-400 uppercase">DB (26)</p>
+                                <p class="font-bold text-slate-800">Task 3</p>
+                            </div>
+                            <div class="flex-1 text-center bg-stone-50 rounded p-2">
+                                <p class="text-[10px] text-stone-400 uppercase">Pres (14)</p>
+                                <p class="font-bold text-slate-800">Task 4</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-stone-500 mt-3">The Task 4 chart question (worth 6 of the 14 presentation marks) was executed perfectly — see the full breakdown on the Presentations tab.</p>
+                    </div>
+                </div>
+
+                <h3 class="sec-h3"><span class="unit-tag">★</span>The Five Lessons That Repeat Across Every Script</h3>
+                <div class="space-y-3">
+                    <div class="flex gap-3 items-start bg-white border border-stone-200 rounded-lg p-4">
+                        <div class="mark-stamp stamp-zero flex-shrink-0">01</div>
+                        <div>
+                            <p class="font-bold text-sm text-slate-800">A visible result is not evidence of the setting</p>
+                            <p class="text-xs text-stone-600 mt-1">Two-column layout looked right, but without a screenshot of the column-width dialog, the exact "1cm gap" requirement couldn't be confirmed and the mark was lost. <strong>Fix:</strong> screenshot the settings dialog itself, every time a task says "set to X."</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 items-start bg-white border border-stone-200 rounded-lg p-4">
+                        <div class="mark-stamp stamp-zero flex-shrink-0">02</div>
+                        <div>
+                            <p class="font-bold text-sm text-slate-800">Binary instructions have no partial credit</p>
+                            <p class="text-xs text-stone-600 mt-1">A 90° rotation that wasn't applied scored zero, full stop — there's no "0.5 marks for trying." <strong>Fix:</strong> after every rotate/reflect/crop instruction, immediately compare your result against the instruction word-for-word.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 items-start bg-white border border-stone-200 rounded-lg p-4">
+                        <div class="mark-stamp stamp-partial flex-shrink-0">03</div>
+                        <div>
+                            <p class="font-bold text-sm text-slate-800">ID fields are text, not numbers, unless you calculate with them</p>
+                            <p class="text-xs text-stone-600 mt-1">Employee_ID set to Number instead of Short Text cost a mark even though the primary key itself was correct. <strong>Fix:</strong> ask "will I ever add, average, or sum this field?" If no, it's text.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 items-start bg-white border border-stone-200 rounded-lg p-4">
+                        <div class="mark-stamp stamp-full flex-shrink-0">04</div>
+                        <div>
+                            <p class="font-bold text-sm text-slate-800">"No legend" is a real instruction, not a missing step</p>
+                            <p class="text-xs text-stone-600 mt-1">Dogeun's chart correctly omitted a legend because the task explicitly said not to include one. <strong>Fix:</strong> read every chart/object instruction for things you must <em>remove</em>, not just things you must add.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 items-start bg-white border border-stone-200 rounded-lg p-4">
+                        <div class="mark-stamp stamp-full flex-shrink-0">05</div>
+                        <div>
+                            <p class="font-bold text-sm text-slate-800">One instruction can hide several separately-marked sub-steps</p>
+                            <p class="text-xs text-stone-600 mt-1">"Edit the banner image" was actually five checks: reflect, crop, file format, file name, and a directory screenshot. The 13-mark table-sizing question was one line of instruction. <strong>Fix:</strong> break every instruction into its smallest checkable parts before you start.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="sec-h3"><span class="unit-tag">RUBRIC</span>What a Real Grading Sheet Looks Like</h3>
+                <p class="text-stone-600 text-sm mb-3">This is the actual format examiners use — short, literal criteria with a mark allocation per line. Practise marking your own mock attempts against a rubric shaped exactly like this.</p>
+                <div class="marking-panel">
+                    <div class="marking-panel-head">
+                        <span class="font-bold text-sm">Paper 3 — Examiner's Grading Sheet (excerpt)</span>
+                        <span class="candidate">Total: ___ / 30</span>
+                    </div>
+                    <div class="marking-panel-body">
+                        <div class="mark-row">
+                            <div class="mark-stamp stamp-full" style="width:auto; padding:0 0.6rem;">[ &nbsp;] / 1</div>
+                            <div class="mark-detail"><p class="crit">Document created with full name in header and saved correctly</p></div>
+                        </div>
+                        <div class="mark-row">
+                            <div class="mark-stamp stamp-full" style="width:auto; padding:0 0.6rem;">[ &nbsp;] / 1</div>
+                            <div class="mark-detail"><p class="crit">Image reflected horizontally / text readable</p></div>
+                        </div>
+                        <div class="mark-row">
+                            <div class="mark-stamp stamp-full" style="width:auto; padding:0 0.6rem;">[ &nbsp;] / 13</div>
+                            <div class="mark-detail"><p class="crit">Table structure created (every column/row size correct)</p></div>
+                        </div>
+                        <div class="mark-row">
+                            <div class="mark-stamp stamp-full" style="width:auto; padding:0 0.6rem;">[ &nbsp;] / 3</div>
+                            <div class="mark-detail"><p class="crit">Conditional statement correct: IF, VLOOKUP, flag column</p></div>
+                        </div>
+                        <div class="mark-row">
+                            <div class="mark-stamp stamp-full" style="width:auto; padding:0 0.6rem;">[ &nbsp;] / 2</div>
+                            <div class="mark-detail"><p class="crit">Formulae printout: single page, landscape, headings, gridlines</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="syllabus-box">
+                    <p class="text-sm text-violet-900"><strong>How to use this tab:</strong> after every practice paper, come back here and re-read the five lessons before you mark your own attempt. Most lost marks aren't knowledge gaps — they're missing evidence, reversed binary instructions, or one sub-step buried inside a longer task.</p>
+                </div>
+            </div>
 
         </div>
     </main>
@@ -501,15 +1256,10 @@ table {
     <script>
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('nav button').forEach(btn => {
-                btn.classList.remove('bg-slate-800', 'text-white', 'font-medium');
-                btn.classList.add('text-slate-300');
-            });
-            
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('is-active'));
+
             document.getElementById(tabId).classList.add('active');
-            const activeBtn = document.getElementById('btn-' + tabId);
-            activeBtn.classList.remove('text-slate-300');
-            activeBtn.classList.add('bg-slate-800', 'text-white', 'font-medium');
+            document.getElementById('btn-' + tabId).classList.add('is-active');
             document.querySelector('main').scrollTop = 0;
         }
 
