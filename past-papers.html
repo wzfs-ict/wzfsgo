@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IGCSE ICT 0417 — Past Papers &amp; Revision Index | Mr. Joshua's ICT</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+    :root{
+        --ink:#1f2937; --paper:#faf9f6; --slate-deep:#0f172a;
+        --amber:#b45309; --amber-bright:#f59e0b;
+        --stamp-red:#9f1d20; --stamp-green:#2f6b3a;
+    }
+    body{ font-family:'Inter',sans-serif; background-color:var(--paper); color:var(--ink); }
+    h1,h2,h3,.traditional-heading{ font-family:'Merriweather',serif; }
+    .mono{ font-family:'JetBrains Mono',monospace; }
+    ::selection{ background:#fde68a; }
+
+    .sec-h2{ font-size:1.85rem; font-weight:700; color:var(--slate-deep); margin-bottom:.35rem; }
+    .sec-lede{ color:#57534e; font-size:.92rem; margin-bottom:1.5rem; max-width:56rem; }
+
+    .info-box{ border-left:4px solid #1d4ed8; background:#eff6ff; padding:.9rem 1.1rem; border-radius:0 .5rem .5rem 0; margin:1.25rem 0; }
+    .syllabus-box{ border-left:4px solid #6d28d9; background:#f5f3ff; padding:.9rem 1.1rem; border-radius:0 .5rem .5rem 0; margin:1.25rem 0; }
+    .warning-box{ border-left:4px solid #b91c1c; background:#fff1f1; padding:.9rem 1.1rem; border-radius:0 .5rem .5rem 0; margin:1.25rem 0; }
+
+    /* Session cards */
+    .session{ background:#fffefb; border:1px solid #e7e0cf; border-radius:.6rem; padding:.85rem .95rem .7rem; box-shadow:0 1px 3px rgb(0 0 0 / .05); }
+    .session-head{ display:flex; align-items:baseline; justify-content:space-between; gap:.5rem; padding-bottom:.5rem; border-bottom:1px solid #ece7da; }
+    .session-head h3{ font-size:.98rem; font-weight:700; color:var(--slate-deep); }
+    .session-head .yr{ font-family:'JetBrains Mono',monospace; font-size:.72rem; color:#a8a29e; }
+    .ptab{ width:100%; border-collapse:collapse; }
+    .ptab tr{ border-bottom:1px dashed #ece7da; }
+    .ptab tr:last-child{ border-bottom:0; }
+    .ptab th{ text-align:left; font-weight:400; padding:.45rem 0; }
+    .ptab td{ text-align:right; padding:.45rem 0; }
+    .pcode{ font-family:'JetBrains Mono',monospace; font-size:.74rem; color:#57534e; }
+    .chips{ display:flex; gap:.25rem; justify-content:flex-end; flex-wrap:wrap; }
+    .chip{
+        font-family:'JetBrains Mono',monospace; font-size:.66rem; font-weight:600; letter-spacing:.02em;
+        text-decoration:none; padding:.12rem .4rem; border-radius:.25rem; white-space:nowrap; border:1px solid transparent;
+    }
+    .chip-qp{ background:#e7f3e9; color:var(--stamp-green); border-color:#bfe0c6; }
+    .chip-ms{ background:#fdf1de; color:#92660a; border-color:#f3dba8; }
+    .chip-sf{ background:#eef2ff; color:#3730a3; border-color:#c7d2fe; }
+    .chip:hover{ filter:brightness(.96); }
+    .chip.is-page{ opacity:.7; }
+
+    /* Topic cards */
+    .topic{ background:#fffefb; border:1px solid #e7e0cf; border-radius:.6rem; padding:.95rem 1.05rem; box-shadow:0 1px 3px rgb(0 0 0 / .05); }
+    .topic-head{ display:flex; align-items:center; gap:.55rem; padding-bottom:.6rem; margin-bottom:.6rem; border-bottom:1px solid #ece7da; }
+    .tnum{ font-family:'JetBrains Mono',monospace; font-size:.68rem; font-weight:600; color:var(--amber); background:#fef3e2; padding:.1rem .4rem; border-radius:.25rem; }
+    .topic-head h3{ font-size:1rem; font-weight:700; color:var(--slate-deep); flex:1; line-height:1.25; }
+    .pbadge{ font-size:.64rem; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:#a8a29e; white-space:nowrap; }
+    .sub + .sub{ margin-top:.7rem; padding-top:.7rem; border-top:1px dashed #ece7da; }
+    .sub-head{ display:flex; align-items:baseline; justify-content:space-between; gap:.5rem; margin-bottom:.4rem; }
+    .sub-name{ font-size:.62rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:#a8a29e; }
+    .qlink{ font-size:.7rem; font-weight:600; color:var(--amber); text-decoration:none; white-space:nowrap; }
+    .qlink:hover{ text-decoration:underline; }
+    .notes{ display:flex; flex-wrap:wrap; gap:.25rem; }
+    .note{ font-size:.74rem; text-decoration:none; color:#44403c; background:#f5f2ea; border:1px solid #ece7da; padding:.15rem .45rem; border-radius:.3rem; }
+    .note:hover{ color:var(--amber); background:#fef3e2; border-color:#f3dba8; }
+
+    .filter-btn{
+        font-size:.78rem; font-weight:600; padding:.3rem .8rem; border-radius:.3rem;
+        border:1px solid #e7e0cf; background:#fffefb; color:#57534e; cursor:pointer;
+    }
+    .filter-btn.is-active{ background:var(--slate-deep); color:#fbbf24; border-color:var(--slate-deep); }
+    .filter-btn:focus-visible, .chip:focus-visible, .note:focus-visible, .qlink:focus-visible{ outline:2px solid var(--amber-bright); outline-offset:2px; }
+
+    .code-block{
+        background:var(--slate-deep); color:#e2e8f0; padding:1rem 1.1rem; border-radius:.375rem;
+        font-family:'JetBrains Mono',monospace; font-size:.72rem; line-height:1.6;
+        overflow:auto; max-height:22rem; white-space:pre; border-left:4px solid var(--amber-bright);
+    }
+    .hidden{ display:none !important; }
+</style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+<header class="bg-slate-900 text-slate-300 border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-6 py-6">
+        <nav class="flex items-center gap-2 text-[11px] uppercase tracking-widest text-slate-500 mb-3">
+            <a href="index.html" class="hover:text-amber-500">Home</a>
+            <span>/</span>
+            <a href="IGCSE_ICT.html" class="hover:text-amber-500">IGCSE ICT</a>
+            <span>/</span>
+            <span class="text-amber-500">Past Papers</span>
+        </nav>
+        <div class="flex items-start justify-between gap-4 flex-wrap">
+            <div>
+                <h1 class="text-2xl md:text-3xl font-bold text-white traditional-heading leading-tight">Past Papers &amp; Revision Index</h1>
+                <p class="text-sm text-slate-400 mt-1">Cambridge IGCSE ICT &middot; 0417 / 0983 &middot; June 2018 &ndash; November 2024</p>
+            </div>
+            <span class="mono text-[10px] bg-slate-800 text-amber-400 px-2 py-1 rounded border border-slate-700 whitespace-nowrap">0417 &amp; 0983</span>
+        </div>
+        <div id="tally" class="flex flex-wrap gap-x-7 gap-y-1 mt-5 pt-4 border-t border-slate-800 text-sm"></div>
+    </div>
+</header>
+
+<div class="sticky top-0 z-10 bg-[#faf9f6]/95 backdrop-blur border-b border-stone-200">
+    <div class="max-w-6xl mx-auto px-6 py-2.5 flex flex-wrap items-center gap-3">
+        <div class="flex gap-1.5" role="group" aria-label="Filter by paper">
+            <button type="button" class="filter-btn is-active" data-f="all">All papers</button>
+            <button type="button" class="filter-btn" data-f="1">Paper 1</button>
+            <button type="button" class="filter-btn" data-f="2">Paper 2</button>
+            <button type="button" class="filter-btn" data-f="3">Paper 3</button>
+        </div>
+        <input id="q" type="search" placeholder="Search year, paper code or topic&hellip;" aria-label="Search"
+               class="flex-1 min-w-[180px] max-w-xs text-sm px-3 py-1.5 rounded border border-stone-300 bg-white focus:outline-none focus:ring-2 focus:ring-amber-400">
+        <div class="flex gap-3 text-[11px] text-stone-500 ml-auto">
+            <span><span class="chip chip-qp">QP</span> question paper</span>
+            <span><span class="chip chip-ms">MS</span> mark scheme</span>
+            <span><span class="chip chip-sf">SF</span> source files</span>
+        </div>
+    </div>
+</div>
+
+<main class="flex-1 max-w-6xl mx-auto w-full px-6 py-10">
+
+    <section class="mb-12">
+        <h2 class="sec-h2">Past Papers by Exam Series</h2>
+        <p class="sec-lede">Every question paper, mark scheme and source-file bundle Cambridge has published for 0417, newest first. These are Cambridge's own PDFs hosted on public past-paper mirrors &mdash; free to open, no login needed. A faded chip opens a listing page rather than the file itself.</p>
+        <div id="papers" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3"></div>
+        <p id="papers-empty" class="hidden text-sm text-stone-500 py-6">No papers match this filter.</p>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="sec-h2">Specification Content by Topic</h2>
+        <p class="sec-lede">All thirteen syllabus topics with their revision notes and topic question banks, tagged by the paper each one is examined on.</p>
+        <div class="warning-box">
+            <p class="text-sm text-red-900"><strong>Subscription needed:</strong> the links in this section go to Save My Exams, which is a paid site. They will open a sign-in wall unless you already have an account. The past papers above are free for everyone.</p>
+        </div>
+        <div id="topics" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"></div>
+        <p id="topics-empty" class="hidden text-sm text-stone-500 py-6">No topics match this search.</p>
+    </section>
+
+    <section>
+        <h2 class="sec-h2">Bulk Download <span class="text-base font-normal text-stone-400">&mdash; teacher tool</span></h2>
+        <p class="sec-lede">Rather than clicking every chip above, this PowerShell script fetches all direct-download papers into folders organised by exam series. It skips files you already have, so you can re-run it safely to pick up anything that failed.</p>
+
+        <div class="flex flex-wrap gap-2 mb-3">
+            <button id="copy-ps" class="filter-btn is-active">Copy script to clipboard</button>
+            <button id="dl-csv" class="filter-btn">Download the link list (CSV)</button>
+            <span id="copy-msg" class="text-sm text-green-700 self-center hidden">Copied.</span>
+        </div>
+
+        <div class="info-box">
+            <p class="text-sm text-blue-900"><strong>How to run it:</strong> open Notepad, paste, and save as <code class="mono">Download-0417.ps1</code>. Then right-click the file &rarr; <em>Run with PowerShell</em>. Papers land in your Downloads folder under <code class="mono">IGCSE-ICT-0417</code>. Windows may warn about running scripts &mdash; that warning is doing its job, so only run scripts you have read yourself first.</p>
+        </div>
+
+        <pre id="ps-code" class="code-block" aria-label="PowerShell download script"></pre>
+
+        <div class="syllabus-box mt-6">
+            <p class="text-sm text-violet-900"><strong>Known gap in the source listing:</strong> the March 2019 Paper 1 mark scheme is published as <code class="mono">0417_m19_ms_21.pdf</code>, which is actually the Paper 2 mark scheme. The genuine 0417/12 March 2019 mark scheme does not appear on any of the mirrors used here.</p>
+        </div>
+    </section>
+</main>
+
+<footer class="py-8 bg-slate-950 border-t border-slate-800 text-center mt-auto">
+    <p class="text-sm font-bold text-amber-500 uppercase tracking-widest traditional-heading">Mr. Joshua's ICT</p>
+    <p class="text-xs text-slate-500 mt-2 font-medium">Past papers &copy; Cambridge Assessment International Education. Linked, not hosted.</p>
+</footer>
+
+<script>
+/* ---------------- data ---------------- */
+var URLS = [
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_w24_qp_11.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_w24_ms_11.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_w24_qp_12.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_w24_ms_12.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_w24_qp_13.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_w24_ms_13.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_w24_qp_02.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_w24_ms_2.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_w24_qp_03.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_w24_ms_3.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s24_qp_11.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s24_ms_11.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s24_qp_12.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s24_ms_12.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s24_qp_13.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s24_ms_13.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s24_qp_21.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s24_ms_21.pdf",
+"https://cdn.savemyexams.com/uploads/2026/03/55609-569723-june-2024-supporting-document-21.zip",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s24_qp_22.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s24_ms_22.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s24_qp_31.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s24_ms_31.pdf",
+"https://cdn.savemyexams.com/uploads/2026/03/8518-569724-june-2024-supporting-document-31.zip",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s24_qp_32.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s24_ms_32.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_m24_qp_12.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_m24_ms_12.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_m24_qp_21.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_m24_ms_21.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_m24_qp_31.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_m24_ms_31.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_w23_qp_11.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_w23_ms_11.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_w23_qp_12.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_w23_ms_12.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_w23_qp_13.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_w23_ms_13.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_w23_qp_02.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_w23_ms_2.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_w23_qp_03.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_w23_ms_3.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2023-May-June/0417_s23_qp_12.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2023-May-June/0417_s23_ms_12.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2023-May-June/0417_s23_qp_13.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2023-May-June/0417_s23_ms_13.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s23_qp_21.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s23_ms_21.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2023-May-June/0417_s23_qp_22.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2023-May-June/0417_s23_ms_22.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2023-May-June/0417_s23_qp_32.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2023-May-June/0417_s23_ms_32.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2023-March/0417_m23_qp_12.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2023-March/0417_m23_ms_12.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2023-March/0417_m23_qp_21.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2023-March/0417_m23_ms_21.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2023-March/0417_m23_qp_31.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2023-March/0417_m23_ms_31.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2022-Oct-Nov/0417_w22_qp_11.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2022-Oct-Nov/0417_w22_ms_11.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2022-Oct-Nov/0417_w22_qp_12.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2022-Oct-Nov/0417_w22_ms_12.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2022-Oct-Nov/0417_w22_qp_13.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2022-Oct-Nov/0417_w22_ms_13.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2022-Oct-Nov/0417_w22_qp_02.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2022-Oct-Nov/0417_w22_ms_2.pdf",
+"https://cdn.savemyexams.com/uploads/2026/03/31874-0417_w22_sf_02.zip",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2022-Oct-Nov/0417_w22_qp_03.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2022-Oct-Nov/0417_w22_ms_3.pdf",
+"https://cdn.savemyexams.com/uploads/2026/03/5864-0417_w22_sf_03.zip",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s22_qp_11.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s22_ms_11.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s22_qp_12.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s22_ms_12.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s22_qp_13.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s22_ms_13.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s22_qp_21.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s22_ms_21.pdf",
+"https://cdn.savemyexams.com/uploads/2026/03/62410-0417_s22_sf_21%20(1).zip",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s22_qp_22.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s22_ms_22.pdf",
+"https://cdn.savemyexams.com/uploads/2026/03/33279-0417_s22_sf_22.zip",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s22_qp_31.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s22_ms_31.pdf",
+"https://cdn.savemyexams.com/uploads/2026/03/65335-0417_s22_sf_31%20(1).zip",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s22_qp_32.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s22_ms_32.pdf",
+"https://cdn.savemyexams.com/uploads/2026/03/33602-0417_s22_sf_32.zip",
+"https://pastpapers.co/cie/view.php?id=cie/IGCSE/Information-and-Communication-Technology-0417/2022-Feb-March/0417_m22_qp_12.pdf",
+"https://pastpapers.co/cie/view.php?id=cie/IGCSE/Information-and-Communication-Technology-0417/2022-Feb-March/0417_m22_ms_12.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_m22_qp_21.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_m22_ms_21.pdf",
+"https://pastpapers.co/caie/igcse/information-and-communication-technology-0417/2022-feb-march/03_0417_21_confidential-source-files-march-2022",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2022-Feb-March/0417_m22_qp_31.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2022-Feb-March/0417_m22_ms_31.pdf",
+"https://pastpapers.co/caie/igcse/information-and-communication-technology-0417/2022-feb-march/03_0417_31_confidential-source-files-march-2022",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_w21_qp_11.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_w21_ms_11.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_w21_qp_12.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_w21_ms_12.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_w21_qp_13.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_w21_ms_13.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_w21_qp_02.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_w21_ms_2.pdf",
+"https://cdn.savemyexams.com/uploads/2026/03/57382-0417_w21_sf_02.zip",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_w21_qp_03.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_w21_ms_3.pdf",
+"https://cdn.savemyexams.com/uploads/2026/03/1738-0417_w21_sf_03.zip",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s21_qp_11.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s21_ms_11.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s21_qp_12.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s21_ms_12.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s21_qp_13.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s21_ms_13.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s21_qp_21.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s21_ms_21.pdf",
+"https://cdn.savemyexams.com/uploads/2026/03/27472-0417_s21_sf_21%20(1).zip",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s21_qp_22.pdf",
+"https://cdn.savemyexams.com/uploads/2026/03/20874-0417_s21_sf_22.zip",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s21_qp_31.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s21_ms_31.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s21_qp_32.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s21_ms_32.pdf",
+"https://cdn.savemyexams.com/uploads/2026/03/47009-0417_s21_sf_32.zip",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2021-March/0417_m21_qp_12.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2021-March/0417_m21_ms_12.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2021-March/0417_m21_qp_21.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2021-March/0417_m21_ms_21.pdf",
+"https://cdn.savemyexams.com/uploads/2026/03/20569-0417_m21_sf_21.zip",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2021-March/0417_m21_qp_31.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2021-March/0417_m21_ms_31.pdf",
+"https://cdn.savemyexams.com/uploads/2026/03/64539-0417_m21_sf_31.zip",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2020-Oct-Nov/0417_w20_qp_11.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2020-Oct-Nov/0417_w20_ms_11.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2020-Oct-Nov/0417_w20_qp_12.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2020-Oct-Nov/0417_w20_ms_12.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2020-Oct-Nov/0417_w20_qp_13.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2020-Oct-Nov/0417_w20_ms_13.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2020-Oct-Nov/0417_w20_qp_02.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2020-Oct-Nov/0417_w20_ms_2.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2020-Oct-Nov/0417_w20_sf_02.zip",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2020-Oct-Nov/0417_w20_qp_03.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2020-Oct-Nov/0417_w20_ms_3.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2020-Oct-Nov/0417_w20_sf_03.zip",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s20_qp_11.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s20_ms_11.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s20_qp_12.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s20_ms_12.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s20_qp_13.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_s20_ms_13.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2020-May-June/0417_s20_qp_21.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2020-May-June/0417_s20_ms_21.pdf",
+"https://pastpapers.co/caie/igcse/information-and-communication-technology-0417/2020-may-june/06_0417_21_confidential-source-files-june-2020",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2020-May-June/0417_s20_qp_22.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2020-May-June/0417_s20_ms_22.pdf",
+"https://pastpapers.co/caie/igcse/information-and-communication-technology-0417/2020-may-june/06_0417_22_confidential-source-files-june-2020",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2020-May-June/0417_s20_qp_31.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2020-May-June/0417_s20_ms_31.pdf",
+"https://pastpapers.co/caie/igcse/information-and-communication-technology-0417/2020-may-june/06_0417_31_confidential-source-files-june-2020",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2020-May-June/0417_s20_qp_32.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2020-May-June/0417_s20_ms_32.pdf",
+"https://pastpapers.co/caie/igcse/information-and-communication-technology-0417/2020-may-june/06_0417_32_confidential-source-files-june-2020",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_m20_qp_12.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_m20_ms_12.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_m20_qp_21.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_m20_ms_21.pdf",
+"https://pastpapers.co/caie/igcse/information-and-communication-technology-0417/2020-march/03_0417_21_confidential-source-files-march-2020",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_m20_qp_31.pdf",
+"https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_m20_ms_31.pdf",
+"https://pastpapers.co/caie/igcse/information-and-communication-technology-0417/2020-march/03_0417_31_confidential-source-files-march-2020",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2019-Oct-Nov/0417_w19_qp_11.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2019-Oct-Nov/0417_w19_ms_11.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2019-Oct-Nov/0417_w19_qp_12.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2019-Oct-Nov/0417_w19_ms_12.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2019-Oct-Nov/0417_w19_qp_13.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2019-Oct-Nov/0417_w19_ms_13.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2019-Oct-Nov/0417_w19_qp_2.pdf",
+"https://cdn.savemyexams.com/uploads/2026/03/2205-0417_w19_sf_02.zip",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2019-Oct-Nov/0417_w19_qp_3.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2019-Oct-Nov/0417_w19_ms_3.pdf",
+"https://cdn.savemyexams.com/uploads/2026/03/21294-0417_w19_sf_03.zip",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2019-May-June/0417_s19_qp_11.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2019-May-June/0417_s19_ms_11.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2019-May-June/0417_s19_qp_12.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2019-May-June/0417_s19_ms_12.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2019-May-June/0417_s19_qp_13.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2019-May-June/0417_s19_ms_13.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2019-May-June/0417_s19_qp_21.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2019-May-June/0417_s19_ms_21.pdf",
+"https://cdn.savemyexams.com/uploads/2026/03/28609-0417_s19_sf_21.zip",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2019-May-June/0417_s19_qp_22.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2019-May-June/0417_s19_ms_22.pdf",
+"https://cdn.savemyexams.com/uploads/2026/03/34486-0417_s19_sf_22.zip",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2019-May-June/0417_s19_qp_31.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2019-May-June/0417_s19_ms_31.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2019-May-June/0417_s19_qp_32.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2019-May-June/0417_s19_ms_32.pdf",
+"https://cdn.savemyexams.com/uploads/2026/03/62389-0417_s19_sf_32.zip",
+"https://www.pastpapersinside.com/wp-content/uploads/2019/09/0417_m19_qp_12.pdf",
+"https://pastpapers.co/cie/view.php?id=cie/IGCSE/Information-and-Communication-Technology-0417/2019-March/0417_m19_qp_21.pdf",
+"https://www.pastpapersinside.com/wp-content/uploads/2019/09/0417_m19_ms_21.pdf",
+"https://cdn.savemyexams.com/uploads/2026/03/6604-0417_m19_sf_21.zip",
+"https://www.pastpapersinside.com/wp-content/uploads/2019/09/0417_m19_qp_31.pdf",
+"https://www.pastpapersinside.com/wp-content/uploads/2019/09/0417_m19_ms_31.pdf",
+"https://cdn.savemyexams.com/uploads/2026/03/30287-0417_m19_sf_31.zip",
+"https://www.pastpapersinside.com/wp-content/uploads/2019/09/0417_w18_qp_11.pdf",
+"https://www.pastpapersinside.com/wp-content/uploads/2019/09/0417_w18_ms_11.pdf",
+"https://www.pastpapersinside.com/wp-content/uploads/2019/09/0417_w18_qp_12.pdf",
+"https://www.pastpapersinside.com/wp-content/uploads/2019/09/0417_w18_ms_12.pdf",
+"https://www.pastpapersinside.com/wp-content/uploads/2019/09/0417_w18_qp_13.pdf",
+"https://www.pastpapersinside.com/wp-content/uploads/2019/09/0417_w18_ms_13.pdf",
+"https://www.pastpapersinside.com/wp-content/uploads/2019/09/0417_w18_qp_02.pdf",
+"https://www.pastpapersinside.com/wp-content/uploads/2019/09/0417_w18_ms_2.pdf",
+"https://pastpapers.co/caie/igcse/information-and-communication-technology-0417/2018-oct-nov/0417_w18_sf_02",
+"https://www.pastpapersinside.com/wp-content/uploads/2019/09/0417_w18_qp_03.pdf",
+"https://www.pastpapersinside.com/wp-content/uploads/2019/09/0417_w18_ms_3.pdf",
+"https://pastpapers.co/caie/igcse/information-and-communication-technology-0417/2018-oct-nov/0417_w18_sf_03",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2018-May-June/0417_s18_qp_11.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2018-May-June/0417_s18_ms_11.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2018-May-June/0417_s18_qp_12.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2018-May-June/0417_s18_ms_12.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2018-May-June/0417_s18_qp_13.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2018-May-June/0417_s18_ms_13.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2018-May-June/0417_s18_qp_21.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2018-May-June/0417_s18_ms_21.pdf",
+"https://pastpapers.co/caie/igcse/information-and-communication-technology-0417/2018-may-june/0417_s18_sf_21",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2018-May-June/0417_s18_qp_22.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2018-May-June/0417_s18_ms_22.pdf",
+"https://pastpapers.co/caie/igcse/information-and-communication-technology-0417/2018-may-june/0417_s18_sf_22",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2018-May-June/0417_s18_qp_31.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2018-May-June/0417_s18_ms_31.pdf",
+"https://pastpapers.co/caie/igcse/information-and-communication-technology-0417/2018-may-june/0417_s18_sf_31",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2018-May-June/0417_s18_qp_32.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2018-May-June/0417_s18_ms_32.pdf",
+"https://pastpapers.co/caie/igcse/information-and-communication-technology-0417/2018-may-june/0417_s18_sf_32",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2018-March/0417_m18_qp_12.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2018-March/0417_m18_ms_12.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2018-March/0417_m18_qp_21.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2018-March/0417_m18_ms_21.pdf",
+"https://pastpapers.co/caie/igcse/information-and-communication-technology-0417/2018-march/0417_m18_sf_21",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2018-March/0417_m18_qp_31.pdf",
+"https://pastpapers.co/cie/IGCSE/Information-and-Communication-Technology-0417/2018-March/0417_m18_ms_31.pdf",
+"https://pastpapers.co/caie/igcse/information-and-communication-technology-0417/2018-march/0417_m18_sf_31",
+"https://www.cambridgeinternational.org/Images/595525-2023-specimen-paper-1.pdf",
+"https://www.cambridgeinternational.org/Images/595544-2023-specimen-paper-1-mark-scheme.pdf",
+"https://www.cambridgeinternational.org/Images/595538-2023-specimen-paper-2.pdf",
+"https://www.cambridgeinternational.org/Images/595545-2023-specimen-paper-2-mark-scheme.pdf",
+"https://cdn.savemyexams.com/uploads/2026/03/8065-595559-2023-specimen-paper-2-supporting-files.zip",
+"https://www.cambridgeinternational.org/Images/595541-2023-specimen-paper-3.pdf",
+"https://www.cambridgeinternational.org/Images/595546-2023-specimen-paper-3-mark-scheme.pdf",
+"https://cdn.savemyexams.com/uploads/2026/03/48763-595560-2023-specimen-paper-3-supporting-files.zip"
+];
+
+var SME = "https://www.savemyexams.com/igcse/ict/cie/21";
+
+/* topic slug -> [display name, exam paper] */
+var TOPICS = [
+["1-types-and-components-of-computer-systems","Types &amp; Components of Computer Systems",1],
+["2-networks","Networks",1],
+["3-effects-of-using-it","Effects of Using IT",1],
+["4-ict-applications","ICT Applications",1],
+["5-the-systems-life-cycle","The Systems Life Cycle",1],
+["6-safety-and-security","Safety &amp; Security",1],
+["7-communication","Communication",1],
+["8-managing-files-and-compression","Managing Files &amp; Compression",2],
+["9-working-with-documents","Working with Documents",2],
+["10-databases","Databases",2],
+["11-spreadsheets","Spreadsheets",3],
+["12-website-authoring","Website Authoring",3],
+["13-presentations","Presentations",2]
+];
+
+/* "topic|subtopic|note-slug|Display Title" */
+var NOTES = [
+"1-types-and-components-of-computer-systems|hardware-and-software|hardware|Hardware",
+"1-types-and-components-of-computer-systems|hardware-and-software|software|Software",
+"1-types-and-components-of-computer-systems|hardware-and-software|analogue-and-digital-data|Analogue &amp; Digital Data",
+"1-types-and-components-of-computer-systems|components-of-computer-systems|central-processing-unit-cpu|Central Processing Unit (CPU)",
+"1-types-and-components-of-computer-systems|components-of-computer-systems|internal-memory|Internal Memory",
+"1-types-and-components-of-computer-systems|components-of-computer-systems|input-devices|Input Devices",
+"1-types-and-components-of-computer-systems|components-of-computer-systems|output-devices|Output Devices",
+"1-types-and-components-of-computer-systems|components-of-computer-systems|storage|Storage",
+"1-types-and-components-of-computer-systems|types-of-computer-and-emerging-technologies|types-of-computer|Types of Computer",
+"1-types-and-components-of-computer-systems|types-of-computer-and-emerging-technologies|emerging-technologies|Emerging Technologies",
+"2-networks|networks|network-hardware|Network Hardware",
+"2-networks|networks|wireless-networks|Wireless Networks",
+"2-networks|networks|cloud-computing|Cloud Computing",
+"2-networks|networks|network-environments|Network Environments",
+"2-networks|networks|network-types|Network Types",
+"2-networks|network-issues|data-transfer-and-passwords|Data Transfer &amp; Passwords",
+"2-networks|network-issues|authentication|Authentication",
+"2-networks|network-issues|anti-malware-software|Anti-Malware Software",
+"2-networks|network-issues|electronic-conferencing|Electronic Conferencing",
+"3-effects-of-using-it|effects-of-using-it|microprocessor-controlled-devices|Microprocessor-Controlled Devices",
+"3-effects-of-using-it|effects-of-using-it|health-issues|Health Issues",
+"4-ict-applications|ict-applications|communication|Communication",
+"4-ict-applications|ict-applications|computer-modelling|Computer Modelling",
+"4-ict-applications|ict-applications|computer-controlled-systems|Computer Controlled Systems",
+"4-ict-applications|ict-applications|school-management-systems|School Management Systems",
+"4-ict-applications|ict-applications|online-booking-systems|Online Booking Systems",
+"4-ict-applications|ict-applications|banking-applications|Banking Applications",
+"4-ict-applications|ict-applications|computers-in-medicine|Computers in Medicine",
+"4-ict-applications|ict-applications|expert-systems|Expert Systems",
+"4-ict-applications|ict-applications|computers-in-retail-industry|Computers in Retail Industry",
+"4-ict-applications|ict-applications|recognition-systems|Recognition Systems",
+"4-ict-applications|ict-applications|satellite-systems|Satellite Systems",
+"5-the-systems-life-cycle|the-systems-life-cycle|the-systems-life-cycle-analysis|Analysis",
+"5-the-systems-life-cycle|the-systems-life-cycle|the-systems-life-cycle-design|Design",
+"5-the-systems-life-cycle|the-systems-life-cycle|the-systems-life-cycle-testing|Testing",
+"5-the-systems-life-cycle|the-systems-life-cycle|the-systems-life-cycle-system-implementation|System Implementation",
+"5-the-systems-life-cycle|the-systems-life-cycle|the-systems-life-cycle-documentation|Documentation",
+"5-the-systems-life-cycle|the-systems-life-cycle|the-systems-life-cycle-evaluation|Evaluation",
+"6-safety-and-security|safety|physical-safety|Physical Safety",
+"6-safety-and-security|safety|e-safety-data|E-Safety: Data",
+"6-safety-and-security|safety|e-safety-using-it|E-Safety: Using IT",
+"6-safety-and-security|security|threats-to-data|Threats to Data",
+"6-safety-and-security|security|protection-of-data|Protection of Data",
+"6-safety-and-security|security|copyright|Copyright",
+"7-communication|communication|email|Email",
+"7-communication|communication|the-internet|The Internet",
+"7-communication|communication|internet-protocols|Internet Protocols",
+"8-managing-files-and-compression|manage-files-effectively|file-formats|File Formats",
+"8-managing-files-and-compression|compression|compression|Compression",
+"9-working-with-documents|audience-and-purpose|audience-and-purpose|Audience &amp; Purpose",
+"9-working-with-documents|document-production|create-and-edit-a-document|Create &amp; Edit a Document",
+"9-working-with-documents|document-production|layout|Layout",
+"9-working-with-documents|document-production|formatting|Formatting",
+"9-working-with-documents|document-production|headers-and-footers|Headers &amp; Footers",
+"9-working-with-documents|document-production|corporate-house-style|Corporate House Style",
+"9-working-with-documents|document-production|tables|Tables",
+"9-working-with-documents|document-production|navigation|Navigation",
+"9-working-with-documents|images|image-editing|Image Editing",
+"9-working-with-documents|images|file-size-reduction|File Size Reduction",
+"9-working-with-documents|proofing|proofing-tools|Proofing Tools",
+"9-working-with-documents|proofing|proofing-techniques|Proofing Techniques",
+"10-databases|create-a-database-structure|types-of-database|Types of Database",
+"10-databases|create-a-database-structure|primary-and-foreign-keys|Primary &amp; Foreign Keys",
+"10-databases|create-a-database-structure|perform-calculations|Perform Calculations",
+"10-databases|create-a-database-structure|sorting-and-searching-data|Sorting &amp; Searching Data",
+"10-databases|create-a-database-structure|form-design|Form Design",
+"11-spreadsheets|create-a-data-model|create-and-edit-a-spreadsheet|Create &amp; Edit a Spreadsheet",
+"11-spreadsheets|create-a-data-model|formulae-and-functions|Formulae &amp; Functions",
+"11-spreadsheets|create-a-data-model|order-of-operations|Order of Operations",
+"11-spreadsheets|create-a-data-model|cell-referencing|Cell Referencing",
+"11-spreadsheets|create-a-data-model|present-data|Present Data",
+"11-spreadsheets|create-a-data-model|search-and-select-data|Search &amp; Select Data",
+"12-website-authoring|web-development-layers|layers|Layers",
+"12-website-authoring|html-in-the-content-layer|html|HTML",
+"12-website-authoring|css-in-the-presentation-layer|css|CSS",
+"13-presentations|presentations|create-a-presentation-and-master-slides|Create a Presentation &amp; Master Slides",
+"13-presentations|presentations|edit-a-presentation|Edit a Presentation",
+"13-presentations|presentations|output-presentations|Output Presentations"
+];
+
+/* subtopics that have an exam-question bank */
+var QBANKS = [
+"1-types-and-components-of-computer-systems|hardware-and-software",
+"1-types-and-components-of-computer-systems|components-of-computer-systems",
+"1-types-and-components-of-computer-systems|types-of-computer-and-emerging-technologies",
+"2-networks|networks",
+"2-networks|network-issues",
+"3-effects-of-using-it|effects-of-using-it",
+"4-ict-applications|ict-applications",
+"5-the-systems-life-cycle|the-systems-life-cycle",
+"6-safety-and-security|safety",
+"6-safety-and-security|security",
+"7-communication|communication",
+"8-managing-files-and-compression|manage-files-effectively",
+"8-managing-files-and-compression|compression",
+"9-working-with-documents|audience-and-purpose",
+"9-working-with-documents|document-production",
+"9-working-with-documents|images",
+"9-working-with-documents|proofing",
+"10-databases|create-a-database-structure",
+"11-spreadsheets|create-a-data-model",
+"12-website-authoring|web-development-layers",
+"12-website-authoring|html-in-the-content-layer",
+"12-website-authoring|css-in-the-presentation-layer",
+"13-presentations|presentations"
+];
+
+/* ---------------- parse the catalogue ---------------- */
+var SERIES = { s:"May / June", w:"Oct / Nov", m:"Feb / March" };
+var SERIES_RANK = { "Oct / Nov":0, "May / June":1, "Feb / March":2 };
+var KIND_RANK = { qp:0, ms:1, sf:2 };
+var KIND_NAME = { qp:"Question Paper", ms:"Mark Scheme", sf:"Source Files" };
+
+function basename(u){
+    var s = u.indexOf("view.php?id=") > -1 ? u.split("=").pop() : u.split("?")[0];
+    return decodeURIComponent(s.split("/").pop());
+}
+
+function parseOne(u){
+    var base = basename(u);
+    var direct = /\.(pdf|zip)$/i.test(base);
+    var m = base.match(/0417_([swm])(\d\d)_(qp|ms|sf)_?(\d+)?/);
+    if (m){
+        var yy = parseInt(m[2],10), pn = m[4] || "";
+        return { url:u, year:2000+yy, series:SERIES[m[1]], kind:m[3], paper:pn, direct:direct,
+                 file:"0417_"+m[1]+m[2]+"_"+m[3]+(pn?"_"+pn:"")+(m[3]==="sf"?".zip":".pdf") };
+    }
+    if (/specimen/i.test(base)){
+        var pm = base.match(/specimen-paper-(\d)/);
+        var p = pm ? pm[1] : "";
+        var k = /mark-scheme/.test(base) ? "ms" : (/supporting/.test(base) ? "sf" : "qp");
+        return { url:u, year:2023, series:"Specimen", kind:k, paper:p, direct:direct,
+                 file:"0417_specimen_p"+p+"_"+k+(k==="sf"?".zip":".pdf") };
+    }
+    var sd = base.match(/(june|march|november)-(20\d\d)-supporting-document-(\d+)/);
+    if (sd){
+        var ser = { june:"May / June", march:"Feb / March", november:"Oct / Nov" }[sd[1]];
+        var letter = { "May / June":"s", "Feb / March":"m", "Oct / Nov":"w" }[ser];
+        return { url:u, year:parseInt(sd[2],10), series:ser, kind:"sf", paper:sd[3], direct:direct,
+                 file:"0417_"+letter+sd[2].slice(2)+"_sf_"+sd[3]+".zip" };
+    }
+    /* confidential-source-files landing pages */
+    var ym = u.match(/(20\d\d)-(may-june|oct-nov|march|feb-march)/);
+    var pm2 = u.match(/_(\d\d)_confidential/);
+    return { url:u, year: ym ? parseInt(ym[1],10) : 0,
+             series: ym ? ({ "may-june":"May / June","oct-nov":"Oct / Nov","march":"Feb / March","feb-march":"Feb / March" }[ym[2]]) : "",
+             kind:"sf", paper: pm2 ? pm2[1] : "", direct:false, file:"" };
+}
+
+var ROWS = [], seenUrl = {};
+URLS.forEach(function(u){ if(!seenUrl[u]){ seenUrl[u]=1; ROWS.push(parseOne(u)); } });
+
+ROWS.sort(function(a,b){
+    if (a.series === "Specimen" && b.series !== "Specimen") return -1;
+    if (b.series === "Specimen" && a.series !== "Specimen") return 1;
+    if (a.year !== b.year) return b.year - a.year;
+    var ra = SERIES_RANK[a.series], rb = SERIES_RANK[b.series];
+    if (ra !== rb) return (ra===undefined?9:ra) - (rb===undefined?9:rb);
+    if (a.paper !== b.paper) return a.paper < b.paper ? -1 : 1;
+    return KIND_RANK[a.kind] - KIND_RANK[b.kind];
+});
+
+/* ---------------- render papers ---------------- */
+function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+
+var groups = [], gIndex = {};
+ROWS.forEach(function(r){
+    var key = r.series === "Specimen" ? "Specimen" : r.year + " " + r.series;
+    if (!(key in gIndex)){ gIndex[key] = groups.length; groups.push({ key:key, year:r.year, series:r.series, rows:[] }); }
+    groups[gIndex[key]].rows.push(r);
+});
+
+var papersHtml = groups.map(function(g){
+    var byPaper = [], pIndex = {};
+    g.rows.forEach(function(r){
+        if (!(r.paper in pIndex)){ pIndex[r.paper] = byPaper.length; byPaper.push({ paper:r.paper, items:[] }); }
+        byPaper[pIndex[r.paper]].items.push(r);
+    });
+    var trs = byPaper.map(function(p){
+        var pno = p.paper && "123".indexOf(p.paper.charAt(0)) > -1 ? p.paper.charAt(0) : "";
+        var code = p.paper ? "0417/" + p.paper : "0417";
+        var chips = p.items.map(function(r){
+            var cls = "chip chip-" + r.kind + (r.direct ? "" : " is-page");
+            var label = r.kind.toUpperCase() + (r.direct ? "" : " ↗");
+            var title = r.direct ? (r.file || KIND_NAME[r.kind]) : "Opens a listing page";
+            return '<a class="'+cls+'" href="'+esc(r.url)+'" target="_blank" rel="noopener" title="'+esc(title)+'">'+label+'</a>';
+        }).join("");
+        return '<tr data-paper="'+pno+'"><th scope="row"><span class="pcode">'+code+'</span></th><td><div class="chips">'+chips+'</div></td></tr>';
+    }).join("");
+    var head = g.series === "Specimen" ? "Specimen" : g.series;
+    var yr = g.series === "Specimen" ? "2023 spec" : String(g.year);
+    return '<div class="session"><div class="session-head"><h3>'+head+'</h3><span class="yr">'+yr+'</span></div>'
+         + '<table class="ptab"><tbody>'+trs+'</tbody></table></div>';
+}).join("");
+document.getElementById("papers").innerHTML = papersHtml;
+
+/* ---------------- render topics ---------------- */
+var notesByTopic = {};
+NOTES.forEach(function(line){
+    var p = line.split("|");
+    (notesByTopic[p[0]] = notesByTopic[p[0]] || []).push({ sub:p[1], slug:p[2], title:p[3] });
+});
+var qset = {}; QBANKS.forEach(function(k){ qset[k]=1; });
+
+var topicsHtml = TOPICS.map(function(t){
+    var slug = t[0], name = t[1], paper = t[2];
+    var num = slug.split("-")[0];
+    var subs = [], sIndex = {};
+    (notesByTopic[slug] || []).forEach(function(n){
+        if (!(n.sub in sIndex)){ sIndex[n.sub] = subs.length; subs.push({ sub:n.sub, items:[] }); }
+        subs[sIndex[n.sub]].items.push(n);
+    });
+    var subHtml = subs.map(function(s){
+        var pretty = s.sub.replace(/-/g," ").replace(/\b\w/g, function(c){ return c.toUpperCase(); });
+        var q = qset[slug+"|"+s.sub]
+            ? '<a class="qlink" href="'+SME+'/topic-questions/'+slug+'/'+s.sub+'/exam-questions/" target="_blank" rel="noopener">Questions &rarr;</a>'
+            : '';
+        var links = s.items.map(function(n){
+            return '<a class="note" href="'+SME+'/revision-notes/'+slug+'/'+s.sub+'/'+n.slug+'/" target="_blank" rel="noopener">'+n.title+'</a>';
+        }).join("");
+        return '<div class="sub"><div class="sub-head"><span class="sub-name">'+pretty+'</span>'+q+'</div><div class="notes">'+links+'</div></div>';
+    }).join("");
+    return '<div class="topic" data-paper="'+paper+'"><div class="topic-head"><span class="tnum">'+num+'</span>'
+         + '<h3>'+name+'</h3><span class="pbadge">Paper '+paper+'</span></div>'+subHtml+'</div>';
+}).join("");
+document.getElementById("topics").innerHTML = topicsHtml;
+
+/* ---------------- tally ---------------- */
+function countKind(k){ return ROWS.filter(function(r){ return r.kind===k; }).length; }
+var directRows = ROWS.filter(function(r){ return r.direct; });
+document.getElementById("tally").innerHTML = [
+    [countKind("qp"), "question papers"],
+    [countKind("ms"), "mark schemes"],
+    [countKind("sf"), "source-file sets"],
+    [NOTES.length,    "revision notes"],
+    [QBANKS.length,   "question banks"]
+].map(function(p){
+    return '<span class="flex items-baseline gap-1.5"><b class="mono text-base font-semibold text-white">'+p[0]+'</b>'
+         + '<span class="text-xs text-slate-400">'+p[1]+'</span></span>';
+}).join("");
+
+/* ---------------- filtering ---------------- */
+var filter = "all";
+var sessionEls = [].slice.call(document.querySelectorAll("#papers .session"));
+var topicEls = [].slice.call(document.querySelectorAll("#topics .topic"));
+var qInput = document.getElementById("q");
+
+function applyFilters(){
+    var term = (qInput.value || "").trim().toLowerCase();
+
+    sessionEls.forEach(function(s){
+        var visible = false;
+        [].slice.call(s.querySelectorAll("tr")).forEach(function(tr){
+            var ok = (filter === "all" || tr.getAttribute("data-paper") === filter);
+            tr.classList.toggle("hidden", !ok);
+            if (ok) visible = true;
+        });
+        if (visible && term) visible = s.textContent.toLowerCase().indexOf(term) > -1;
+        s.classList.toggle("hidden", !visible);
+    });
+
+    topicEls.forEach(function(t){
+        var okPaper = (filter === "all" || t.getAttribute("data-paper") === filter);
+        var okTerm = !term || t.textContent.toLowerCase().indexOf(term) > -1;
+        t.classList.toggle("hidden", !(okPaper && okTerm));
+    });
+
+    document.getElementById("papers-empty").classList.toggle("hidden",
+        sessionEls.some(function(s){ return !s.classList.contains("hidden"); }));
+    document.getElementById("topics-empty").classList.toggle("hidden",
+        topicEls.some(function(t){ return !t.classList.contains("hidden"); }));
+}
+
+var btns = [].slice.call(document.querySelectorAll(".filter-btn[data-f]"));
+btns.forEach(function(b){
+    b.addEventListener("click", function(){
+        btns.forEach(function(x){ x.classList.toggle("is-active", x === b); });
+        filter = b.getAttribute("data-f");
+        applyFilters();
+    });
+});
+qInput.addEventListener("input", applyFilters);
+
+/* ---------------- generated PowerShell ---------------- */
+function folderFor(r){ return r.series === "Specimen" ? "Specimen" : (r.year + "-" + r.series.replace(/ \/ /g, "-")); }
+
+var seenFile = {}, entries = [];
+directRows.forEach(function(r){
+    var key = folderFor(r) + "/" + r.file;
+    if (seenFile[key]) return;
+    seenFile[key] = 1;
+    entries.push('  @{F="'+folderFor(r)+'"; N="'+r.file+'"; U="'+r.url+'"}');
+});
+
+var PS = [
+'# Cambridge IGCSE ICT 0417 - past paper downloader',
+'# Generated from Mr. Joshua\'s ICT past-paper index.',
+'# Save this as Download-0417.ps1, then right-click it and choose "Run with PowerShell".',
+'',
+'param([string]$Dest = "$env:USERPROFILE\\Downloads\\IGCSE-ICT-0417")',
+'',
+'$ErrorActionPreference = "Continue"',
+'[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12',
+'$UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0 Safari/537.36"',
+'',
+'$Files = @(',
+entries.join(',\n'),
+')',
+'',
+'Write-Host "Destination: $Dest" -ForegroundColor Cyan',
+'Write-Host "$($Files.Count) files to fetch.`n"',
+'',
+'$ok = 0; $skip = 0; $fail = @(); $i = 0',
+'foreach ($f in $Files) {',
+'    $i++',
+'    $dir = Join-Path $Dest $f.F',
+'    if (-not (Test-Path $dir)) { New-Item -ItemType Directory -Path $dir -Force | Out-Null }',
+'    $out = Join-Path $dir $f.N',
+'',
+'    if ((Test-Path $out) -and ((Get-Item $out).Length -gt 10kb)) {',
+'        $skip++; Write-Host ("[{0,3}/{1}] skip  {2}" -f $i, $Files.Count, $f.N) -ForegroundColor DarkGray',
+'        continue',
+'    }',
+'',
+'    try {',
+'        Invoke-WebRequest -Uri $f.U -OutFile $out -UserAgent $UA -TimeoutSec 90 -UseBasicParsing',
+'        $len = (Get-Item $out).Length',
+'        if ($len -lt 5kb) { Remove-Item $out -Force; throw "response too small ($len bytes)" }',
+'        $ok++',
+'        Write-Host ("[{0,3}/{1}] ok    {2}  ({3:N0} KB)" -f $i, $Files.Count, $f.N, ($len/1kb)) -ForegroundColor Green',
+'    } catch {',
+'        $fail += [pscustomobject]@{ File = $f.N; Session = $f.F; Url = $f.U; Error = $_.Exception.Message }',
+'        Write-Host ("[{0,3}/{1}] FAIL  {2}" -f $i, $Files.Count, $f.N) -ForegroundColor Red',
+'    }',
+'    Start-Sleep -Milliseconds 400',
+'}',
+'',
+'Write-Host "`nDownloaded $ok, skipped $skip, failed $($fail.Count)." -ForegroundColor Cyan',
+'if ($fail.Count) {',
+'    $log = Join-Path $Dest "failed-downloads.csv"',
+'    $fail | Export-Csv -Path $log -NoTypeInformation',
+'    Write-Host "Failures logged to $log - re-run this script to retry them." -ForegroundColor Yellow',
+'}',
+'Write-Host "Files are in $Dest" -ForegroundColor Cyan'
+].join('\n');
+
+document.getElementById("ps-code").textContent = PS;
+
+document.getElementById("copy-ps").addEventListener("click", function(){
+    var msg = document.getElementById("copy-msg");
+    function done(){ msg.classList.remove("hidden"); setTimeout(function(){ msg.classList.add("hidden"); }, 2500); }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(PS).then(done, fallback);
+    } else { fallback(); }
+    function fallback(){
+        var ta = document.createElement("textarea");
+        ta.value = PS; ta.style.position = "fixed"; ta.style.opacity = "0";
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand("copy"); done(); } catch(e){ msg.textContent = "Select the code below and copy manually."; done(); }
+        document.body.removeChild(ta);
+    }
+});
+
+document.getElementById("dl-csv").addEventListener("click", function(){
+    function cell(v){ return '"' + String(v).replace(/"/g,'""') + '"'; }
+    var lines = [["Year","Series","Paper","Type","Filename","URL","Direct download"].map(cell).join(",")];
+    ROWS.forEach(function(r){
+        lines.push([r.year || "", r.series, r.paper, KIND_NAME[r.kind], r.file, r.url,
+                    r.direct ? "yes" : "no (opens a page)"].map(cell).join(","));
+    });
+    var blob = new Blob(["﻿" + lines.join("\r\n")], { type:"text/csv;charset=utf-8;" });
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "0417_past_papers_index.csv";
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(a.href); }, 1000);
+});
+</script>
+</body>
+</html>
