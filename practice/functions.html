@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spreadsheet Functions Glossary</title>
+<meta name="description" content="Every spreadsheet function and formula skill for Cambridge IGCSE ICT 0417 (2026–2028) section 20, with syntax, examples, traps, Korean key terms and a live spreadsheet to try each one.">
+<link rel="stylesheet" href="practice.css">
+<style>
+  .fgrid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); }
+  .fcard { min-width: 0; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; }
+  .fcard h3 { margin: 0; font-family: var(--mono); font-size: 1.05rem; }
+  .fcard .ko { color: var(--muted); font-size: .85rem; font-family: var(--font); font-weight: 400; }
+  .tag { display: inline-block; font-size: .7rem; font-weight: 700; border-radius: 5px; padding: 1px 7px; letter-spacing: .03em; }
+  .tag.syl { background: var(--good-soft); color: var(--good); }
+  .tag.ext { background: var(--gold-soft); color: var(--gold); }
+  .syntax { font-family: var(--mono); font-size: .85rem; background: var(--surface-2); border-radius: 6px; padding: 6px 8px; overflow-x: auto; white-space: nowrap; }
+  .ex { font-family: var(--mono); font-size: .85rem; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .ex code { background: var(--accent-soft); overflow-wrap: anywhere; min-width: 0; }
+  .ex .res { font-weight: 700; color: var(--navy); }
+  .trap { font-size: .85rem; color: var(--bad); }
+  .fcard .btn { align-self: flex-start; margin-top: auto; }
+  .filter { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 10px 0 16px; }
+  .filter input { font: inherit; padding: 7px 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); color: var(--text); flex: 1 1 220px; }
+  #lab-wrap { position: sticky; top: 50px; z-index: 5; }
+  @media (max-width: 900px) { #lab-wrap { position: static; } }
+</style>
+</head>
+<body>
+
+<header class="banner">
+  <div class="wrap">
+    <a class="home" href="index.html">← All practice guides</a>
+    <div class="eyebrow" style="margin-top:10px">S E C T I O N &nbsp; 2 0 &nbsp; · &nbsp; S P R E A D S H E E T S</div>
+    <h1>Functions &amp; Formulas Glossary</h1>
+    <div class="ko">함수 및 수식 용어집</div>
+    <div class="meta">
+      <span class="chip">Cambridge IGCSE ICT 0417 · syllabus 2026–2028</span>
+      <span class="chip">Try every example live</span>
+      <span class="chip">Mr Glen Joshua · WZFS</span>
+    </div>
+  </div>
+</header>
+
+<nav class="topnav" aria-label="Sections">
+  <div class="wrap">
+    <a href="#syllabus">Syllabus map</a>
+    <a href="#lab-sec">Live sheet</a>
+    <a href="#g-basics">Formula basics</a>
+    <a href="#g-fn">Syllabus functions</a>
+    <a href="#g-cond">Conditional &amp; logic</a>
+    <a href="#g-search">Search &amp; wildcards</a>
+    <a href="#g-errors">Error values</a>
+    <a href="#g-present">Present data</a>
+    <span class="sep"></span>
+    <a class="prac" href="paper3.html#case">✎ Formula lab tasks</a>
+    <button class="theme-btn" type="button" aria-label="Toggle dark mode">◐</button>
+  </div>
+</nav>
+
+<main>
+
+<section class="block" id="syllabus">
+  <div class="sec-head"><span class="num">20</span><h2>What the syllabus asks for</h2><span class="ko">강의 계획서 요구 사항</span></div>
+  <p class="lead">From the Cambridge IGCSE ICT 0417 syllabus for 2026, 2027 and 2028, section 20. Cards marked <span class="tag syl">SYLLABUS</span> are named in the syllabus. Cards marked <span class="tag ext">EXTENSION</span> are not named, but they appear in WZFS Unit 20 tasks and in past-paper style questions — learn them too.</p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Section</th><th>The syllabus says you must be able to…</th><th>Where on this page</th></tr></thead>
+    <tbody>
+      <tr><th>20.1 Create a data model</th><td>Insert/delete cells, rows, columns; merge cells · create formulae using cell references · replicate with <strong>absolute and relative</strong> references · arithmetic operators (add, subtract, multiply, divide, <strong>indices</strong>) · <strong>named cells and ranges</strong> · functions: <strong>sum, average, maximum, minimum, integer, rounding, counting, LOOKUP, VLOOKUP, HLOOKUP, XLOOKUP, IF</strong> · <strong>external data sources</strong> within functions · <strong>nested</strong> functions. Know: formula vs function, order of operations, absolute vs relative referencing.</td><td><a href="#g-basics">Formula basics</a> · <a href="#g-fn">Syllabus functions</a></td></tr>
+      <tr><th>20.2 Manipulate data</th><td>Sort on one or more criteria, ascending/descending · search and select with one or more criteria using <strong>AND, OR, NOT, &gt;, &lt;, =, &gt;=, &lt;=, &lt;&gt;</strong> · searches using <strong>wildcards</strong></td><td><a href="#g-search">Search &amp; wildcards</a> · <a href="#g-cond">Conditional &amp; logic</a></td></tr>
+      <tr><th>20.3 Present data</th><td>Display formulae or values · row height/column width so everything is fully visible · wrap text · hide/display rows and columns · text/cell colour, bold, underline, italic, shading · decimal places, currency, percentages · conditional formatting · portrait/landscape, number of pages, print area, gridlines, row and column headings</td><td><a href="#g-present">Present data</a></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="block" id="lab-sec">
+  <div class="sec-head"><span class="num">▶</span><h2>Live spreadsheet</h2><span class="ko">실시간 스프레드시트</span></div>
+  <p class="lead">Press <strong>Try it</strong> on any card and the formula runs here in cell <code>N2</code>. Cells it uses light up yellow. You can also click any cell and type your own formula. Columns F–J are already filled in. The <em>Lookups</em> tab has a grade-boundary table and a horizontal code table.</p>
+  <div id="lab-wrap"><div id="lab"></div></div>
+</section>
+
+<section class="block" id="g-basics">
+  <div class="sec-head"><span class="num">A</span><h2>Formula basics</h2><span class="ko">수식 기초</span></div>
+  <div class="filter noprint"><input type="search" id="q" placeholder="Search the glossary… e.g. lookup, round, $, wildcard" aria-label="Search the glossary"><span id="qcount" class="ko-line"></span></div>
+  <div class="fgrid" data-group="basics"></div>
+</section>
+<section class="block" id="g-fn">
+  <div class="sec-head"><span class="num">B</span><h2>Functions named in the syllabus</h2><span class="ko">강의 계획서 함수</span></div>
+  <div class="fgrid" data-group="fn"></div>
+</section>
+<section class="block" id="g-cond">
+  <div class="sec-head"><span class="num">C</span><h2>Conditional and logic functions</h2><span class="ko">조건 · 논리 함수</span></div>
+  <div class="fgrid" data-group="cond"></div>
+</section>
+<section class="block" id="g-search">
+  <div class="sec-head"><span class="num">D</span><h2>Search operators and wildcards (20.2)</h2><span class="ko">검색 연산자 · 와일드카드</span></div>
+  <div class="fgrid" data-group="search"></div>
+</section>
+<section class="block" id="g-errors">
+  <div class="sec-head"><span class="num">E</span><h2>Error values — what went wrong</h2><span class="ko">오류 값</span></div>
+  <div class="fgrid" data-group="errors"></div>
+</section>
+<section class="block" id="g-present">
+  <div class="sec-head"><span class="num">F</span><h2>Present data (20.3) — display, format, print</h2><span class="ko">데이터 표현 · 인쇄</span></div>
+  <div class="fgrid" data-group="present"></div>
+</section>
+
+</main>
+
+<footer class="foot">Spreadsheet Functions Glossary · Cambridge IGCSE ICT 0417 · Mr Glen Joshua · WZFS · No brand names are needed in the exam — these functions work the same in any spreadsheet software.</footer>
+
+<script src="practice.js"></script>
+<script src="sheetlab.js"></script>
+<script src="cyclehire-data.js"></script>
+<script>
+(function () {
+  /* ---------- workbook for the glossary: Cycle Hire + Lookups, F–J prefilled ---------- */
+  var def = JSON.parse(JSON.stringify(window.CYCLE_HIRE));
+  def.id = "glossary";
+  def.sheets.Hire.cols = 14;
+  def.sheets.Hire.cells.N1 = "Try it";
+  def.sheets.Hire.cellFmt.N1 = "h";
+  def.sheets.Lookups = {
+    cells: {
+      A1: "Mark", B1: "Grade", A2: 0, B2: "U", A3: 30, B3: "F", A4: 40, B4: "E", A5: 50, B5: "D", A6: 60, B6: "C", A7: 70, B7: "B", A8: 80, B8: "A", A9: 90, B9: "A*",
+      D1: "Pupil", E1: "Percentage", D2: "Min-jun", E2: 96, D3: "Seo-yeon", E3: 67, D4: "Ji-ho", E4: 54, D5: "Hana", E5: 70, D6: "Yuna", E6: 25,
+      G1: "Code", H1: "MA", I1: "CL", J1: "AD", K1: "DS", L1: "SA",
+      G2: "Job", H2: "Manager", I2: "Cleaner", J2: "Admin", K2: "Deputy", L2: "Sales"
+    },
+    cols: 12, rows: 9, cellFmt: { G2: "h" }
+  };
+  def.names.GRADES = "Lookups!$A$2:$B$9";
+  def.names.DISCOUNT = "Hire!$L$2";
+  def.prefill = window.CYCLE_HIRE_TASKS.map(function (t) { return { fill: t.fill, answer: t.answer }; });
+  def.scratch = "N2";
+  var lab = SheetLab.create(document.getElementById("lab"), def);
+
+  /* reference workbook to compute every example's result */
+  var ref = new SheetLab._Book(def);
+  def.prefill.forEach(function (p) {
+    var m = /^([A-Z]+)(\d+)(?::([A-Z]+)(\d+))?$/.exec(p.fill), r1 = +m[2], r2 = +(m[4] || m[2]);
+    for (var r = r1; r <= r2; r++) ref.set("Hire", m[1] + r, SheetLab._shift(p.answer, r - r1, 0));
+  });
+  function result(f) {
+    ref.set("Hire", "N2", f);
+    var v = ref.value("Hire", 14, 2);
+    if (v && v.err) return v.err;
+    if (typeof v === "number") return String(Math.round(v * 10000) / 10000);
+    if (typeof v === "boolean") return v ? "TRUE" : "FALSE";
+    return v === null ? "(blank)" : '"' + v + '"';
+  }
+
+  /* ---------- glossary entries ---------- */
+  var S = "syl", X = "ext";
+  var G = [
+    // A — basics
+    ["basics", "Formula", "수식", S, "=A1+B1", "A calculation you write yourself. Always starts with <code>=</code>.", "=D2*F2", "Without = the spreadsheet stores it as text."],
+    ["basics", "Function", "함수", S, "=NAME(arguments)", "A ready-made, named formula such as SUM or IF. Know the difference between a formula and a function.", "=SUM(D2:D11)", ""],
+    ["basics", "Arithmetic operators", "산술 연산자", S, "+  -  *  /  ^", "Add, subtract, multiply, divide and indices (powers). <code>^</code> means “to the power of”.", "=2^3", "× and ÷ are written * and /."],
+    ["basics", "Order of operations", "연산 순서", S, "( )  ^  * /  + -", "Brackets first, then indices, then × ÷, then + −. Use brackets to make sure a formula works.", "=(2+3)*4", "=2+3*4 gives 14, not 20."],
+    ["basics", "Cell reference", "셀 참조", S, "D2   Rates!C3", "The address of one cell: column letter + row number. Add a sheet name and ! to use another sheet.", "=Rates!C3", ""],
+    ["basics", "Range", "범위", S, "D2:D11", "A block of cells from the first to the last, joined by a colon.", "=MAX(D2:D11)", ""],
+    ["basics", "Relative reference", "상대 참조", S, "D2", "Changes when the formula is replicated. D2 copied one row down becomes D3.", "=D2*F2", "Use for anything that is different on each row."],
+    ["basics", "Absolute reference", "절대 참조", S, "$L$2", "Never changes when replicated. Use $ before the column and the row.", "=G2*$L$2", "Forgetting $ makes copied rows point at empty cells — usually 0 or #N/A."],
+    ["basics", "Mixed reference", "혼합 참조", S, "$L2   L$2", "Only the part with $ is fixed. $L2 keeps column L; L$2 keeps row 2.", "=G2*L$2", ""],
+    ["basics", "Named cell / named range", "이름 정의 셀 · 범위", S, "RATES   DISCOUNT", "A name given to a cell or range. Behaves like an absolute reference and makes formulas easier to read.", "=G2*DISCOUNT", "The name must be spelt exactly — otherwise #NAME?."],
+    ["basics", "Replicate (fill down)", "복제 · 채우기", S, "drag the fill handle", "Copy a formula to other cells so the relative references adjust for each row.", "=D3*F3", "Click a copied cell in the lab to see how it changed."],
+    ["basics", "External data source", "외부 데이터 원본", S, "Rates!$A$2:$C$5", "Using data from another sheet or file inside a function, e.g. a lookup table on a different sheet.", "=VLOOKUP(\"EB\",Rates!$A$2:$C$5,2,FALSE)", "Make the external range absolute."],
+    ["basics", "Nested function", "중첩 함수", S, "=ROUND(AVERAGE(…),2)", "A function inside another function. The inner one is worked out first.", "=ROUND(AVERAGE(I2:I11),2)", "Count the brackets: each ( needs a )."],
+    ["basics", "Text in a formula", "수식 안의 텍스트", X, "\"Y\"   \"Half day\"", "Text values go in speech marks. Join text with &.", "=B2&\" (\"&C2&\")\"", "Text without speech marks gives #NAME?."],
+    // B — syllabus functions
+    ["fn", "SUM", "합계", S, "=SUM(range)", "Adds up the numbers.", "=SUM(I2:I11)", "Use SUM for a total — not =I2+I3+I4…"],
+    ["fn", "AVERAGE", "평균", S, "=AVERAGE(range)", "The mean of the numbers.", "=AVERAGE(D2:D11)", ""],
+    ["fn", "MAX", "최댓값", S, "=MAX(range)", "The largest number.", "=MAX(I2:I11)", ""],
+    ["fn", "MIN", "최솟값", S, "=MIN(range)", "The smallest number.", "=MIN(D2:D11)", ""],
+    ["fn", "INT", "정수", S, "=INT(number)", "Removes the decimal part (rounds <em>down</em> to a whole number).", "=INT(D3)", "INT does not round to the nearest — 7.9 becomes 7."],
+    ["fn", "ROUND", "반올림", S, "=ROUND(number, places)", "Rounds to a number of decimal places (0 = whole number).", "=ROUND(AVERAGE(I2:I11),2)", "Rounding changes the value; formatting to 2 dp only changes how it looks."],
+    ["fn", "ROUNDUP / ROUNDDOWN", "올림 / 내림", S, "=ROUNDUP(number, places)", "Always rounds away from zero (up) or towards zero (down).", "=ROUNDUP(I2/7,0)", ""],
+    ["fn", "COUNT", "개수 (숫자)", S, "=COUNT(range)", "Counts cells that contain <strong>numbers</strong>.", "=COUNT(D2:D11)", "COUNT ignores text — use COUNTA for text."],
+    ["fn", "COUNTA", "개수 (비어 있지 않은)", S, "=COUNTA(range)", "Counts cells that are <strong>not empty</strong> (numbers or text).", "=COUNTA(B2:B11)", ""],
+    ["fn", "COUNTIF", "조건부 개수", S, "=COUNTIF(range, criteria)", "Counts cells that match one condition.", "=COUNTIF(E2:E11,\"Y\")", "Criteria with text or an operator goes in speech marks: \">3\"."],
+    ["fn", "IF", "IF 함수", S, "=IF(test, value_if_true, value_if_false)", "Gives one of two results depending on a test.", "=IF(D2>=4,\"Long\",\"Short\")", ""],
+    ["fn", "Nested IF", "중첩 IF", S, "=IF(test1, a, IF(test2, b, c))", "More than two possible results. Three results need two IFs.", "=IF(D3<2,\"Short\",IF(D3<5,\"Half day\",\"Full day\"))", "Test the boundaries: does 2 give Half day and 5 give Full day?"],
+    ["fn", "VLOOKUP (exact)", "세로 조회", S, "=VLOOKUP(value, table, column, FALSE)", "Looks <strong>down</strong> the first column of a table and returns a value from another column. FALSE = exact match.", "=VLOOKUP(\"MB\",RATES,3,FALSE)", "Leaving out FALSE gives an approximate match — wrong for codes."],
+    ["fn", "VLOOKUP (approximate)", "근사 조회", S, "=VLOOKUP(value, table, column, TRUE)", "TRUE finds the largest value that is ≤ the lookup value. The first column must be sorted ascending. Used for grade boundaries.", "=VLOOKUP(Lookups!E3,GRADES,2,TRUE)", ""],
+    ["fn", "HLOOKUP", "가로 조회", S, "=HLOOKUP(value, table, row, FALSE)", "Looks <strong>across</strong> the first row and returns a value from another row.", "=HLOOKUP(\"DS\",Lookups!$H$1:$L$2,2,FALSE)", "Use HLOOKUP when the table is horizontal."],
+    ["fn", "XLOOKUP", "XLOOKUP 조회", S, "=XLOOKUP(value, lookup_range, return_range, [if_not_found])", "Finds the value in one range and returns the matching item from another. Works in any direction; exact match by default.", "=XLOOKUP(\"TB\",Rates!$A$2:$A$5,Rates!$B$2:$B$5)", "The two ranges must be the same size."],
+    ["fn", "LOOKUP", "LOOKUP 조회", S, "=LOOKUP(value, lookup_range, result_range)", "Approximate match in a sorted range, returning the item in the same position from the result range.", "=LOOKUP(67,Lookups!$A$2:$A$9,Lookups!$B$2:$B$9)", "The lookup range must be sorted ascending."],
+    // C — conditional & logic
+    ["cond", "SUMIF", "조건부 합계", X, "=SUMIF(range, criteria, sum_range)", "Adds the values in sum_range where range matches the criteria.", "=SUMIF(C2:C11,\"EB\",I2:I11)", "The order matters: test range, criteria, then range to add."],
+    ["cond", "AVERAGEIF", "조건부 평균", X, "=AVERAGEIF(range, criteria, average_range)", "Average of the values that match.", "=AVERAGEIF(E2:E11,\"Y\",D2:D11)", ""],
+    ["cond", "COUNTIFS", "다중 조건 개수", X, "=COUNTIFS(range1, crit1, range2, crit2)", "Counts rows that match <strong>all</strong> the conditions.", "=COUNTIFS(C2:C11,\"EB\",E2:E11,\"Y\")", ""],
+    ["cond", "SUMIFS", "다중 조건 합계", X, "=SUMIFS(sum_range, range1, crit1, range2, crit2)", "Adds values that match all conditions. Note: the sum range comes <strong>first</strong>.", "=SUMIFS(I2:I11,C2:C11,\"MB\",E2:E11,\"N\")", ""],
+    ["cond", "AND", "그리고", X, "=AND(test1, test2)", "TRUE only if every test is true. Usually inside IF.", "=IF(AND(E2=\"Y\",D2>2),\"Bonus\",\"\")", ""],
+    ["cond", "OR", "또는", X, "=OR(test1, test2)", "TRUE if at least one test is true.", "=IF(OR(C3=\"EB\",D3>5),\"Check\",\"OK\")", ""],
+    ["cond", "NOT", "부정", X, "=NOT(test)", "Reverses TRUE and FALSE.", "=NOT(E2=\"Y\")", ""],
+    // D — search
+    ["search", "Comparison operators", "비교 연산자", S, "=  <>  >  <  >=  <=", "Equal, not equal, greater than, less than, greater than or equal to, less than or equal to.", "=COUNTIF(D2:D11,\">=3\")", "\">3\" and \">=3\" give different answers at the boundary."],
+    ["search", "Not equal to", "같지 않음", S, "<>", "Matches everything except the value — e.g. “not including Samsung”.", "=SUMIF(C2:C11,\"<>MB\",D2:D11)", ""],
+    ["search", "AND search", "AND 검색", S, "criteria on the same row", "Both conditions must be true — fewer records.", "=COUNTIFS(C2:C11,\"MB\",D2:D11,\">2\")", ""],
+    ["search", "OR search", "OR 검색", S, "criteria on separate rows", "Either condition can be true — more records.", "=COUNTIF(C2:C11,\"EB\")+COUNTIF(C2:C11,\"TB\")", ""],
+    ["search", "Wildcard *", "와일드카드 *", S, "\"C*\"   \"*an*\"", "* stands for any number of characters. \"C*\" = starts with C; \"*an*\" = contains an.", "=COUNTIF(B2:B11,\"C*\")", ""],
+    ["search", "Wildcard ?", "와일드카드 ?", S, "\"?im\"", "? stands for exactly one character.", "=COUNTIF(B2:B11,\"?im\")", ""],
+    ["search", "Sort", "정렬", S, "ascending / descending", "Put records in order on one or more criteria. Select <strong>all</strong> the columns first or the rows get mixed up.", "", "Sort by Bike Code ascending, then Total descending = two sort levels."],
+    // E — errors
+    ["errors", "#DIV/0!", "0으로 나누기", S, "", "Dividing by zero or by an empty cell.", "=I2/K2", ""],
+    ["errors", "#N/A", "값 없음", S, "", "A lookup could not find the value — or the table range was relative and slid down.", "=VLOOKUP(\"ZZ\",RATES,3,FALSE)", ""],
+    ["errors", "#NAME?", "이름 오류", S, "", "Misspelt function or named range, or text without speech marks.", "=SUMM(D2:D11)", ""],
+    ["errors", "#REF!", "참조 오류", S, "", "A reference is not valid — e.g. column number bigger than the table, or a deleted cell.", "=VLOOKUP(\"CB\",RATES,5,FALSE)", ""],
+    ["errors", "#VALUE!", "값 오류", S, "", "Wrong type of data — e.g. doing maths with text.", "=B2*2", ""],
+    ["errors", "######", "열 너비 부족", S, "", "Not an error in the formula — the column is too narrow. Widen it so the value is fully visible.", "", ""],
+    // F — present
+    ["present", "Display formulas / values", "수식 · 값 표시", S, "Formulas view", "Show formulas instead of results for a printout. Widen columns so every formula is fully visible.", "", "Formula marks cannot be awarded from a printout of values."],
+    ["present", "Column width & row height", "열 너비 · 행 높이", S, "", "Adjust so all data, labels and formulas are fully visible.", "", "Truncated data loses marks."],
+    ["present", "Wrap text", "텍스트 줄 바꿈", S, "", "Text flows onto more lines inside the cell.", "", ""],
+    ["present", "Hide / display rows & columns", "행 · 열 숨기기", S, "", "Hide columns not needed in a printout; display them again later.", "", "Hide only what the question says."],
+    ["present", "Number formats", "숫자 서식", S, "2 dp · ¥ · %", "Set decimal places, currency symbols and percentages.", "", "Formatting does not change the stored value."],
+    ["present", "Text & cell formatting", "글꼴 · 셀 서식", S, "", "Text colour, cell colour/shading, bold, underline, italic.", "", ""],
+    ["present", "Conditional formatting", "조건부 서식", S, "", "Formatting changes automatically depending on the cell’s contents, e.g. red if Total > 100.", "", ""],
+    ["present", "Page layout for printing", "인쇄 페이지 설정", S, "", "Portrait/landscape · fit to a number of pages · print area · show/hide gridlines · show/hide row and column headings.", "", "Put your name, centre number and candidate number in the header before printing."],
+    ["present", "Insert, delete, merge", "삽입 · 삭제 · 병합", S, "", "Insert or delete cells, rows and columns; merge cells for a title.", "", "Check formulas still point at the right cells after inserting a row."]
+  ];
+
+  function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+  G.forEach(function (g) {
+    var host = document.querySelector('.fgrid[data-group="' + g[0] + '"]');
+    var card = document.createElement("div");
+    card.className = "fcard";
+    card.setAttribute("data-search", (g[1] + " " + g[2] + " " + g[4] + " " + g[5] + " " + g[6] + " " + g[7]).toLowerCase());
+    var ex = g[6] ? '<div class="ex"><code>' + esc(g[6]) + '</code><span>→</span><span class="res">' + esc(result(g[6])) + "</span></div>" : "";
+    card.innerHTML = '<h3>' + esc(g[1]) + ' <span class="ko">' + esc(g[2]) + "</span></h3>" +
+      '<div><span class="tag ' + g[3] + '">' + (g[3] === "syl" ? "SYLLABUS" : "EXTENSION") + "</span></div>" +
+      (g[4] ? '<div class="syntax">' + esc(g[4]) + "</div>" : "") +
+      "<div>" + g[5] + "</div>" + ex +
+      (g[7] ? '<div class="trap">⚠ ' + esc(g[7]) + "</div>" : "") +
+      (g[6] ? '<button type="button" class="btn small primary noprint">▶ Try it</button>' : "");
+    var b = card.querySelector("button");
+    if (b) b.addEventListener("click", function () { lab.tryFormula(g[6]); });
+    host.appendChild(card);
+  });
+
+  var q = document.getElementById("q"), qc = document.getElementById("qcount");
+  q.addEventListener("input", function () {
+    var t = q.value.trim().toLowerCase(), n = 0;
+    document.querySelectorAll(".fcard").forEach(function (c) { var hit = !t || c.getAttribute("data-search").indexOf(t) >= 0; c.style.display = hit ? "" : "none"; if (hit) n++; });
+    qc.textContent = t ? n + " match" + (n === 1 ? "" : "es") : "";
+  });
+})();
+</script>
+</body>
+</html>

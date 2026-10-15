@@ -47,7 +47,8 @@
     <a href="#css">CSS</a>
     <span class="sep"></span>
     <a class="prac" href="#p-blanks">✎ Recall</a>
-    <a class="prac" href="#case">✎ Case study</a>
+    <a class="prac" href="#case">✎ Formula lab</a>
+    <a class="prac" href="functions.html">ƒ Glossary</a>
     <a class="prac" href="#p-exam">✎ Exam questions</a>
     <a class="prac" href="#p-web">✎ Web lab</a>
     <a class="prac" href="#p-mock">✎ Mock paper</a>
@@ -367,40 +368,10 @@ ul     { list-style-type: square; }</code></pre>
 
 <!-- ======================================================= CASE STUDY -->
 <section class="block" id="case">
-  <div class="sec-head"><span class="num">P2</span><h2>Case study data — Weihai Cycle Hire</h2><span class="ko">사례 데이터</span></div>
-  <p class="lead">The exam-style questions below refer to this spreadsheet, just like a real Paper 3 source file. Columns F to J are empty — you will write the formulas.</p>
-  <div class="sheet">
-    <div class="tbl-wrap"><table>
-      <thead><tr><th class="col"></th><th class="col">A</th><th class="col">B</th><th class="col">C</th><th class="col">D</th><th class="col">E</th><th class="col">F</th><th class="col">G</th><th class="col">H</th><th class="col">I</th><th class="col">J</th><th class="col">K</th><th class="col">L</th></tr></thead>
-      <tbody>
-        <tr><td class="row">1</td><td class="h">Hire ID</td><td class="h">Customer</td><td class="h">Bike Code</td><td class="h">Hours</td><td class="h">Member</td><td class="h">Rate</td><td class="h">Cost</td><td class="h">Discount</td><td class="h">Total</td><td class="h">Hire Type</td><td></td><td class="h">Member discount</td></tr>
-        <tr><td class="row">2</td><td>H001</td><td>Park</td><td>MB</td><td>3</td><td>Y</td><td class="f">?</td><td class="f">?</td><td class="f">?</td><td class="f">?</td><td class="f">?</td><td></td><td>10%</td></tr>
-        <tr><td class="row">3</td><td>H002</td><td>Chen</td><td>CB</td><td>1.5</td><td>N</td><td class="f"></td><td class="f"></td><td class="f"></td><td class="f"></td><td class="f"></td><td></td><td></td></tr>
-        <tr><td class="row">4</td><td>H003</td><td>Lee</td><td>EB</td><td>6</td><td>Y</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td class="row">5</td><td>H004</td><td>Wang</td><td>TB</td><td>2</td><td>N</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td class="row">6</td><td>H005</td><td>Kim</td><td>MB</td><td>5</td><td>N</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td class="row">7</td><td>H006</td><td>Zhao</td><td>EB</td><td>2.5</td><td>Y</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td class="row">8</td><td>H007</td><td>Choi</td><td>CB</td><td>4</td><td>Y</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td class="row">9</td><td>H008</td><td>Liu</td><td>MB</td><td>1</td><td>N</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td class="row">10</td><td>H009</td><td>Jung</td><td>EB</td><td>8</td><td>N</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td class="row">11</td><td>H010</td><td>Sun</td><td>CB</td><td>3</td><td>Y</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-      </tbody>
-    </table></div>
-    <div class="sheet-tabs"><span class="on">Hire</span><span>Rates</span></div>
-  </div>
-  <h3>Sheet: Rates (cells A1:C5 — named range <code>RATES</code> covers A2:C5)</h3>
-  <div class="sheet" style="max-width:520px">
-    <div class="tbl-wrap"><table>
-      <thead><tr><th class="col"></th><th class="col">A</th><th class="col">B</th><th class="col">C</th></tr></thead>
-      <tbody>
-        <tr><td class="row">1</td><td class="h">Code</td><td class="h">Bike Type</td><td class="h">Rate per hour</td></tr>
-        <tr><td class="row">2</td><td>CB</td><td>City Bike</td><td>¥15.00</td></tr>
-        <tr><td class="row">3</td><td>EB</td><td>E-Bike</td><td>¥35.00</td></tr>
-        <tr><td class="row">4</td><td>MB</td><td>Mountain Bike</td><td>¥25.00</td></tr>
-        <tr><td class="row">5</td><td>TB</td><td>Tandem</td><td>¥30.00</td></tr>
-      </tbody>
-    </table></div>
-  </div>
+  <div class="sec-head"><span class="num">P2</span><h2>Formula lab — Weihai Cycle Hire</h2><span class="ko">수식 실습</span></div>
+  <p class="lead">This is a working spreadsheet. Click a cell, type a formula in the <strong>fx</strong> bar and press <kbd>Enter</kbd>. Task formulas are <strong>copied down automatically</strong>, like dragging the fill handle, and every cell turns <span style="color:var(--good);font-weight:700">green</span> or <span style="color:var(--bad);font-weight:700">red</span>. Click any copied cell to see how its formula changed. The exam questions below use the same sheet.</p>
+  <div class="callout tip"><strong>How to use it</strong> Press <em>Go to F2</em> on a task → type the formula → <kbd>Enter</kbd>. Cells used by your formula light up yellow. Use the <em>Rates</em> tab to see the lookup table. <em>Show formulas</em> switches to formula view — just like the printout the examiner wants. Need a function? Open the <a href="functions.html">Functions &amp; Formulas Glossary</a>.</div>
+  <div id="lab"></div>
 </section>
 
 <!-- ======================================================= EXAM QUESTIONS -->
@@ -697,5 +668,10 @@ window.PRACTICE = {
 };
 </script>
 <script src="practice.js"></script>
+<script src="sheetlab.js"></script>
+<script src="cyclehire-data.js"></script>
+<script>
+SheetLab.create(document.getElementById("lab"), Object.assign({ id: "cyclehire-p3", tasks: window.CYCLE_HIRE_TASKS }, window.CYCLE_HIRE));
+</script>
 </body>
 </html>
