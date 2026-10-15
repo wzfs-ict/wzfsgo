@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 9 Units 11–13 Practice</title>
+<meta name="description" content="Grade 9 Cambridge IGCSE ICT 0417 study and exam practice for Unit 11 File management, Unit 12 Images and Unit 13 Layout — theory and practical, with Cambridge-style questions and mark schemes.">
+<link rel="stylesheet" href="practice.css">
+<style>
+  .unit-tag { display: inline-block; font-size: .75rem; font-weight: 700; background: var(--accent-soft); color: var(--accent); padding: 2px 8px; border-radius: 6px; }
+  .explorer table { font-size: .85rem; }
+  .explorer td:first-child { font-family: var(--mono); }
+  .ar-demo { display: grid; gap: 14px; grid-template-columns: minmax(220px, 300px) 1fr; align-items: start; }
+  @media (max-width: 680px) { .ar-demo { grid-template-columns: 1fr; } }
+  .ar-demo label { display: block; font-size: .9rem; margin: 8px 0 2px; }
+  .ar-demo input[type=range] { width: 100%; }
+  .ar-stage { height: 260px; display: grid; place-items: center; background: var(--surface-2); border-radius: 10px; overflow: hidden; }
+  .ar-out { font-family: var(--mono); font-size: .9rem; margin-top: 8px; }
+  .wrapdemo { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+  .wrapdemo figure { margin: 0; }
+  .wrapdemo svg { width: 100%; height: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }
+</style>
+</head>
+<body>
+
+<header class="banner">
+  <div class="wrap">
+    <a class="home" href="index.html">← All practice guides</a>
+    <div class="eyebrow" style="margin-top:10px">G R A D E &nbsp; 9 &nbsp; · &nbsp; U N I T S &nbsp; 1 1 – 1 3 &nbsp; · &nbsp; T H E O R Y &nbsp; + &nbsp; P R A C T I C A L</div>
+    <h1>File Management, Images &amp; Layout — Exam Practice</h1>
+    <div class="ko">파일 관리 · 이미지 · 레이아웃 — 시험 대비 연습</div>
+    <div class="meta">
+      <span class="chip">Cambridge IGCSE ICT 0417 (2026–2028)</span>
+      <span class="chip">Unit 11 File management</span>
+      <span class="chip">Unit 12 Images</span>
+      <span class="chip">Unit 13 Layout</span>
+      <span class="chip">Mr Glen Joshua · WZFS <span id="year">2026–27</span></span>
+    </div>
+  </div>
+</header>
+
+<nav class="topnav" aria-label="Sections">
+  <div class="wrap">
+    <a href="#start">Start</a>
+    <a href="#u11">U11 File management</a>
+    <a href="#u11c">U11 Compression</a>
+    <a href="#u12">U12 Images</a>
+    <a href="#u13">U13 Layout</a>
+    <span class="sep"></span>
+    <a class="prac" href="#p-mcq">✎ Multiple choice</a>
+    <a class="prac" href="#p-blanks">✎ Recall</a>
+    <a class="prac" href="#p-calc">✎ Calculations</a>
+    <a class="prac" href="#p-exam">✎ Written questions</a>
+    <a class="prac" href="#p-prac">✎ Practical tasks</a>
+    <a class="prac" href="#p-cards">✎ Key terms</a>
+    <button class="theme-btn" type="button" aria-label="Toggle dark mode">◐</button>
+  </div>
+</nav>
+
+<main>
+
+<!-- ======================================================= START -->
+<section class="block" id="start">
+  <div class="sec-head"><span class="num">00</span><h2>How Units 11–13 are examined</h2><span class="ko">11–13단원 평가 방식</span></div>
+  <p class="lead">Units 11–13 are “practical” units, but they are examined <strong>twice</strong>: you <em>do</em> the skills in the practical papers, and you <em>write about</em> them in Paper 1. Paper 1 can ask about <strong>any</strong> section from 1 to 21 — not just 1 to 8.</p>
+  <div id="progress" class="progress-panel" aria-live="polite"></div>
+  <div class="tbl-wrap" style="margin-top:12px"><table>
+    <thead><tr><th>Paper</th><th>Title</th><th>Time</th><th>Marks</th><th>Where Units 11–13 appear</th></tr></thead>
+    <tbody>
+      <tr><th>1</th><td>Theory</td><td>1 h 30 min</td><td>80</td><td>Multiple-choice, short-answer and structured questions on file formats, compression, image editing, layout</td></tr>
+      <tr><th>2</th><td>Document Production, Databases and Presentations</td><td>2 h 15 min</td><td>70</td><td>Saving files correctly, placing/editing images, headers and footers, tables</td></tr>
+      <tr><th>3</th><td>Spreadsheets and Website Authoring</td><td>2 h 15 min</td><td>70</td><td>File formats (.csv, .css, .htm), saving, images on web pages</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout warn"><strong>The golden rule of the practical papers</strong>
+    Your <strong>name, centre number and candidate number</strong> must be typed electronically on every piece of evidence <em>before</em> it is printed — set them up in the header of your Evidence Document first so they appear on every page. Handwriting them on afterwards scores <strong>0</strong>.</div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Objective</th><th>Weighting</th><th>Where</th><th>What it rewards</th></tr></thead>
+    <tbody>
+      <tr><th>AO1 Recall</th><td>32%</td><td>Paper 1</td><td>Knowing and communicating ICT facts and terms</td></tr>
+      <tr><th>AO2 Apply</th><td>60%</td><td>100% of Papers 2 and 3</td><td>Practical output that matches the instruction <strong>exactly</strong> — no credit for “nearly”</td></tr>
+      <tr><th>AO3 Analyse / evaluate</th><td>8%</td><td>Paper 1</td><td>“Explain why”, judging which method suits which data</td></tr>
+    </tbody>
+  </table></div>
+  <div class="grid two">
+    <div class="callout gold"><strong>Explain = point + reason</strong> A point alone is only half the answer. Join it to its reason with <em>so</em>, <em>because</em> or <em>which means</em>. No joining word? You probably haven’t finished the sentence.</div>
+    <div class="callout tip"><strong>Compare = both sides</strong> “.txt stores plain text only, <em>whereas</em> .rtf can store formatting.” A statement about only one format scores nothing.</div>
+  </div>
+</section>
+
+<!-- ======================================================= U11 -->
+<section class="block" id="u11">
+  <div class="sec-head"><span class="num">11</span><h2>File management</h2><span class="ko">파일 관리</span></div>
+
+  <div class="grid two">
+    <div class="card">
+      <h3 style="margin-top:0">Folders and file names <span class="ko-line">폴더 · 파일 이름</span></h3>
+      <ul class="points">
+        <li>Use a <span class="mark">hierarchical folder structure</span> — a parent folder with subfolders (e.g. <code>Unit11_Kim › Evidence</code>, <code>Unit11_Kim › Compressed</code>).</li>
+        <li>Give files <span class="mark">meaningful names</span> so they can be found quickly — <code>Kim_Unit11_Test.docx</code>, not <code>Document1.docx</code>.</li>
+        <li><span class="kw">Save</span> overwrites the current file. <span class="kw">Save As</span> lets you choose a new name, location or <span class="mark">file format</span>.</li>
+        <li><span class="kw">Export</span> saves a copy in another format, e.g. a document exported as <code>.pdf</code>.</li>
+        <li>Use <span class="kw">Details view</span> in the file manager to see file names, <span class="mark">extensions</span>, types and sizes.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">File sizes <span class="ko-line">파일 크기</span></h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Unit</th><th>Equals</th></tr></thead>
+        <tbody>
+          <tr><th>1 byte (B)</th><td>8 bits</td></tr>
+          <tr><th>1 kilobyte (KB)</th><td>1024 bytes</td></tr>
+          <tr><th>1 megabyte (MB)</th><td>1024 KB</td></tr>
+          <tr><th>1 gigabyte (GB)</th><td>1024 MB</td></tr>
+          <tr><th>1 terabyte (TB)</th><td>1024 GB</td></tr>
+        </tbody>
+      </table></div>
+      <p class="ko-line">KB and MB are not the same — always write the unit. 3,692 KB = about 3.6 MB.</p>
+    </div>
+  </div>
+
+  <h3>Generic file formats — the syllabus list</h3>
+  <p>A <span class="kw">generic file format</span> 범용 파일 형식 can be opened by <span class="mark">many different programs and devices</span>, not only by the software that created it. A <span class="kw">proprietary</span> format belongs to one program.</p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Extension</th><th>Full name</th><th>What it stores</th><th>Use it when…</th></tr></thead>
+    <tbody>
+      <tr><th>.csv</th><td>Comma Separated Values</td><td>Table data, each field separated by a comma; no formatting</td><td>Moving data between a spreadsheet and a database</td></tr>
+      <tr><th>.txt</th><td>Text</td><td>Plain text only — no formatting</td><td>Simple notes; the smallest text file</td></tr>
+      <tr><th>.rtf</th><td>Rich Text Format</td><td>Text <strong>with</strong> formatting (bold, fonts, colours, lists, images)</td><td>Sharing a formatted document with someone who has different software</td></tr>
+      <tr><th>.pdf</th><td>Portable Document Format</td><td>A fixed layout that looks the same on every device; not easily edited</td><td>A newsletter, form or report that must keep its layout</td></tr>
+      <tr><th>.htm / .html</th><td>Hypertext Markup Language</td><td>The content and structure of a web page</td><td>Web pages</td></tr>
+      <tr><th>.css</th><td>Cascading Style Sheets</td><td>Colours, fonts and layout rules for web pages</td><td>The stylesheet attached to a web page</td></tr>
+      <tr><th>.jpg / .jpeg</th><td>Joint Photographic Experts Group</td><td>Bitmap image with <strong>lossy</strong> compression; millions of colours; <strong>no transparency</strong></td><td>Photographs, especially on websites</td></tr>
+      <tr><th>.png</th><td>Portable Network Graphics</td><td>Bitmap image with <strong>lossless</strong> compression; supports <strong>transparency</strong></td><td>Logos/graphics needing a transparent background, screenshots</td></tr>
+    </tbody>
+  </table></div>
+  <p class="ko-line">Compressed archives use <code>.zip</code> or <code>.rar</code>. Note: <code>.gif</code> is not on the 0417 generic-format list.</p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Application (software-specific) formats</th><th>Generic formats</th></tr></thead>
+    <tbody><tr><td><code>.docx</code> word processor · <code>.xlsx</code> spreadsheet · <code>.pptx</code> presentation · <code>.accdb</code> database</td><td><code>.csv</code> <code>.txt</code> <code>.rtf</code> <code>.pdf</code> <code>.htm</code> <code>.css</code> <code>.jpg</code> <code>.png</code></td></tr></tbody>
+  </table></div>
+  <div class="callout tip"><strong>Folder screenshot evidence</strong> Use <strong>Details view</strong> so the examiner can see the <em>name, type, size and extension</em> of every file. A cropped corner or Icons view proves nothing.</div>
+
+  <div class="grid two">
+    <div class="card">
+      <h3 style="margin-top:0">Why use generic formats?</h3>
+      <ul class="points">
+        <li>Work can be opened on <span class="mark">any computer</span>, whatever software is installed.</li>
+        <li>Files can be <span class="mark">shared</span> with people who do not have the same program.</li>
+        <li>Work stays usable if the school <span class="mark">changes software</span> later.</li>
+        <li>Generic formats are often <span class="mark">smaller</span> than software-specific ones.</li>
+      </ul>
+    </div>
+    <div class="model" style="margin:12px 0"><div class="label">Model comparison — .txt and .rtf [3]</div>
+      <p>A .txt file stores plain text only, <strong>whereas</strong> a .rtf file can also store formatting <span class="m">[1]</span>. An .rtf file can hold bold, italic, different fonts, sizes and colours, <strong>whereas</strong> a .txt file cannot <span class="m">[1]</span>. A .txt file is smaller than an .rtf file holding the same words <span class="m">[1]</span>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================= U11 COMPRESSION -->
+<section class="block" id="u11c">
+  <div class="sec-head"><span class="num">11.2</span><h2>Reducing file size — compression</h2><span class="ko">파일 크기 줄이기 — 압축</span></div>
+  <div class="grid two">
+    <div class="card">
+      <h3 style="margin-top:0">Why reduce file size?</h3>
+      <ul class="points">
+        <li>Uses <span class="mark">less storage space</span>.</li>
+        <li>Files <span class="mark">upload/download faster</span> and web pages load quicker.</li>
+        <li>Fits within <span class="mark">email attachment limits</span>.</li>
+        <li>Uses <span class="mark">less bandwidth</span> when sent over a network.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">How compression works</h3>
+      <p>Lossless compression looks for <span class="mark">repetition / patterns</span> and replaces them with short codes: <code>EEEEEEE</code> → <code>E7</code>. A file full of repeated text compresses hugely; a file of random text barely shrinks because there is no pattern to encode.</p>
+    </div>
+  </div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Point of comparison</th><th>Lossy 손실 압축</th><th>Lossless 무손실 압축</th></tr></thead>
+    <tbody>
+      <tr><th>What happens to data</th><td>Some data is <span class="mark">permanently removed</span></td><td>Data is encoded, then <span class="mark">restored exactly</span> when opened</td></tr>
+      <tr><th>Reversible?</th><td>No — the original cannot be recovered</td><td>Yes — the original is returned exactly</td></tr>
+      <tr><th>Size reduction</th><td>Large</td><td>Smaller</td></tr>
+      <tr><th>Quality</th><td>Reduced (may not be noticed)</td><td>Unchanged</td></tr>
+      <tr><th>Examples</th><td>.jpg images, streamed video and music</td><td>.png images, .zip files, text, program files</td></tr>
+      <tr><th>Suitable for</th><td>Photos, video, music — small losses not noticed</td><td>Text, exam marks, programs, spreadsheets — every bit must stay</td></tr>
+    </tbody>
+  </table></div>
+  <div class="model"><div class="label">Model “explain” answer — judging the method [2]</div>
+    <p>Lossy compression is suitable for a video because the data removed is unlikely to be noticed by the viewer, <strong>so</strong> a much smaller file is acceptable <span class="m">[1]</span>. It is not suitable for a file of exam marks because removing data would change or lose marks, <strong>which means</strong> the file would be inaccurate <span class="m">[1]</span>.</p>
+  </div>
+  <h3>Reducing an image’s file size (without compression)</h3>
+  <ul class="points">
+    <li>Reduce the <span class="mark">resolution</span> — fewer pixels to store.</li>
+    <li>Reduce the <span class="mark">colour depth</span> — fewer bits per pixel, fewer colours.</li>
+    <li><span class="mark">Crop</span> the image — remove unwanted areas so fewer pixels are stored.</li>
+  </ul>
+  <div class="callout warn"><strong>Trap</strong> If the question says “other than compression”, then “save it as a JPEG” scores 0.</div>
+
+  <h3>Same picture, three formats — read it like Details view</h3>
+  <div class="explorer tbl-wrap"><table>
+    <thead><tr><th>Name</th><th>Type</th><th>Size</th><th>Compression</th></tr></thead>
+    <tbody>
+      <tr><td>harbour.bmp</td><td>Bitmap image</td><td>3,692 KB</td><td>none</td></tr>
+      <tr><td>harbour.png</td><td>PNG image</td><td>260 KB</td><td>lossless</td></tr>
+      <tr><td>harbour.jpg</td><td>JPEG image</td><td>73 KB</td><td>lossy</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout tip"><strong>Percentage reduction</strong> = (before − after) ÷ before × 100. For the JPEG: (3692 − 73) ÷ 3692 × 100 = <strong>98.0%</strong> smaller — and it still looks the same on screen.</div>
+</section>
+
+<!-- ======================================================= U12 -->
+<section class="block" id="u12">
+  <div class="sec-head"><span class="num">12</span><h2>Images</h2><span class="ko">이미지</span></div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Edit</th><th>What it does</th><th>Exam tip</th></tr></thead>
+    <tbody>
+      <tr><th>Place 배치</th><td>Insert an image into a document, slide or web page</td><td>Place it exactly where the question says (e.g. “to the right of the first paragraph”)</td></tr>
+      <tr><th>Resize — keep aspect ratio 종횡비 유지</th><td>Change the size while width and height stay in the same proportion</td><td>Lock aspect ratio, drag a <strong>corner</strong> handle, or set one dimension only</td></tr>
+      <tr><th>Resize — adjust aspect ratio</th><td>Change width and height independently</td><td>The image is <strong>distorted</strong> (stretched/squashed) — only do it if asked</td></tr>
+      <tr><th>Crop 자르기</th><td>Remove unwanted outer parts</td><td>The remaining part is not resized; file may get smaller</td></tr>
+      <tr><th>Rotate 회전</th><td>Turn by a number of degrees</td><td>Read “clockwise / anti-clockwise” and the angle carefully</td></tr>
+      <tr><th>Reflect / flip 반전</th><td>Mirror horizontally (left↔right) or vertically (top↔bottom)</td><td>Reflect ≠ rotate 180°: text in a reflected image reads backwards</td></tr>
+      <tr><th>Colour depth 색 깊이</th><td>Number of bits used per pixel</td><td>Lower colour depth = fewer colours = smaller file</td></tr>
+      <tr><th>Brightness / contrast 밝기 / 대비</th><td>Lighter/darker; difference between light and dark areas</td><td>Use the exact % the question gives</td></tr>
+      <tr><th>Reduce resolution 해상도 낮추기</th><td>Fewer pixels</td><td>Reduces file size, e.g. so a web page loads faster</td></tr>
+      <tr><th>Group / layer 그룹 · 순서</th><td>Join images so they move together; bring to front / send to back</td><td>Use when an image and a text box must stay together</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="callout warn"><strong>Binary marks</strong> “Rotate 90° clockwise” is either done or not — rotating the wrong way, or not at all, scores 0 even if the image looks fine. In a real mock, a student lost the mark because the image was still upright.</div>
+  <h3>Try it — what aspect ratio does</h3>
+  <div class="card ar-demo noprint">
+    <div>
+      <label><input type="checkbox" id="ar-lock" checked> Lock aspect ratio</label>
+      <label for="ar-w">Width: <span id="ar-wv">200</span> px</label>
+      <input type="range" id="ar-w" min="60" max="300" value="200">
+      <label for="ar-h">Height: <span id="ar-hv">150</span> px</label>
+      <input type="range" id="ar-h" min="45" max="240" value="150">
+      <div class="ar-out" id="ar-out">Ratio 4 : 3 ✓ not distorted</div>
+    </div>
+    <div class="ar-stage">
+      <svg id="ar-img" width="200" height="150" viewBox="0 0 200 150" preserveAspectRatio="none" role="img" aria-label="Sample picture of a sun over a hill">
+        <rect width="200" height="150" fill="#bfe3f5"/>
+        <circle cx="140" cy="55" r="28" fill="#f2b705"/>
+        <ellipse cx="80" cy="160" rx="140" ry="60" fill="#3f8f4f"/>
+        <circle cx="60" cy="70" r="16" fill="#fff"/><circle cx="78" cy="66" r="20" fill="#fff"/><circle cx="96" cy="72" r="14" fill="#fff"/>
+      </svg>
+    </div>
+  </div>
+  <div class="model"><div class="label">Model “explain” answer [2]</div>
+    <p>The image should be resized with its aspect ratio maintained <span class="m">[1]</span>, <strong>so</strong> the width and height change in proportion and the picture is not stretched or distorted <span class="m">[1]</span>.</p>
+  </div>
+</section>
+
+<!-- ======================================================= U13 -->
+<section class="block" id="u13">
+  <div class="sec-head"><span class="num">13</span><h2>Layout</h2><span class="ko">레이아웃</span></div>
+  <div class="grid two">
+    <div class="card">
+      <h3 style="margin-top:0">Editing techniques</h3>
+      <ul class="points">
+        <li>Highlight (select), delete, move, <span class="kw">cut</span> (removes and copies to the clipboard), <span class="kw">copy</span>, <span class="kw">paste</span>, <span class="kw">drag and drop</span>.</li>
+        <li>Place objects: text, images, screenshots, charts, extracts from other documents.</li>
+        <li>Tables: <span class="mark">insert and delete rows/columns</span>, <span class="mark">merge cells</span>.</li>
+        <li>Table formatting: horizontal alignment (left/right/centre/justified) and <span class="mark">vertical alignment</span> (top/middle/bottom), show/hide <span class="mark">gridlines</span>, shading, wrap text in a cell, row height and column width.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">Headers and footers <span class="ko-line">머리글 · 바닥글</span></h3>
+      <ul class="points">
+        <li>Appear at the top/bottom of <span class="mark">every page</span>.</li>
+        <li>Use <span class="kw">automated objects (fields)</span> that update themselves: <span class="mark">page number, total number of pages, date, time, file name, file path</span>.</li>
+        <li>Align items <span class="mark">consistently</span> — e.g. name left, file name centre, page number right — matching the page margins.</li>
+        <li>Typing “Page 1” by hand is not automated — it won’t change on page 2.</li>
+        <li><strong>Zero tolerance:</strong> a file name or path <em>typed</em> into a footer scores 0 — it must be inserted as a field.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Text wrapping around images <span class="ko-line">텍스트 배치</span></h3>
+  <div class="wrapdemo">
+    <figure>
+      <svg viewBox="0 0 160 110" role="img" aria-label="Square wrap: text flows around a rectangular box">
+        <g fill="#9aa6b8"><rect x="10" y="10" width="140" height="5"/><rect x="10" y="22" width="60" height="5"/><rect x="10" y="34" width="60" height="5"/><rect x="10" y="46" width="60" height="5"/><rect x="10" y="58" width="60" height="5"/><rect x="10" y="70" width="140" height="5"/><rect x="10" y="82" width="140" height="5"/><rect x="10" y="94" width="100" height="5"/></g>
+        <rect x="80" y="20" width="70" height="45" fill="#0e7c86"/>
+      </svg>
+      <figcaption><strong>Square</strong> — text flows around the box</figcaption>
+    </figure>
+    <figure>
+      <svg viewBox="0 0 160 110" role="img" aria-label="Tight wrap: text follows the shape of a circle">
+        <g fill="#9aa6b8"><rect x="10" y="10" width="140" height="5"/><rect x="10" y="22" width="85" height="5"/><rect x="10" y="34" width="72" height="5"/><rect x="10" y="46" width="70" height="5"/><rect x="10" y="58" width="76" height="5"/><rect x="10" y="70" width="95" height="5"/><rect x="10" y="82" width="140" height="5"/><rect x="10" y="94" width="100" height="5"/></g>
+        <circle cx="120" cy="45" r="27" fill="#0e7c86"/>
+      </svg>
+      <figcaption><strong>Tight</strong> — text follows the image’s shape</figcaption>
+    </figure>
+    <figure>
+      <svg viewBox="0 0 160 110" role="img" aria-label="Top and bottom: text above and below only">
+        <g fill="#9aa6b8"><rect x="10" y="10" width="140" height="5"/><rect x="10" y="22" width="140" height="5"/><rect x="10" y="82" width="140" height="5"/><rect x="10" y="94" width="100" height="5"/></g>
+        <rect x="45" y="34" width="70" height="40" fill="#0e7c86"/>
+      </svg>
+      <figcaption><strong>Top and bottom</strong> — text above and below only</figcaption>
+    </figure>
+    <figure>
+      <svg viewBox="0 0 160 110" role="img" aria-label="Behind text: image under the text">
+        <rect x="35" y="20" width="90" height="70" fill="#0e7c86" opacity=".35"/>
+        <g fill="#4b5565"><rect x="10" y="10" width="140" height="5"/><rect x="10" y="22" width="140" height="5"/><rect x="10" y="34" width="140" height="5"/><rect x="10" y="46" width="140" height="5"/><rect x="10" y="58" width="140" height="5"/><rect x="10" y="70" width="140" height="5"/><rect x="10" y="82" width="140" height="5"/><rect x="10" y="94" width="100" height="5"/></g>
+      </svg>
+      <figcaption><strong>Behind text</strong> — like a watermark</figcaption>
+    </figure>
+  </div>
+  <p class="ko-line">Also: <strong>In front of text</strong> (covers the words) and <strong>In line with text</strong> (the image behaves like one large character on the line).</p>
+</section>
+
+<!-- ======================================================= MCQ -->
+<section class="block" id="p-mcq">
+  <div class="sec-head"><span class="num">P1</span><h2>Paper 1 — multiple-choice questions</h2><span class="ko">객관식 문제</span></div>
+  <p class="lead">Paper 1 now includes multiple-choice questions. Click an answer to see the explanation. Use the unit buttons to focus.</p>
+  <div id="quiz"></div>
+</section>
+
+<!-- ======================================================= BLANKS -->
+<section class="block" id="p-blanks">
+  <div class="sec-head"><span class="num">P2</span><h2>Quick recall</h2><span class="ko">빠른 복습</span></div>
+  <p class="lead">Type the missing word. File extensions must be exact — include the full stop.</p>
+  <div id="blanks"></div>
+</section>
+
+<!-- ======================================================= CALCULATIONS -->
+<section class="block" id="p-calc">
+  <div class="sec-head"><span class="num">P3</span><h2>Calculations — file sizes and compression</h2><span class="ko">계산 연습</span></div>
+  <p class="lead">Show your working: one mark for the method, one for the answer. Round to one decimal place.</p>
+  <div class="card">
+    <ol class="steps">
+      <li>A text file is 430 KB. After zipping it is 2 KB. Calculate the percentage reduction.</li>
+      <li>A second text file is 430 KB. After zipping it is 325 KB. Calculate the percentage reduction, and explain why it is so different from question 1.</li>
+      <li>A folder is 4,884 KB. Convert this to MB.</li>
+      <li>A photo is 6.5 MB. How many KB is this?</li>
+      <li>A PNG is 260 KB and the same picture as a JPEG is 73 KB. By what percentage is the JPEG smaller than the PNG?</li>
+    </ol>
+    <details class="drop"><summary>Show worked answers</summary><div class="body">
+      <ol>
+        <li>(430 − 2) ÷ 430 × 100 = <strong>99.5%</strong></li>
+        <li>(430 − 325) ÷ 430 × 100 = <strong>24.4%</strong>. The first file repeats the same sentence, so lossless compression can replace each repeat with a short code; the second is random text with no pattern, so there is almost nothing to encode.</li>
+        <li>4884 ÷ 1024 = <strong>4.77 MB</strong></li>
+        <li>6.5 × 1024 = <strong>6,656 KB</strong></li>
+        <li>(260 − 73) ÷ 260 × 100 = <strong>71.9%</strong></li>
+      </ol>
+    </div></details>
+  </div>
+</section>
+
+<!-- ======================================================= EXAM -->
+<section class="block" id="p-exam">
+  <div class="sec-head"><span class="num">P4</span><h2>Paper 1 — structured questions</h2><span class="ko">서술형 문제</span></div>
+  <p class="lead">Write your answer, then open the mark scheme and tick each point you made. Read the zero-mark trap for every question.</p>
+  <div id="exam"></div>
+</section>
+
+<!-- ======================================================= PRACTICAL -->
+<section class="block" id="p-prac">
+  <div class="sec-head"><span class="num">P5</span><h2>Practical tasks — on the computer</h2><span class="ko">실기 과제</span></div>
+  <p class="lead">These copy the style of the practical papers. Tick each step as you finish. Then check your evidence against the marking points — the examiner can only mark what your screenshot or file shows.</p>
+
+  <div class="callout gold"><strong>Learn from real marking</strong> In a real mock, a student lost 6 of 29 marks even though the document <em>looked</em> right. The two-column gap, the 6 pt spacing and the 7 cm image width could not be proved because there was no screenshot of the <strong>settings dialog box</strong>. When a task asks for evidence, screenshot the dialog (Margins, Columns, Format Picture, Styles), not just the finished page.</div>
+
+  <div class="card">
+    <h3 style="margin-top:0">Task A — Folders, saving and formats <span class="unit-tag">U11</span> <span class="m">[8]</span></h3>
+    <ul class="checklist" data-key="tA">
+      <li>Create a folder named <code>Unit11_</code> followed by your family name, e.g. <code>Unit11_Kim</code>. <span class="m">[1]</span></li>
+      <li>Inside it create two subfolders named exactly <code>Evidence</code> and <code>Compressed</code>. <span class="m">[1]</span></li>
+      <li>Create a document, type your name and the date, and save it as <code>FamilyName_Practice.docx</code> in the parent folder. <span class="m">[1]</span></li>
+      <li>Export the same document as <code>FamilyName_Practice.pdf</code> in the same folder. <span class="m">[1]</span></li>
+      <li>Save another copy as <code>.rtf</code> and another as <code>.txt</code>. Open the .txt — what happened to the formatting? <span class="m">[1]</span></li>
+      <li>Switch the file manager to <strong>Details view</strong> with file extensions shown. Record the size of each file with its unit. <span class="m">[2]</span></li>
+      <li>Take Screenshot 1 showing the folder structure and all files with extensions and sizes. Save it in <code>Evidence</code>. <span class="m">[1]</span></li>
+    </ul>
+    <details class="drop"><summary>Marking points</summary><div class="body"><ul class="points">
+      <li>Folder and subfolder names exactly as given (capitals, underscore).</li>
+      <li>PDF present in the same folder as the .docx and opens correctly.</li>
+      <li>.txt loses all formatting; .rtf keeps it — expect the .txt to be the smallest file.</li>
+      <li>Sizes recorded with units (KB/MB); screenshot shows the <em>Details</em> view, not icons.</li>
+    </ul></div></details>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">Task B — Compression experiment <span class="unit-tag">U11</span> <span class="m">[6]</span></h3>
+    <ul class="checklist" data-key="tB">
+      <li>Make <code>repeated.txt</code>: type one sentence, then copy and paste it until the file is over 100 KB. <span class="m">[1]</span></li>
+      <li>Make <code>random.txt</code> of a similar size using varied text (e.g. many different paragraphs). <span class="m">[1]</span></li>
+      <li>Compress each one into its own <code>.zip</code> file and move both zips into <code>Compressed</code>. <span class="m">[1]</span></li>
+      <li>Record the before and after sizes and calculate each percentage reduction, showing working. <span class="m">[2]</span></li>
+      <li>Explain why one file compressed far more than the other, and state whether zipping is lossy or lossless. <span class="m">[1]</span></li>
+    </ul>
+    <details class="drop"><summary>Marking points</summary><div class="body"><ul class="points">
+      <li>Method: (before − after) ÷ before × 100, then the answer.</li>
+      <li>Explanation names the <strong>repetition</strong> in one file and the <strong>absence of a pattern</strong> in the other.</li>
+      <li>Zipping is <strong>lossless</strong> — unzipping returns every file exactly. “Lossy” scores 0 even with a reason.</li>
+    </ul></div></details>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">Task C — Image editing <span class="unit-tag">U12</span> <span class="m">[8]</span></h3>
+    <ul class="checklist" data-key="tC">
+      <li>Insert any landscape photo into a new document, below a heading “Weihai Harbour”. <span class="m">[1]</span></li>
+      <li>Resize it to 10 cm wide, <strong>maintaining the aspect ratio</strong>. <span class="m">[1]</span></li>
+      <li>Insert a second copy and crop it so only the left half remains. <span class="m">[1]</span></li>
+      <li>Rotate the cropped copy 90° clockwise. <span class="m">[1]</span></li>
+      <li>Screenshot the <strong>Format Picture / Size</strong> dialog showing the 10 cm width and locked aspect ratio. <span class="m">[evidence]</span></li>
+      <li>Insert a third copy and reflect (flip) it horizontally. <span class="m">[1]</span></li>
+      <li>Increase the brightness of the third copy by 20%. <span class="m">[1]</span></li>
+      <li>Save the original photo as both <code>.png</code> and <code>.jpg</code>; compare the file sizes and say which compression each uses. <span class="m">[2]</span></li>
+    </ul>
+    <details class="drop"><summary>Marking points</summary><div class="body"><ul class="points">
+      <li>The 10 cm image is not stretched — check the height changed in proportion.</li>
+      <li>Rotate and reflect are different — a reflected image is a mirror image.</li>
+      <li>JPEG smaller (lossy); PNG larger (lossless) but supports transparency.</li>
+    </ul></div></details>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">Task D — Layout <span class="unit-tag">U13</span> <span class="m">[10]</span></h3>
+    <ul class="checklist" data-key="tD">
+      <li>Open a document of at least three pages (paste in some text). <span class="m">[—]</span></li>
+      <li>Header: your name <strong>left-aligned</strong>, the automated <strong>file name</strong> centred, today’s automated <strong>date</strong> right-aligned. <span class="m">[3]</span></li>
+      <li>Footer: “Page <em>X</em> of <em>Y</em>” using automated page number and total pages, right-aligned. <span class="m">[2]</span></li>
+      <li>Insert a table with 3 columns and 4 rows. Merge the cells of the top row and type a title in it. <span class="m">[2]</span></li>
+      <li>Insert a new row at the bottom and delete the middle column. <span class="m">[1]</span></li>
+      <li>Place an image to the right of the second paragraph with <strong>square</strong> text wrapping. <span class="m">[1]</span></li>
+      <li>Move the third paragraph so it becomes the first, using cut and paste or drag and drop. <span class="m">[1]</span></li>
+      <li>Set the table’s text to <strong>vertically centred</strong> and hide the gridlines. <span class="m">[1]</span></li>
+    </ul>
+    <details class="drop"><summary>Marking points</summary><div class="body"><ul class="points">
+      <li>Header/footer items appear on <strong>every</strong> page and line up with the margins.</li>
+      <li>Page numbers and date are <strong>fields</strong> (they update) — typed text scores 0.</li>
+      <li>Merged title spans the full table width.</li>
+      <li>Text wraps around the image on the left side; image does not cover any text.</li>
+    </ul></div></details>
+  </div>
+</section>
+
+<!-- ======================================================= CARDS -->
+<section class="block" id="p-cards">
+  <div class="sec-head"><span class="num">P6</span><h2>Key terms — flashcards &amp; glossary</h2><span class="ko">핵심 용어</span></div>
+  <div id="cards"></div>
+  <h3>Full glossary</h3>
+  <div id="glossary"></div>
+</section>
+
+<section class="block" id="final">
+  <div class="sec-head"><span class="num">✓</span><h2>Before the test — I can…</h2><span class="ko">시험 전 체크리스트</span></div>
+  <div class="card">
+    <ul class="checklist" data-key="cando9">
+      <li>state the three papers: title, time and marks — and that Paper 1 covers sections 1 to 21</li>
+      <li>explain what a generic file format is and give reasons for using one</li>
+      <li>match .csv, .txt, .rtf, .pdf, .htm, .css, .jpg and .png to a purpose</li>
+      <li>compare .txt with .rtf, and .jpg with .png, using “whereas”</li>
+      <li>compare lossy and lossless compression and judge which suits a file</li>
+      <li>describe three ways to reduce an image’s file size other than compression</li>
+      <li>calculate a percentage reduction and convert between KB and MB</li>
+      <li>create folders and subfolders, use meaningful names, Save As and export to PDF</li>
+      <li>resize an image keeping the aspect ratio, crop, rotate, reflect, adjust brightness/contrast</li>
+      <li>add automated headers and footers aligned consistently</li>
+      <li>edit tables: insert/delete rows and columns, merge cells</li>
+      <li>choose and apply a text-wrapping option</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">Units 11–13 Practice Guide · Cambridge IGCSE ICT 0417 · Mr Glen Joshua · WZFS · Your answers are saved only in this browser. · <a href="paper3.html">Paper 3 revision</a></footer>
+
+<script>
+window.PRACTICE = {
+  id: "g9-units11-13",
+  quiz: [
+    { t: "Unit 11", q: "Which file format is best for a website logo that needs a <strong>transparent background</strong>?", o: [".jpg", ".png", ".txt", ".csv"], a: 1, e: ".png supports transparency. JPEG does not." },
+    { t: "Unit 11", q: "Which file format sets the colours, fonts and layout of a web page?", o: [".htm", ".css", ".rtf", ".pdf"], a: 1, e: ".css is the stylesheet. .htm holds the content and structure." },
+    { t: "Unit 11", q: "Which format is used to import spreadsheet data into a database?", o: [".csv", ".txt", ".png", ".pdf"], a: 0, e: "CSV stores table data with fields separated by commas." },
+    { t: "Unit 11", q: "A newsletter must look exactly the same on every device and should not be easily edited. Which format?", o: [".rtf", ".txt", ".pdf", ".htm"], a: 2, e: "PDF keeps a fixed layout." },
+    { t: "Unit 11", q: "Which statement about .txt files is TRUE?", o: ["They can store bold and italic text", "They store plain text only, with no formatting", "They can include images", "They are always larger than .rtf files"], a: 1, e: ".txt = plain text only; .rtf can store formatting." },
+    { t: "Unit 11", q: "What is a <strong>generic</strong> file format?", o: ["A format only one program can open", "A format that can be opened by many different programs and devices", "A compressed format", "A format used only for images"], a: 1, e: "Generic = not tied to the software that created it." },
+    { t: "Unit 11", q: "Which of these is NOT on the 0417 list of generic file formats?", o: [".rtf", ".css", ".gif", ".csv"], a: 2, e: "The list is .csv .txt .rtf .pdf .css .htm .jpg .png." },
+    { t: "Unit 11", q: "1 MB is equal to…", o: ["100 KB", "1000 bytes", "1024 KB", "1024 GB"], a: 2, e: "1 MB = 1024 KB; 1 GB = 1024 MB." },
+    { t: "Unit 11", q: "Which button lets you save a file with a <strong>different name or format</strong>?", o: ["Save", "Save As", "Print", "Undo"], a: 1, e: "Save overwrites; Save As chooses a new name, location or format." },
+    { t: "Unit 11", q: "Lossy compression…", o: ["permanently removes some data", "restores the original exactly", "never reduces quality", "is used for zip files"], a: 0, e: "Lossy is irreversible — quality may drop." },
+    { t: "Unit 11", q: "Which file should NEVER be saved with lossy compression?", o: ["A holiday video", "A music track", "A file of students’ exam marks", "A photo for a website"], a: 2, e: "Any lost data would change the marks." },
+    { t: "Unit 11", q: "Zipping a folder uses which type of compression?", o: ["Lossy", "Lossless", "Neither", "Both"], a: 1, e: "Unzipping returns every file exactly." },
+    { t: "Unit 11", q: "Why does a text file full of one repeated sentence compress much more than random text?", o: ["It has more words", "Lossless compression replaces repeated patterns with short codes", "It uses lossy compression", "Random text cannot be saved"], a: 1, e: "No repetition = nothing to encode." },
+    { t: "Unit 11", q: "Which is NOT a reason to reduce a file’s size?", o: ["Faster upload and download", "Fits within email attachment limits", "Uses less storage", "Makes the image higher quality"], a: 3, e: "Reducing size never increases quality." },
+    { t: "Unit 12", q: "To resize an image without distorting it, you should…", o: ["drag a side handle", "maintain the aspect ratio", "crop it", "reduce the colour depth"], a: 1, e: "Lock the aspect ratio or drag a corner handle." },
+    { t: "Unit 12", q: "Which edit removes the unwanted outer parts of an image?", o: ["Rotate", "Reflect", "Crop", "Resize"], a: 2, e: "Cropping cuts away the edges." },
+    { t: "Unit 12", q: "Which change does NOT reduce an image’s file size?", o: ["Reducing the resolution", "Reducing the colour depth", "Cropping", "Increasing the brightness"], a: 3, e: "Brightness changes how it looks, not the number of pixels or bits." },
+    { t: "Unit 12", q: "Reflecting an image horizontally will…", o: ["turn it upside down", "mirror it left to right", "make it bigger", "change its colour depth"], a: 1, e: "Text in a horizontally reflected image reads backwards." },
+    { t: "Unit 12", q: "Colour depth is…", o: ["the number of pixels", "the number of bits used to store each pixel’s colour", "how bright the image is", "the width of the image"], a: 1, e: "More bits = more possible colours = bigger file." },
+    { t: "Unit 12", q: "An image is 400 × 300 pixels. Its width is changed to 200 with the aspect ratio kept. What is the new height?", o: ["300", "200", "150", "100"], a: 2, e: "Halved width → halved height: 150." },
+    { t: "Unit 13", q: "Which of these is an <strong>automated</strong> field in a footer?", o: ["Your name typed in", "The page number", "A heading", "A bullet point"], a: 1, e: "Page number, total pages, date, time, file name and file path update automatically." },
+    { t: "Unit 13", q: "Which text-wrapping option makes text follow the outline of an irregular image?", o: ["Square", "Tight", "In line with text", "Top and bottom"], a: 1, e: "Square wraps around a box; Tight follows the shape." },
+    { t: "Unit 13", q: "Which wrapping option places text above and below the image, but not beside it?", o: ["Top and bottom", "Behind text", "Square", "Tight"], a: 0, e: "Top and bottom leaves the sides empty." },
+    { t: "Unit 13", q: "Joining several table cells into one cell is called…", o: ["splitting", "merging", "wrapping", "aligning"], a: 1, e: "Merge cells — often used for a table title." },
+    { t: "Unit 13", q: "Which action removes the selected text AND places it on the clipboard?", o: ["Copy", "Delete", "Cut", "Paste"], a: 2, e: "Cut = remove + store; Copy leaves the original." }
+  ],
+
+  blanks: [
+    { t: "Unit 11", s: "A file that can be opened by many different programs is in a {{generic}} file format." },
+    { t: "Unit 11", s: "Table data, with fields separated by commas, is stored as {{.csv}}." },
+    { t: "Unit 11", s: "Plain text with no formatting is stored as {{.txt}}; text with formatting can be stored as {{.rtf}}." },
+    { t: "Unit 11", s: "A document that must keep its layout on every device is exported as {{.pdf}}." },
+    { t: "Unit 11", s: "A web page’s content is stored as {{.htm|.html}}; its stylesheet as {{.css}}." },
+    { t: "Unit 11", s: "A photograph with lossy compression is usually saved as {{.jpg|.jpeg}}." },
+    { t: "Unit 11", s: "{{Lossy}} compression permanently removes data; {{lossless}} compression restores the original exactly." },
+    { t: "Unit 11", s: "1 GB = {{1024}} MB." },
+    { t: "Unit 11", s: "A folder inside another folder is called a {{subfolder|sub-folder}}." },
+    { t: "Unit 12", s: "To avoid distortion, resize an image keeping the {{aspect ratio}}." },
+    { t: "Unit 12", s: "To reduce an image’s file size without compression, reduce the resolution, reduce the {{colour depth|color depth}} or crop it." },
+    { t: "Unit 12", s: "Turning an image by 90° is called {{rotating|rotate|rotation}}; mirroring it is called {{reflecting|reflect|flipping|flip}}." },
+    { t: "Unit 13", s: "Headers and footers should use {{automated|automatic}} fields such as page number and date." },
+    { t: "Unit 13", s: "Text that wraps around a rectangular box around the image uses {{square}} wrapping." },
+    { t: "Unit 13", s: "Joining two or more table cells into one is called {{merging|merge}} cells." }
+  ],
+
+  exam: [
+    { n: "1", cmd: "State", q: "<span class='unit-tag'>U11</span> State what is meant by a <em>generic file format</em>.", m: 1,
+      pts: ["A file type that can be opened by many different programs or on different devices, not only the software that made it"] },
+    { n: "2", cmd: "Give", q: "<span class='unit-tag'>U11</span> Give <strong>two</strong> reasons why a school asks students to save their work in a generic file format.", m: 2,
+      pts: ["Work can be opened on any computer at school or at home, whatever software is installed", "Can be shared with a teacher/student who does not have the same program", "Stays usable if the school changes software later", "Generic formats are often smaller"], max: "any two" },
+    { n: "3", cmd: "Identify", q: "<span class='unit-tag'>U11</span> Identify the most suitable generic file format for each purpose: (a) a website image with a transparent background; (b) the colours, fonts and layout of a web page; (c) spreadsheet data to be imported into a database; (d) a newsletter that must keep its layout and not be easily edited.", m: 4,
+      pts: ["(a) .png", "(b) .css", "(c) .csv", "(d) .pdf"],
+      trap: "(a) .jpg scores 0 — JPEG has no transparency. (b) .htm scores 0 — that is the content, not the styling. (c) .txt scores 0. Extensions must be exact." },
+    { n: "4", cmd: "Explain", q: "<span class='unit-tag'>U11</span> Explain the differences between a .txt file and a .rtf file.", m: 3,
+      pts: [".txt stores plain text only, whereas .rtf can store formatting", ".rtf can hold bold, italic, underline, fonts, sizes and colours; .txt cannot", ".rtf can hold paragraph formatting and bulleted lists; .txt cannot", ".rtf can include images; .txt cannot", ".txt files are smaller than .rtf files with the same words"],
+      max: "any three", trap: "A statement about only one format shows no difference — 0." },
+    { n: "5", cmd: "State", q: "<span class='unit-tag'>U11</span> State <strong>two</strong> differences between lossy and lossless compression.", m: 2,
+      pts: ["Lossy permanently removes data, whereas lossless encodes data and restores it when opened", "Lossy is irreversible, whereas lossless returns the original exactly", "Lossy reduces size by more, whereas lossless reduces it by less", "Lossy reduces quality, whereas lossless leaves quality unchanged"],
+      max: "one mark per matched pair", trap: "Describing lossy only, with nothing about lossless, does not show a difference." },
+    { n: "6", cmd: "Explain", q: "<span class='unit-tag'>U11</span> Explain why lossy compression is suitable for a video file but not for a file of exam marks.", m: 2,
+      pts: ["Video: the removed data is unlikely to be noticed by the viewer, so a much smaller file is acceptable", "Exam marks: removing data would change or lose marks, so the file would be inaccurate/unusable"],
+      model: "<p>Lossy compression suits a video because the data removed is unlikely to be noticed, so a much smaller file is acceptable <span class='m'>[1]</span>. It does not suit exam marks because removing data would change or lose marks, which means the file would be inaccurate <span class='m'>[1]</span>.</p>" },
+    { n: "7", cmd: "Describe", q: "<span class='unit-tag'>U12</span> Other than using compression, describe <strong>two</strong> ways of reducing the file size of an image.", m: 2,
+      pts: ["Reduce the resolution / number of pixels", "Reduce the colour depth / use fewer colours", "Crop the image so there are fewer pixels to store"],
+      max: "any two", trap: "“Save it as a JPEG” is compression — the question excludes it, so 0." },
+    { n: "8", cmd: "Give", q: "<span class='unit-tag'>U11</span> Give <strong>three</strong> reasons why a file should be reduced in size before it is sent by email.", m: 3,
+      pts: ["Fits within the email attachment size limit", "Uploads/sends and downloads faster", "Uses less storage space (sender’s and receiver’s mailbox)", "Uses less bandwidth / data allowance"], max: "any three" },
+    { n: "9", cmd: "Explain", q: "<span class='unit-tag'>U12</span> A student changes only the width of a photo from 12 cm to 6 cm. Explain what happens to the photo and how this should have been avoided.", m: 3,
+      pts: ["The aspect ratio is not maintained", "So the photo is distorted / squashed horizontally", "Should lock the aspect ratio / drag a corner handle / change height to 6 cm × same proportion"] },
+    { n: "10", cmd: "Describe", q: "<span class='unit-tag'>U12</span> Describe the difference between <em>rotating</em> an image and <em>reflecting</em> an image.", m: 2,
+      pts: ["Rotating turns the image around a point by a number of degrees (e.g. 90° clockwise)", "Reflecting creates a mirror image, flipping it horizontally or vertically"] },
+    { n: "11", cmd: "Explain", q: "<span class='unit-tag'>U13</span> Explain why automated fields should be used for page numbers in a footer rather than typing the numbers.", m: 2,
+      pts: ["Automated page numbers update themselves on every page / when pages are added or removed", "Typed numbers would be the same on every page / become wrong when the document changes, so they would need to be changed by hand"] },
+    { n: "12", cmd: "Identify", q: "<span class='unit-tag'>U13</span> Identify <strong>four</strong> automated objects that can be placed in a header or footer.", m: 4,
+      pts: ["Page number", "Total number of pages", "Date", "Time", "File name", "File path"], max: "any four" },
+    { n: "13", cmd: "Describe", q: "<span class='unit-tag'>U13</span> Describe <strong>two</strong> text-wrapping options and when each would be used.", m: 4,
+      pts: ["Square — text wraps around a rectangular box around the image", "Use: a photo beside a paragraph in a newsletter", "Tight — text follows the outline of the image", "Use: an irregular shape / cut-out graphic", "Behind text — image sits under the text", "Use: a watermark / background logo", "Top and bottom — text only above and below", "Use: a wide image or chart that needs its own line"],
+      max: "2 × (option + use)" },
+    { n: "14", cmd: "Identify", q: "<span class='unit-tag'>U11</span> State whether each format is <strong>generic</strong> or <strong>application-specific</strong>: (a) .docx (b) .csv (c) .pptx (d) .rtf", m: 4,
+      pts: ["(a) Application-specific", "(b) Generic", "(c) Application-specific", "(d) Generic"],
+      trap: "Two answers for one format = 0 for that format." },
+    { n: "15", cmd: "Explain", q: "<span class='unit-tag'>U13</span> A student typed the file path into a footer instead of inserting it as a field. Explain why this is a problem.", m: 2,
+      pts: ["Typed text does not update automatically", "If the file is renamed, moved or saved as a new version the footer shows the wrong path (in the exam it scores 0)"] },
+    { n: "16", cmd: "Explain", q: "<span class='unit-tag'>U11</span> Explain why candidates are told to show files in <em>Details</em> view when taking a screenshot of a folder.", m: 2,
+      pts: ["Details view shows file names with extensions, types and sizes", "So the examiner has evidence that the correct files were saved in the correct format/location"] }
+  ],
+
+  cards: [
+    { en: "Generic file format", ko: "범용 파일 형식", d: "A format that can be opened by many different programs and devices." },
+    { en: "Proprietary file format", ko: "독점 파일 형식", d: "A format that belongs to one program/company." },
+    { en: "File extension", ko: "파일 확장자", d: "The letters after the dot that show a file’s type, e.g. .pdf." },
+    { en: ".csv", ko: "쉼표로 구분된 값", d: "Comma Separated Values — table data, used to move data between spreadsheets and databases." },
+    { en: ".txt", ko: "텍스트 파일", d: "Plain text only — no formatting." },
+    { en: ".rtf", ko: "서식 있는 텍스트", d: "Rich Text Format — text with formatting, readable by most word processors." },
+    { en: ".pdf", ko: "PDF 문서", d: "Portable Document Format — fixed layout, looks the same everywhere, not easily edited." },
+    { en: ".htm / .html", ko: "HTML 웹 페이지", d: "The content and structure of a web page." },
+    { en: ".css", ko: "CSS 스타일시트", d: "Cascading Style Sheets — colours, fonts and layout of web pages." },
+    { en: ".jpg", ko: "JPEG 이미지", d: "Bitmap with lossy compression; good for photos; no transparency." },
+    { en: ".png", ko: "PNG 이미지", d: "Bitmap with lossless compression; supports transparency." },
+    { en: ".zip", ko: "압축 파일", d: "A compressed archive of files/folders — lossless." },
+    { en: "Folder / subfolder", ko: "폴더 / 하위 폴더", d: "Containers that organise files in a hierarchy." },
+    { en: "Save As", ko: "다른 이름으로 저장", d: "Save with a new name, location or file format." },
+    { en: "Export", ko: "내보내기", d: "Save a copy in a different format, e.g. as a PDF." },
+    { en: "Compression", ko: "압축", d: "Reducing the size of a file." },
+    { en: "Lossy compression", ko: "손실 압축", d: "Permanently removes data; large reduction; quality may drop." },
+    { en: "Lossless compression", ko: "무손실 압축", d: "Restores the original exactly; smaller reduction; no quality loss." },
+    { en: "Bandwidth", ko: "대역폭", d: "How much data can be sent over a connection per second." },
+    { en: "Resolution", ko: "해상도", d: "The number of pixels in an image." },
+    { en: "Colour depth", ko: "색 깊이", d: "Number of bits used to store each pixel’s colour." },
+    { en: "Aspect ratio", ko: "종횡비", d: "The ratio of width to height; keep it to avoid distortion." },
+    { en: "Distortion", ko: "왜곡", d: "Stretching or squashing an image because its aspect ratio changed." },
+    { en: "Crop", ko: "자르기", d: "Remove unwanted outer parts of an image." },
+    { en: "Rotate", ko: "회전", d: "Turn an image by a number of degrees." },
+    { en: "Reflect / flip", ko: "반전 / 뒤집기", d: "Mirror an image horizontally or vertically." },
+    { en: "Brightness / contrast", ko: "밝기 / 대비", d: "How light the image is / the difference between light and dark areas." },
+    { en: "Header / footer", ko: "머리글 / 바닥글", d: "Area at the top/bottom of every page." },
+    { en: "Automated field", ko: "자동 필드", d: "An object that updates itself: page number, total pages, date, time, file name, file path." },
+    { en: "Merge cells", ko: "셀 병합", d: "Join two or more table cells into one." },
+    { en: "Text wrapping", ko: "텍스트 줄 바꿈 (배치)", d: "How text flows around an image: square, tight, top and bottom, behind, in front, in line." },
+    { en: "Cut / copy / paste", ko: "잘라내기 / 복사 / 붙여넣기", d: "Move or duplicate content using the clipboard." },
+    { en: "Drag and drop", ko: "끌어서 놓기", d: "Move selected content by dragging it with the mouse." }
+  ]
+};
+</script>
+<script src="practice.js"></script>
+<script>
+/* Aspect-ratio demo */
+(function () {
+  var w = document.getElementById("ar-w"), h = document.getElementById("ar-h"), lock = document.getElementById("ar-lock");
+  var img = document.getElementById("ar-img"), out = document.getElementById("ar-out");
+  if (!w) return;
+  var ratio = 4 / 3;
+  function show() {
+    img.setAttribute("width", w.value); img.setAttribute("height", h.value);
+    document.getElementById("ar-wv").textContent = w.value;
+    document.getElementById("ar-hv").textContent = h.value;
+    var r = w.value / h.value, ok = Math.abs(r - ratio) < 0.02;
+    out.textContent = "Ratio " + r.toFixed(2) + " : 1 " + (ok ? "✓ not distorted" : "✗ distorted — aspect ratio changed");
+    out.style.color = ok ? "var(--good)" : "var(--bad)";
+  }
+  w.addEventListener("input", function () { if (lock.checked) h.value = Math.round(w.value / ratio); show(); });
+  h.addEventListener("input", function () { if (lock.checked) w.value = Math.round(h.value * ratio); show(); });
+  lock.addEventListener("change", function () { if (lock.checked) { h.value = Math.round(w.value / ratio); show(); } });
+  show();
+})();
+</script>
+</body>
+</html>

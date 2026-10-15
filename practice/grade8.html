@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 8 Vector Graphics Practice</title>
+<meta name="description" content="Grade 8 ICT study and practice guide: Vector Graphics in Inkscape, the foundation for Cambridge IGCSE ICT 0417 Unit 12 Images. Notes, MCQ practice, SVG code blanks and a mock test.">
+<link rel="stylesheet" href="practice.css">
+</head>
+<body>
+
+<header class="banner">
+  <div class="wrap">
+    <a class="home" href="../middle.html">← Middle School ICT</a>
+    <div class="eyebrow" style="margin-top:10px">G R A D E &nbsp; 8 &nbsp; · &nbsp; U N I T &nbsp; 1 2 &nbsp; F O U N D A T I O N</div>
+    <h1>Vector Graphics — Study &amp; Practice Guide</h1>
+    <div class="ko">벡터 그래픽 — 학습 및 연습 가이드</div>
+    <div class="meta">
+      <span class="chip">Cambridge IGCSE ICT 0417 · Unit 12 Images</span>
+      <span class="chip">Software: Inkscape</span>
+      <span class="chip">Test: 35 minutes</span>
+      <span class="chip">Mr Glen Joshua · WZFS <span id="year">2026–27</span></span>
+    </div>
+  </div>
+</header>
+
+<nav class="topnav" aria-label="Sections">
+  <div class="wrap">
+    <a href="#start">Start</a>
+    <a href="#t1">1 Vector vs Bitmap</a>
+    <a href="#t2">2 SVG Code</a>
+    <a href="#t3">3 Shapes &amp; Align</a>
+    <a href="#t4">4 Path Operations</a>
+    <a href="#t5">5 Nodes &amp; Bezier</a>
+    <a href="#t6">6 Tracing &amp; Text</a>
+    <a href="#t7">7 Your Project</a>
+    <a href="#t8">8 IGCSE Link</a>
+    <a href="#keys">Shortcuts</a>
+    <span class="sep"></span>
+    <a class="prac" href="#p-mcq">✎ MCQ</a>
+    <a class="prac" href="#p-code">✎ Code</a>
+    <a class="prac" href="#p-blanks">✎ Blanks</a>
+    <a class="prac" href="#p-written">✎ Written</a>
+    <a class="prac" href="#p-mock">✎ Mock Test</a>
+    <a class="prac" href="#p-cards">✎ Flashcards</a>
+    <button class="theme-btn" type="button" aria-label="Toggle dark mode">◐</button>
+  </div>
+</nav>
+
+<main>
+
+<!-- ======================================================= START -->
+<section class="block" id="start">
+  <div class="sec-head"><span class="num">00</span><h2>How to use this guide</h2><span class="ko">이 가이드 사용법</span></div>
+  <p class="lead">Read each topic, then test yourself with the practice sections. Your answers are saved in this browser so you can come back later. Aim for <strong>everything green</strong> before the Week 8 test.</p>
+
+  <div id="progress" class="progress-panel" aria-live="polite"></div>
+
+  <div class="grid two" style="margin-top:12px">
+    <div class="card">
+      <h3 style="margin-top:0">Your Week 8 test — 35 minutes</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Part</th><th>Time</th><th>What you do</th><th>Practise it here</th></tr></thead>
+        <tbody>
+          <tr><th>1</th><td>10 min</td><td>XML / SVG code fill-in-the-blanks — two shapes with missing attributes</td><td><a href="#p-blanks">Blanks A</a> · <a href="#p-code">Code lab</a></td></tr>
+          <tr><th>2</th><td>5 min</td><td>Word bank — Align, Distribute, Union, Difference, Text on Path</td><td><a href="#p-blanks">Blanks B</a></td></tr>
+          <tr><th>3</th><td>20 min</td><td>Computer task: star, circles, Align, Distribute, Bezier, text, Text on Path + screenshot</td><td><a href="#p-mock">Mock test</a></td></tr>
+        </tbody>
+      </table></div>
+      <div class="callout gold"><strong>Timing discipline</strong>Do not spend 20 minutes on Part 1. If you are stuck, move on — Part 3 is worth the most.</div>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">The whole strand on one card</h3>
+      <ul class="points">
+        <li><span class="kw">Vector vs Bitmap</span> — <span class="mark">maths</span> vs <span class="mark">pixels</span>; vectors resize <span class="mark">without losing quality</span></li>
+        <li><span class="kw">Align &amp; Distribute</span> — Align = <span class="mark">straight line</span>; Distribute = <span class="mark">equal gaps</span></li>
+        <li><span class="kw">Union &amp; Difference</span> — Union <span class="mark">melts</span>; in Difference the <span class="mark">top shape cuts</span></li>
+        <li><span class="kw">Nodes &amp; Paths</span> — <span class="mark">Object to Path</span> first; corner = sharp, smooth = curved</li>
+        <li><span class="kw">Bezier &amp; Tracing</span> — click point to point; <span class="mark">fade and lock</span> the image first</li>
+        <li><span class="kw">Text on a Path</span> — select the text <span class="mark">and</span> the path</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================= T1 -->
+<section class="block" id="t1">
+  <div class="sec-head"><span class="num">01</span><h2>Vector vs Bitmap</h2><span class="ko">벡터 vs 비트맵</span></div>
+  <p class="lead">Every digital image is stored in one of two ways. Knowing the difference is the key that unlocks Unit 12 file-format and resizing questions.</p>
+
+  <div class="grid two">
+    <div class="card">
+      <h3 style="margin-top:0">Bitmap (raster) image <span class="ko-line">비트맵 (래스터) 이미지</span></h3>
+      <ul class="points">
+        <li>Made of a grid of tiny coloured squares called <span class="mark">pixels</span>.</li>
+        <li>The file stores the <span class="mark">colour of every pixel</span>.</li>
+        <li>When enlarged, the pixels get bigger, so the image becomes <span class="mark">blurry / pixelated</span>.</li>
+        <li>Best for <span class="mark">photographs</span> and images with lots of detail and shading.</li>
+        <li>File formats: <code>.jpg</code> <code>.png</code> <code>.gif</code> <code>.bmp</code></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">Vector image <span class="ko-line">벡터 이미지</span></h3>
+      <ul class="points">
+        <li>Made of <span class="mark">objects</span> (shapes, lines, curves) described by <span class="mark">mathematics</span>.</li>
+        <li>The file stores <span class="mark">instructions</span>: position, size, colour, line thickness.</li>
+        <li>Can be resized to <span class="mark">any size without losing quality</span> — the maths is recalculated.</li>
+        <li>Best for <span class="mark">logos, icons, diagrams, cartoons, text</span>.</li>
+        <li>File formats: <code>.svg</code> <code>.eps</code> <code>.pdf</code> (Inkscape saves <code>.svg</code>)</li>
+      </ul>
+    </div>
+  </div>
+
+  <figure class="diagram">
+    <svg viewBox="0 0 520 190" width="520" role="img" aria-label="A circle zoomed in: the bitmap version has jagged square pixels, the vector version stays smooth">
+      <text x="130" y="18" text-anchor="middle" font-size="14" font-weight="700" fill="currentColor">Bitmap zoomed ×8</text>
+      <text x="390" y="18" text-anchor="middle" font-size="14" font-weight="700" fill="currentColor">Vector zoomed ×8</text>
+      <g fill="#0e7c86">
+        <!-- pixel-art circle on 16px grid -->
+        <rect x="98" y="34" width="64" height="16"/>
+        <rect x="82" y="50" width="96" height="16"/>
+        <rect x="66" y="66" width="128" height="16"/>
+        <rect x="66" y="82" width="128" height="16"/>
+        <rect x="66" y="98" width="128" height="16"/>
+        <rect x="66" y="114" width="128" height="16"/>
+        <rect x="82" y="130" width="96" height="16"/>
+        <rect x="98" y="146" width="64" height="16"/>
+      </g>
+      <g stroke="#ffffff" stroke-opacity=".5" stroke-width="1">
+        <path d="M66 50h128M66 66h128M66 82h128M66 98h128M66 114h128M66 130h128M66 146h128M82 34v128M98 34v128M114 34v128M130 34v128M146 34v128M162 34v128M178 34v128"/>
+      </g>
+      <circle cx="390" cy="98" r="64" fill="#0e7c86"/>
+      <text x="130" y="182" text-anchor="middle" font-size="12" fill="currentColor">Jagged steps = pixelation</text>
+      <text x="390" y="182" text-anchor="middle" font-size="12" fill="currentColor">Still a perfect curve</text>
+    </svg>
+    <figcaption>Enlarging a bitmap makes each pixel bigger. Enlarging a vector just recalculates the maths.</figcaption>
+  </figure>
+
+  <h3>Compare them side by side</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Point of comparison</th><th>Bitmap</th><th>Vector</th></tr></thead>
+    <tbody>
+      <tr><th>Made of</th><td>Pixels</td><td>Objects defined by maths</td></tr>
+      <tr><th>When enlarged</th><td>Loses quality — becomes pixelated</td><td>Stays sharp at any size</td></tr>
+      <tr><th>File size</th><td>Usually large — increases with resolution</td><td>Usually small — only the instructions are stored</td></tr>
+      <tr><th>Editing</th><td>Edit individual pixels</td><td>Edit whole objects (move, recolour, reshape)</td></tr>
+      <tr><th>Best for</th><td>Photographs, realistic images</td><td>Logos, icons, diagrams, text</td></tr>
+      <tr><th>Weakness</th><td>Blurry when enlarged</td><td>Cannot show realistic photo detail easily</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="callout tip"><strong>Write it like an examiner wants — use “whereas”</strong>
+  “A bitmap image is made of pixels, <em>whereas</em> a vector image is made of objects defined by mathematical formulas.”<br>
+  “A vector logo can be enlarged without losing quality <em>because</em> the shapes are recalculated, <em>whereas</em> a bitmap becomes pixelated.”</div>
+
+  <div class="model"><div class="label">Worked example</div>
+    <p><strong>Q.</strong> A school wants a logo that will be printed on a pen and on a large banner. Explain why it should be a vector image. <span class="m">[2]</span></p>
+    <p>A vector image is stored as mathematical shapes, so it can be resized to fit both the pen and the banner <span class="m">[1]</span> without becoming blurry or pixelated, because the shapes are recalculated at the new size <span class="m">[1]</span>.</p>
+    <p class="ko-line">Why it scores: one point = what a vector is; second point = the benefit tied to the scenario (pen AND banner). “Vectors are better” scores 0.</p>
+  </div>
+
+  <h3>Key words: resolution and pixelation</h3>
+  <ul class="points">
+    <li><span class="kw">Resolution</span> — the number of pixels in an image (e.g. 1920 × 1080). More pixels = more detail = bigger file. <span class="ko-line">해상도</span></li>
+    <li><span class="kw">Pixelation</span> — when the individual pixels become visible because a bitmap is enlarged too much. <span class="ko-line">픽셀화</span></li>
+    <li><span class="kw">Resolution independent</span> — a vector image does not depend on pixels, so its quality is the same at any size. <span class="ko-line">해상도 독립적</span></li>
+  </ul>
+</section>
+
+<!-- ======================================================= T2 -->
+<section class="block" id="t2">
+  <div class="sec-head"><span class="num">02</span><h2>SVG Code — how a vector is really stored</h2><span class="ko">SVG 코드</span></div>
+  <p class="lead">An <code>.svg</code> file is just text written in <strong>XML</strong>. Open one in Notepad and you will see the instructions the computer follows to draw it. Part 1 of your test is all about this.</p>
+
+  <div class="grid two">
+    <div class="card">
+      <h3 style="margin-top:0">The coordinate system</h3>
+      <ul class="points">
+        <li>The point <code>(0,0)</code> is the <span class="mark">top-left</span> corner.</li>
+        <li><code>x</code> gets bigger as you move <span class="mark">right</span>.</li>
+        <li><code>y</code> gets bigger as you move <span class="mark">down</span> (not up like in maths!).</li>
+        <li>Shapes written <span class="mark">later in the code are drawn on top</span> of earlier ones.</li>
+      </ul>
+    </div>
+    <figure class="diagram" style="margin:12px 0">
+      <svg viewBox="0 0 260 170" width="300" role="img" aria-label="SVG coordinate grid with origin top-left">
+        <rect x="30" y="20" width="210" height="130" fill="none" stroke="currentColor" stroke-opacity=".4"/>
+        <path d="M30 20h210" stroke="#b42318" stroke-width="2" marker-end="url(#arr)"/>
+        <path d="M30 20v130" stroke="#1e7d4f" stroke-width="2" marker-end="url(#arr)"/>
+        <defs><marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
+        <text x="8" y="16" font-size="11" fill="currentColor">(0,0)</text>
+        <text x="200" y="14" font-size="12" fill="#b42318" font-weight="700">x →</text>
+        <text x="8" y="150" font-size="12" fill="#1e7d4f" font-weight="700">y ↓</text>
+        <circle cx="130" cy="85" r="5" fill="#0e7c86"/>
+        <text x="138" y="82" font-size="11" fill="currentColor">cx=100, cy=65</text>
+      </svg>
+      <figcaption>y goes DOWN the screen.</figcaption>
+    </figure>
+  </div>
+
+  <h3>The shapes you must know</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Shape</th><th>Code example</th><th>Attributes you must recognise</th></tr></thead>
+    <tbody>
+      <tr><th>Circle</th><td><code>&lt;circle cx="100" cy="100" r="50" fill="red" stroke="black" stroke-width="4" /&gt;</code></td><td><code>cx</code>, <code>cy</code> = centre · <code>r</code> = radius</td></tr>
+      <tr><th>Rectangle</th><td><code>&lt;rect x="50" y="50" width="200" height="100" fill="blue" /&gt;</code></td><td><code>x</code>, <code>y</code> = top-left corner · <code>width</code> · <code>height</code> · <code>rx</code> = rounded corners</td></tr>
+      <tr><th>Ellipse</th><td><code>&lt;ellipse cx="150" cy="80" rx="100" ry="50" fill="green" /&gt;</code></td><td><code>rx</code> = horizontal radius · <code>ry</code> = vertical radius</td></tr>
+      <tr><th>Line</th><td><code>&lt;line x1="0" y1="0" x2="200" y2="100" stroke="black" stroke-width="3" /&gt;</code></td><td>start (<code>x1,y1</code>) → end (<code>x2,y2</code>). A line needs a <code>stroke</code> or you cannot see it!</td></tr>
+      <tr><th>Polygon</th><td><code>&lt;polygon points="100,10 40,190 190,70 10,70 160,190" fill="gold" /&gt;</code></td><td><code>points</code> = list of x,y corners (this one is a star)</td></tr>
+      <tr><th>Text</th><td><code>&lt;text x="20" y="40" font-size="24" fill="navy"&gt;Hello&lt;/text&gt;</code></td><td><code>x</code>, <code>y</code> = where the text starts · <code>font-size</code></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Fill vs Stroke <span class="ko-line">채우기 vs 윤곽선</span></h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th></th><th>fill</th><th>stroke</th><th>stroke-width</th></tr></thead>
+    <tbody>
+      <tr><th>Controls</th><td>The colour <span class="mark">inside</span> the shape</td><td>The colour of the <span class="mark">outline / border</span></td><td>How <span class="mark">thick</span> the outline is</td></tr>
+      <tr><th>Example</th><td><code>fill="yellow"</code></td><td><code>stroke="black"</code></td><td><code>stroke-width="4"</code></td></tr>
+      <tr><th>Turn it off</th><td><code>fill="none"</code></td><td><code>stroke="none"</code></td><td>—</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="callout warn"><strong>Common mistakes in the code test</strong>
+    Writing <code>radius="50"</code> instead of <code>r="50"</code> · writing <code>colour</code> instead of <code>fill</code> · forgetting the speech marks around values · mixing up <code>width</code> (rectangle) with <code>r</code> (circle) · forgetting <code>/&gt;</code> at the end.
+  </div>
+
+  <h3>Try it live <span class="ko-line">직접 해 보세요</span></h3>
+  <p>Change a number or colour on the left and watch the picture change. Try: make the circle bigger, move the rectangle, change the star to blue.</p>
+  <script type="text/plain" id="svg-start">
+<svg width="300" height="220" xmlns="http://www.w3.org/2000/svg">
+  <!-- Rectangle: x, y = top-left corner -->
+  <rect x="20" y="120" width="260" height="80" fill="skyblue" stroke="navy" stroke-width="3" />
+
+  <!-- Circle: cx, cy = centre, r = radius -->
+  <circle cx="80" cy="70" r="45" fill="red" stroke="black" stroke-width="4" />
+
+  <!-- Polygon star: list of x,y points -->
+  <polygon points="210,20 222,55 258,55 229,76 240,110 210,90 180,110 191,76 162,55 198,55" fill="gold" />
+
+  <!-- Text -->
+  <text x="40" y="170" font-size="26" fill="navy">My Vector!</text>
+</svg>
+  </script>
+  <div class="sandbox-host" data-kind="svg" data-src="svg-start"></div>
+</section>
+
+<!-- ======================================================= T3 -->
+<section class="block" id="t3">
+  <div class="sec-head"><span class="num">03</span><h2>Shapes, Duplicate, Group, Align &amp; Distribute</h2><span class="ko">도형 · 복제 · 그룹 · 정렬 · 분배</span></div>
+  <p class="lead">Precision beats eyeballing. Professional designers never drag shapes into line by eye — they use the Align and Distribute panel.</p>
+
+  <div class="grid two">
+    <div class="card">
+      <h3 style="margin-top:0">Core actions</h3>
+      <ul class="points">
+        <li><span class="kw">Duplicate</span> <kbd>Ctrl</kbd>+<kbd>D</kbd> — makes an exact copy <span class="mark">on top of</span> the original (drag it away to see it).</li>
+        <li><span class="kw">Group</span> <kbd>Ctrl</kbd>+<kbd>G</kbd> — joins objects so they <span class="mark">move and resize as one</span>.</li>
+        <li><span class="kw">Ungroup</span> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd> — splits a group back into separate objects.</li>
+        <li><span class="kw">Add to selection</span> <kbd>Shift</kbd>+click.</li>
+        <li><span class="kw">Move in a straight line</span> <kbd>Ctrl</kbd>+drag.</li>
+        <li><span class="kw">Align &amp; Distribute panel</span> <kbd>Shift</kbd>+<kbd>Ctrl</kbd>+<kbd>A</kbd> (Object › Align and Distribute).</li>
+      </ul>
+    </div>
+    <figure class="diagram" style="margin:12px 0">
+      <svg viewBox="0 0 300 200" width="320" role="img" aria-label="Before: wobbly coins with uneven gaps. After Align: in a line. After Distribute: equal gaps.">
+        <text x="6" y="22" font-size="12" font-weight="700" fill="currentColor">Before</text>
+        <g fill="#e0a800" stroke="#8a6500"><circle cx="80" cy="30" r="12"/><circle cx="110" cy="18" r="12"/><circle cx="170" cy="36" r="12"/><circle cx="200" cy="22" r="12"/><circle cx="270" cy="32" r="12"/></g>
+        <text x="6" y="92" font-size="12" font-weight="700" fill="currentColor">Align</text>
+        <g fill="#e0a800" stroke="#8a6500"><circle cx="80" cy="88" r="12"/><circle cx="110" cy="88" r="12"/><circle cx="170" cy="88" r="12"/><circle cx="200" cy="88" r="12"/><circle cx="270" cy="88" r="12"/></g>
+        <text x="80" y="118" font-size="11" fill="currentColor">straight line ✓ · gaps uneven ✗</text>
+        <text x="6" y="162" font-size="12" font-weight="700" fill="currentColor">Distribute</text>
+        <g fill="#e0a800" stroke="#8a6500"><circle cx="80" cy="158" r="12"/><circle cx="127.5" cy="158" r="12"/><circle cx="175" cy="158" r="12"/><circle cx="222.5" cy="158" r="12"/><circle cx="270" cy="158" r="12"/></g>
+        <text x="80" y="190" font-size="11" fill="currentColor">straight line ✓ · equal gaps ✓</text>
+      </svg>
+      <figcaption>Align FIRST, then Distribute.</figcaption>
+    </figure>
+  </div>
+
+  <h3>Align is not the same as Distribute</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Point of comparison</th><th>ALIGN 정렬</th><th>DISTRIBUTE 분배</th></tr></thead>
+    <tbody>
+      <tr><th>Question it answers</th><td>Are they in a <span class="mark">straight line</span>?</td><td>Are the <span class="mark">gaps equal</span>?</td></tr>
+      <tr><th>Minimum objects</th><td>2</td><td>3</td></tr>
+      <tr><th>Typical use</th><td>Line up the tops of three buttons</td><td>Space five coins evenly across a game level</td></tr>
+      <tr><th>Common option</th><td>Centre on horizontal axis</td><td>Make horizontal gaps equal</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="callout gold"><strong>“Relative to:” — the setting everyone gets wrong</strong>
+    In the Align panel, <em>Relative to</em> decides what the objects line up against. <strong>Last selected</strong> = the object you clicked last. <strong>Page</strong> = the edges/centre of the canvas. <strong>Selection area</strong> = the box around everything selected.</div>
+  <div class="callout warn"><strong>Why nothing happens</strong>
+    Only one object selected → Align has nothing to line up with. Distribute buttons greyed out → you have fewer than <strong>three</strong> objects selected.</div>
+</section>
+
+<!-- ======================================================= T4 -->
+<section class="block" id="t4">
+  <div class="sec-head"><span class="num">04</span><h2>Path Operations — Cut, Melt and Combine</h2><span class="ko">경로 연산 (불리언)</span></div>
+  <p class="lead">All four are in the <strong>Path</strong> menu. Select two or more <em>overlapping</em> shapes first, or the options stay greyed out.</p>
+
+  <figure class="diagram">
+    <svg viewBox="0 0 640 170" width="640" role="img" aria-label="Four path operations on a blue circle (bottom) and an orange circle (top)">
+      <defs>
+        <mask id="g8-diff"><rect x="0" y="0" width="160" height="170" fill="#fff"/><circle cx="92" cy="70" r="42" fill="#000"/></mask>
+        <clipPath id="g8-int"><circle cx="378" cy="70" r="42"/></clipPath>
+      </defs>
+      <!-- Union -->
+      <g fill="#2c6fd1"><circle cx="58" cy="70" r="42"/><circle cx="92" cy="70" r="42"/></g>
+      <text x="75" y="140" text-anchor="middle" font-size="14" font-weight="700" fill="currentColor">Union</text>
+      <text x="75" y="158" text-anchor="middle" font-size="11" fill="currentColor">melts into one shape</text>
+      <!-- Difference -->
+      <g transform="translate(160,0)"><circle cx="58" cy="70" r="42" fill="#2c6fd1" mask="url(#g8-diff)"/><circle cx="92" cy="70" r="42" fill="none" stroke="#e8761a" stroke-dasharray="4 4"/></g>
+      <text x="235" y="140" text-anchor="middle" font-size="14" font-weight="700" fill="currentColor">Difference</text>
+      <text x="235" y="158" text-anchor="middle" font-size="11" fill="currentColor">top shape cuts, then vanishes</text>
+      <!-- Intersection -->
+      <g><circle cx="344" cy="70" r="42" fill="none" stroke="currentColor" stroke-opacity=".3" stroke-dasharray="4 4"/><circle cx="378" cy="70" r="42" fill="none" stroke="currentColor" stroke-opacity=".3" stroke-dasharray="4 4"/><circle cx="344" cy="70" r="42" fill="#2c6fd1" clip-path="url(#g8-int)"/></g>
+      <text x="361" y="140" text-anchor="middle" font-size="14" font-weight="700" fill="currentColor">Intersection</text>
+      <text x="361" y="158" text-anchor="middle" font-size="11" fill="currentColor">keeps ONLY the overlap</text>
+      <!-- Exclusion -->
+      <path fill="#2c6fd1" fill-rule="evenodd" d="M488 70a42 42 0 1 0 84 0a42 42 0 1 0 -84 0M522 70a42 42 0 1 0 84 0a42 42 0 1 0 -84 0"/>
+      <text x="547" y="140" text-anchor="middle" font-size="14" font-weight="700" fill="currentColor">Exclusion</text>
+      <text x="547" y="158" text-anchor="middle" font-size="11" fill="currentColor">keeps all EXCEPT the overlap</text>
+    </svg>
+    <figcaption>Blue circle = bottom shape. Orange dashed circle = the top shape (the cutter in Difference).</figcaption>
+  </figure>
+
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Operation</th><th>Shortcut</th><th>What it does</th><th>Example task</th></tr></thead>
+    <tbody>
+      <tr><th>Union 합치기</th><td><kbd>Ctrl</kbd>+<kbd>+</kbd></td><td>Melts all selected shapes into <span class="mark">one outline</span></td><td>Cloud = 3 circles + 1 rectangle</td></tr>
+      <tr><th>Difference 빼기</th><td><kbd>Ctrl</kbd>+<kbd>−</kbd></td><td>The <span class="mark">top</span> shape cuts a hole in the one below, then disappears</td><td>Moon = 2 circles</td></tr>
+      <tr><th>Intersection 교차</th><td><kbd>Ctrl</kbd>+<kbd>*</kbd></td><td>Keeps <span class="mark">only the overlap</span></td><td>Lens / leaf shape from 2 circles</td></tr>
+      <tr><th>Exclusion 배타</th><td><kbd>Ctrl</kbd>+<kbd>^</kbd></td><td>Keeps everything <span class="mark">except the overlap</span></td><td>Chain-link / pattern effects</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>BIG IDEA — in Difference, the top shape is the cutter</h3>
+  <ol class="steps">
+    <li><strong>Stacking order decides.</strong> Whatever you drew last is on top. Wrong cutter? Don’t redraw — use <kbd>Page Up</kbd> / <kbd>Page Down</kbd> (or <kbd>Home</kbd> / <kbd>End</kbd> to jump to the very top/bottom).</li>
+    <li><strong>The cutter disappears.</strong> You end with one shape, not two. If both shapes are still there, the operation did not run.</li>
+    <li><strong>The colour changes.</strong> The result keeps the <em>bottom</em> shape’s colour, because that is what survived. Recolour afterwards.</li>
+  </ol>
+  <div class="model"><div class="label">Worked example</div>
+    <p><strong>Q.</strong> Describe how to make a crescent moon in a vector graphics program. <span class="m">[3]</span></p>
+    <p>Draw a circle, then draw a second circle overlapping it, on top <span class="m">[1]</span>. Select both circles <span class="m">[1]</span>. Use Path › Difference so the top circle cuts away part of the bottom circle <span class="m">[1]</span>.</p>
+  </div>
+</section>
+
+<!-- ======================================================= T5 -->
+<section class="block" id="t5">
+  <div class="sec-head"><span class="num">05</span><h2>Nodes, Paths and the Bezier Pen</h2><span class="ko">노드 · 경로 · 베지어 도구</span></div>
+  <p class="lead">Shapes like circles and rectangles are perfect — and boring. To bend them into something organic you edit their <strong>nodes</strong>.</p>
+
+  <div class="grid two">
+    <div class="card">
+      <h3 style="margin-top:0">Vocabulary</h3>
+      <ul class="points">
+        <li><span class="kw">Path</span> 경로 — the line joining points; the skeleton of any custom shape.</li>
+        <li><span class="kw">Node</span> 노드 — an exact point on a path; drag it and the shape changes.</li>
+        <li><span class="kw">Handle</span> 핸들 — the lever attached to a node; pull it to bend the line.</li>
+        <li><span class="kw">Object to Path</span> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd> — turns a shape into an editable path.</li>
+        <li><span class="kw">Corner node</span> 모서리 노드 — sharp point; handles move <span class="mark">independently</span>.</li>
+        <li><span class="kw">Smooth node</span> 부드러운 노드 — flowing curve; handles locked in a <span class="mark">straight line, like a seesaw</span>.</li>
+      </ul>
+    </div>
+    <figure class="diagram" style="margin:12px 0">
+      <svg viewBox="0 0 320 170" width="330" role="img" aria-label="A corner node with handles at an angle and a smooth node with handles in a straight line">
+        <text x="80" y="18" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor">Corner node</text>
+        <path d="M10 140 L80 50 L150 140" fill="none" stroke="#2c6fd1" stroke-width="3"/>
+        <path d="M80 50 L50 110 M80 50 L110 110" stroke="#b7791f" stroke-width="1.5"/>
+        <circle cx="50" cy="110" r="4" fill="#b7791f"/><circle cx="110" cy="110" r="4" fill="#b7791f"/>
+        <rect x="74" y="44" width="12" height="12" fill="#fff" stroke="#1F3864" stroke-width="2" transform="rotate(45 80 50)"/>
+        <text x="80" y="162" text-anchor="middle" font-size="11" fill="currentColor">sharp · handles free</text>
+        <text x="240" y="18" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor">Smooth node</text>
+        <path d="M170 140 C 190 60, 210 50, 240 50 S 290 60, 310 140" fill="none" stroke="#2c6fd1" stroke-width="3"/>
+        <path d="M200 50 L280 50" stroke="#b7791f" stroke-width="1.5"/>
+        <circle cx="200" cy="50" r="4" fill="#b7791f"/><circle cx="280" cy="50" r="4" fill="#b7791f"/>
+        <rect x="234" y="44" width="12" height="12" fill="#fff" stroke="#1F3864" stroke-width="2"/>
+        <text x="240" y="162" text-anchor="middle" font-size="11" fill="currentColor">curved · handles = seesaw</text>
+      </svg>
+      <figcaption>Gold dots = handles. Square/diamond = the node.</figcaption>
+    </figure>
+  </div>
+
+  <h3>BIG IDEA — a circle has no editable nodes until you convert it</h3>
+  <ol class="steps">
+    <li>Draw the shape as normal.</li>
+    <li><strong>Path › Object to Path</strong> (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd>). Nothing seems to happen — that is correct.</li>
+    <li>Press <kbd>N</kbd> for the <strong>Node tool</strong>. Diamonds (nodes) appear. Click one to see its handles.</li>
+    <li>Drag nodes and handles to reshape — e.g. turn a perfect circle into a lumpy, organic peach.</li>
+  </ol>
+  <div class="callout warn"><strong>If you press N and see no nodes…</strong> you skipped Object to Path.</div>
+
+  <h3>The Bezier pen <kbd>B</kbd></h3>
+  <ul class="points">
+    <li><span class="mark">Click</span> (don’t drag) to place each point — this gives sharp corners you can curve later.</li>
+    <li>Dragging while clicking makes a curve straight away, which is much harder to control.</li>
+    <li>Press <kbd>Enter</kbd> to finish the path · <kbd>Esc</kbd> to cancel · click the first point again to close the shape.</li>
+    <li>Use the Node tool toolbar → <em>Make selected nodes smooth</em> / <em>Make selected nodes corner</em> to switch types.</li>
+  </ul>
+  <div class="callout tip"><strong>Pro tip</strong> Text can also be converted with Object to Path. Designers do this so a logo’s font never changes on another computer that doesn’t have that font installed.</div>
+</section>
+
+<!-- ======================================================= T6 -->
+<section class="block" id="t6">
+  <div class="sec-head"><span class="num">06</span><h2>Tracing, Layers, Text on Path &amp; Linked Offset</h2><span class="ko">따라 그리기 · 레이어 · 경로 위 텍스트 · 연결된 오프셋</span></div>
+
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>TRACING 따라 그리기</th><th>TEXT ON A PATH 경로 위 텍스트</th><th>LINKED OFFSET 연결된 오프셋</th></tr></thead>
+    <tbody>
+      <tr><td>1. <code>File › Import</code> the image</td><td>1. Draw a circle — stroke on, fill off</td><td>1. Group the whole design</td></tr>
+      <tr><td>2. Layers panel: opacity → 50%</td><td>2. Type the text separately (<kbd>T</kbd>)</td><td>2. <code>Path › Linked Offset</code></td></tr>
+      <tr><td>3. Click the <strong>padlock</strong> to lock it</td><td>3. Select the text, <kbd>Shift</kbd>+click the circle — <strong>both</strong> selected</td><td>3. A diamond node appears</td></tr>
+      <tr><td>4. Add a new layer above</td><td>4. <code>Text › Put on Path</code></td><td>4. Drag the diamond outwards</td></tr>
+      <tr><td>5. Trace with the Bezier pen (<kbd>B</kbd>)</td><td>5. Set the circle’s stroke to <strong>None</strong></td><td>5. <kbd>Page Down</kbd> to send it behind</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="grid two">
+    <div class="card">
+      <h3 style="margin-top:0">Why fade and lock the image?</h3>
+      <ul class="points">
+        <li><span class="mark">Lowering opacity</span> lets you see your own lines clearly against the original.</li>
+        <li><span class="mark">Locking</span> stops the image moving, so your trace stays lined up.</li>
+        <li>Tracing on a <span class="mark">separate layer</span> means you can hide or delete the original afterwards.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">Copyright — the tracing rule <span class="ko-line">저작권</span></h3>
+      <ul class="points">
+        <li>Tracing a brand logo to <span class="mark">practise a skill</span> in class is fine.</li>
+        <li>Selling it, publishing it or claiming it as <span class="mark">your own design</span> is not — logos are protected by copyright/trademark.</li>
+        <li>Always <span class="mark">credit</span> which logo you traced.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout gold"><strong>Palette trick</strong> Click a colour = sets the <em>fill</em>. <kbd>Shift</kbd>+click = sets the <em>stroke</em>. <kbd>Shift</kbd>+click the <strong>X</strong> = removes the stroke. Text upside down on the circle? Rotate the <em>circle</em>, not the text.</div>
+  <div class="callout warn"><strong>Text › Put on Path is greyed out?</strong> You only selected the text. Select the text <strong>and</strong> the path.</div>
+</section>
+
+<!-- ======================================================= T7 -->
+<section class="block" id="t7">
+  <div class="sec-head"><span class="num">07</span><h2>Your Vector Product — Plan, Create, Evaluate</h2><span class="ko">벡터 결과물 — 계획 · 제작 · 평가</span></div>
+  <div class="grid three">
+    <div class="card"><h3 style="margin-top:0">A · Plan</h3><ul class="points"><li>Read the brief: who is it for, what is it for?</li><li>Research real examples.</li><li>Sketch 2–3 ideas on paper and annotate.</li><li>Check each sketch against <span class="mark">every requirement</span>.</li></ul></div>
+    <div class="card"><h3 style="margin-top:0">B · Create</h3><ul class="points"><li>Big shapes first → refine with nodes → text last.</li><li>Use at least <span class="mark">four techniques</span>.</li><li>Align, distribute and group sensibly.</li><li>Check it still reads at icon size.</li></ul></div>
+    <div class="card"><h3 style="margin-top:0">C · Evaluate</h3><ul class="points"><li>Quote the requirements back — met / not met.</li><li>Name each technique and where it appears.</li><li>Get feedback from someone else.</li><li>Say what you would <span class="mark">improve</span> and why.</li></ul></div>
+  </div>
+  <div class="model"><div class="label">Evaluation sentence frames</div>
+    <ul class="points">
+      <li>The brief required ______. My design meets this because ______.</li>
+      <li>I used <strong>Path › Union</strong> to ______, which made ______.</li>
+      <li>One requirement I did not fully meet is ______ because ______.</li>
+      <li>My classmate said ______, so next time I would ______.</li>
+    </ul>
+    <p class="ko-line">“I like it” or “it looks good” scores nothing — always link back to the requirements.</p>
+  </div>
+</section>
+
+<!-- ======================================================= T8 -->
+<section class="block" id="t8">
+  <div class="sec-head"><span class="num">08</span><h2>Bridge to IGCSE Unit 12 — Images</h2><span class="ko">IGCSE 12단원 이미지와의 연결</span></div>
+  <p class="lead">In Grades 9–10 you will be asked to edit images in documents and web pages. Vectors are why these answers will feel obvious.</p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Skill / term</th><th>What it means</th><th>Exam tip</th></tr></thead>
+    <tbody>
+      <tr><th>Resize 크기 조정</th><td>Make an image bigger or smaller</td><td>Keep the <span class="mark">aspect ratio</span> — drag a <em>corner</em> handle, not a side handle, or the image is distorted</td></tr>
+      <tr><th>Aspect ratio 종횡비</th><td>The ratio of width to height</td><td>Changing only width OR height stretches/squashes the image</td></tr>
+      <tr><th>Crop 자르기</th><td>Remove unwanted outer parts of an image</td><td>Cropping is not resizing — the part that stays is unchanged</td></tr>
+      <tr><th>Rotate 회전</th><td>Turn an image by a number of degrees</td><td>e.g. rotate 90° clockwise</td></tr>
+      <tr><th>Reflect / flip 반전</th><td>Mirror an image horizontally or vertically</td><td>Flip horizontal = mirror left-to-right</td></tr>
+      <tr><th>Colour depth 색 깊이</th><td>Number of bits used to store each pixel’s colour</td><td>Lower colour depth = fewer colours = <span class="mark">smaller file</span></td></tr>
+      <tr><th>Resolution 해상도</th><td>Number of pixels in the image</td><td>Lower resolution = <span class="mark">smaller file</span>, but less detail</td></tr>
+      <tr><th>Compression 압축</th><td>Reducing file size</td><td><strong>Lossy</strong> (e.g. JPG) permanently removes data; <strong>lossless</strong> (e.g. PNG) keeps all data</td></tr>
+    </tbody>
+  </table></div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Format</th><th>Type</th><th>Best used for</th></tr></thead>
+    <tbody>
+      <tr><th>.svg</th><td>Vector</td><td>Logos and icons on websites — sharp on every screen size</td></tr>
+      <tr><th>.jpg / .jpeg</th><td>Bitmap, lossy compression</td><td>Photographs — small files, millions of colours</td></tr>
+      <tr><th>.png</th><td>Bitmap, lossless compression</td><td>Screenshots, graphics needing a <span class="mark">transparent background</span></td></tr>
+      <tr><th>.gif</th><td>Bitmap, max 256 colours</td><td>Simple <span class="mark">animations</span>, simple graphics</td></tr>
+      <tr><th>.bmp</th><td>Bitmap, usually uncompressed</td><td>Rarely used — very large files</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ======================================================= KEYS -->
+<section class="block" id="keys">
+  <div class="sec-head"><span class="num">09</span><h2>Inkscape shortcuts to learn</h2><span class="ko">단축키</span></div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Keys</th><th>Action</th><th>Keys</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr><td><kbd>S</kbd></td><td>Selection tool</td><td><kbd>Ctrl</kbd>+<kbd>D</kbd></td><td>Duplicate</td></tr>
+      <tr><td><kbd>N</kbd></td><td>Node tool</td><td><kbd>Ctrl</kbd>+<kbd>G</kbd></td><td>Group</td></tr>
+      <tr><td><kbd>B</kbd></td><td>Bezier (pen) tool</td><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd></td><td>Ungroup</td></tr>
+      <tr><td><kbd>T</kbd></td><td>Text tool</td><td><kbd>Shift</kbd>+<kbd>Ctrl</kbd>+<kbd>A</kbd></td><td>Align &amp; Distribute panel</td></tr>
+      <tr><td><kbd>R</kbd></td><td>Rectangle tool</td><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd></td><td>Object to Path</td></tr>
+      <tr><td><kbd>E</kbd></td><td>Ellipse / circle tool</td><td><kbd>Ctrl</kbd>+<kbd>+</kbd> / <kbd>Ctrl</kbd>+<kbd>−</kbd></td><td>Union / Difference</td></tr>
+      <tr><td><kbd>Page Up</kbd> / <kbd>Page Down</kbd></td><td>Raise / lower one step</td><td><kbd>Home</kbd> / <kbd>End</kbd></td><td>Raise to top / lower to bottom</td></tr>
+      <tr><td><kbd>Enter</kbd></td><td>Finish a Bezier path</td><td><kbd>Ctrl</kbd>+<kbd>Z</kbd></td><td>Undo</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ======================================================= PRACTICE: MCQ -->
+<section class="block" id="p-mcq">
+  <div class="sec-head"><span class="num">P1</span><h2>Multiple-choice practice</h2><span class="ko">객관식 연습</span></div>
+  <p class="lead">Click an answer to see if you are right and why. Use the topic buttons to focus on one area, and <em>Show only my mistakes</em> to re-try the ones you got wrong.</p>
+  <div id="quiz"></div>
+</section>
+
+<!-- ======================================================= PRACTICE: CODE LAB -->
+<section class="block" id="p-code">
+  <div class="sec-head"><span class="num">P2</span><h2>Code lab — make the code match the picture</h2><span class="ko">코드 실습</span></div>
+  <p class="lead">Each challenge shows a target. Edit the code until your live result looks the same.</p>
+
+  <div class="card">
+    <h3 style="margin-top:0">Challenge 1 — Traffic light</h3>
+    <p>Target: a dark grey rectangle with three circles stacked vertically — <strong>red</strong> at the top, <strong>orange</strong> in the middle, <strong>green</strong> at the bottom. The code has the rectangle and one circle. Add the other two. <em>Hint: keep <code>cx</code> the same, change <code>cy</code>.</em></p>
+    <figure class="diagram" style="max-width:160px"><svg viewBox="0 0 120 240" width="80" role="img" aria-label="Target traffic light"><rect x="20" y="10" width="80" height="220" rx="12" fill="#333"/><circle cx="60" cy="50" r="28" fill="red"/><circle cx="60" cy="120" r="28" fill="orange"/><circle cx="60" cy="190" r="28" fill="green"/></svg><figcaption>Target</figcaption></figure>
+<script type="text/plain" id="svg-c1">
+<svg width="120" height="240" xmlns="http://www.w3.org/2000/svg">
+  <rect x="20" y="10" width="80" height="220" rx="12" fill="#333" />
+  <circle cx="60" cy="50" r="28" fill="red" />
+  <!-- add the orange and green circles here -->
+
+</svg>
+</script>
+    <div class="sandbox-host" data-kind="svg" data-src="svg-c1"></div>
+    <details class="drop"><summary>Show a solution</summary><div class="body"><pre><code>&lt;circle cx="60" cy="120" r="28" fill="orange" /&gt;
+&lt;circle cx="60" cy="190" r="28" fill="green" /&gt;</code></pre></div></details>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">Challenge 2 — Fix the broken badge</h3>
+    <p>This code has <strong>four mistakes</strong> so the badge doesn’t draw properly. Find and fix them. The finished badge is a navy circle with a gold outline 6 thick, and white text “WZFS” in the middle.</p>
+<script type="text/plain" id="svg-c2">
+<svg width="220" height="220" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="110" cy="110" radius="90" colour="navy" stroke="gold" stroke-width=6 />
+  <text x="58" y="122" font-size="36" fill="white">WZFS</text
+</svg>
+</script>
+    <div class="sandbox-host" data-kind="svg" data-src="svg-c2"></div>
+    <details class="drop"><summary>Show the four fixes</summary><div class="body">
+      <ol><li><code>radius</code> → <code>r</code></li><li><code>colour</code> → <code>fill</code></li><li><code>stroke-width=6</code> → <code>stroke-width="6"</code> (values need speech marks)</li><li><code>&lt;/text</code> → <code>&lt;/text&gt;</code> (closing tag missing its <code>&gt;</code>)</li></ol>
+      <pre><code>&lt;circle cx="110" cy="110" r="90" fill="navy" stroke="gold" stroke-width="6" /&gt;
+&lt;text x="58" y="122" font-size="36" fill="white"&gt;WZFS&lt;/text&gt;</code></pre></div></details>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">Challenge 3 — Stacking order</h3>
+    <p>The yellow sun should be <strong>behind</strong> the green hill, peeping over it. Right now it is in front. Fix it by changing the <em>order</em> of the lines only — don’t change any numbers.</p>
+<script type="text/plain" id="svg-c3">
+<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="300" height="200" fill="lightblue" />
+  <ellipse cx="150" cy="200" rx="190" ry="90" fill="green" />
+  <circle cx="150" cy="115" r="45" fill="gold" />
+</svg>
+</script>
+    <div class="sandbox-host" data-kind="svg" data-src="svg-c3"></div>
+    <details class="drop"><summary>Show the explanation</summary><div class="body"><p>Shapes later in the code are drawn on top. Move the <code>&lt;circle&gt;</code> line so it comes <strong>before</strong> the <code>&lt;ellipse&gt;</code> line. This is exactly what <kbd>Page Down</kbd> does in Inkscape.</p></div></details>
+  </div>
+</section>
+
+<!-- ======================================================= PRACTICE: BLANKS -->
+<section class="block" id="p-blanks">
+  <div class="sec-head"><span class="num">P3</span><h2>Fill in the blanks — test Parts 1 &amp; 2</h2><span class="ko">빈칸 채우기</span></div>
+  <p class="lead">Type the missing word or attribute, then press <em>Check all answers</em> (or <kbd>Enter</kbd> in a box). Word bank for Part B: <strong>Align · Distribute · Union · Difference · Intersection · Text on Path · Object to Path · Linked Offset</strong></p>
+  <div id="blanks"></div>
+</section>
+
+<!-- ======================================================= PRACTICE: WRITTEN -->
+<section class="block" id="p-written">
+  <div class="sec-head"><span class="num">P4</span><h2>Short written questions — IGCSE style</h2><span class="ko">서술형 연습</span></div>
+  <p class="lead">These are the kind of questions you will meet in Grades 9–10. Write your answer, then open the mark scheme and tick each point you made. <strong>One clear point = one mark.</strong></p>
+  <div id="exam"></div>
+</section>
+
+<!-- ======================================================= PRACTICE: MOCK -->
+<section class="block" id="p-mock">
+  <div class="sec-head"><span class="num">P5</span><h2>Practical mock test — Part 3 (20 minutes)</h2><span class="ko">실기 모의시험</span></div>
+  <p class="lead">Open Inkscape, start a 20-minute timer, and follow the steps. Tick each step as you finish it. Then check your screenshot against the marking list.</p>
+  <div class="grid two">
+    <div class="card">
+      <h3 style="margin-top:0">Mock A — the real test format</h3>
+      <ul class="checklist" data-key="mockA">
+        <li>Draw one large <strong>yellow star</strong> at the top of the canvas</li>
+        <li>Draw <strong>three small blue circles</strong> below the star</li>
+        <li>Select all three circles → <strong>Align</strong> them in a straight horizontal line</li>
+        <li>Keep them selected → <strong>Distribute</strong> so the gaps are exactly equal</li>
+        <li>Draw a curved line with the <strong>Bezier</strong> tool</li>
+        <li>Type your first and last name with the <strong>Text</strong> tool</li>
+        <li>Select your name <strong>and</strong> the curve → <code>Text › Put on Path</code></li>
+        <li>Screenshot the <strong>whole window</strong> (<kbd>PrtSc</kbd> or <kbd>Win</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd>) and paste it</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">Mock B — extra practice (same skills, new design)</h3>
+      <ul class="checklist" data-key="mockB">
+        <li>Draw a green rectangle as a hill across the bottom</li>
+        <li>Make a <strong>cloud</strong>: 3 white circles + 1 rectangle → <code>Path › Union</code></li>
+        <li>Duplicate the cloud twice (<kbd>Ctrl</kbd>+<kbd>D</kbd>) and place the copies across the sky</li>
+        <li>Align the three clouds on the same line and <strong>Distribute</strong> them evenly</li>
+        <li>Make a <strong>moon</strong> with <code>Path › Difference</code></li>
+        <li>Convert a circle to a path and use the <strong>Node tool</strong> to bend it into a bush</li>
+        <li>Write “Night Sky” on a curved path above the hill</li>
+        <li>Group everything and add a <code>Path › Linked Offset</code> border</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0">How Part 3 is marked — check your screenshot</h3>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>The marker looks for…</th><th>So make sure…</th></tr></thead>
+      <tbody>
+        <tr><td>A star that is clearly yellow and large</td><td>You used the Star/Polygon tool and set the fill</td></tr>
+        <tr><td>Three circles exactly level</td><td>You used Align — not dragging by eye</td></tr>
+        <tr><td>Equal gaps between the circles</td><td>You used Distribute <em>after</em> Align</td></tr>
+        <tr><td>A real curve, not a straight line</td><td>You curved the Bezier path (drag a handle or the line with the Node tool)</td></tr>
+        <tr><td>Your full name following the curve</td><td>You selected text AND curve before Text › Put on Path</td></tr>
+        <tr><td>Everything visible in the screenshot</td><td>You didn’t crop away the work or the window</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<!-- ======================================================= PRACTICE: CARDS -->
+<section class="block" id="p-cards">
+  <div class="sec-head"><span class="num">P6</span><h2>Flashcards &amp; glossary</h2><span class="ko">플래시카드 · 용어집</span></div>
+  <div id="cards"></div>
+  <h3>Full glossary</h3>
+  <div id="glossary"></div>
+</section>
+
+<!-- ======================================================= FINAL -->
+<section class="block" id="final">
+  <div class="sec-head"><span class="num">✓</span><h2>Mistakes that cost marks &amp; before-the-test checklist</h2><span class="ko">감점 실수 · 시험 전 체크리스트</span></div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Mistake</th><th>Why it loses marks</th><th>Fix</th></tr></thead>
+    <tbody>
+      <tr><td>Writing “union”</td><td>Doesn’t show where the tool is</td><td>Write <code>Path › Union</code> — use the word bank’s exact wording</td></tr>
+      <tr><td>“Vectors are better”</td><td>Describes, doesn’t justify</td><td>“Vectors can be enlarged without becoming blurry <em>because</em> the maths is recalculated”</td></tr>
+      <tr><td>Screenshot of just the picture</td><td>Doesn’t prove the tools were used</td><td>Show the window, the aligned circles and the curved text</td></tr>
+      <tr><td><code>radius="50"</code></td><td>Not a real SVG attribute</td><td>Use <code>r="50"</code></td></tr>
+      <tr><td>Mixing up Align and Distribute</td><td>Opposite jobs</td><td>Align = straight line; Distribute = equal gaps</td></tr>
+      <tr><td>Saying the bottom shape cuts in Difference</td><td>Wrong way round</td><td>The <strong>top</strong> shape cuts and disappears</td></tr>
+    </tbody>
+  </table></div>
+  <div class="card">
+    <h3 style="margin-top:0">I can… (tick when you are confident)</h3>
+    <ul class="checklist" data-key="cando">
+      <li>explain the difference between a vector and a bitmap image using “whereas”</li>
+      <li>say which file format suits a logo, a photo, an animation and a transparent graphic</li>
+      <li>fill in the missing attributes for <code>&lt;circle&gt;</code> and <code>&lt;rect&gt;</code> (r, fill, width, height…)</li>
+      <li>use Align and Distribute and say which comes first</li>
+      <li>use Path › Union and Path › Difference, and fix the stacking order</li>
+      <li>convert an object to a path and edit its nodes</li>
+      <li>draw with the Bezier pen and press Enter to finish</li>
+      <li>put text on a path</li>
+      <li>take a screenshot that proves which tools I used</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">Vector Graphics Practice Guide · Cambridge IGCSE ICT 0417 foundation · Mr Glen Joshua · WZFS · Your answers are saved only in this browser.</footer>
+
+<script>
+window.PRACTICE = {
+  id: "g8-vector",
+  quiz: [
+    /* ---------- Vector vs Bitmap ---------- */
+    { t: "Vector vs Bitmap", q: "A bitmap image is made of…", o: ["mathematical formulas", "pixels", "nodes and paths", "XML tags"], a: 1, e: "Bitmaps (raster images) are a grid of coloured squares called pixels." },
+    { t: "Vector vs Bitmap", q: "A vector image is made of…", o: ["pixels", "dots of ink", "objects described by mathematics", "photographs"], a: 2, e: "Vectors store shapes as maths — positions, sizes, colours." },
+    { t: "Vector vs Bitmap", q: "What happens when you enlarge a bitmap image a lot?", o: ["It stays perfectly sharp", "It becomes pixelated / blurry", "The file becomes a vector", "Its colours are inverted"], a: 1, e: "The pixels get bigger and you can see the jagged squares — pixelation." },
+    { t: "Vector vs Bitmap", q: "Why does a vector image stay sharp at any size?", o: ["It has millions of pixels", "It is compressed", "The shapes are recalculated from maths at the new size", "It is saved as a JPG"], a: 2, e: "Vectors are resolution independent — the computer redraws the maths." },
+    { t: "Vector vs Bitmap", q: "Which image is BEST stored as a vector?", o: ["A holiday photograph", "A school logo", "A scanned painting", "A webcam picture"], a: 1, e: "Logos must be resized for pens, banners and websites without losing quality." },
+    { t: "Vector vs Bitmap", q: "Which image is BEST stored as a bitmap?", o: ["An icon set", "A road sign diagram", "A photograph of a sunset", "A company logo"], a: 2, e: "Photographs have millions of shades — bitmaps store each pixel’s colour." },
+    { t: "Vector vs Bitmap", q: "Which is usually TRUE about file size?", o: ["Vectors of simple logos are usually smaller than bitmaps", "Vectors are always bigger", "They are always the same", "Bitmaps have no file size"], a: 0, e: "A simple vector only stores a few instructions; a bitmap stores every pixel." },
+    { t: "Vector vs Bitmap", q: "‘Resolution’ of a bitmap image means…", o: ["how many colours it uses", "the number of pixels it contains", "the number of nodes", "how fast it loads"], a: 1, e: "e.g. 1920 × 1080 pixels. More pixels = more detail and a bigger file." },
+    { t: "Vector vs Bitmap", q: "Which sentence would score a mark in an exam?", o: ["Vectors are better.", "Vectors look nicer.", "A vector can be enlarged without losing quality because the maths is recalculated.", "Vectors are modern."], a: 2, e: "Mark schemes reward a reason — the word ‘because’ is your friend." },
+    { t: "Vector vs Bitmap", q: "Which word best completes: ‘A bitmap is made of pixels, ______ a vector is made of mathematical objects.’", o: ["because", "whereas", "therefore", "also"], a: 1, e: "‘Whereas’ is the comparison connective — use it in every compare question." },
+
+    /* ---------- File formats ---------- */
+    { t: "File formats", q: "Which file extension is a VECTOR format?", o: [".jpg", ".png", ".svg", ".gif"], a: 2, e: "SVG = Scalable Vector Graphics — the format Inkscape saves." },
+    { t: "File formats", q: "What does SVG stand for?", o: ["Simple Visual Graphic", "Scalable Vector Graphics", "Saved Vector Group", "Standard Video Graphic"], a: 1, e: "Scalable = can be resized. Vector = maths. Graphics = pictures." },
+    { t: "File formats", q: "Which format is best for a PHOTOGRAPH on a website (small file)?", o: [".svg", ".jpg", ".gif", ".txt"], a: 1, e: "JPG uses lossy compression — small files with millions of colours." },
+    { t: "File formats", q: "Which bitmap format supports a TRANSPARENT background and lossless compression?", o: [".jpg", ".bmp", ".png", ".docx"], a: 2, e: "PNG keeps every pixel (lossless) and supports transparency." },
+    { t: "File formats", q: "Which format is used for simple ANIMATIONS with up to 256 colours?", o: [".gif", ".svg", ".jpg", ".png"], a: 0, e: "GIF supports simple frame animations." },
+    { t: "File formats", q: "‘Lossy’ compression means…", o: ["no data is lost", "some data is permanently removed to make the file smaller", "the file is turned into a vector", "the file gets bigger"], a: 1, e: "JPG is lossy. Lossless (PNG) keeps all the original data." },
+    { t: "File formats", q: "You export your Inkscape book cover so it can go on a website as a normal picture. Which option?", o: ["File › Export as PNG", "Save as .txt", "Object to Path", "Path › Union"], a: 0, e: "Exporting to PNG creates a bitmap copy that any website or document can display." },
+
+    /* ---------- SVG code ---------- */
+    { t: "SVG code", q: "In SVG, which attribute sets the colour INSIDE a shape?", o: ["stroke", "fill", "colour", "inside"], a: 1, e: "fill = inside colour. stroke = outline colour." },
+    { t: "SVG code", q: "In SVG, which attribute sets the colour of the OUTLINE?", o: ["fill", "border", "stroke", "line"], a: 2, e: "stroke = outline colour; stroke-width = outline thickness." },
+    { t: "SVG code", q: "In <code>&lt;circle cx=\"100\" cy=\"100\" r=\"50\" /&gt;</code>, what does <code>r</code> mean?", o: ["red", "radius", "rotate", "rectangle"], a: 1, e: "r = radius — the distance from the centre to the edge." },
+    { t: "SVG code", q: "What do <code>cx</code> and <code>cy</code> give for a circle?", o: ["Its colour", "The position of its centre", "Its top-left corner", "Its width and height"], a: 1, e: "c = centre. cx is across, cy is down." },
+    { t: "SVG code", q: "Which pair of attributes sets the SIZE of a <code>&lt;rect&gt;</code>?", o: ["r and fill", "cx and cy", "width and height", "x1 and y2"], a: 2, e: "A rectangle needs x, y (top-left corner), width and height." },
+    { t: "SVG code", q: "In SVG, where is the point (0,0)?", o: ["Bottom-left", "Centre", "Top-left", "Bottom-right"], a: 2, e: "And y gets bigger as you go DOWN the screen." },
+    { t: "SVG code", q: "Increasing a circle’s <code>cy</code> value moves it…", o: ["up", "down", "left", "right"], a: 1, e: "In SVG, y increases downwards." },
+    { t: "SVG code", q: "Two shapes overlap in an SVG file. Which one appears on top?", o: ["The one written first", "The one written last", "The bigger one", "The red one"], a: 1, e: "Later in the code = drawn later = on top. Same as stacking order in Inkscape." },
+    { t: "SVG code", q: "Which code draws a shape with NO inside colour?", o: ["fill=\"none\"", "fill=\"white\"", "stroke=\"none\"", "fill=\"0\""], a: 0, e: "fill=\"none\" makes it see-through inside. White is still a colour." },
+    { t: "SVG code", q: "What language is an SVG file written in?", o: ["Python", "XML", "Scratch", "SQL"], a: 1, e: "SVG is an XML language — plain text you can open in Notepad." },
+    { t: "SVG code", q: "Which tag draws a straight line?", o: ["&lt;rect&gt;", "&lt;line&gt;", "&lt;path&gt;", "&lt;text&gt;"], a: 1, e: "&lt;line x1 y1 x2 y2 stroke=…&gt; — it needs a stroke to be visible." },
+    { t: "SVG code", q: "Which attribute makes the outline THICKER?", o: ["stroke-size", "stroke-width", "border", "thickness"], a: 1, e: "e.g. stroke-width=\"8\"." },
+
+    /* ---------- Align & shapes ---------- */
+    { t: "Align & shapes", q: "Which tool puts objects in a perfectly straight line?", o: ["Distribute", "Align", "Union", "Group"], a: 1, e: "Align lines objects up along an edge or centre." },
+    { t: "Align & shapes", q: "Which tool makes the GAPS between objects exactly equal?", o: ["Align", "Distribute", "Difference", "Duplicate"], a: 1, e: "Distribute = equal spacing." },
+    { t: "Align & shapes", q: "What is the minimum number of objects Distribute needs?", o: ["1", "2", "3", "5"], a: 2, e: "With two objects there is only one gap — nothing to even out." },
+    { t: "Align & shapes", q: "Five coins are in a wobbly line with uneven gaps. What should you do FIRST?", o: ["Distribute", "Align", "Union", "Delete them"], a: 1, e: "Align first to get them straight, then Distribute to even the gaps." },
+    { t: "Align & shapes", q: "<kbd>Ctrl</kbd>+<kbd>D</kbd> does what?", o: ["Deletes", "Duplicates", "Distributes", "Draws"], a: 1, e: "The copy lands directly on top of the original — drag it away." },
+    { t: "Align & shapes", q: "<kbd>Ctrl</kbd>+<kbd>G</kbd> does what?", o: ["Groups objects so they move as one", "Makes it green", "Grows the object", "Opens the grid"], a: 0, e: "Group so your robot stays in one piece when you drag it." },
+    { t: "Align & shapes", q: "How do you add another object to your selection?", o: ["Alt+click", "Shift+click", "Double-click", "Right-click"], a: 1, e: "Shift+click adds (or removes) an object from the selection." },
+    { t: "Align & shapes", q: "In the Align panel, ‘Relative to: Page’ means objects line up with…", o: ["the last object clicked", "the edges/centre of the canvas", "the biggest object", "the grid"], a: 1, e: "‘Last selected’ would line them up with the object you clicked last." },
+
+    /* ---------- Path operations ---------- */
+    { t: "Path operations", q: "Which operation melts shapes into ONE outline?", o: ["Difference", "Union", "Intersection", "Exclusion"], a: 1, e: "Path › Union — e.g. three circles + rectangle = cloud." },
+    { t: "Path operations", q: "In Path › Difference, which shape does the cutting?", o: ["The bottom shape", "The top shape", "The bigger shape", "The last one you coloured"], a: 1, e: "The top shape is the cutter — and it disappears afterwards." },
+    { t: "Path operations", q: "Which operation keeps ONLY the overlapping part?", o: ["Union", "Difference", "Intersection", "Exclusion"], a: 2, e: "Intersection = just where they overlap." },
+    { t: "Path operations", q: "Which operation keeps everything EXCEPT the overlap?", o: ["Exclusion", "Intersection", "Union", "Group"], a: 0, e: "Exclusion removes the shared area." },
+    { t: "Path operations", q: "You make a moon but the WRONG part was cut away. What do you check first?", o: ["The colour", "The stacking order — which shape is on top", "The file name", "The zoom level"], a: 1, e: "Use Page Up / Page Down to swap which circle is on top, then try again." },
+    { t: "Path operations", q: "After Path › Difference, what colour is the result?", o: ["The top shape’s colour", "The bottom shape’s colour", "Always black", "A mix of both"], a: 1, e: "The bottom shape is what survived, so it keeps its colour." },
+    { t: "Path operations", q: "Path › Union does nothing. The MOST likely reason is…", o: ["Only one object is selected", "The file isn’t saved", "The shapes are too colourful", "Caps Lock is on"], a: 0, e: "Path operations need two or more selected, overlapping shapes." },
+    { t: "Path operations", q: "Which key lowers the selected object ONE step in the stacking order?", o: ["Home", "End", "Page Down", "Delete"], a: 2, e: "Page Up/Down = one step. Home/End = straight to the top/bottom." },
+
+    /* ---------- Nodes & Bezier ---------- */
+    { t: "Nodes & Bezier", q: "You draw a circle, press N, but no nodes appear. What did you forget?", o: ["Group it", "Path › Object to Path", "Save it", "Change its colour"], a: 1, e: "Shapes must be converted to paths (Ctrl+Shift+C) before their nodes can be edited." },
+    { t: "Nodes & Bezier", q: "Which node type has handles locked in a straight line, like a seesaw?", o: ["Corner node", "Smooth node", "End node", "Text node"], a: 1, e: "Smooth nodes make flowing curves." },
+    { t: "Nodes & Bezier", q: "Which node type makes a SHARP point?", o: ["Corner node", "Smooth node", "Symmetric node", "Grouped node"], a: 0, e: "A corner node’s handles move independently." },
+    { t: "Nodes & Bezier", q: "With the Bezier pen, why should you CLICK rather than drag?", o: ["Clicking is faster to save", "Clicking makes sharp points you can control and curve later", "Dragging deletes the path", "Clicking changes the colour"], a: 1, e: "Dragging creates curves immediately, which are hard to control." },
+    { t: "Nodes & Bezier", q: "Which key FINISHES a Bezier path?", o: ["Esc", "Enter", "Space", "Tab"], a: 1, e: "Enter finishes. Esc cancels the path you are drawing." },
+    { t: "Nodes & Bezier", q: "What is a ‘handle’?", o: ["A shortcut key", "A lever on a node that bends the line", "The edge of the canvas", "A group"], a: 1, e: "Pull a handle to change the curve of the path near that node." },
+    { t: "Nodes & Bezier", q: "Which keyboard key selects the Node tool?", o: ["B", "N", "T", "S"], a: 1, e: "N = Node. B = Bezier. T = Text. S = Selection." },
+
+    /* ---------- Tracing & text ---------- */
+    { t: "Tracing & text", q: "Why lower the opacity of an imported image before tracing?", o: ["To make the file smaller", "So you can see your trace lines clearly against it", "To delete it", "To make it a vector"], a: 1, e: "Faded original + bright trace = easy to see what still needs tracing." },
+    { t: "Tracing & text", q: "Why LOCK the imported image layer?", o: ["So it can’t move and your trace stays lined up", "To protect copyright", "To print it", "To make it smaller"], a: 0, e: "If it can move, it will — and the trace won’t line up." },
+    { t: "Tracing & text", q: "Text › Put on Path is greyed out. What did you forget?", o: ["To select both the text AND the path", "To save", "To group the text", "To make the text bold"], a: 0, e: "Both objects must be selected (Shift+click the second)." },
+    { t: "Tracing & text", q: "Which operation creates a thick sticker-style outline around a design?", o: ["Path › Linked Offset", "Path › Union", "Object › Align", "Text › Put on Path"], a: 0, e: "Linked Offset makes an outline you can drag outwards with the diamond node." },
+    { t: "Tracing & text", q: "Tracing a famous brand logo is acceptable when…", o: ["you sell it on T-shirts", "you practise a skill in class and credit it", "you put it on your business website", "you claim you designed it"], a: 1, e: "Logos are protected. Educational practice is fine; publishing or selling is not." },
+    { t: "Tracing & text", q: "Clicking a colour in the palette sets the fill. What does Shift+click set?", o: ["Opacity", "The stroke colour", "The font", "The layer"], a: 1, e: "Shift+click the X removes the stroke." },
+
+    /* ---------- IGCSE link ---------- */
+    { t: "IGCSE link", q: "To resize an image WITHOUT distorting it you must keep the…", o: ["file name", "aspect ratio", "colour depth", "layer order"], a: 1, e: "Aspect ratio = width : height. Drag a corner handle, not a side handle." },
+    { t: "IGCSE link", q: "Removing the unwanted outer parts of an image is called…", o: ["resizing", "cropping", "rotating", "reflecting"], a: 1, e: "Cropping cuts the edges off; the part that remains is not resized." },
+    { t: "IGCSE link", q: "Reducing the colour depth of an image will…", o: ["increase the file size", "reduce the file size", "make it a vector", "add pixels"], a: 1, e: "Fewer bits per pixel = fewer colours = smaller file." },
+    { t: "IGCSE link", q: "Mirroring an image left-to-right is called…", o: ["Rotate 180°", "Reflect / flip horizontally", "Crop", "Distribute"], a: 1, e: "Reflect (flip) horizontally swaps left and right." }
+  ],
+
+  blanks: [
+    { t: "Part A · code", code: true, s: '<circle cx="100" cy="100" {{r}}="50" {{fill}}="red" stroke="black" stroke-width="4" />', h: "A circle needs a radius and an inside colour." },
+    { t: "Part A · code", code: true, s: '<rect x="50" y="50" {{width}}="200" {{height}}="100" fill="blue" />', h: "A rectangle needs a size." },
+    { t: "Part A · code", code: true, s: '<circle {{cx}}="60" {{cy}}="80" r="30" fill="green" />', h: "The centre of the circle." },
+    { t: "Part A · code", code: true, s: '<rect {{x}}="10" {{y}}="20" width="80" height="40" fill="orange" />', h: "The top-left corner." },
+    { t: "Part A · code", code: true, s: '<circle cx="150" cy="150" r="70" fill="white" {{stroke}}="black" {{stroke-width}}="5" />', h: "Outline colour and outline thickness." },
+    { t: "Part A · code", code: true, s: '<ellipse cx="150" cy="80" {{rx}}="100" {{ry}}="50" fill="purple" />', h: "Horizontal and vertical radius." },
+    { t: "Part A · code", code: true, s: '<line x1="0" y1="0" {{x2}}="200" {{y2}}="100" stroke="black" />', h: "The end point of the line." },
+    { t: "Part A · code", code: true, s: '<text x="20" y="40" {{font-size}}="24" fill="navy">Hello</{{text}}>', h: "Text size, then the closing tag." },
+    { t: "Part A · code", code: true, s: '<rect x="0" y="0" width="100" height="100" fill="{{none}}" stroke="red" />', h: "A square with no inside colour — just a red outline." },
+    { t: "Part B · tools", s: "To make the empty space between three circles exactly equal, use {{Distribute}}." },
+    { t: "Part B · tools", s: "To melt two overlapping shapes into one single shape, use Path › {{Union}}." },
+    { t: "Part B · tools", s: "To line up squares so their bottom edges are perfectly straight, use {{Align}}." },
+    { t: "Part B · tools", s: "To make your words wrap around a curved line or a circle, use {{Text on Path|Put on Path|text on a path}}." },
+    { t: "Part B · tools", s: "To use a top shape to cut a hole in a bottom shape, use Path › {{Difference}}." },
+    { t: "Part B · tools", s: "To keep only the area where two shapes overlap, use Path › {{Intersection}}." },
+    { t: "Part B · tools", s: "Before you can drag the nodes of a circle you must use Path › {{Object to Path}}." },
+    { t: "Part B · tools", s: "To add a thick sticker-style outline behind a design, use Path › {{Linked Offset}}." },
+    { t: "Key words", s: "A bitmap image is made of {{pixels|pixel}}. A vector image is made of {{maths|mathematics|math|mathematical formulas|objects}}." },
+    { t: "Key words", s: "When a bitmap is enlarged too much it becomes {{pixelated|pixelated/blurry|blurry}}." },
+    { t: "Key words", s: "The colour inside a shape is the {{fill}}; the outline is the {{stroke}}." },
+    { t: "Key words", s: "A {{smooth}} node has handles in a straight line; a {{corner}} node makes a sharp point." },
+    { t: "Key words", s: "To resize an image without distorting it, keep the {{aspect ratio}} the same." },
+    { t: "Key words", s: "The vector file format saved by Inkscape is {{.svg|svg}}." }
+  ],
+
+  exam: [
+    { n: "1", cmd: "Compare", q: "Compare a bitmap image with a vector image.", m: 4,
+      pts: ["Bitmap is made of pixels…", "…whereas a vector is made of objects / shapes defined by mathematics", "Bitmap becomes pixelated / blurry when enlarged…", "…whereas a vector can be resized without losing quality", "Bitmap files are usually larger / vector files usually smaller (for simple images)", "Bitmap best for photographs / vector best for logos, diagrams"],
+      max: "any four, 1 mark each",
+      trap: "Writing only about one type (e.g. four facts about vectors) cannot get full marks — a comparison must mention both.",
+      model: "<p>A bitmap image is made of pixels, <strong>whereas</strong> a vector image is made of shapes defined by mathematical formulas <span class='m'>[1][1]</span>. When a bitmap is enlarged it becomes pixelated, <strong>whereas</strong> a vector can be resized without losing quality <span class='m'>[1][1]</span>.</p>" },
+    { n: "2", cmd: "Explain", q: "A theme park wants a logo that will be printed on tickets, T-shirts and a 10-metre sign. Explain why the logo should be created as a vector graphic.", m: 3,
+      pts: ["It is stored as mathematical shapes / objects", "So it can be scaled to any size (ticket and 10 m sign)", "Without becoming pixelated / losing quality", "Because the shapes are recalculated at the new size", "Small file size, easy to send to printers", "Shapes/colours can be edited easily for each product"],
+      max: "any three",
+      trap: "“Vectors are better quality” with no reason = 0.",
+      model: "<p>A vector logo is stored as mathematical shapes <span class='m'>[1]</span>, so it can be enlarged from ticket size to a 10-metre sign <span class='m'>[1]</span> without becoming pixelated, because the shapes are recalculated at the new size <span class='m'>[1]</span>.</p>" },
+    { n: "3", cmd: "Describe", q: "Describe how to make a cloud shape from circles and a rectangle in a vector graphics program.", m: 3,
+      pts: ["Draw (three) circles and a rectangle", "Overlap the shapes", "Select all the shapes (Shift+click / drag a box)", "Use Path › Union", "They become one single shape/outline"],
+      max: "any three",
+      model: "<p>Draw three circles and a rectangle so they overlap <span class='m'>[1]</span>. Select all of the shapes <span class='m'>[1]</span>. Use Path › Union to melt them into one shape <span class='m'>[1]</span>.</p>" },
+    { n: "4", cmd: "Explain", q: "A student uses Path › Difference to make a moon, but the wrong part is cut away. Explain why this happened and how to fix it.", m: 3,
+      pts: ["In Difference the top shape cuts the bottom shape", "The wrong circle was on top / stacking order was wrong", "Undo the operation", "Use Page Up / Page Down (raise/lower) to change which circle is on top, then run Difference again"],
+      max: "any three",
+      model: "<p>In Path › Difference the top shape is the cutter <span class='m'>[1]</span>. The wrong circle was on top <span class='m'>[1]</span>, so the student should undo, use Page Down to lower that circle, and run Difference again <span class='m'>[1]</span>.</p>" },
+    { n: "5", cmd: "State", q: "State the difference between Align and Distribute.", m: 2,
+      pts: ["Align puts objects in a straight line / lines up their edges or centres", "Distribute makes the spaces/gaps between objects equal"],
+      trap: "Saying they “both organise objects” describes neither job — 0." },
+    { n: "6", cmd: "Give", q: "Give two reasons for converting a shape to a path (Object to Path).", m: 2,
+      pts: ["So its nodes can be edited / moved", "To reshape it into a custom / organic shape", "To change corner/smooth nodes and bend curves", "(For text) so the font doesn’t change on another computer"],
+      max: "any two" },
+    { n: "7", cmd: "Identify", q: "A photographer wants to put a holiday photo and a company logo on a website. Identify the most suitable file format for each and give a reason.", m: 4,
+      pts: ["Photo: JPG", "Reason: small file size / lossy compression / millions of colours", "Logo: SVG (or PNG)", "Reason: SVG stays sharp at any screen size (PNG: transparent background)"],
+      trap: "Brand names of software are never credited — name the file format, not a program." }
+  ],
+
+  cards: [
+    { en: "Bitmap / raster image", ko: "비트맵 / 래스터 이미지", d: "An image made of a grid of pixels." },
+    { en: "Vector image", ko: "벡터 이미지", d: "An image made of objects described by mathematics." },
+    { en: "Pixel", ko: "픽셀", d: "The smallest square of colour in a bitmap image." },
+    { en: "Resolution", ko: "해상도", d: "The number of pixels in an image, e.g. 1920 × 1080." },
+    { en: "Pixelation", ko: "픽셀화", d: "When pixels become visible because a bitmap has been enlarged too much." },
+    { en: "Resolution independent", ko: "해상도 독립적", d: "Looks the same quality at any size — true of vectors." },
+    { en: "SVG", ko: "SVG 파일", d: "Scalable Vector Graphics — a vector file format written in XML." },
+    { en: "XML", ko: "XML (확장성 마크업 언어)", d: "A text language made of tags, used to write SVG files." },
+    { en: "Attribute", ko: "속성", d: "A setting inside a tag, e.g. r=\"50\" or fill=\"red\"." },
+    { en: "Fill", ko: "채우기", d: "The colour inside a shape." },
+    { en: "Stroke", ko: "윤곽선 (선)", d: "The colour of a shape’s outline." },
+    { en: "Stroke width", ko: "선 두께", d: "How thick the outline is." },
+    { en: "Object", ko: "객체", d: "A single shape, line or piece of text you can select and edit." },
+    { en: "Duplicate", ko: "복제", d: "Make an exact copy of an object (Ctrl+D)." },
+    { en: "Group", ko: "그룹화", d: "Join objects so they move and resize as one (Ctrl+G)." },
+    { en: "Align", ko: "정렬", d: "Line objects up along an edge or centre — a straight line." },
+    { en: "Distribute", ko: "분배 (균등 배치)", d: "Make the gaps between three or more objects equal." },
+    { en: "Stacking order (z-order)", ko: "쌓임 순서", d: "Which object is on top. Changed with Page Up / Page Down." },
+    { en: "Union", ko: "합치기 (합집합)", d: "Path operation that melts shapes into one outline." },
+    { en: "Difference", ko: "빼기 (차집합)", d: "Path operation where the top shape cuts the one below and disappears." },
+    { en: "Intersection", ko: "교차 (교집합)", d: "Path operation that keeps only the overlap." },
+    { en: "Exclusion", ko: "배타 (제외)", d: "Path operation that keeps everything except the overlap." },
+    { en: "Path", ko: "경로", d: "A line made of nodes; the skeleton of a custom shape." },
+    { en: "Node", ko: "노드 (점)", d: "A point on a path that you can drag to reshape it." },
+    { en: "Handle", ko: "핸들 (조절점)", d: "A lever attached to a node; pull it to bend the curve." },
+    { en: "Corner node", ko: "모서리 노드", d: "A sharp point — its handles move independently." },
+    { en: "Smooth node", ko: "부드러운 노드", d: "A flowing curve — its handles stay in a straight line." },
+    { en: "Object to Path", ko: "객체를 경로로", d: "Converts a shape or text into an editable path (Ctrl+Shift+C)." },
+    { en: "Bezier tool", ko: "베지어 (펜) 도구", d: "Pen tool for drawing paths point by point (B)." },
+    { en: "Layer", ko: "레이어", d: "A transparent sheet that holds objects; can be locked or hidden." },
+    { en: "Opacity", ko: "불투명도", d: "How see-through something is; 50% = half see-through." },
+    { en: "Text on Path", ko: "경로 위 텍스트", d: "Makes text follow a curve or circle (Text › Put on Path)." },
+    { en: "Linked Offset", ko: "연결된 오프셋", d: "Creates an outline around a shape that you can drag outwards." },
+    { en: "Aspect ratio", ko: "종횡비", d: "The ratio of width to height — keep it to avoid distortion." },
+    { en: "Crop", ko: "자르기", d: "Remove unwanted outer parts of an image." },
+    { en: "Colour depth", ko: "색 깊이", d: "Number of bits used to store each pixel’s colour." },
+    { en: "Lossy compression", ko: "손실 압축", d: "Makes a file smaller by permanently removing some data (e.g. JPG)." },
+    { en: "Lossless compression", ko: "무손실 압축", d: "Makes a file smaller without losing any data (e.g. PNG)." },
+    { en: "Copyright", ko: "저작권", d: "Legal protection that stops others copying or selling a creator’s work." }
+  ]
+};
+</script>
+<script src="practice.js"></script>
+</body>
+</html>
