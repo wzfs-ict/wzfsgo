@@ -117,6 +117,7 @@
         <li><span class="kw">Application software</span> 응용 소프트웨어 — lets the <span class="mark">user carry out tasks</span>: word processor, spreadsheet, database, presentation, graphics/photo editing, video editing, audio editing, CAD, control software.</li>
         <li><span class="kw">System software</span> 시스템 소프트웨어 — <span class="mark">runs and manages the computer</span> and provides a platform for applications: operating system, utilities, device drivers, compilers, linkers.</li>
         <li><span class="kw">Utilities</span> — anti-virus, backup, file compression, disk defragmentation, formatting.</li>
+        <li class="ko-line">Trap: <strong>control and measurement software</strong> is <em>application</em> software — it is the row most often classified wrongly.</li>
       </ul>
     </div>
     <div class="card">
@@ -142,6 +143,34 @@
     </tbody>
   </table></div>
   <div class="model"><div class="label">Model comparison [3]</div>RAM is volatile, <strong>whereas</strong> ROM is non-volatile <span class="m">[1]</span>. RAM can be read from and written to, <strong>whereas</strong> ROM can only be read <span class="m">[1]</span>. RAM stores the programs and data in use, <strong>whereas</strong> ROM stores the boot-up instructions <span class="m">[1]</span>.</div>
+
+  <h3>Internal memory vs backing storage</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Point of comparison</th><th>Internal memory (RAM/ROM)</th><th>Backing storage (HDD, SSD…)</th></tr></thead>
+    <tbody>
+      <tr><th>Access by CPU</th><td>Accessed <span class="mark">directly</span> by the CPU</td><td>Not directly accessed — data loaded into RAM first</td></tr>
+      <tr><th>Speed</th><td>Faster</td><td>Slower</td></tr>
+      <tr><th>Capacity</th><td>Small</td><td>Much larger</td></tr>
+      <tr><th>Permanence</th><td>RAM is volatile</td><td>Non-volatile — permanent storage</td></tr>
+    </tbody>
+  </table></div>
+  <p class="ko-line">Asked for an example of backing storage? RAM and ROM score 0 — they are internal memory.</p>
+
+  <h3>Analogue and digital data <span class="ko-line">아날로그 · 디지털 데이터</span></h3>
+  <div class="grid two">
+    <div class="card">
+      <ul class="points">
+        <li>Sensors measure <span class="mark">analogue</span> data — continuously changing values (temperature, sound, light).</li>
+        <li>A computer can only process <span class="mark">digital</span> (binary) data.</li>
+        <li>An <span class="kw">ADC</span> (analogue-to-digital converter) converts the analogue signal to digital <em>before</em> the computer processes it. A <span class="kw">DAC</span> does the reverse, e.g. to drive speakers or motors.</li>
+        <li><span class="kw">Sample rate</span> — how often the analogue signal is measured. Higher rate = <span class="mark">more accurate</span> copy of the original, <strong>but</strong> more samples stored = <span class="mark">larger file</span>.</li>
+      </ul>
+    </div>
+    <div class="model" style="margin:12px 0"><div class="label">Model answer — why is an ADC needed? [2]</div>
+      <p>A computer can only process <strong>digital</strong> data <span class="m">[1]</span>, so the <strong>analogue</strong> signal from the sensor must be converted to digital by the ADC first <span class="m">[1]</span>.</p>
+      <p class="ko-line">“So the computer can understand it” with no data type named scores 0.</p>
+    </div>
+  </div>
 
   <h3>Operating systems and user interfaces</h3>
   <p>The <span class="kw">operating system</span> 운영 체제 manages the hardware, memory, files and folders, input/output devices, security (user accounts/passwords), runs applications, handles errors, and provides the <span class="mark">user interface</span>.</p>
@@ -273,6 +302,7 @@
         <li><span class="kw">Margins</span> — top, bottom, left, right (set exact cm when asked).</li>
         <li><span class="kw">Breaks</span> — <span class="mark">page</span> break (start a new page), <span class="mark">section</span> break (change layout, e.g. columns or orientation, part-way), <span class="mark">column</span> break (move text to the next column).</li>
         <li><span class="kw">Columns</span> — number of columns, width and the <span class="mark">spacing</span> between them.</li>
+        <li><span class="kw">Gutter margin</span> — extra space reserved for <span class="mark">binding</span>, separate from the normal margin.</li>
       </ul>
     </div>
     <div class="card">
@@ -283,6 +313,7 @@
         <li><span class="kw">Line spacing</span>: single, 1.5, double, multiple; <span class="mark">spacing before/after</span> paragraphs (in points).</li>
         <li><span class="kw">Indents</span>: first line, hanging. <span class="kw">Tabs</span>: left, right, centre, decimal.</li>
         <li><span class="kw">Lists</span>: bulleted or numbered; change bullet style and indent level.</li>
+        <li>Superscript/subscript, case changes, <span class="kw">Find &amp; Replace</span> (match case, whole words), bookmarks and hyperlinks.</li>
       </ul>
     </div>
   </div>
@@ -305,6 +336,14 @@
       </ul>
     </div>
   </div>
+
+  <div class="callout warn"><strong>Zero-tolerance rules (from real mock marking)</strong>
+    <ul class="points">
+      <li><strong>The golden rule:</strong> your <em>name, centre number and candidate number</em> must be typed electronically on every piece of evidence <em>before</em> it is printed. Handwriting them on afterwards scores 0.</li>
+      <li>A file name or path <strong>typed by hand</strong> into a footer scores 0 — it must be an automated field.</li>
+      <li>A rotation is binary: “rotate 90° clockwise” is either done or not. No partial credit.</li>
+      <li>Styles must be built in the <strong>Styles pane</strong> — print/screenshot the styles list as evidence.</li>
+    </ul></div>
 
   <h3>Styles and house style <span class="ko-line">스타일 · 하우스 스타일</span></h3>
   <ul class="points">
@@ -334,6 +373,20 @@
     </div>
   </div>
   <div class="callout warn"><strong>Final checks before you print</strong> No widows or orphans (a single line of a paragraph left alone at the top/bottom of a page) · no blank pages · no split tables or lists · consistent spacing between paragraphs · all images inside the margins · header/footer on every page.</div>
+
+  <h3>Learn from real marking — mock Paper 2, Task 2 (23 / 29)</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Mark</th><th>Instruction</th><th>What happened</th></tr></thead>
+    <tbody>
+      <tr><td><strong>4/4</strong></td><td>A4 landscape, margins 2 cm top/bottom, 1.5 cm left/right, saved with the exact name</td><td>✓ Margins dialog screenshot showed every value — <em>copy this</em></td></tr>
+      <tr><td><strong>2/2</strong></td><td>Header: name left, automated page number right. Footer: automated file name and path</td><td>✓ Fields, not typed text — <em>copy this</em></td></tr>
+      <tr><td><strong>1/2</strong></td><td>Two columns with an exact 1 cm gap</td><td>✗ Two columns visible, but no screenshot of the column dialog to <strong>prove</strong> 1 cm</td></tr>
+      <tr><td><strong>1/2</strong></td><td>Table style with 6 pt spacing before/after</td><td>✗ No evidence the named style was applied, or of the 6 pt setting</td></tr>
+      <tr><td><strong>0/1</strong></td><td>Image rotated 90° clockwise</td><td>✗ Image still upright — binary mark</td></tr>
+      <tr><td><strong>1/3</strong></td><td>Image 7 cm wide, aspect ratio kept, text wraps, aligned top-left to the column</td><td>✗ Wrap was correct, but no Format Picture screenshot showing 7 cm and the position</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout gold"><strong>The pattern</strong> The output <em>looked</em> right, but the evidence was missing. When a task says “show evidence of”, take a screenshot of the actual <strong>settings dialog box</strong>, not just the finished page.</div>
 
   <h3>Mail merge <span class="ko-line">편지 병합</span></h3>
   <ol class="steps">
@@ -389,6 +442,8 @@
       <tr><th>Axis scale</th><td>Set minimum, maximum and interval exactly as asked</td></tr>
       <tr><th>Segment extraction</th><td>Pull out one pie segment to highlight it</td></tr>
       <tr><th>Secondary axis</th><td>For two series with very different scales</td></tr>
+      <tr><th>Number format</th><td>Decimal places or currency on data labels/axis exactly as asked</td></tr>
+      <tr><th>Colour / pattern</th><td>For black-and-white printing use fill <strong>patterns</strong> so segments can still be told apart</td></tr>
     </tbody>
   </table></div>
 </section>
@@ -403,6 +458,8 @@
         <li>Sets items that appear on <span class="mark">every slide</span>: background, fonts and colours, logo/image, slide numbers, footer text.</li>
         <li><strong>Why?</strong> <span class="mark">Consistent</span> look; change once to update all slides; saves time.</li>
         <li>Items placed on the master cannot be moved accidentally on individual slides.</li>
+        <li>Slide numbers must be <span class="mark">automated</span>, inserted on the master.</li>
+        <li>A presentation can be created <strong>from a text outline</strong> (e.g. an .rtf file) — headings become slide titles.</li>
       </ul>
     </div>
     <div class="card">
@@ -436,6 +493,8 @@
 <section class="block" id="p-exam">
   <div class="sec-head"><span class="num">Q3</span><h2>Paper 1 — Cambridge-style structured questions</h2><span class="ko">서술형 문제</span></div>
   <p class="lead">Answer in full sentences. The marks in brackets tell you how many separate points you need. Then open the mark scheme, tick honestly, and read the zero-mark traps.</p>
+  <div class="callout tip"><strong>How Mr Joshua marks (Cambridge conventions)</strong>
+    One mark per valid point, never more than the maximum · the same point said twice scores once · brand names are crossed out · two different answers to a one-answer question = 0 · spelling and grammar are never penalised if the ICT meaning is clear · on <em>discuss</em> questions a one-sided answer is capped.</div>
   <div id="exam"></div>
 </section>
 
@@ -447,6 +506,7 @@
   <div class="card">
     <h3 style="margin-top:0">Task 1 — Document production (30 marks)</h3>
     <ul class="checklist" data-key="m-doc">
+      <li><strong>0.</strong> Create your Evidence Document first with your <strong>name, centre number and candidate number</strong> in the header. <span class="m">[—]</span></li>
       <li><strong>1.</strong> Open the source document. Set the page to <strong>A4 portrait</strong> with all margins <strong>2 cm</strong>. <span class="m">[2]</span></li>
       <li><strong>2.</strong> Header: your name left-aligned, candidate number centred, automated <strong>date</strong> right-aligned. <span class="m">[3]</span></li>
       <li><strong>3.</strong> Footer: automated <strong>file name</strong> left, “Page X of Y” right. <span class="m">[3]</span></li>
@@ -456,6 +516,7 @@
       <li><strong>7.</strong> Turn the list of five items into a numbered list with a hanging indent. <span class="m">[2]</span></li>
       <li><strong>8.</strong> Insert an image in column 1, resize to 5 cm wide keeping its aspect ratio, square wrapping. <span class="m">[3]</span></li>
       <li><strong>9.</strong> Insert a 3-column table; merge the top row for a title; add borders; align numbers right. <span class="m">[3]</span></li>
+      <li><strong>9b.</strong> Screenshot the <strong>Margins</strong>, <strong>Columns</strong>, <strong>Styles</strong> and <strong>Format Picture</strong> dialogs into your Evidence Document. <span class="m">[evidence]</span></li>
       <li><strong>10.</strong> Spell-check and proofread: no widows/orphans, blank pages, split tables or lists. Save as PDF too. <span class="m">[3]</span></li>
     </ul>
     <details class="drop"><summary>Marking notes</summary><div class="body"><ul class="points">
@@ -529,6 +590,8 @@
     <ul class="checklist" data-key="cando10">
       <li>define hardware, software, application software and system software with examples</li>
       <li>compare RAM and ROM in three “whereas” sentences</li>
+      <li>explain why an ADC is needed (naming analogue and digital) and the sample-rate trade-off</li>
+      <li>write a two-sided discuss answer with a justified recommendation</li>
       <li>describe the functions of an operating system and four types of interface</li>
       <li>give advantages and disadvantages of desktops, laptops, tablets and smartphones</li>
       <li>explain AI, VR and AR with an example of each</li>
@@ -627,45 +690,72 @@ window.PRACTICE = {
       pts: ["Adv: portable, so it can be used in class, the library and at home", "Adv: runs on battery, so it can be used without a power socket", "Adv: all parts in one unit, so less space/no cables", "Dis: limited battery life, so it may run out during lessons", "Dis: easier to lose or steal because it is carried around", "Dis: harder/more expensive to upgrade", "Dis: smaller keyboard/screen can cause poor posture"], max: "2 + 2" },
     { n: "6", cmd: "Describe", q: "<span class='unit-tag'>U1</span> Describe what is meant by <em>virtual reality</em> and give <strong>two</strong> uses.", m: 3,
       pts: ["A fully computer-generated 3D environment the user feels inside, usually through a headset", "Use: training (pilots/surgeons/military)", "Use: games / entertainment", "Use: virtual tours of buildings/museums / education"], max: "1 + any two uses" },
-    { n: "7", cmd: "Identify", q: "<span class='unit-tag'>U2</span> A school wants to mark multiple-choice tests automatically. (a) Identify the input method. (b) Give <strong>two</strong> advantages and <strong>one</strong> disadvantage.", m: 4,
+    { n: "7", cmd: "Tick", q: "<span class='unit-tag'>U1</span> For each type of software, state whether it is <strong>application</strong> or <strong>system</strong> software: (a) spreadsheet; (b) compiler; (c) control and measurement software; (d) anti-virus utility.", m: 4,
+      pts: ["(a) Application", "(b) System", "(c) Application", "(d) System"],
+      trap: "Control and measurement is the row most often wrong — it is application software. Two answers for one row = 0." },
+    { n: "8", cmd: "Explain", q: "<span class='unit-tag'>U1</span> A weather station uses sensors to record wind speed. Explain why an analogue-to-digital converter (ADC) is needed.", m: 2,
+      pts: ["A computer can only process digital (binary) data", "The analogue signal from the sensor must be converted to digital by the ADC before it can be processed"],
+      trap: "Both points must name a data type. “So the computer can understand it” scores 0." },
+    { n: "9", cmd: "Explain", q: "<span class='unit-tag'>U1</span> The weather station increases its sample rate. Explain <strong>one</strong> advantage and <strong>one</strong> disadvantage.", m: 2,
+      pts: ["Advantage: more accurate / closer representation of the original analogue signal", "Disadvantage: more samples stored, so the file size / storage needed increases"],
+      trap: "Only accuracy, or only file size, scores 1." },
+    { n: "10", cmd: "Give", q: "<span class='unit-tag'>U1</span> Give <strong>two</strong> differences between internal memory and backing storage.", m: 2,
+      pts: ["Internal memory is accessed directly by the CPU whereas backing storage is not", "Internal memory is faster whereas backing storage is slower", "Backing storage has a much larger capacity whereas internal memory is small", "Backing storage is non-volatile/permanent whereas RAM is volatile"],
+      max: "any two", trap: "Each point must compare BOTH sides." },
+    { n: "11", cmd: "Identify", q: "<span class='unit-tag'>U1</span> A chef follows recipes on a screen while cooking with wet, floury hands. (a) Identify the most suitable type of interface. (b) Give <strong>one</strong> advantage and <strong>one</strong> disadvantage of it <em>in this kitchen</em>.", m: 3,
+      pts: ["(a) Gesture-based (or dialogue/voice-based) interface", "Advantage: the chef touches nothing, so the screen stays clean / hands stay hygienic / no need to wash hands first", "Disadvantage: sensors may misread a movement / accidental movement read as a command / kitchen noise interferes with voice"],
+      trap: "Touch screen scores 0 — the chef must not touch anything. Advantage and disadvantage must refer to the kitchen." },
+    { n: "12", cmd: "Give", q: "<span class='unit-tag'>U1</span> Give <strong>one</strong> advantage of a command line interface over a graphical user interface.", m: 1,
+      pts: ["Uses less memory/processing power / fewer system resources; faster for an experienced user; direct access to commands / easier to automate routines"],
+      trap: "“It is easier” scores 0 — that is a GUI advantage." },
+    { n: "13", cmd: "Discuss", q: "<span class='unit-tag'>U1</span> An estate agent spends most days visiting houses with clients and writes long reports in the office. Discuss the advantages and disadvantages of a laptop compared with a desktop computer for the agent, and recommend one.", m: 6,
+      pts: ["Laptop is portable — can be taken to house viewings", "Runs on battery — usable between viewings / in a power cut", "All-in-one — nothing extra to carry", "Same machine in office and on visits — no file transfer", "Laptop harder to upgrade/repair", "Desktop cheaper for the same processing power", "Desktop has larger screen and full keyboard for long reports", "Laptop easily lost/stolen, risking client data", "Justified recommendation: a clear choice + reason linked to the agent (1 mark)"],
+      max: "1 per point to max 5 + 1 for justified recommendation; one-sided answers capped at 4",
+      trap: "A bare choice (“I recommend a laptop.”) with no reason earns no recommendation mark. Only advantages = max 4." },
+    { n: "14", cmd: "Explain", q: "<span class='unit-tag'>U1</span> (a) Give <strong>two</strong> uses of artificial intelligence. (b) Describe <strong>one</strong> negative impact of AI and explain why it is negative.", m: 4,
+      pts: ["(a) Use, e.g. medical diagnosis from scans", "(a) Use, e.g. self-driving vehicles / voice assistants / recommendations / fraud detection / translation", "(b) Negative impact named, e.g. job losses / privacy / bias / errors / over-reliance", "(b) Reason, e.g. people lose income / personal data collected / some groups treated unfairly / an error may harm someone"],
+      trap: "A bare technology name is not a use. A named impact with no reason scores 1 only. No brand names." },
+    { n: "15", cmd: "Identify", q: "<span class='unit-tag'>U2</span> A school wants to mark multiple-choice tests automatically. (a) Identify the input method. (b) Give <strong>two</strong> advantages and <strong>one</strong> disadvantage.", m: 4,
       pts: ["(a) OMR / optical mark recognition", "Fast — many sheets read quickly", "More accurate than a human marker", "Results analysed automatically", "Disadvantage: sheets must be filled in correctly / stray marks or folds cause errors", "Disadvantage: forms must be specially printed"],
       max: "1 + 2 + 1", trap: "OCR is wrong — OCR reads characters, OMR reads marks in set positions." },
-    { n: "8", cmd: "Explain", q: "<span class='unit-tag'>U2</span> A greenhouse keeps the temperature between 20 °C and 25 °C using a computer-controlled system. Explain how it works.", m: 5,
+    { n: "16", cmd: "Explain", q: "<span class='unit-tag'>U2</span> A greenhouse keeps the temperature between 20 °C and 25 °C using a computer-controlled system. Explain how it works.", m: 5,
       pts: ["A temperature sensor continually measures the temperature", "Reading converted to digital (ADC) and sent to the microprocessor", "Microprocessor compares the reading with the pre-set values", "Below 20 °C: signal sent to an actuator to switch the heater on", "Above 25 °C: signal to an actuator to open windows / switch on fan / heater off", "Process repeats continuously in a loop"],
       max: "any five", trap: "“The sensor switches the heater on” — sensors only measure.",
       model: "<p>A temperature sensor measures the temperature continuously <span class='m'>[1]</span>. The microprocessor compares the reading with the pre-set values of 20 °C and 25 °C <span class='m'>[1]</span>. If it is below 20 °C, it sends a signal to an actuator to switch the heater on <span class='m'>[1]</span>. If it is above 25 °C, it sends a signal to an actuator to open a window <span class='m'>[1]</span>. This repeats continuously <span class='m'>[1]</span>.</p>" },
-    { n: "9", cmd: "Describe", q: "<span class='unit-tag'>U2</span> Describe how RFID is used to track items in a warehouse.", m: 3,
+    { n: "17", cmd: "Describe", q: "<span class='unit-tag'>U2</span> Describe how RFID is used to track items in a warehouse.", m: 3,
       pts: ["Each item/pallet has an RFID tag (chip + antenna)", "Reader sends radio waves; the tag responds with its data/ID", "No line of sight needed / many tags read at once", "Data sent to the computer to update the item’s location/stock record"], max: "any three" },
-    { n: "10", cmd: "Compare", q: "<span class='unit-tag'>U2</span> A school office prints about 3000 pages of letters each week. Compare a laser printer with an inkjet printer for this office, and state which you recommend.", m: 4,
+    { n: "18", cmd: "Compare", q: "<span class='unit-tag'>U2</span> A school office prints about 3000 pages of letters each week. Compare a laser printer with an inkjet printer for this office, and state which you recommend.", m: 4,
       pts: ["Laser prints faster, whereas inkjet is slower", "Laser has a lower cost per page, whereas inkjet cartridges run out quickly/cost more per page", "Laser costs more to buy, whereas inkjet is cheaper to buy", "Recommend laser because of the high volume / speed / lower running cost"],
       trap: "A recommendation without a reason linked to 3000 pages scores 0 for that point." },
-    { n: "11", cmd: "Explain", q: "<span class='unit-tag'>U2</span> Explain why chip and PIN is more secure than a magnetic stripe card.", m: 2,
+    { n: "19", cmd: "Explain", q: "<span class='unit-tag'>U2</span> Explain why chip and PIN is more secure than a magnetic stripe card.", m: 2,
       pts: ["The chip is much harder to copy/clone than a magnetic stripe", "The customer must enter a PIN that only they should know, so a stolen card cannot easily be used", "Data on the chip is encrypted"], max: "any two" },
-    { n: "12", cmd: "Explain", q: "<span class='unit-tag'>U3</span> A photographer is choosing storage for her laptop. Explain <strong>three</strong> reasons for choosing an SSD rather than an HDD.", m: 3,
+    { n: "20", cmd: "Explain", q: "<span class='unit-tag'>U3</span> A photographer is choosing storage for her laptop. Explain <strong>three</strong> reasons for choosing an SSD rather than an HDD.", m: 3,
       pts: ["No moving parts, so less likely to be damaged if dropped", "Faster access times, so photos open/load more quickly", "Uses less power, so longer battery life", "Lighter/smaller/silent/runs cooler"],
       max: "any three — each with a reason", trap: "“It is faster” without saying what is faster scores 0." },
-    { n: "13", cmd: "Compare", q: "<span class='unit-tag'>U3</span> Compare optical storage with magnetic storage.", m: 4,
+    { n: "21", cmd: "Compare", q: "<span class='unit-tag'>U3</span> Compare optical storage with magnetic storage.", m: 4,
       pts: ["Optical uses a laser to read pits/lands whereas magnetic uses magnetised areas and a read/write head", "Optical usually has a smaller capacity whereas magnetic (HDD/tape) has larger capacity", "Optical discs are cheap/portable for distribution whereas HDDs are usually fixed inside", "Optical is slower to access whereas HDD is faster", "Optical damaged by scratches whereas magnetic damaged by magnets/moving parts failing"], max: "any four" },
-    { n: "14", cmd: "Explain", q: "<span class='unit-tag'>U3</span> A bank backs up its data every night onto magnetic tape. Explain why magnetic tape is suitable.", m: 3,
+    { n: "22", cmd: "Explain", q: "<span class='unit-tag'>U3</span> A bank backs up its data every night onto magnetic tape. Explain why magnetic tape is suitable.", m: 3,
       pts: ["Very large capacity, so all the bank’s data fits", "Low cost per GB", "Backups are read in order / serial access is not a problem because the whole backup is written and read at once", "Tape can be removed and stored off-site / in a safe"], max: "any three" },
-    { n: "15", cmd: "Explain", q: "<span class='unit-tag'>Documents</span> Explain why a company uses a corporate house style for all its documents.", m: 3,
+    { n: "23", cmd: "Explain", q: "<span class='unit-tag'>Documents</span> Explain why a company uses a corporate house style for all its documents.", m: 3,
       pts: ["All documents look consistent", "The company/brand is easily recognised", "Looks professional to customers", "Saves time — styles already set up / change once to update", "Staff do not need to make design decisions"], max: "any three" },
-    { n: "16", cmd: "Explain", q: "<span class='unit-tag'>Documents</span> Explain why a spell checker alone is not enough to make sure a document is accurate.", m: 3,
+    { n: "24", cmd: "Explain", q: "<span class='unit-tag'>Documents</span> Explain why a spell checker alone is not enough to make sure a document is accurate.", m: 3,
       pts: ["Correctly spelt wrong words are not found (there/their, form/from)", "Names, technical words or other languages may be flagged as errors / wrongly ‘corrected’", "May use the wrong dictionary language (US/UK)", "Cannot check the facts/data are correct", "Cannot check layout, e.g. widows/orphans or missing text"], max: "any three" },
-    { n: "17", cmd: "Describe", q: "<span class='unit-tag'>Documents</span> Describe the difference between validation and verification, and give an example of a verification method.", m: 3,
+    { n: "25", cmd: "Describe", q: "<span class='unit-tag'>Documents</span> Describe the difference between validation and verification, and give an example of a verification method.", m: 3,
       pts: ["Validation is a computer check that data is sensible/reasonable/allowed", "Verification checks that data has been copied/entered correctly from the source", "Example: visual check (compare with the original) or double entry (typed twice and compared)"] },
-    { n: "18", cmd: "Describe", q: "<span class='unit-tag'>Documents</span> A school is sending a personalised letter to 400 parents. Describe how mail merge would be used.", m: 4,
+    { n: "26", cmd: "Describe", q: "<span class='unit-tag'>Documents</span> A school is sending a personalised letter to 400 parents. Describe how mail merge would be used.", m: 4,
       pts: ["Create a master document/letter with the text that is the same for everyone", "Link it to a data source of parent details (e.g. .csv/database)", "Insert merge fields (e.g. «Title» «Surname» «Address») in the master", "Select/filter recipients if needed", "Preview then merge to a new document/printer, producing one letter per parent"], max: "any four" },
-    { n: "19", cmd: "Explain", q: "<span class='unit-tag'>Charts</span> A teacher wants to show how a student’s test scores changed from September to June. Identify the most suitable chart and explain your choice.", m: 2,
+    { n: "27", cmd: "Explain", q: "<span class='unit-tag'>Documents</span> A student typed the file name into the footer of a document instead of inserting it as a field. Explain why this is a problem.", m: 2,
+      pts: ["A typed file name does not update automatically", "If the file is renamed/moved/saved as a new version, the footer shows the wrong name/path (and in the exam it scores 0)"] },
+    { n: "28", cmd: "Explain", q: "<span class='unit-tag'>Charts</span> A teacher wants to show how a student’s test scores changed from September to June. Identify the most suitable chart and explain your choice.", m: 2,
       pts: ["Line graph", "It shows a trend / change over time (months are continuous along the x-axis)"],
       trap: "Pie chart scores 0 — a pie shows parts of a whole, not change over time." },
-    { n: "20", cmd: "Give", q: "<span class='unit-tag'>Charts</span> Give <strong>four</strong> features that should be added to a bar chart so that it is easy to understand.", m: 4,
+    { n: "29", cmd: "Give", q: "<span class='unit-tag'>Charts</span> Give <strong>four</strong> features that should be added to a bar chart so that it is easy to understand.", m: 4,
       pts: ["Chart title", "Axis titles (with units)", "Category labels on the x-axis", "Legend (when more than one series)", "Data labels/values", "Suitable axis scale"], max: "any four" },
-    { n: "21", cmd: "Explain", q: "<span class='unit-tag'>Presentations</span> Explain why a master slide is used when creating a presentation.", m: 2,
+    { n: "30", cmd: "Explain", q: "<span class='unit-tag'>Presentations</span> Explain why a master slide is used when creating a presentation.", m: 2,
       pts: ["Items on the master (logo, background, fonts, slide numbers) appear on every slide, so the presentation is consistent", "Changes made once update every slide, which saves time", "Items cannot be moved accidentally on individual slides"], max: "any two" },
-    { n: "22", cmd: "Describe", q: "<span class='unit-tag'>Presentations</span> Describe the difference between a transition and an animation.", m: 2,
+    { n: "31", cmd: "Describe", q: "<span class='unit-tag'>Presentations</span> Describe the difference between a transition and an animation.", m: 2,
       pts: ["A transition is an effect when moving from one slide to the next", "An animation is an effect applied to an object (text/image) on a slide"] },
-    { n: "23", cmd: "Describe", q: "<span class='unit-tag'>Presentations</span> Describe the difference between speaker notes and audience handouts.", m: 2,
+    { n: "32", cmd: "Describe", q: "<span class='unit-tag'>Presentations</span> Describe the difference between speaker notes and audience handouts.", m: 2,
       pts: ["Speaker notes are for the presenter only, to remind them what to say; not shown on the slides", "Handouts are printed copies of the slides (several per page) given to the audience to keep/make notes on"] }
   ],
 
