@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 9 Paper 3 Practice</title>
+<meta name="description" content="Grade 9 Cambridge IGCSE ICT 0417 Paper 3 study and exam practice: Spreadsheets (Unit 20) and Website Authoring (Unit 21), with Cambridge-style questions and mark schemes.">
+<link rel="stylesheet" href="practice.css">
+<style>
+  /* spreadsheet look for the case-study data */
+  .sheet table { font-family: var(--mono); font-size: .82rem; }
+  .sheet th.col, .sheet td.row { background: var(--surface-2); color: var(--muted); text-align: center; font-weight: 600; }
+  .sheet thead th.col { background: var(--surface-2); color: var(--muted); }
+  .sheet td { white-space: nowrap; }
+  .sheet td.h { font-weight: 700; background: var(--accent-soft); }
+  .sheet td.f { color: var(--muted); font-style: italic; }
+  .sheet-tabs { display: flex; gap: 4px; margin-top: -6px; }
+  .sheet-tabs span { font-size: .78rem; padding: 3px 10px; border: 1px solid var(--border); border-top: none; border-radius: 0 0 6px 6px; background: var(--surface); }
+  .sheet-tabs span.on { font-weight: 700; color: var(--navy); }
+</style>
+</head>
+<body>
+
+<header class="banner">
+  <div class="wrap">
+    <a class="home" href="../IGCSE_ICT.html">← IGCSE ICT hub</a>
+    <div class="eyebrow" style="margin-top:10px">G R A D E &nbsp; 9 &nbsp; · &nbsp; P A P E R &nbsp; 3 &nbsp; · &nbsp; M I D T E R M</div>
+    <h1>Spreadsheets &amp; Website Authoring — Exam Practice</h1>
+    <div class="ko">스프레드시트 &amp; 웹사이트 제작 — 시험 대비 연습</div>
+    <div class="meta">
+      <span class="chip">Cambridge IGCSE ICT 0417</span>
+      <span class="chip">Unit 20 Spreadsheets</span>
+      <span class="chip">Unit 21 Website Authoring</span>
+      <span class="chip">Mr Glen Joshua · WZFS <span id="year">2026–27</span></span>
+    </div>
+  </div>
+</header>
+
+<nav class="topnav" aria-label="Sections">
+  <div class="wrap">
+    <a href="#start">Start</a>
+    <a href="#technique">Exam technique</a>
+    <a href="#ss">Spreadsheets</a>
+    <a href="#ss-func">Functions</a>
+    <a href="#ss-data">Sort · Search · Print</a>
+    <a href="#web">Website Authoring</a>
+    <a href="#css">CSS</a>
+    <span class="sep"></span>
+    <a class="prac" href="#p-blanks">✎ Recall</a>
+    <a class="prac" href="#case">✎ Case study</a>
+    <a class="prac" href="#p-exam">✎ Exam questions</a>
+    <a class="prac" href="#p-web">✎ Web lab</a>
+    <a class="prac" href="#p-mock">✎ Mock paper</a>
+    <a class="prac" href="#p-cards">✎ Key terms</a>
+    <button class="theme-btn" type="button" aria-label="Toggle dark mode">◐</button>
+  </div>
+</nav>
+
+<main>
+
+<!-- ======================================================= START -->
+<section class="block" id="start">
+  <div class="sec-head"><span class="num">00</span><h2>What Paper 3 tests</h2><span class="ko">3번 시험지 개요</span></div>
+  <p class="lead">Paper 3 is a <strong>practical</strong> exam on the computer. You get source files, follow numbered instructions, and every instruction carries marks. The examiner marks <em>exactly</em> what you were told to do — nothing more, nothing less.</p>
+  <div id="progress" class="progress-panel" aria-live="polite"></div>
+  <div class="grid two" style="margin-top:12px">
+    <div class="card">
+      <h3 style="margin-top:0">Paper 3 at a glance</h3>
+      <div class="tbl-wrap"><table>
+        <tbody>
+          <tr><th>Type</th><td>Practical, on screen</td></tr>
+          <tr><th>Time</th><td>2 hours 15 minutes</td></tr>
+          <tr><th>Sections</th><td>Spreadsheets (Unit 20) · Website Authoring (Unit 21)</td></tr>
+          <tr><th>Evidence</th><td>Saved files, printouts / screenshots in an evidence document</td></tr>
+          <tr><th>Your midterm</th><td>Paper 3 — both sections</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">The skills that earn the most marks</h3>
+      <ul class="points">
+        <li><span class="mark">VLOOKUP / XLOOKUP</span> with an <span class="mark">absolute</span> range or named range</li>
+        <li><span class="mark">Nested IF</span> and IF with AND / OR</li>
+        <li><span class="mark">COUNTIF / SUMIF / AVERAGEIF</span> (and the -IFS versions)</li>
+        <li>Printing with <span class="mark">formulas visible</span>, row/column headings, fitted to page</li>
+        <li>Search / filter with <span class="mark">two criteria</span>, multi-level sort</li>
+        <li>HTML <span class="mark">head</span> section, hyperlinks, tables, images</li>
+        <li>CSS rules, <span class="mark">classes</span>, generic font families, attaching the stylesheet</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================= TECHNIQUE -->
+<section class="block" id="technique">
+  <div class="sec-head"><span class="num">01</span><h2>Practical exam technique</h2><span class="ko">실기 시험 요령</span></div>
+  <div class="grid two">
+    <div class="card">
+      <h3 style="margin-top:0">Before you start</h3>
+      <ol class="steps">
+        <li>Read the <strong>whole</strong> paper for 5 minutes. Highlight file names, cell references and exact text to type.</li>
+        <li>Open the evidence document and put your <strong>name, centre number and candidate number</strong> in it straight away.</li>
+        <li>Check the files open correctly — CSV files open in the spreadsheet, .html files in a text editor.</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">While you work</h3>
+      <ol class="steps">
+        <li>Tick off each numbered step on the question paper as you finish it.</li>
+        <li>Type text <strong>exactly</strong> as shown — spelling, capitals and punctuation are marked (accuracy marks).</li>
+        <li>Save with the <strong>exact file name</strong> and format asked for (e.g. <code>.csv</code>, <code>.html</code>, <code>.css</code>).</li>
+        <li>Take screenshots that are <strong>readable</strong> — zoom in so the examiner can read formulas and code.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="callout warn"><strong>The four most common ways marks are lost</strong>
+    1) Formulas not shown in the printout (the examiner cannot award formula marks from values). 2) Relative references that break when replicated. 3) Data entry typos. 4) Missing name in the header/footer of a printout.</div>
+</section>
+
+<!-- ======================================================= SPREADSHEETS -->
+<section class="block" id="ss">
+  <div class="sec-head"><span class="num">02</span><h2>Spreadsheets — the essentials</h2><span class="ko">스프레드시트 기초</span></div>
+
+  <h3>Cell references <span class="ko-line">셀 참조</span></h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Type</th><th>Looks like</th><th>When copied (replicated)…</th><th>Use it for</th></tr></thead>
+    <tbody>
+      <tr><th>Relative 상대 참조</th><td><code>B2</code></td><td>Changes to match the new position (B3, B4…)</td><td>Most formulas, e.g. <code>=B2*C2</code></td></tr>
+      <tr><th>Absolute 절대 참조</th><td><code>$B$2</code></td><td><span class="mark">Never changes</span></td><td>A single value used by every row — VAT rate, discount %, a lookup table</td></tr>
+      <tr><th>Mixed 혼합 참조</th><td><code>$B2</code> or <code>B$2</code></td><td>Only the part without <code>$</code> changes</td><td>Times-tables style grids</td></tr>
+      <tr><th>Named range 이름 정의 범위</th><td><code>VAT</code>, <code>Rates</code></td><td>Behaves like an absolute reference</td><td>Makes formulas easier to read</td></tr>
+    </tbody>
+  </table></div>
+  <div class="model"><div class="label">Why absolute? — a model answer</div>
+    <p>The discount rate is stored once in cell <code>$L$1</code>. When the formula is replicated down the column, the reference to the cost changes for each row (relative) <span class="m">[1]</span>, but the reference to the discount rate must stay pointing at L1, so it must be absolute <span class="m">[1]</span>.</p>
+  </div>
+
+  <h3>Formula basics</h3>
+  <ul class="points">
+    <li>Every formula starts with <code>=</code>. Operators: <code>+ - * / ^</code>; comparison: <code>= &lt;&gt; &lt; &gt; &lt;= &gt;=</code>.</li>
+    <li>Order of operations: brackets → powers → × ÷ → + −. <code>=A1+B1/2</code> is <strong>not</strong> the same as <code>=(A1+B1)/2</code>.</li>
+    <li>A <span class="kw">formula</span> is a calculation you write (<code>=B2*C2</code>); a <span class="kw">function</span> is a ready-made, named formula (<code>=SUM(B2:B9)</code>).</li>
+    <li>Text inside a formula needs speech marks: <code>"Yes"</code>. Numbers don’t: <code>100</code>. Percentages: <code>10%</code> or <code>0.1</code>.</li>
+    <li><span class="kw">Replicate</span> = copy a formula down/across using the fill handle so it adjusts for every row.</li>
+  </ul>
+</section>
+
+<!-- ======================================================= FUNCTIONS -->
+<section class="block" id="ss-func">
+  <div class="sec-head"><span class="num">03</span><h2>Functions you must be able to write</h2><span class="ko">반드시 알아야 할 함수</span></div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Function</th><th>Syntax</th><th>Example</th><th>Returns</th></tr></thead>
+    <tbody>
+      <tr><th>SUM</th><td><code>=SUM(range)</code></td><td><code>=SUM(I2:I11)</code></td><td>Total of the values</td></tr>
+      <tr><th>AVERAGE</th><td><code>=AVERAGE(range)</code></td><td><code>=AVERAGE(D2:D11)</code></td><td>Mean</td></tr>
+      <tr><th>MAX / MIN</th><td><code>=MAX(range)</code></td><td><code>=MIN(I2:I11)</code></td><td>Largest / smallest</td></tr>
+      <tr><th>COUNT</th><td><code>=COUNT(range)</code></td><td><code>=COUNT(D2:D11)</code></td><td>How many cells contain <em>numbers</em></td></tr>
+      <tr><th>COUNTA</th><td><code>=COUNTA(range)</code></td><td><code>=COUNTA(B2:B11)</code></td><td>How many cells are <em>not empty</em></td></tr>
+      <tr><th>COUNTIF</th><td><code>=COUNTIF(range, criteria)</code></td><td><code>=COUNTIF(E2:E11,"Y")</code></td><td>How many cells match</td></tr>
+      <tr><th>COUNTIFS</th><td><code>=COUNTIFS(r1,c1, r2,c2)</code></td><td><code>=COUNTIFS(C2:C11,"EB",E2:E11,"Y")</code></td><td>Count matching ALL criteria</td></tr>
+      <tr><th>SUMIF</th><td><code>=SUMIF(range, criteria, sum_range)</code></td><td><code>=SUMIF(C2:C11,"EB",I2:I11)</code></td><td>Total of matching rows</td></tr>
+      <tr><th>AVERAGEIF</th><td><code>=AVERAGEIF(range, criteria, avg_range)</code></td><td><code>=AVERAGEIF(E2:E11,"Y",D2:D11)</code></td><td>Mean of matching rows</td></tr>
+      <tr><th>IF</th><td><code>=IF(test, if_true, if_false)</code></td><td><code>=IF(D2&gt;=4,"Long","Short")</code></td><td>One of two results</td></tr>
+      <tr><th>IF + AND / OR</th><td><code>=IF(AND(t1,t2), …)</code></td><td><code>=IF(AND(E2="Y",D2&gt;3),"Bonus","")</code></td><td>Tests two conditions</td></tr>
+      <tr><th>VLOOKUP</th><td><code>=VLOOKUP(value, table, col, FALSE)</code></td><td><code>=VLOOKUP(C2,$N$2:$P$5,3,FALSE)</code></td><td>Looks <strong>down</strong> the first column of a table</td></tr>
+      <tr><th>HLOOKUP</th><td><code>=HLOOKUP(value, table, row, FALSE)</code></td><td><code>=HLOOKUP(C2,$B$14:$E$16,3,FALSE)</code></td><td>Looks <strong>across</strong> the first row</td></tr>
+      <tr><th>XLOOKUP</th><td><code>=XLOOKUP(value, look_range, return_range)</code></td><td><code>=XLOOKUP(C2,$N$2:$N$5,$P$2:$P$5)</code></td><td>Looks up in any direction</td></tr>
+      <tr><th>ROUND</th><td><code>=ROUND(value, digits)</code></td><td><code>=ROUND(AVERAGE(I2:I11),2)</code></td><td>Rounded to 2 decimal places</td></tr>
+      <tr><th>INT</th><td><code>=INT(value)</code></td><td><code>=INT(D2/2)</code></td><td>Whole-number part only</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Nested IF — read it like a ladder</h3>
+  <pre><code>=IF(D2&lt;2,"Short",IF(D2&lt;5,"Half day","Full day"))</code></pre>
+  <ul class="points">
+    <li>Test 1: is it under 2 hours? → <em>Short</em>. If not, go to the next IF.</li>
+    <li>Test 2: is it under 5 hours? → <em>Half day</em>. If not…</li>
+    <li>…everything else is <em>Full day</em>. You need <span class="mark">one fewer IF than the number of outcomes</span>.</li>
+    <li>Count the brackets: every <code>IF(</code> needs its own <code>)</code> at the end.</li>
+  </ul>
+
+  <h3>VLOOKUP — the five things the examiner checks</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Part</th><th>In <code>=VLOOKUP(C2,$N$2:$P$5,3,FALSE)</code></th><th>Common mistake</th></tr></thead>
+    <tbody>
+      <tr><th>Function</th><td><code>VLOOKUP</code></td><td>Using HLOOKUP when the table is vertical</td></tr>
+      <tr><th>Lookup value</th><td><code>C2</code> — relative, so it changes for each row</td><td>Making it absolute — every row looks up the same code</td></tr>
+      <tr><th>Table range</th><td><code>$N$2:$P$5</code> — absolute (or a named range)</td><td>Relative range slides down and returns #N/A lower down</td></tr>
+      <tr><th>Column index</th><td><code>3</code> — counted from the first column of the range</td><td>Counting from column A of the sheet</td></tr>
+      <tr><th>Match type</th><td><code>FALSE</code> (or <code>0</code>) = exact match</td><td>Leaving it out — gives approximate matches</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Error values</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Error</th><th>Means</th><th>Usual cause</th></tr></thead>
+    <tbody>
+      <tr><th>#DIV/0!</th><td>Division by zero</td><td>Dividing by an empty cell</td></tr>
+      <tr><th>#N/A</th><td>Value not available</td><td>VLOOKUP cannot find the value (or relative table range)</td></tr>
+      <tr><th>#NAME?</th><td>Unknown name</td><td>Misspelt function or named range, text missing speech marks</td></tr>
+      <tr><th>#REF!</th><td>Invalid reference</td><td>A cell used in the formula was deleted</td></tr>
+      <tr><th>#VALUE!</th><td>Wrong type of data</td><td>Doing maths on text</td></tr>
+      <tr><th>######</th><td>Column too narrow</td><td>Widen the column — not an error in the formula</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ======================================================= SORT / SEARCH / PRINT -->
+<section class="block" id="ss-data">
+  <div class="sec-head"><span class="num">04</span><h2>Sort, search, format, validate, print</h2><span class="ko">정렬 · 검색 · 서식 · 유효성 검사 · 인쇄</span></div>
+  <div class="grid two">
+    <div class="card">
+      <h3 style="margin-top:0">Sort 정렬</h3>
+      <ul class="points">
+        <li>Select <strong>all</strong> the data rows (not just one column) or rows will be mixed up.</li>
+        <li>Ascending = A→Z, 0→9. Descending = Z→A, 9→0.</li>
+        <li>Multi-level: “sort by Bike Code ascending, <strong>then</strong> by Total descending” = two sort levels.</li>
+      </ul>
+      <h3>Search / filter 검색 · 필터</h3>
+      <ul class="points">
+        <li><strong>AND</strong> = both conditions true (fewer rows). <strong>OR</strong> = either (more rows).</li>
+        <li>Operators: <code>&gt;</code> <code>&lt;</code> <code>&gt;=</code> <code>&lt;=</code> <code>&lt;&gt;</code> (not equal).</li>
+        <li>Wildcard <code>*</code> = any characters: <code>M*</code> finds everything starting with M.</li>
+        <li>“Contains” the text = <code>*text*</code>.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">Format 서식</h3>
+      <ul class="points">
+        <li>Currency with 2 dp (e.g. ¥ or $ as asked), percentage, number of decimal places.</li>
+        <li>Bold / italic / font size, merge and centre a title across columns.</li>
+        <li><strong>Conditional formatting</strong> — format changes automatically when a condition is true (e.g. red fill if Total &gt; 50).</li>
+        <li>Wrap text, column width so <strong>all data is fully visible</strong> — truncated data loses marks.</li>
+      </ul>
+      <h3>Validation 유효성 검사</h3>
+      <ul class="points">
+        <li><strong>Range check</strong> — between 1 and 12. <strong>Type check</strong> — whole number. <strong>Length check</strong>. <strong>Lookup/list</strong> — must be Y or N.</li>
+        <li>Add an <strong>error message</strong> that tells the user what is allowed.</li>
+        <li>Test with <span class="mark">normal</span> (5), <span class="mark">extreme/boundary</span> (1 and 12) and <span class="mark">abnormal</span> (20, −3, “ten”) data.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0">Printing checklist — the most-lost marks on the paper</h3>
+    <ul class="checklist" data-key="print">
+      <li>Show <strong>formulas</strong> not values when asked (formula view) — and widen columns so every formula is fully visible</li>
+      <li>Show <strong>row and column headings</strong> (A, B, C… 1, 2, 3…) when asked</li>
+      <li>Show <strong>gridlines</strong> when asked</li>
+      <li><strong>Landscape</strong> orientation when asked</li>
+      <li>Fit to <strong>one page wide</strong> (or one page) when asked</li>
+      <li>Your <strong>name, centre number and candidate number</strong> in the header or footer</li>
+      <li>Hide only the rows/columns you are told to hide</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ======================================================= WEB -->
+<section class="block" id="web">
+  <div class="sec-head"><span class="num">05</span><h2>Website Authoring — HTML</h2><span class="ko">웹사이트 제작 — HTML</span></div>
+
+  <h3>The three layers of a web page</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Layer</th><th>Made with</th><th>Job</th></tr></thead>
+    <tbody>
+      <tr><th>Content 콘텐츠 층</th><td>HTML</td><td>The structure and content — text, images, tables, links</td></tr>
+      <tr><th>Presentation 표현 층</th><td>CSS</td><td>How it looks — fonts, colours, spacing, layout</td></tr>
+      <tr><th>Behaviour 동작 층</th><td>Scripts (e.g. JavaScript)</td><td>Interactivity — what happens when the user clicks or types</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>The head section — what goes where</h3>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="description" content="Bike hire in Weihai"&gt;
+  &lt;meta name="keywords" content="bike, hire, Weihai, cycling"&gt;
+  &lt;meta name="author" content="Candidate Name"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Weihai Cycle Hire&lt;/title&gt;
+  &lt;link rel="stylesheet" href="cycle.css"&gt;
+  &lt;base target="_blank"&gt;
+&lt;/head&gt;</code></pre>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Element</th><th>Purpose</th></tr></thead>
+    <tbody>
+      <tr><th><code>&lt;title&gt;</code></th><td>Text shown in the browser tab / bookmarks. <strong>Not</strong> shown on the page itself.</td></tr>
+      <tr><th><code>meta charset</code></th><td>The character set (UTF-8) so all characters display correctly.</td></tr>
+      <tr><th><code>meta name="description"</code></th><td>Summary of the page used by search engines.</td></tr>
+      <tr><th><code>meta name="keywords"</code></th><td>Words that help search engines match the page.</td></tr>
+      <tr><th><code>meta name="author"</code></th><td>Who wrote the page.</td></tr>
+      <tr><th><code>meta name="viewport"</code></th><td>Makes the page scale correctly on all devices (phones, tablets).</td></tr>
+      <tr><th><code>&lt;link rel="stylesheet"&gt;</code></th><td>Attaches an external CSS file.</td></tr>
+      <tr><th><code>&lt;base target="_blank"&gt;</code></th><td>Sets a default — all links open in a new window/tab.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Body elements you must write from memory</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Need</th><th>Code</th></tr></thead>
+    <tbody>
+      <tr><th>Headings / paragraph</th><td><code>&lt;h1&gt;…&lt;/h1&gt;</code> to <code>&lt;h6&gt;</code>, <code>&lt;p&gt;…&lt;/p&gt;</code></td></tr>
+      <tr><th>Bulleted list</th><td><code>&lt;ul&gt;&lt;li&gt;Item&lt;/li&gt;&lt;/ul&gt;</code></td></tr>
+      <tr><th>Numbered list</th><td><code>&lt;ol&gt;&lt;li&gt;Item&lt;/li&gt;&lt;/ol&gt;</code></td></tr>
+      <tr><th>Image</th><td><code>&lt;img src="bike.jpg" alt="Red mountain bike" width="300"&gt;</code> — set <em>only</em> width (or height) to keep the aspect ratio</td></tr>
+      <tr><th>External link, new window</th><td><code>&lt;a href="https://www.example.com" target="_blank"&gt;Visit&lt;/a&gt;</code></td></tr>
+      <tr><th>Email link</th><td><code>&lt;a href="mailto:info@example.com"&gt;Email us&lt;/a&gt;</code></td></tr>
+      <tr><th>Bookmark (anchor) on the same page</th><td>Target: <code>&lt;h2 id="prices"&gt;</code> · Link: <code>&lt;a href="#prices"&gt;Prices&lt;/a&gt;</code></td></tr>
+      <tr><th>Link to another local page</th><td><code>&lt;a href="contact.html"&gt;Contact&lt;/a&gt;</code> (relative path)</td></tr>
+      <tr><th>Table</th><td><code>&lt;table&gt;&lt;tr&gt;&lt;th&gt;Head&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Data&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</code></td></tr>
+      <tr><th>Merge cells</th><td><code>&lt;td colspan="2"&gt;</code> (across) · <code>&lt;td rowspan="2"&gt;</code> (down)</td></tr>
+      <tr><th>Video / audio</th><td><code>&lt;video src="ride.mp4" controls&gt;&lt;/video&gt;</code> · <code>&lt;audio src="bell.mp3" controls&gt;&lt;/audio&gt;</code></td></tr>
+      <tr><th>Apply a class / id</th><td><code>&lt;p class="note"&gt;</code> · <code>&lt;div id="footer"&gt;</code></td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout warn"><strong>Relative vs absolute file paths</strong>
+    Use <strong>relative</strong> paths (<code>images/bike.jpg</code>, <code>cycle.css</code>). An <strong>absolute</strong> path like <code>C:\Users\Kim\Desktop\bike.jpg</code> only works on your computer — once the site is uploaded to a web server, the file cannot be found and the image/stylesheet breaks.</div>
+</section>
+
+<!-- ======================================================= CSS -->
+<section class="block" id="css">
+  <div class="sec-head"><span class="num">06</span><h2>Website Authoring — CSS</h2><span class="ko">CSS 스타일시트</span></div>
+<pre><code>/* cycle.css — external stylesheet: no &lt;style&gt; tags in this file */
+body   { background-color: #F0F8FF; font-family: Arial, Helvetica, sans-serif; }
+h1     { color: #1F3864; font-size: 32px; text-align: center; }
+p      { font-size: 14px; line-height: 1.5; }
+table  { border-collapse: collapse; width: 80%; }
+th, td { border: 1px solid #333333; padding: 6px; }
+.note  { font-style: italic; color: #B42318; }      /* class: any element */
+#footer { font-size: 10px; text-align: right; }    /* id: one element */
+ul     { list-style-type: square; }</code></pre>
+
+  <div class="grid two">
+    <div class="card">
+      <h3 style="margin-top:0">Rules to remember</h3>
+      <ul class="points">
+        <li>Rule = <code>selector { property: value; }</code> — colon after the property, <span class="mark">semicolon</span> after each value.</li>
+        <li><code>.name</code> = <span class="mark">class</span> (can be used many times) · <code>#name</code> = <span class="mark">id</span> (once per page).</li>
+        <li>Colours as <span class="mark">hex</span>: <code>#RRGGBB</code>, e.g. <code>#FF0000</code> = red.</li>
+        <li>Always end a font list with a <span class="mark">generic family</span> (<code>serif</code>, <code>sans-serif</code>, <code>monospace</code>) — used if the named fonts are not installed.</li>
+        <li>Sizes need units: <code>14px</code>, <code>1.2em</code>, <code>80%</code>. <code>14</code> alone is wrong.</li>
+        <li>An external <code>.css</code> file contains <strong>no HTML</strong> — no <code>&lt;style&gt;</code> tags.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">Three places to put CSS — and which wins</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Where</th><th>Example</th><th>Priority</th></tr></thead>
+        <tbody>
+          <tr><th>Inline</th><td><code>&lt;p style="color:red"&gt;</code></td><td>Highest</td></tr>
+          <tr><th>Internal</th><td><code>&lt;style&gt;…&lt;/style&gt;</code> in the head</td><td>Middle*</td></tr>
+          <tr><th>External</th><td><code>&lt;link rel="stylesheet" href="…"&gt;</code></td><td>Lowest*</td></tr>
+        </tbody>
+      </table></div>
+      <p class="ko-line">*Strictly, between internal and external the one that appears <strong>later</strong> in the head wins (the cascade). Inline always beats both.</p>
+      <p><strong>Why external stylesheets?</strong> One file styles every page → <span class="mark">consistent</span> look, change once to update the whole site, smaller page files.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================= RECALL BLANKS -->
+<section class="block" id="p-blanks">
+  <div class="sec-head"><span class="num">P1</span><h2>Quick recall — complete the formula or code</h2><span class="ko">빠른 복습</span></div>
+  <p class="lead">Warm up before the exam questions. Type the missing part exactly — spacing doesn’t matter in code answers.</p>
+  <div id="blanks"></div>
+</section>
+
+<!-- ======================================================= CASE STUDY -->
+<section class="block" id="case">
+  <div class="sec-head"><span class="num">P2</span><h2>Case study data — Weihai Cycle Hire</h2><span class="ko">사례 데이터</span></div>
+  <p class="lead">The exam-style questions below refer to this spreadsheet, just like a real Paper 3 source file. Columns F to J are empty — you will write the formulas.</p>
+  <div class="sheet">
+    <div class="tbl-wrap"><table>
+      <thead><tr><th class="col"></th><th class="col">A</th><th class="col">B</th><th class="col">C</th><th class="col">D</th><th class="col">E</th><th class="col">F</th><th class="col">G</th><th class="col">H</th><th class="col">I</th><th class="col">J</th><th class="col">K</th><th class="col">L</th></tr></thead>
+      <tbody>
+        <tr><td class="row">1</td><td class="h">Hire ID</td><td class="h">Customer</td><td class="h">Bike Code</td><td class="h">Hours</td><td class="h">Member</td><td class="h">Rate</td><td class="h">Cost</td><td class="h">Discount</td><td class="h">Total</td><td class="h">Hire Type</td><td></td><td class="h">Member discount</td></tr>
+        <tr><td class="row">2</td><td>H001</td><td>Park</td><td>MB</td><td>3</td><td>Y</td><td class="f">?</td><td class="f">?</td><td class="f">?</td><td class="f">?</td><td class="f">?</td><td></td><td>10%</td></tr>
+        <tr><td class="row">3</td><td>H002</td><td>Chen</td><td>CB</td><td>1.5</td><td>N</td><td class="f"></td><td class="f"></td><td class="f"></td><td class="f"></td><td class="f"></td><td></td><td></td></tr>
+        <tr><td class="row">4</td><td>H003</td><td>Lee</td><td>EB</td><td>6</td><td>Y</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="row">5</td><td>H004</td><td>Wang</td><td>TB</td><td>2</td><td>N</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="row">6</td><td>H005</td><td>Kim</td><td>MB</td><td>5</td><td>N</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="row">7</td><td>H006</td><td>Zhao</td><td>EB</td><td>2.5</td><td>Y</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="row">8</td><td>H007</td><td>Choi</td><td>CB</td><td>4</td><td>Y</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="row">9</td><td>H008</td><td>Liu</td><td>MB</td><td>1</td><td>N</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="row">10</td><td>H009</td><td>Jung</td><td>EB</td><td>8</td><td>N</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="row">11</td><td>H010</td><td>Sun</td><td>CB</td><td>3</td><td>Y</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table></div>
+    <div class="sheet-tabs"><span class="on">Hire</span><span>Rates</span></div>
+  </div>
+  <h3>Sheet: Rates (cells A1:C5 — named range <code>RATES</code> covers A2:C5)</h3>
+  <div class="sheet" style="max-width:520px">
+    <div class="tbl-wrap"><table>
+      <thead><tr><th class="col"></th><th class="col">A</th><th class="col">B</th><th class="col">C</th></tr></thead>
+      <tbody>
+        <tr><td class="row">1</td><td class="h">Code</td><td class="h">Bike Type</td><td class="h">Rate per hour</td></tr>
+        <tr><td class="row">2</td><td>CB</td><td>City Bike</td><td>¥15.00</td></tr>
+        <tr><td class="row">3</td><td>EB</td><td>E-Bike</td><td>¥35.00</td></tr>
+        <tr><td class="row">4</td><td>MB</td><td>Mountain Bike</td><td>¥25.00</td></tr>
+        <tr><td class="row">5</td><td>TB</td><td>Tandem</td><td>¥30.00</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<!-- ======================================================= EXAM QUESTIONS -->
+<section class="block" id="p-exam">
+  <div class="sec-head"><span class="num">P3</span><h2>Cambridge-style exam questions</h2><span class="ko">케임브리지 형식 문제</span></div>
+  <p class="lead">Write the formula or code exactly as you would enter it. Then open the mark scheme and tick each marking point you got. Be honest — the examiner will be!</p>
+  <div id="exam"></div>
+</section>
+
+<!-- ======================================================= WEB LAB -->
+<section class="block" id="p-web">
+  <div class="sec-head"><span class="num">P4</span><h2>Web lab — build and fix pages live</h2><span class="ko">웹 실습</span></div>
+  <div class="card">
+    <h3 style="margin-top:0">Task 1 — Fix the page (6 errors)</h3>
+    <p>This page should show a centred navy heading, a paragraph in a class called <code>note</code> (italic, red), an image with alternative text, and a link that opens in a new window. There are <strong>six</strong> errors. Fix them all.</p>
+<script type="text/plain" id="web-fix">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weihai Cycle Hire</title>
+  <style>
+    h1 { color: #1F3864 text-align: center; }
+    #note { font-style: italic; color: #B42318; }
+    body { font-family: Arial, Helvetica; }
+  </style>
+</head>
+<body>
+  <h1>Weihai Cycle Hire</h2>
+  <p class="note">All bikes must be returned by 18:00.</p>
+  <img src="bike.jpg" width="200">
+  <a href="www.example.com" target="blank">Book online</a>
+</body>
+</html>
+</script>
+    <div class="sandbox-host" data-kind="html" data-src="web-fix"></div>
+    <details class="drop"><summary>Show the six fixes</summary><div class="body"><ol>
+      <li><code>color: #1F3864 text-align</code> → missing semicolon: <code>color: #1F3864; text-align: center;</code></li>
+      <li><code>#note</code> → <code>.note</code> (it is a class, not an id)</li>
+      <li><code>font-family: Arial, Helvetica;</code> → add the generic family: <code>Arial, Helvetica, sans-serif;</code></li>
+      <li><code>&lt;/h2&gt;</code> → <code>&lt;/h1&gt;</code> (closing tag must match)</li>
+      <li><code>&lt;img&gt;</code> has no <code>alt</code> → <code>alt="Red mountain bike"</code></li>
+      <li><code>href="www.example.com" target="blank"</code> → <code>href="https://www.example.com" target="_blank"</code> (full URL and underscore)</li>
+    </ol></div></details>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">Task 2 — Build the price table</h3>
+    <p>Complete the price table using the Rates sheet: add the E-Bike, Mountain Bike and Tandem rows. Notice how the title cell “Weihai Cycle Hire — Prices” <strong>spans both columns</strong> with <code>colspan="2"</code>. Stretch: add a final row with one cell spanning both columns that says “Helmets included free”.</p>
+<script type="text/plain" id="web-build">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Prices</title>
+  <style>
+    table { border-collapse: collapse; }
+    th, td { border: 1px solid #333333; padding: 6px 10px; }
+  </style>
+</head>
+<body>
+  <table>
+    <tr><th colspan="2">Weihai Cycle Hire — Prices</th></tr>
+    <tr><th>Bike</th><th>Price per hour</th></tr>
+    <tr><td>City Bike</td><td>¥15.00</td></tr>
+    <!-- add the E-Bike, Mountain Bike and Tandem rows -->
+
+  </table>
+</body>
+</html>
+</script>
+    <div class="sandbox-host" data-kind="html" data-src="web-build"></div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">Task 3 — Style it</h3>
+    <p>Write CSS so that: the body background is <code>#F0F8FF</code>; all <code>h2</code> headings are <code>#0E7C86</code>, 24px, centred, in a sans-serif font; the class <code>price</code> is bold. Then use the class on a paragraph.</p>
+<script type="text/plain" id="web-style">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Style practice</title>
+  <style>
+    /* write your rules here */
+
+  </style>
+</head>
+<body>
+  <h2>Our bikes</h2>
+  <p>Mountain bikes are perfect for the hills around Weihai.</p>
+  <p>From ¥15.00 per hour.</p>
+</body>
+</html>
+</script>
+    <div class="sandbox-host" data-kind="html" data-src="web-style"></div>
+    <details class="drop"><summary>Show a model answer</summary><div class="body"><pre><code>body { background-color: #F0F8FF; }
+h2 { color: #0E7C86; font-size: 24px; text-align: center;
+     font-family: Arial, Helvetica, sans-serif; }
+.price { font-weight: bold; }
+
+&lt;p class="price"&gt;From ¥15.00 per hour.&lt;/p&gt;</code></pre></div></details>
+  </div>
+</section>
+
+<!-- ======================================================= MOCK PAPER -->
+<section class="block" id="p-mock">
+  <div class="sec-head"><span class="num">P5</span><h2>Mini mock paper — practical steps (on the computer)</h2><span class="ko">미니 모의고사</span></div>
+  <p class="lead">Recreate the case-study sheets in your spreadsheet software (or use the file from Schoology). Work through the steps in 45 minutes. Tick each one, then check against the marking notes.</p>
+  <div class="grid two">
+    <div class="card">
+      <h3 style="margin-top:0">Section A — Spreadsheet (30 marks)</h3>
+      <ul class="checklist" data-key="mockSS">
+        <li><strong>1.</strong> Insert a new row above row 1. In A1 enter the title <em>Weihai Cycle Hire — October</em>. Merge and centre it across A1:J1, bold, 16pt. <span class="m">[3]</span></li>
+        <li><strong>2.</strong> In F3 use a lookup function to return the rate from the named range RATES. Replicate down to F12. <span class="m">[5]</span></li>
+        <li><strong>3.</strong> In G3 calculate Cost = Hours × Rate. Replicate. <span class="m">[2]</span></li>
+        <li><strong>4.</strong> In H3 calculate the discount: if Member is Y, Cost × the member discount in L2, otherwise 0. Use an absolute reference. Replicate. <span class="m">[4]</span></li>
+        <li><strong>5.</strong> In I3 Total = Cost − Discount. Format F:I as currency, 2 dp. <span class="m">[2]</span></li>
+        <li><strong>6.</strong> In J3 display <em>Short</em> (under 2 hours), <em>Half day</em> (under 5) or <em>Full day</em>. Replicate. <span class="m">[4]</span></li>
+        <li><strong>7.</strong> Below the data: count members, total takings for E-Bikes, average Total rounded to 2 dp. <span class="m">[6]</span></li>
+        <li><strong>8.</strong> Conditional formatting: Totals over ¥100 in bold red. <span class="m">[2]</span></li>
+        <li><strong>9.</strong> Print formulas: landscape, row and column headings, one page wide, your name in the header. <span class="m">[2]</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">Section B — Website (25 marks)</h3>
+      <ul class="checklist" data-key="mockWeb">
+        <li><strong>10.</strong> Create <code>cycle.html</code> with title <em>Weihai Cycle Hire</em>, author meta tag (your name), viewport meta tag, UTF-8 charset. <span class="m">[4]</span></li>
+        <li><strong>11.</strong> Attach the external stylesheet <code>cycle.css</code> using a relative path. <span class="m">[2]</span></li>
+        <li><strong>12.</strong> Add an h1 heading, a paragraph, and an image <code>bike.jpg</code> 250 pixels wide with alt text, keeping its aspect ratio. <span class="m">[4]</span></li>
+        <li><strong>13.</strong> Add the price table from Task 2 with the merged title row. <span class="m">[5]</span></li>
+        <li><strong>14.</strong> Add a link “Book now” to <code>https://www.example.com/book</code> opening in a new window, and an email link to <code>hire@example.com</code>. <span class="m">[4]</span></li>
+        <li><strong>15.</strong> In <code>cycle.css</code>: body background <code>#F0F8FF</code>; h1 centred, <code>#1F3864</code>, sans-serif; class <code>note</code> italic. <span class="m">[6]</span></li>
+      </ul>
+    </div>
+  </div>
+  <details class="drop"><summary>Marking notes for the mini mock</summary><div class="body">
+    <ul class="points">
+      <li><strong>Q2</strong> <code>=VLOOKUP(C3,RATES,3,FALSE)</code> — function, C3 relative, RATES/absolute range, column 3, FALSE/0; correct values ¥25, ¥15, ¥35… <em>Accept XLOOKUP with absolute ranges.</em></li>
+      <li><strong>Q4</strong> <code>=IF(E3="Y",G3*$L$2,0)</code> — IF, condition with "Y" in speech marks, G3*$L$2, 0 for false. <em>Typing 10% instead of $L$2 loses the absolute mark.</em></li>
+      <li><strong>Q6</strong> <code>=IF(D3&lt;2,"Short",IF(D3&lt;5,"Half day","Full day"))</code> — check a 5-hour hire shows <em>Full day</em> and a 2-hour hire shows <em>Half day</em> (boundaries).</li>
+      <li><strong>Q7</strong> <code>=COUNTIF(E3:E12,"Y")</code> → 5 · <code>=SUMIF(C3:C12,"EB",I3:I12)</code> · <code>=ROUND(AVERAGE(I3:I12),2)</code></li>
+      <li><strong>Q9</strong> No marks for formulas if the printout shows values; check every formula is fully visible.</li>
+      <li><strong>Q12</strong> <code>&lt;img src="bike.jpg" alt="…" width="250"&gt;</code> — no height (or a correctly scaled height).</li>
+      <li><strong>Q14</strong> <code>target="_blank"</code> and <code>href="mailto:hire@example.com"</code>.</li>
+    </ul>
+  </div></details>
+</section>
+
+<!-- ======================================================= CARDS -->
+<section class="block" id="p-cards">
+  <div class="sec-head"><span class="num">P6</span><h2>Key terms — flashcards &amp; glossary</h2><span class="ko">핵심 용어</span></div>
+  <div id="cards"></div>
+  <h3>Full glossary</h3>
+  <div id="glossary"></div>
+</section>
+
+<section class="block" id="final">
+  <div class="sec-head"><span class="num">✓</span><h2>Before the midterm — I can…</h2><span class="ko">시험 전 체크리스트</span></div>
+  <div class="card">
+    <ul class="checklist" data-key="cando9">
+      <li>explain and use relative, absolute and mixed references</li>
+      <li>write VLOOKUP / XLOOKUP using an absolute or named range and exact match</li>
+      <li>write a nested IF with three outcomes and test it at the boundaries</li>
+      <li>use IF with AND / OR</li>
+      <li>use COUNTIF, SUMIF, AVERAGEIF and COUNTIFS</li>
+      <li>round results with ROUND and format as currency / percentage</li>
+      <li>sort on two levels and search with AND / OR and wildcards</li>
+      <li>set up validation and choose normal, extreme and abnormal test data</li>
+      <li>print formulas with headings, landscape, fitted to one page wide, with my details</li>
+      <li>write a full head section with title, meta tags and a linked stylesheet</li>
+      <li>write links (external new window, email, bookmark), images with alt text, tables with colspan/rowspan</li>
+      <li>write CSS rules with classes, ids, hex colours and generic font families</li>
+      <li>explain why relative paths and external stylesheets are used</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">Paper 3 Practice Guide · Cambridge IGCSE ICT 0417 · Mr Glen Joshua · WZFS · Your answers are saved only in this browser.</footer>
+
+<script>
+window.PRACTICE = {
+  id: "g9-paper3",
+  blanks: [
+    { t: "References", code: true, s: "Absolute reference to cell L2: {{$L$2}}", h: "Dollar signs before the column AND the row." },
+    { t: "References", code: true, s: "Mixed reference — column fixed, row changes: {{$L2}}", h: "$ only before the column letter." },
+    { t: "Functions", code: true, s: "Total of I2 to I11: ={{SUM}}(I2:I11)" },
+    { t: "Functions", code: true, s: "Count cells in E2:E11 that contain Y: ={{COUNTIF}}(E2:E11,{{\"Y\"}})", h: "Text criteria go in speech marks." },
+    { t: "Functions", code: true, s: "Total of column I for E-Bikes: =SUMIF(C2:C11,\"EB\",{{I2:I11}})", h: "The third argument is the range to add up." },
+    { t: "Functions", code: true, s: "Average rounded to 2 dp: ={{ROUND}}(AVERAGE(I2:I11),{{2}})" },
+    { t: "Functions", code: true, s: "Count non-empty cells in B2:B11: ={{COUNTA}}(B2:B11)", h: "COUNT only counts numbers." },
+    { t: "Functions", code: true, s: "=IF(D2>=4,\"Long\",{{\"Short\"}})", h: "The value if false." },
+    { t: "Functions", code: true, s: "=IF({{AND}}(E2=\"Y\",D2>3),\"Bonus\",\"\")", h: "Both conditions must be true." },
+    { t: "Functions", code: true, s: "=VLOOKUP(C2,$N$2:$P$5,3,{{FALSE|0}})", h: "Exact match." },
+    { t: "Functions", code: true, s: "=VLOOKUP({{C2}},RATES,{{3}},FALSE) — look up the bike code and return the rate (3rd column)" },
+    { t: "Search", s: "To find all customers whose name starts with C, use the criteria {{C*}}." },
+    { t: "Search", s: "Not equal to in a search or formula is written as {{<>}}." },
+    { t: "HTML", code: true, s: "<a href=\"https://www.example.com\" target=\"{{_blank}}\">Visit</a>", h: "Opens in a new window/tab." },
+    { t: "HTML", code: true, s: "<a href=\"{{mailto:}}info@example.com\">Email us</a>" },
+    { t: "HTML", code: true, s: "<img src=\"bike.jpg\" {{alt}}=\"Red mountain bike\" width=\"300\">", h: "Text shown if the image cannot load; read by screen readers." },
+    { t: "HTML", code: true, s: "<td {{colspan}}=\"2\">Prices</td>", h: "Merge two cells across." },
+    { t: "HTML", code: true, s: "<link rel=\"{{stylesheet}}\" href=\"cycle.css\">" },
+    { t: "HTML", code: true, s: "<meta name=\"{{viewport}}\" content=\"width=device-width, initial-scale=1.0\">" },
+    { t: "HTML", code: true, s: "<meta {{charset}}=\"UTF-8\">" },
+    { t: "HTML", code: true, s: "<a href=\"{{#prices}}\">Jump to prices</a>  ...  <h2 id=\"prices\">Prices</h2>", h: "A bookmark link starts with #." },
+    { t: "CSS", code: true, s: "{{.}}note { font-style: italic; }   /* a class */" },
+    { t: "CSS", code: true, s: "{{#}}footer { font-size: 10px; }   /* an id */" },
+    { t: "CSS", code: true, s: "h1 { font-family: Arial, Helvetica, {{sans-serif}}; }", h: "Generic font family as a fallback." },
+    { t: "CSS", code: true, s: "body { {{background-color}}: #F0F8FF; }" },
+    { t: "CSS", code: true, s: "table { border-{{collapse}}: collapse; }" }
+  ],
+
+  exam: [
+    { n: "1", cmd: "Formula", q: "Refer to the <a href='#case'>case study</a>. Write the formula for cell <code>F2</code> that looks up the bike code in the Rates sheet and returns the rate per hour. It must be replicated down to F11.", m: 5,
+      pts: ["Uses VLOOKUP (accept XLOOKUP / LOOKUP)", "Lookup value C2 (relative)", "Table: RATES or Rates!$A$2:$C$5 (absolute)", "Column index 3", "FALSE or 0 for exact match"],
+      trap: "A relative table range (Rates!A2:C5) is wrong — it slides down when replicated and gives #N/A. Values typed in (e.g. 25) score 0.",
+      model: "<pre><code>=VLOOKUP(C2,RATES,3,FALSE)\n=VLOOKUP(C2,Rates!$A$2:$C$5,3,FALSE)</code></pre>" },
+    { n: "2", cmd: "Formula", q: "Write the formula for <code>H2</code>. If the customer is a member (E2 is Y), the discount is the Cost multiplied by the member discount in L2; otherwise the discount is 0. The formula will be replicated.", m: 4,
+      pts: ["IF function", "Condition E2=\"Y\" (with speech marks)", "G2*$L$2 (absolute L2) for true", "0 for false"],
+      trap: "Using L2 without $ — when copied to H3 it becomes L3 (empty) so every other discount is 0. Typing 10% instead of referencing L2 loses the mark.",
+      model: "<pre><code>=IF(E2=\"Y\",G2*$L$2,0)</code></pre>" },
+    { n: "3", cmd: "Formula", q: "Write a formula for <code>J2</code> to display <em>Short</em> if the hours are less than 2, <em>Half day</em> if the hours are less than 5, otherwise <em>Full day</em>.", m: 4,
+      pts: ["Nested IF structure (two IFs)", "D2<2 returns \"Short\"", "D2<5 returns \"Half day\"", "Otherwise \"Full day\" and correct brackets"],
+      trap: "Testing D2<5 first means a 1-hour hire shows Half day. Order the tests from smallest to largest (or largest to smallest with >=).",
+      model: "<pre><code>=IF(D2&lt;2,\"Short\",IF(D2&lt;5,\"Half day\",\"Full day\"))</code></pre>" },
+    { n: "4", cmd: "Formula", q: "Write formulas to calculate: (a) the number of hires by members; (b) the total takings (column I) for E-Bikes (EB); (c) the average Total rounded to 2 decimal places.", m: 6,
+      pts: ["(a) COUNTIF", "(a) range E2:E11 with criteria \"Y\"", "(b) SUMIF", "(b) C2:C11, \"EB\", I2:I11 in the correct order", "(c) ROUND around AVERAGE", "(c) I2:I11 and 2 decimal places"],
+      model: "<pre><code>(a) =COUNTIF(E2:E11,\"Y\")\n(b) =SUMIF(C2:C11,\"EB\",I2:I11)\n(c) =ROUND(AVERAGE(I2:I11),2)</code></pre>" },
+    { n: "5", cmd: "Explain", q: "Explain why an absolute reference was needed for L2 in question 2 but a relative reference was used for G2.", m: 2,
+      pts: ["G2 is relative so it changes to G3, G4… for each row/customer when replicated", "L2 is absolute because every row must use the same single discount rate / it must not change when replicated"],
+      model: "<p>When the formula is replicated, G2 must change to G3, G4 and so on so that each customer’s own cost is used <span class='m'>[1]</span>, whereas every row uses the same discount rate stored only in L2, so it must stay fixed with $L$2 <span class='m'>[1]</span>.</p>" },
+    { n: "6", cmd: "Describe", q: "The manager wants to see only Mountain Bike hires that lasted <strong>more than 2 hours</strong>. Describe the search criteria needed.", m: 3,
+      pts: ["Bike Code field/column = MB", "Hours field/column > 2", "Both conditions joined with AND"],
+      trap: "Using >= 2 includes the 2-hour hires — read the operator carefully. Using OR would show every MB hire plus every long hire." },
+    { n: "7", cmd: "Describe", q: "The Hours column must only accept values from 1 to 12. (a) Name the type of validation check. (b) Give one example each of normal, extreme and abnormal test data and the expected result.", m: 5,
+      pts: ["(a) Range check", "Normal e.g. 5 — accepted", "Extreme e.g. 1 or 12 — accepted", "Abnormal e.g. 15 / −3 / ‘ten’ — rejected", "Expected outcomes stated (accepted/rejected with error message)"],
+      trap: "Extreme data is the boundary value that IS accepted — 13 is abnormal, not extreme." },
+    { n: "8", cmd: "Code", q: "Write the HTML for the head section of a web page that: has the title <em>Weihai Cycle Hire</em>; uses the UTF-8 character set; names the author as <em>Mina Park</em>; has a viewport so it scales on mobiles; attaches the stylesheet <code>cycle.css</code> stored in the same folder.", m: 5,
+      pts: ["&lt;title&gt;Weihai Cycle Hire&lt;/title&gt; inside head", "&lt;meta charset=\"UTF-8\"&gt;", "&lt;meta name=\"author\" content=\"Mina Park\"&gt;", "&lt;meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"&gt;", "&lt;link rel=\"stylesheet\" href=\"cycle.css\"&gt; with relative path"],
+      model: "<pre><code>&lt;head&gt;\n  &lt;meta charset=\"UTF-8\"&gt;\n  &lt;meta name=\"author\" content=\"Mina Park\"&gt;\n  &lt;meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"&gt;\n  &lt;title&gt;Weihai Cycle Hire&lt;/title&gt;\n  &lt;link rel=\"stylesheet\" href=\"cycle.css\"&gt;\n&lt;/head&gt;</code></pre>" },
+    { n: "9", cmd: "Code", q: "Write the HTML to display the image <code>bike.jpg</code> 300 pixels wide, keeping its aspect ratio, with suitable alternative text. Make the image a hyperlink to <code>https://www.example.com/bikes</code> that opens in a new window.", m: 5,
+      pts: ["&lt;img src=\"bike.jpg\"&gt;", "alt=\"…\" with suitable text", "width=\"300\" only (no height / height scaled correctly)", "&lt;a href=\"https://www.example.com/bikes\"&gt; around the img", "target=\"_blank\""],
+      model: "<pre><code>&lt;a href=\"https://www.example.com/bikes\" target=\"_blank\"&gt;\n  &lt;img src=\"bike.jpg\" alt=\"Mountain bike for hire\" width=\"300\"&gt;\n&lt;/a&gt;</code></pre>" },
+    { n: "10", cmd: "Code", q: "Write CSS rules so that: h1 headings are centred, colour <code>#1F3864</code>, 32 pixels, in Verdana or, if not available, any sans-serif font; and a class called <code>warning</code> displays bold text on a yellow (<code>#FFFF00</code>) background.", m: 6,
+      pts: ["h1 selector with braces", "text-align: center;", "color: #1F3864;", "font-size: 32px; and font-family: Verdana, sans-serif;", ".warning selector (with a full stop)", "font-weight: bold; background-color: #FFFF00;"],
+      trap: "Missing semicolons or units (32 instead of 32px) — the rule is ignored by the browser and the mark is lost.",
+      model: "<pre><code>h1 { text-align: center; color: #1F3864; font-size: 32px;\n     font-family: Verdana, sans-serif; }\n.warning { font-weight: bold; background-color: #FFFF00; }</code></pre>" },
+    { n: "11", cmd: "Explain", q: "Explain why web designers use relative file paths rather than absolute file paths.", m: 2,
+      pts: ["An absolute path points to a location on one computer (e.g. C:\\…)", "When the site is uploaded/moved to a web server that location does not exist, so files/images/links break", "A relative path works from the page’s own folder, so it still works after the site is moved"],
+      max: "any two" },
+    { n: "12", cmd: "Explain", q: "A web page has an external stylesheet that sets <code>p { color: blue; }</code> and a paragraph written as <code>&lt;p style=\"color: red\"&gt;</code>. State what colour the paragraph will be and explain why.", m: 2,
+      pts: ["Red", "Inline styles take priority over (override) external stylesheets / the cascade"] },
+    { n: "13", cmd: "Describe", q: "Describe the purpose of the content layer, the presentation layer and the behaviour layer of a web page.", m: 3,
+      pts: ["Content layer: HTML — the structure/content of the page (text, images, tables)", "Presentation layer: CSS — how the page looks / formatting / layout", "Behaviour layer: scripts — interactivity / responding to user actions"] }
+  ],
+
+  cards: [
+    { en: "Relative reference", ko: "상대 참조", d: "A cell reference (e.g. B2) that changes when the formula is replicated." },
+    { en: "Absolute reference", ko: "절대 참조", d: "A cell reference with $ signs (e.g. $B$2) that does not change when replicated." },
+    { en: "Mixed reference", ko: "혼합 참조", d: "Only the row or the column is fixed, e.g. $B2 or B$2." },
+    { en: "Named range", ko: "이름 정의 범위", d: "A cell or range given a name (e.g. RATES); acts like an absolute reference." },
+    { en: "Formula", ko: "수식", d: "A calculation starting with =, e.g. =B2*C2." },
+    { en: "Function", ko: "함수", d: "A built-in named formula, e.g. SUM, IF, VLOOKUP." },
+    { en: "Replicate", ko: "복제 (채우기)", d: "Copy a formula to other cells so it adjusts for each row/column." },
+    { en: "Nested IF", ko: "중첩 IF", d: "An IF inside another IF, giving more than two possible results." },
+    { en: "Lookup", ko: "조회 (찾기)", d: "Finds a value in a table and returns related data (VLOOKUP, HLOOKUP, XLOOKUP)." },
+    { en: "Exact match", ko: "정확히 일치", d: "FALSE/0 in VLOOKUP — only returns a result if the value is found exactly." },
+    { en: "Criteria", ko: "조건", d: "The condition a cell must meet, e.g. \"Y\" or \">100\"." },
+    { en: "Sort", ko: "정렬", d: "Put rows in ascending or descending order." },
+    { en: "Filter / search", ko: "필터 / 검색", d: "Show only the rows that meet the criteria." },
+    { en: "Wildcard", ko: "와일드카드", d: "* stands for any characters, e.g. M* = anything starting with M." },
+    { en: "Validation", ko: "유효성 검사", d: "A check that data entered is sensible/allowed (range, type, length, list)." },
+    { en: "Normal data", ko: "정상 데이터", d: "Typical data that should be accepted." },
+    { en: "Extreme data", ko: "극단 (경계) 데이터", d: "Data at the boundary that should still be accepted, e.g. 1 and 12." },
+    { en: "Abnormal data", ko: "비정상 데이터", d: "Data that should be rejected, e.g. 15, −3, ‘ten’." },
+    { en: "Conditional formatting", ko: "조건부 서식", d: "Formatting that changes automatically when a condition is met." },
+    { en: "Content layer", ko: "콘텐츠 층", d: "HTML — the structure and content of a web page." },
+    { en: "Presentation layer", ko: "표현 층", d: "CSS — the formatting and layout of a web page." },
+    { en: "Behaviour layer", ko: "동작 층", d: "Scripts — the interactive parts of a web page." },
+    { en: "Head section", ko: "헤드 영역", d: "Holds information about the page: title, meta tags, stylesheet links." },
+    { en: "Meta tag", ko: "메타 태그", d: "Information about the page, e.g. author, description, keywords, viewport, charset." },
+    { en: "Viewport", ko: "뷰포트", d: "The visible area of a page; the meta tag makes the page scale on any device." },
+    { en: "Hyperlink", ko: "하이퍼링크", d: "Clickable text/image that goes to another page, site, email or bookmark." },
+    { en: "Bookmark (anchor)", ko: "책갈피 (앵커)", d: "A named point on a page (id) that a link can jump to with #name." },
+    { en: "Alt text", ko: "대체 텍스트", d: "Text shown if an image cannot load; read aloud by screen readers." },
+    { en: "colspan / rowspan", ko: "열 병합 / 행 병합", d: "Merge table cells across columns / down rows." },
+    { en: "Stylesheet", ko: "스타일시트", d: "A file of CSS rules (.css) that controls how pages look." },
+    { en: "Class", ko: "클래스", d: "A reusable style (.name) that can be applied to many elements." },
+    { en: "ID", ko: "아이디", d: "A style or bookmark (#name) for one single element." },
+    { en: "Generic font family", ko: "일반 글꼴 계열", d: "serif, sans-serif or monospace — used if the named font is not available." },
+    { en: "Relative file path", ko: "상대 경로", d: "A path from the current page’s folder, e.g. images/bike.jpg." },
+    { en: "Absolute file path", ko: "절대 경로", d: "A full path to one computer’s location, e.g. C:\\Users\\… — breaks when uploaded." },
+    { en: "Hex colour code", ko: "16진수 색상 코드", d: "#RRGGBB, e.g. #FF0000 = red." }
+  ]
+};
+</script>
+<script src="practice.js"></script>
+</body>
+</html>

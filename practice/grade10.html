@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 10 Midterm Practice</title>
+<meta name="description" content="Grade 10 Cambridge IGCSE ICT 0417 midterm study and exam practice: Paper 1 theory Units 1–6 and Unit 18 Databases, with Cambridge-style structured questions and mark schemes.">
+<link rel="stylesheet" href="practice.css">
+<style>
+  .sheet table { font-family: var(--mono); font-size: .82rem; }
+  .sheet td.h { font-weight: 700; background: var(--accent-soft); }
+  .unit-tag { display: inline-block; font-size: .75rem; font-weight: 700; background: var(--accent-soft); color: var(--accent); padding: 2px 8px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<header class="banner">
+  <div class="wrap">
+    <a class="home" href="../IGCSE_ICT.html">← IGCSE ICT hub</a>
+    <div class="eyebrow" style="margin-top:10px">G R A D E &nbsp; 1 0 &nbsp; · &nbsp; M I D T E R M &nbsp; · &nbsp; P A P E R S &nbsp; 1 – 3</div>
+    <h1>Theory Units 1–6 &amp; Databases — Exam Practice</h1>
+    <div class="ko">이론 1–6단원 &amp; 데이터베이스 — 시험 대비 연습</div>
+    <div class="meta">
+      <span class="chip">Cambridge IGCSE ICT 0417</span>
+      <span class="chip">Paper 1 Theory</span>
+      <span class="chip">Unit 18 Databases (Paper 2)</span>
+      <span class="chip">Mr Glen Joshua · WZFS <span id="year">2026–27</span></span>
+    </div>
+  </div>
+</header>
+
+<nav class="topnav" aria-label="Sections">
+  <div class="wrap">
+    <a href="#start">Start</a>
+    <a href="#writing">How to write answers</a>
+    <a href="#u1">U1 Systems</a>
+    <a href="#u2">U2 Input/Output</a>
+    <a href="#u3">U3 Storage</a>
+    <a href="#u4">U4 Networks</a>
+    <a href="#u5">U5 Effects of IT</a>
+    <a href="#u6">U6 Applications</a>
+    <a href="#u18">U18 Databases</a>
+    <span class="sep"></span>
+    <a class="prac" href="#p-blanks">✎ Recall</a>
+    <a class="prac" href="#p-exam">✎ Paper 1 questions</a>
+    <a class="prac" href="#p-db">✎ Database table</a>
+    <a class="prac" href="#p-cards">✎ Key terms</a>
+    <button class="theme-btn" type="button" aria-label="Toggle dark mode">◐</button>
+  </div>
+</nav>
+
+<main>
+
+<!-- ======================================================= START -->
+<section class="block" id="start">
+  <div class="sec-head"><span class="num">00</span><h2>Your midterm</h2><span class="ko">중간고사 안내</span></div>
+  <p class="lead">You sit <strong>all three papers</strong>. This guide covers the theory you have studied so far (Units 1–6) for Paper 1 and the database skills (Unit 18) for Paper 2. For Paper 3 (spreadsheets and websites) use the <a href="grade9.html">Paper 3 practice guide</a>.</p>
+  <div id="progress" class="progress-panel" aria-live="polite"></div>
+  <div class="tbl-wrap" style="margin-top:12px"><table>
+    <thead><tr><th>Paper</th><th>Type</th><th>Time</th><th>Content for this midterm</th></tr></thead>
+    <tbody>
+      <tr><th>Paper 1</th><td>Theory — written answers</td><td>1 h 30 min</td><td>Units 1–6 (this page)</td></tr>
+      <tr><th>Paper 2</th><td>Practical</td><td>2 h 15 min</td><td>Document production, databases (Unit 18 — this page), presentations</td></tr>
+      <tr><th>Paper 3</th><td>Practical</td><td>2 h 15 min</td><td>Spreadsheets, website authoring (<a href="grade9.html">Paper 3 guide</a>)</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ======================================================= WRITING -->
+<section class="block" id="writing">
+  <div class="sec-head"><span class="num">01</span><h2>How to write answers that score</h2><span class="ko">점수를 받는 답안 작성법</span></div>
+  <div class="callout gold"><strong>The golden rule: marks = points.</strong> A 4-mark question needs four separate, correct points. Write <strong>one sentence per mark</strong>. Never use brand names — write “operating system”, not a product name.</div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Command word</th><th>What the examiner wants</th><th>Sentence shape</th></tr></thead>
+    <tbody>
+      <tr><th>State / Name / Give</th><td>A short fact — no explanation needed</td><td>“Router.” / “It is non-volatile.”</td></tr>
+      <tr><th>Describe</th><td>What it is / what it does, in detail</td><td>“A ____ is ____. It is used to ____.”</td></tr>
+      <tr><th>Explain</th><td>Reasons — how and <em>why</em></td><td>“____ because ____, so ____.”</td></tr>
+      <tr><th>Compare</th><td>Similarities/differences — <em>both</em> things in each point</td><td>“____ is ____, <strong>whereas</strong> ____ is ____.”</td></tr>
+      <tr><th>Discuss / Evaluate</th><td>Both sides (advantages AND disadvantages), then a conclusion</td><td>“One advantage is… However… Overall…”</td></tr>
+      <tr><th>Recommend</th><td>A choice + justified reasons linked to the scenario</td><td>“I recommend ____ because in this scenario ____.”</td></tr>
+    </tbody>
+  </table></div>
+  <div class="grid two">
+    <div class="card">
+      <h3 style="margin-top:0">NAME · SAY · TIE — for scenario questions</h3>
+      <ol class="steps">
+        <li><strong>NAME</strong> the device/term.</li>
+        <li><strong>SAY</strong> what it does.</li>
+        <li><strong>TIE</strong> it to the scenario in the question.</li>
+      </ol>
+      <div class="model"><div class="label">Example</div>A <strong>barcode reader</strong> <span class="m">[name]</span> scans the barcode on each product to read its number <span class="m">[say]</span>, so the supermarket’s stock level is updated automatically when the item is sold <span class="m">[tie]</span>.</div>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">Sentence frames bank</h3>
+      <ul class="points">
+        <li><strong>Compare:</strong> ____ is ____, whereas ____ is ____.</li>
+        <li><strong>Reason:</strong> ____ because ____. This means that ____.</li>
+        <li><strong>Advantage:</strong> One advantage of ____ is that ____, so ____.</li>
+        <li><strong>Disadvantage:</strong> However, a drawback is that ____, which could ____.</li>
+        <li><strong>Recommend:</strong> I recommend ____ because ____. Although ____, this is less important because ____.</li>
+        <li><strong>Connectives:</strong> whereas · however · because · therefore · so · this means · for example · overall</li>
+      </ul>
+    </div>
+  </div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Answer that scores 0</th><th>Why</th><th>Fix</th></tr></thead>
+    <tbody>
+      <tr><td>“It is faster / cheaper / easier.”</td><td>Too vague — faster than what? at what?</td><td>“An SSD has faster data access times than an HDD because it has no moving parts.”</td></tr>
+      <tr><td>A brand name (a product or company)</td><td>Never credited</td><td>Use the generic term</td></tr>
+      <tr><td>Repeating the question</td><td>No new point</td><td>Add the reason or effect</td></tr>
+      <tr><td>Compare answer about one thing only</td><td>Not a comparison</td><td>Mention both, joined with “whereas”</td></tr>
+      <tr><td>Discuss answer with only advantages</td><td>One-sided — capped</td><td>Give both sides and a conclusion</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ======================================================= U1 -->
+<section class="block" id="u1">
+  <div class="sec-head"><span class="num">U1</span><h2>Types and components of computer systems</h2><span class="ko">컴퓨터 시스템의 종류와 구성요소</span></div>
+  <div class="grid two">
+    <div class="card">
+      <h3 style="margin-top:0">Hardware vs software</h3>
+      <ul class="points">
+        <li><span class="kw">Hardware</span> 하드웨어 — the <span class="mark">physical</span> components you can touch (CPU, monitor, keyboard).</li>
+        <li><span class="kw">Software</span> 소프트웨어 — <span class="mark">programs</span> / instructions that make the hardware work.</li>
+        <li><span class="kw">Application software</span> — lets the user do tasks: word processor, spreadsheet, database, graphics editing, video editing, CAD, audio editing.</li>
+        <li><span class="kw">System software</span> — runs and manages the computer: operating system, utilities (anti-virus, backup, file compression, defragmentation), device drivers, compilers, linkers.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">Internal components</h3>
+      <ul class="points">
+        <li><span class="kw">CPU</span> 중앙처리장치 — processes instructions and data (fetch–decode–execute); a <span class="mark">microprocessor</span> is a CPU on one chip.</li>
+        <li><span class="kw">Motherboard</span> — main circuit board connecting all components.</li>
+        <li><span class="kw">Graphics card</span> — processes images for the monitor. <span class="kw">Sound card</span> — converts digital sound to signals for speakers. <span class="kw">NIC</span> — connects the computer to a network.</li>
+        <li><span class="kw">Internal storage</span> — HDD / SSD inside the computer.</li>
+      </ul>
+    </div>
+  </div>
+  <h3>RAM vs ROM — the most-asked comparison</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Point of comparison</th><th>RAM 램</th><th>ROM 롬</th></tr></thead>
+    <tbody>
+      <tr><th>Volatile?</th><td><span class="mark">Volatile</span> — contents lost when power is off</td><td><span class="mark">Non-volatile</span> — contents kept without power</td></tr>
+      <tr><th>Read / write</th><td>Can be read from <strong>and written to</strong></td><td><strong>Read only</strong> — contents cannot normally be changed</td></tr>
+      <tr><th>Stores</th><td>Data and programs <span class="mark">currently in use</span> (including the OS)</td><td>The <span class="mark">start-up / boot instructions</span> (BIOS)</td></tr>
+      <tr><th>Size</th><td>Usually larger (GB)</td><td>Usually smaller</td></tr>
+    </tbody>
+  </table></div>
+  <div class="model"><div class="label">Model comparison</div>RAM is volatile, <strong>whereas</strong> ROM is non-volatile <span class="m">[1]</span>. RAM can be read from and written to, <strong>whereas</strong> ROM can only be read <span class="m">[1]</span>. RAM stores the programs and data currently being used, <strong>whereas</strong> ROM stores the boot-up instructions <span class="m">[1]</span>.</div>
+
+  <h3>User interfaces</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Interface</th><th>Advantage</th><th>Disadvantage</th></tr></thead>
+    <tbody>
+      <tr><th>Command line (CLI)</th><td>Direct communication with the computer; uses little memory/processing; experts can work quickly and automate tasks</td><td>Must learn and remember commands; typing errors cause commands to fail; hard for beginners</td></tr>
+      <tr><th>Graphical (GUI)</th><td>Icons, windows, menus — easy to learn; no commands to remember</td><td>Uses more memory and processing power; slower for some expert tasks</td></tr>
+      <tr><th>Dialogue-based</th><td>Hands-free (e.g. while driving); useful for people with disabilities</td><td>Background noise and accents cause errors; limited commands</td></tr>
+      <tr><th>Gesture-based</th><td>Natural, intuitive movements; no physical contact needed</td><td>Accidental gestures may be recognised; limited set of gestures; can be tiring</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Types of computer &amp; emerging technologies</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Type</th><th>Advantages</th><th>Disadvantages</th></tr></thead>
+    <tbody>
+      <tr><th>Desktop</th><td>Easy to upgrade; full-size keyboard/monitor (better ergonomics); usually more powerful for the price</td><td>Not portable; needs mains power and a desk; cables</td></tr>
+      <tr><th>Laptop</th><td>Portable; all parts in one unit; battery powered</td><td>Battery life limited; harder to upgrade; easier to lose/steal</td></tr>
+      <tr><th>Tablet / smartphone</th><td>Very portable; touch screen; built-in camera, GPS, mobile internet</td><td>Small screen/keyboard; limited storage and processing; battery life</td></tr>
+    </tbody>
+  </table></div>
+  <ul class="points">
+    <li><span class="kw">Artificial intelligence (AI)</span> 인공지능 — computers that simulate human intelligence: learning, reasoning, recognising speech/images. Examples: chatbots, recommendation systems, self-driving cars.</li>
+    <li><span class="kw">Extended reality (XR)</span> 확장 현실 — <span class="kw">VR</span> (virtual reality: a fully computer-generated world, headset) and <span class="kw">AR</span> (augmented reality: digital images laid over the real world, e.g. through a phone camera). Uses: training, education, games, retail (try-on).</li>
+  </ul>
+</section>
+
+<!-- ======================================================= U2 -->
+<section class="block" id="u2">
+  <div class="sec-head"><span class="num">U2</span><h2>Input and output devices</h2><span class="ko">입력 및 출력 장치</span></div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Input device</th><th>Typical use</th><th>Advantage</th><th>Disadvantage</th></tr></thead>
+    <tbody>
+      <tr><th>Keyboard</th><td>Entering text</td><td>Fast and accurate for text</td><td>Can cause RSI; slow for non-typists</td></tr>
+      <tr><th>Mouse / touchpad / trackerball</th><td>Pointing and selecting in a GUI</td><td>Fast navigation; trackerball needs little space and suits users with limited movement</td></tr>
+      <tr><th>Touch screen</th><td>Phones, kiosks, POS</td><td>Intuitive; no extra device needed</td><td>Screen gets dirty; limited accuracy</td></tr>
+      <tr><th>Microphone</th><td>Voice input, voice commands</td><td>Hands-free</td><td>Background noise; recognition errors</td></tr>
+      <tr><th>Scanner</th><td>Converting paper documents to digital</td><td>Copies of documents/photos can be stored and edited</td><td>Quality depends on the original</td></tr>
+      <tr><th>Digital camera</th><td>Photos/video</td><td>Images can be transferred instantly; no film</td><td>Large files; battery</td></tr>
+      <tr><th>Sensors</th><td>Monitoring and control (temperature, light, pressure, moisture, pH)</td><td>Continuous, accurate readings — no human needed</td><td>Can fail/drift; need calibrating</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Direct data entry (DDE)</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Device</th><th>How / where</th></tr></thead>
+    <tbody>
+      <tr><th>Magnetic stripe reader</th><td>Reads data stored on the magnetic stripe of a card (hotel key cards, older bank cards)</td></tr>
+      <tr><th>Chip and PIN reader</th><td>Reads the chip on a bank card; customer enters PIN — more secure than magnetic stripe</td></tr>
+      <tr><th>Contactless card reader</th><td>Card held near the reader (radio waves); quick for small payments</td></tr>
+      <tr><th>RFID reader</th><td>Reads tags using radio waves — no line of sight needed: stock tracking, pet tags, library books, passports</td></tr>
+      <tr><th>OMR</th><td>Optical Mark Recognition — reads marks in set positions: multiple-choice answer sheets, lottery tickets</td></tr>
+      <tr><th>OCR</th><td>Optical Character Recognition — converts printed text into editable text; number-plate recognition</td></tr>
+      <tr><th>Barcode / QR code reader</th><td>Reads product codes at POS; QR codes store URLs and more data</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Output devices</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Device</th><th>Use</th><th>Key point</th></tr></thead>
+    <tbody>
+      <tr><th>Monitor (LCD/LED)</th><td>Displaying output</td><td>LED-backlit screens use less power and are thinner</td></tr>
+      <tr><th>Projector</th><td>Large audience presentations</td><td>Image can be dim in bright rooms</td></tr>
+      <tr><th>Laser printer</th><td>High-volume, fast, high-quality text</td><td>Expensive to buy; toner; low cost per page</td></tr>
+      <tr><th>Inkjet printer</th><td>Home use, photos</td><td>Cheap to buy; ink is expensive; slower</td></tr>
+      <tr><th>3D printer</th><td>Prototypes, prosthetics, parts</td><td>Builds an object layer by layer; slow</td></tr>
+      <tr><th>Speakers</th><td>Sound output</td><td>—</td></tr>
+      <tr><th>Actuators</th><td>Control systems — motors, valves, pumps, heaters</td><td>Turn a signal from the computer into movement/action</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ======================================================= U3 -->
+<section class="block" id="u3">
+  <div class="sec-head"><span class="num">U3</span><h2>Storage devices and media</h2><span class="ko">저장 장치 및 매체</span></div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Type</th><th>Examples</th><th>How it stores data</th><th>Strengths</th><th>Weaknesses</th></tr></thead>
+    <tbody>
+      <tr><th>Magnetic</th><td>Hard disk drive (HDD), magnetic tape</td><td>Magnetised areas on a spinning platter / tape</td><td>Large capacity, low cost per GB; tape good for backups</td><td>Moving parts — can be damaged; slower than SSD; tape is serial access</td></tr>
+      <tr><th>Optical</th><td>CD, DVD, Blu-ray</td><td>Laser reads pits and lands on the disc surface</td><td>Cheap, portable, easy to distribute</td><td>Small capacity; scratches; slow</td></tr>
+      <tr><th>Solid state</th><td>SSD, USB flash drive, memory card</td><td>Electronic flash memory — no moving parts</td><td>Fast access; robust; low power; silent; small</td><td>More expensive per GB; limited number of write cycles</td></tr>
+    </tbody>
+  </table></div>
+  <div class="model"><div class="label">Model — explain why a laptop uses an SSD</div>An SSD has no moving parts, so it is less likely to be damaged if the laptop is dropped <span class="m">[1]</span>. It uses less power, so the laptop’s battery lasts longer <span class="m">[1]</span>. It has faster access times, so the laptop starts and opens files quickly <span class="m">[1]</span>.</div>
+  <ul class="points">
+    <li><span class="kw">Backing storage</span> — non-volatile storage used to keep data permanently (not RAM).</li>
+    <li><span class="kw">Serial / sequential access</span> — data read in order from the start (tape). <span class="kw">Direct access</span> — go straight to the data (disks, SSD).</li>
+    <li><span class="kw">Backup</span> — a copy of data kept separately, so it can be restored if the original is lost or corrupted.</li>
+  </ul>
+</section>
+
+<!-- ======================================================= U4 -->
+<section class="block" id="u4">
+  <div class="sec-head"><span class="num">U4</span><h2>Networks and the effects of using them</h2><span class="ko">네트워크와 그 영향</span></div>
+  <div class="grid two">
+    <div class="card">
+      <h3 style="margin-top:0">Network hardware</h3>
+      <ul class="points">
+        <li><span class="kw">NIC</span> — network interface card; lets a device connect to a network; has a unique <span class="mark">MAC address</span>.</li>
+        <li><span class="kw">Router</span> — connects a LAN to the internet / other networks; directs data packets using <span class="mark">IP addresses</span>.</li>
+        <li><span class="kw">Switch</span> — connects devices in a LAN; sends data only to the device it is addressed to (using MAC addresses).</li>
+        <li><span class="kw">Hub</span> — connects devices in a LAN; sends data to <span class="mark">every</span> device (less secure, more traffic).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">Network types</h3>
+      <ul class="points">
+        <li><span class="kw">LAN</span> — small area (one building), usually cabled.</li>
+        <li><span class="kw">WLAN</span> — wireless LAN using Wi-Fi access points.</li>
+        <li><span class="kw">WAN</span> — large geographical area; the internet is the largest WAN.</li>
+        <li><span class="kw">Internet</span> — worldwide public network of networks. <span class="kw">Intranet</span> — private network inside one organisation. <span class="kw">Extranet</span> — part of an intranet that selected outsiders can access.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Point of comparison</th><th>Wi-Fi</th><th>Bluetooth</th></tr></thead>
+    <tbody>
+      <tr><th>Range</th><td>Longer (about 100 m)</td><td>Shorter (about 10–30 m)</td></tr>
+      <tr><th>Data transfer speed</th><td>Faster</td><td>Slower</td></tr>
+      <tr><th>Number of devices</th><td>Many devices</td><td>Few devices (e.g. phone + headset)</td></tr>
+      <tr><th>Typical use</th><td>Internet access, home/school networks</td><td>Wireless headphones, keyboards, transferring a file between two phones</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Cloud computing 클라우드 컴퓨팅</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Advantage</th><th>Disadvantage</th></tr></thead>
+    <tbody>
+      <tr><td>Files can be accessed from any device, anywhere with internet</td><td>Needs an internet connection — no access if it fails</td></tr>
+      <tr><td>No need to buy/maintain your own storage hardware</td><td>Ongoing subscription costs</td></tr>
+      <tr><td>Provider makes backups — less risk of data loss</td><td>Data is held by a third party — security and privacy concerns</td></tr>
+      <tr><td>Easy to share and collaborate on files</td><td>Provider could go out of business or suffer a data breach</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Network security — authentication</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Method</th><th>How it works</th><th>Weakness</th></tr></thead>
+    <tbody>
+      <tr><th>Passwords</th><td>Strong password: 8+ characters, mix of upper/lower case, numbers, symbols; changed regularly</td><td>Forgotten, guessed, or seen (shoulder surfing); keyloggers</td></tr>
+      <tr><th>Biometrics</th><td>Unique physical features: fingerprint, face, iris, voice</td><td>Expensive; can fail (injury, lighting); privacy concerns</td></tr>
+      <tr><th>Two-factor authentication</th><td>Two different types of proof, e.g. password + code sent to phone</td><td>Need the second device with you</td></tr>
+      <tr><th>Smart cards / physical tokens</th><td>Card or device that must be present</td><td>Can be lost or stolen</td></tr>
+      <tr><th>Firewall</th><td>Monitors traffic in/out of a network and blocks unauthorised access</td><td>Cannot stop threats already inside</td></tr>
+      <tr><th>Anti-malware</th><td>Scans files for viruses/malware and quarantines them</td><td>Must be kept up to date</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Electronic conferencing</h3>
+  <ul class="points">
+    <li><span class="kw">Video conferencing</span> — real-time video + audio; needs webcam, microphone, speakers, software, fast internet. Saves travel time and cost; but time zones, connection problems, less personal.</li>
+    <li><span class="kw">Audio conferencing</span> — voice only (phone or internet); cheap and simple; no visual cues.</li>
+    <li><span class="kw">Web conferencing</span> — over the internet with screen sharing, chat, whiteboards, polls.</li>
+  </ul>
+</section>
+
+<!-- ======================================================= U5 -->
+<section class="block" id="u5">
+  <div class="sec-head"><span class="num">U5</span><h2>The effects of using IT</h2><span class="ko">IT 사용의 영향</span></div>
+  <h3>Microprocessor-controlled devices in the home</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Area</th><th>Positive effect</th><th>Negative effect</th></tr></thead>
+    <tbody>
+      <tr><th>Lifestyle</th><td>Labour-saving (washing machines, robot vacuums) gives more free time; devices can be controlled remotely</td><td>People become lazy / less active; reliance on technology</td></tr>
+      <tr><th>Leisure</th><td>More time for hobbies; smart TVs, games</td><td>Less time outdoors; unhealthy habits</td></tr>
+      <tr><th>Social</th><td>Easy to keep in touch (video calls, social media)</td><td>Less face-to-face interaction; isolation</td></tr>
+      <tr><th>Security</th><td>Smart alarms, cameras, lights can be controlled when away</td><td>Smart devices can be hacked; data collected about the household</td></tr>
+      <tr><th>Environment</th><td>Smart thermostats save energy</td><td>Manufacturing and disposal create e-waste</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Health problems from using computers</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Health issue</th><th>Cause</th><th>Prevention</th></tr></thead>
+    <tbody>
+      <tr><th>RSI (repetitive strain injury) — wrists, fingers</th><td>Repeated typing/clicking for long periods</td><td>Ergonomic keyboard/mouse, wrist rests, regular breaks, correct posture</td></tr>
+      <tr><th>Back and neck problems</th><td>Poor posture; badly positioned screen/chair</td><td>Adjustable chair with back support, screen at eye level, footrest, breaks</td></tr>
+      <tr><th>Eyestrain</th><td>Staring at a screen; glare; flickering</td><td>Regular breaks (look away), anti-glare screen, good lighting, eye tests</td></tr>
+      <tr><th>Headaches</th><td>Glare, poor lighting, eyestrain</td><td>Anti-glare screen, blinds, breaks, correct lighting</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout warn"><strong>Trap</strong> The question asks for a <em>health</em> issue and you give a <em>safety</em> issue (e.g. tripping over cables, electrocution) — 0 marks. Safety is Unit 8.</div>
+</section>
+
+<!-- ======================================================= U6 -->
+<section class="block" id="u6">
+  <div class="sec-head"><span class="num">U6</span><h2>ICT applications</h2><span class="ko">ICT 응용</span></div>
+  <div class="grid two">
+    <div class="card">
+      <h3 style="margin-top:0">Communication &amp; modelling</h3>
+      <ul class="points">
+        <li>Communication media: newsletters, posters/flyers, websites, multimedia presentations, cartoons, music scores; mobile communication: SMS, phone calls, VoIP, video calls.</li>
+        <li><span class="kw">Computer modelling</span> 컴퓨터 모델링 — a mathematical model that simulates a real system: weather forecasting, traffic lights, flight simulators, building design. <em>Advantages:</em> cheaper and safer than building the real thing, “what if” questions, changes are easy. <em>Disadvantages:</em> only as good as the data/rules; may not match reality.</li>
+      </ul>
+      <h3>Computer-controlled systems</h3>
+      <ul class="points">
+        <li><span class="kw">Robotics in manufacturing</span> — welding, painting, assembling. Work 24/7, consistent quality, can work in dangerous places; but expensive to set up, unemployment, cannot handle unusual tasks.</li>
+        <li>Sensor → microprocessor compares reading with a <span class="mark">pre-set value</span> → sends signal to <span class="mark">actuator</span> → loop continues (feedback).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">Banking, retail &amp; booking</h3>
+      <ul class="points">
+        <li><span class="kw">ATM</span> — withdraw cash, check balance, deposit; card + PIN checked against the bank’s records.</li>
+        <li><span class="kw">EFT</span> — electronic funds transfer between accounts, e.g. salaries.</li>
+        <li><span class="kw">Internet banking</span> — 24/7, no travel; but security fears, need internet, less personal.</li>
+        <li><span class="kw">POS / EFTPOS</span> — barcode read → price looked up in stock file → stock level reduced → automatic re-order when below re-order level; card payment checked with bank.</li>
+        <li><span class="kw">Online booking</span> (flights, cinema, events) — choose seats, instant confirmation, e-ticket; prevents double booking.</li>
+        <li><span class="kw">School management</span> — registration (attendance), timetables, student records and grades.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="grid two">
+    <div class="card">
+      <h3 style="margin-top:0">Expert systems 전문가 시스템</h3>
+      <ul class="points">
+        <li>Mimic a human expert: medical diagnosis, mineral prospecting, car fault diagnosis, chess, financial planning.</li>
+        <li><strong>Components:</strong> user interface · <span class="mark">knowledge base</span> (facts) · <span class="mark">rules base</span> (IF–THEN rules) · <span class="mark">inference engine</span> (searches the knowledge base using the rules) · explanation system (explains how it reached the conclusion).</li>
+        <li>Answers given with a <span class="mark">probability</span> / percentage of being correct.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">Medicine &amp; recognition &amp; satellites</h3>
+      <ul class="points">
+        <li><span class="kw">Medicine</span> — patient records, pharmacy records (allergies, interactions), 3D printing of prosthetics/implants.</li>
+        <li><span class="kw">Recognition</span> — OMR (exam answer sheets), OCR, RFID (tracking), ANPR (car parks, speed cameras), biometrics.</li>
+        <li><span class="kw">GPS</span> — satellites send signals; device calculates its position from at least 3 (normally 4) satellites. Used in sat-nav.</li>
+        <li><span class="kw">GIS</span> — layers of data on a map (e.g. hospitals, roads, flood zones) for planning.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================= U18 -->
+<section class="block" id="u18">
+  <div class="sec-head"><span class="num">U18</span><h2>Databases (Paper 2)</h2><span class="ko">데이터베이스</span></div>
+  <div class="grid two">
+    <div class="card">
+      <h3 style="margin-top:0">Structure</h3>
+      <ul class="points">
+        <li><span class="kw">Table</span> → <span class="kw">records</span> (rows, one per item) → <span class="kw">fields</span> (columns, one per attribute).</li>
+        <li><span class="kw">Primary key</span> 기본 키 — a field that <span class="mark">uniquely identifies</span> each record (e.g. StudentID).</li>
+        <li><span class="kw">Foreign key</span> 외래 키 — a field in one table that is the primary key of another, used to <span class="mark">link</span> the tables.</li>
+        <li><span class="kw">Relationship</span> — usually <span class="mark">one-to-many</span>: one customer → many hires.</li>
+        <li><span class="kw">Flat-file</span> = one table (data repeated); <span class="kw">relational</span> = linked tables (less duplication, fewer errors).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">Field types</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Type</th><th>Use for</th></tr></thead>
+        <tbody>
+          <tr><th>Text / alphanumeric</th><td>Names, codes, <strong>phone numbers</strong> (leading 0, no maths)</td></tr>
+          <tr><th>Numeric — integer</th><td>Whole numbers, e.g. quantity</td></tr>
+          <tr><th>Numeric — decimal / currency</th><td>Prices, measurements</td></tr>
+          <tr><th>Date/time</th><td>Dates of birth, hire dates</td></tr>
+          <tr><th>Boolean / logical (Yes/No)</th><td>Two possible values: member Y/N</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+  <h3>Queries (searches)</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Need</th><th>Criteria</th></tr></thead>
+    <tbody>
+      <tr><th>Exact match</th><td><code>="MB"</code></td></tr>
+      <tr><th>Greater / less than</th><td><code>&gt;100</code> · <code>&lt;=50</code></td></tr>
+      <tr><th>Range</th><td><code>Between 10 And 20</code> or <code>&gt;=10 And &lt;=20</code></td></tr>
+      <tr><th>Starts with / contains</th><td><code>Like "C*"</code> · <code>Like "*bike*"</code></td></tr>
+      <tr><th>Not equal</th><td><code>&lt;&gt;"TB"</code> or <code>Not "TB"</code></td></tr>
+      <tr><th>Two fields, both true</th><td>Criteria on the <strong>same</strong> row of the query grid = AND</td></tr>
+      <tr><th>Either condition</th><td>Criteria on <strong>different</strong> rows (or using Or) = OR</td></tr>
+      <tr><th>Calculated field</th><td><code>Total: [Hours]*[Rate]</code></td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout tip"><strong>Paper 2 database marks you can bank</strong> Correct field types and primary key at import · relationship created · query criteria exactly as asked · only the fields asked for shown, in the order asked · sort order correct · report with title, all data fully visible, fitted to the page width, calculated totals/averages in the footer, your details in the header.</div>
+  <h3 id="p-db">Library table — used in questions 20–23</h3>
+  <div class="sheet"><div class="tbl-wrap"><table>
+    <thead><tr><th>BookID</th><th>Title</th><th>Author</th><th>Genre</th><th>Pages</th><th>Price</th><th>Published</th><th>Available</th></tr></thead>
+    <tbody>
+      <tr><td>B101</td><td>Ocean Secrets</td><td>Han</td><td>Science</td><td>320</td><td>¥68.00</td><td>12/03/2021</td><td>Yes</td></tr>
+      <tr><td>B102</td><td>The Last Code</td><td>Patel</td><td>Fiction</td><td>412</td><td>¥55.50</td><td>05/09/2019</td><td>No</td></tr>
+      <tr><td>B103</td><td>Coding for Teens</td><td>Lim</td><td>Computing</td><td>210</td><td>¥89.00</td><td>21/01/2023</td><td>Yes</td></tr>
+      <tr><td>B104</td><td>Silent Hills</td><td>Moreau</td><td>Fiction</td><td>288</td><td>¥42.00</td><td>30/06/2022</td><td>Yes</td></tr>
+      <tr><td>B105</td><td>Weather Watch</td><td>Han</td><td>Science</td><td>150</td><td>¥35.00</td><td>14/11/2018</td><td>No</td></tr>
+      <tr><td>B106</td><td>Cloud Basics</td><td>Okafor</td><td>Computing</td><td>390</td><td>¥99.00</td><td>02/02/2024</td><td>Yes</td></tr>
+    </tbody>
+  </table></div></div>
+  <p class="ko-line">Try the questions in P2 below, then repeat them for real in your database software using the file on Schoology.</p>
+</section>
+
+<!-- ======================================================= RECALL -->
+<section class="block" id="p-blanks">
+  <div class="sec-head"><span class="num">P1</span><h2>Quick recall — complete the key facts</h2><span class="ko">빠른 복습</span></div>
+  <p class="lead">Warm up with the key words. Then move on to the full exam questions.</p>
+  <div id="blanks"></div>
+</section>
+
+<!-- ======================================================= EXAM -->
+<section class="block" id="p-exam">
+  <div class="sec-head"><span class="num">P2</span><h2>Paper 1 — Cambridge-style structured questions</h2><span class="ko">1번 시험지 형식 문제</span></div>
+  <p class="lead">Answer in full sentences. Look at the marks in brackets — that is how many separate points you need. Then open the mark scheme, tick honestly, and read the zero-mark traps.</p>
+  <div id="exam"></div>
+</section>
+
+<!-- ======================================================= CARDS -->
+<section class="block" id="p-cards">
+  <div class="sec-head"><span class="num">P3</span><h2>Key terms — flashcards &amp; glossary</h2><span class="ko">핵심 용어</span></div>
+  <div id="cards"></div>
+  <h3>Full glossary</h3>
+  <div id="glossary"></div>
+</section>
+
+<section class="block" id="final">
+  <div class="sec-head"><span class="num">✓</span><h2>Before the midterm — I can…</h2><span class="ko">시험 전 체크리스트</span></div>
+  <div class="card">
+    <ul class="checklist" data-key="cando10">
+      <li>compare RAM and ROM in three “whereas” sentences</li>
+      <li>describe four types of user interface with an advantage and disadvantage of each</li>
+      <li>explain what AI, VR and AR are with an example of each</li>
+      <li>name a suitable input/output device for a scenario and justify it (NAME · SAY · TIE)</li>
+      <li>describe OMR, OCR, RFID, chip and PIN, barcode and QR code readers</li>
+      <li>compare magnetic, optical and solid-state storage</li>
+      <li>describe the purpose of a router, switch, hub and NIC</li>
+      <li>compare Wi-Fi and Bluetooth; explain internet, intranet and extranet</li>
+      <li>discuss the advantages and disadvantages of cloud storage</li>
+      <li>describe methods of authentication including two-factor authentication</li>
+      <li>describe health problems from computer use with causes and prevention</li>
+      <li>describe expert systems, robotics, POS/EFTPOS, banking and booking systems</li>
+      <li>choose field types, set a primary key and write query criteria (AND/OR, wildcards, ranges)</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">Grade 10 Midterm Practice Guide · Cambridge IGCSE ICT 0417 · Mr Glen Joshua · WZFS · Your answers are saved only in this browser.</footer>
+
+<script>
+window.PRACTICE = {
+  id: "g10-midterm",
+  blanks: [
+    { t: "Unit 1", s: "RAM is {{volatile}}, whereas ROM is {{non-volatile|nonvolatile}}." },
+    { t: "Unit 1", s: "ROM stores the {{boot|start-up|startup|BIOS|boot-up}} instructions, whereas RAM stores the data and programs currently in use." },
+    { t: "Unit 1", s: "Software that runs and manages the computer, e.g. an operating system, is called {{system}} software." },
+    { t: "Unit 1", s: "An interface where the user types commands is a {{command line|command line interface|CLI}} interface." },
+    { t: "Unit 1", s: "{{Augmented reality|AR}} lays digital images over a view of the real world; {{virtual reality|VR}} creates a completely computer-generated world." },
+    { t: "Unit 2", s: "Multiple-choice exam answer sheets are read using {{OMR}}." },
+    { t: "Unit 2", s: "{{RFID}} reads tags using radio waves without needing line of sight." },
+    { t: "Unit 2", s: "A device that turns a signal from a computer into movement, e.g. a motor or valve, is an {{actuator}}." },
+    { t: "Unit 2", s: "A {{laser}} printer is best for printing large volumes of high-quality text quickly." },
+    { t: "Unit 3", s: "A {{solid state|solid-state|SSD}} drive has no moving parts." },
+    { t: "Unit 3", s: "Magnetic tape uses {{serial|sequential}} access, so it is mainly used for backups." },
+    { t: "Unit 4", s: "A {{router}} connects a LAN to the internet and directs packets using IP addresses." },
+    { t: "Unit 4", s: "A {{switch}} sends data only to the device it is addressed to, whereas a {{hub}} sends it to every device." },
+    { t: "Unit 4", s: "A private network used only within one organisation is an {{intranet}}." },
+    { t: "Unit 4", s: "Using a password and a code sent to your phone is called {{two-factor authentication|two factor authentication|2FA}}." },
+    { t: "Unit 4", s: "A {{firewall}} monitors traffic entering and leaving a network and blocks unauthorised access." },
+    { t: "Unit 5", s: "Repeated typing for long periods can cause {{RSI|repetitive strain injury}}." },
+    { t: "Unit 5", s: "An {{anti-glare|antiglare}} screen and regular breaks help prevent eyestrain." },
+    { t: "Unit 6", s: "In an expert system, the {{inference engine}} uses the rules base to search the knowledge base." },
+    { t: "Unit 6", s: "At a supermarket checkout, when the stock level falls below the {{re-order level|reorder level}}, new stock is ordered automatically." },
+    { t: "Unit 6", s: "A device calculates its position by receiving signals from {{satellites|satellite}} in GPS." },
+    { t: "Unit 18", s: "A field that uniquely identifies each record is the {{primary key}}." },
+    { t: "Unit 18", s: "A phone number should be stored as a {{text|alphanumeric}} field so the leading zero is kept." },
+    { t: "Unit 18", s: "To find titles starting with C, use the criteria Like \"{{C*}}\"." }
+  ],
+
+  exam: [
+    { n: "1", cmd: "Compare", q: "<span class='unit-tag'>U1</span> Compare RAM and ROM.", m: 4,
+      pts: ["RAM is volatile whereas ROM is non-volatile", "RAM can be read from and written to whereas ROM is read only", "RAM stores data/programs currently in use whereas ROM stores the boot-up instructions/BIOS", "RAM is usually larger capacity than ROM", "Both are internal / primary memory directly accessed by the CPU (similarity)"],
+      max: "any four",
+      trap: "Writing “RAM is temporary” and nothing about ROM is not a comparison. “RAM is faster” alone is not credited.",
+      model: "<p>RAM is volatile, whereas ROM is non-volatile <span class='m'>[1]</span>. RAM can be written to and read from, whereas ROM can only be read <span class='m'>[1]</span>. RAM holds the programs and data in use, whereas ROM holds the start-up instructions <span class='m'>[1]</span>. RAM usually has a much larger capacity than ROM <span class='m'>[1]</span>.</p>" },
+    { n: "2", cmd: "Describe", q: "<span class='unit-tag'>U1</span> Describe what is meant by <em>system software</em> and give <strong>two</strong> examples.", m: 3,
+      pts: ["Software/programs that run and manage the computer hardware / provide a platform for applications", "Example: operating system", "Example: utility (anti-virus, backup, compression, defragmentation), device driver, compiler, linker"],
+      trap: "Brand names of operating systems score 0 — write “operating system”." },
+    { n: "3", cmd: "Explain", q: "<span class='unit-tag'>U1</span> A car manufacturer is considering a gesture-based interface for its dashboard. Explain <strong>two</strong> advantages and <strong>one</strong> disadvantage of a gesture-based interface in this scenario.", m: 3,
+      pts: ["Driver does not need to touch / look for buttons, so fewer distractions", "Natural / intuitive movements are easy to learn", "Can be used without removing gloves / hands stay near wheel", "Disadvantage: accidental gestures may be recognised (e.g. waving at a passenger)", "Disadvantage: limited number of gestures / may not recognise gestures correctly"],
+      max: "max 2 advantages + 1 disadvantage" },
+    { n: "4", cmd: "Describe", q: "<span class='unit-tag'>U1</span> Describe what is meant by <em>augmented reality</em> and give an example of its use.", m: 3,
+      pts: ["Computer-generated images/information are laid over / added to a view of the real world", "Viewed through a device such as a smartphone camera or smart glasses", "Example: trying on glasses/furniture in your room, navigation arrows, games, training/medical overlays"] },
+    { n: "5", cmd: "Identify", q: "<span class='unit-tag'>U2</span> A school is introducing a system to mark multiple-choice tests automatically. (a) Identify the input method. (b) Give <strong>two</strong> advantages and <strong>one</strong> disadvantage of this method.", m: 4,
+      pts: ["(a) OMR / optical mark recognition", "Fast — many sheets read quickly", "More accurate than a human marker / no marking errors", "Results can be processed/analysed automatically", "Disadvantage: forms must be filled in correctly / stray marks or folded sheets cause errors", "Disadvantage: forms must be specially designed/printed, expensive"],
+      max: "1 + 2 advantages + 1 disadvantage",
+      trap: "OCR is the wrong answer — OCR reads characters, OMR reads marks in set positions." },
+    { n: "6", cmd: "Explain", q: "<span class='unit-tag'>U2</span> A greenhouse uses a computer-controlled system to keep the temperature between 20 °C and 25 °C. Explain how the system works.", m: 5,
+      pts: ["A temperature sensor continually measures/sends the temperature", "Data is converted to digital (ADC) for the microprocessor", "Microprocessor compares the reading with the pre-set values (20 and 25)", "If below 20 a signal is sent to an actuator to switch the heater on", "If above 25 a signal is sent to an actuator to open the windows / switch on fan / switch heater off", "The process loops continuously (feedback)"],
+      max: "any five",
+      trap: "“The sensor controls the heater” — sensors only measure; the microprocessor decides and the actuator acts.",
+      model: "<p>A temperature sensor measures the temperature continuously <span class='m'>[1]</span>. The microprocessor compares the reading with the pre-set values of 20 °C and 25 °C <span class='m'>[1]</span>. If it is below 20 °C, the microprocessor sends a signal to an actuator to switch the heater on <span class='m'>[1]</span>. If it is above 25 °C, it sends a signal to an actuator to open the window <span class='m'>[1]</span>. This repeats continuously in a loop <span class='m'>[1]</span>.</p>" },
+    { n: "7", cmd: "Describe", q: "<span class='unit-tag'>U2</span> Describe how RFID is used to track items in a warehouse.", m: 3,
+      pts: ["Each item/pallet has an RFID tag containing a chip and antenna", "Reader sends radio waves; tag responds with its data (ID)", "Does not need line of sight / many tags read at once", "Data sent to the computer to update the item’s location / stock record"],
+      max: "any three" },
+    { n: "8", cmd: "Explain", q: "<span class='unit-tag'>U3</span> A photographer stores thousands of photos. Explain <strong>three</strong> reasons why she might choose an SSD instead of an HDD for her laptop.", m: 3,
+      pts: ["No moving parts so more robust / less damage if dropped", "Faster access times so photos open/load quicker", "Uses less power so longer battery life", "Lighter / smaller / silent / runs cooler"],
+      max: "any three — each must give a reason",
+      trap: "“It is better” / “it is faster” without saying what is faster scores 0." },
+    { n: "9", cmd: "Compare", q: "<span class='unit-tag'>U3</span> Compare optical storage with magnetic storage.", m: 4,
+      pts: ["Optical uses a laser to read pits/lands whereas magnetic uses magnetised areas read by a read/write head", "Optical usually has a smaller capacity whereas magnetic (HDD) has a larger capacity", "Optical discs are cheap and portable for distributing whereas HDDs are usually fixed inside the computer", "Optical is slower to access whereas magnetic HDD is faster", "Optical can be damaged by scratches whereas magnetic can be damaged by magnets / moving parts"],
+      max: "any four" },
+    { n: "10", cmd: "Describe", q: "<span class='unit-tag'>U4</span> Describe the role of a router in a school network.", m: 3,
+      pts: ["Connects the school LAN to the internet / other networks", "Receives data packets and reads the destination IP address", "Forwards/directs packets to the correct network/device by the best route", "Often assigns IP addresses to devices (DHCP)"],
+      max: "any three" },
+    { n: "11", cmd: "Compare", q: "<span class='unit-tag'>U4</span> Compare Wi-Fi and Bluetooth.", m: 4,
+      pts: ["Both are wireless / use radio waves (similarity)", "Wi-Fi has a longer range whereas Bluetooth has a shorter range", "Wi-Fi has a faster data transfer rate whereas Bluetooth is slower", "Wi-Fi can connect many devices whereas Bluetooth connects few (e.g. pairs)", "Wi-Fi used for internet/networks whereas Bluetooth used for peripherals/short transfers"],
+      max: "any four" },
+    { n: "12", cmd: "Discuss", q: "<span class='unit-tag'>U4</span> A small company is deciding whether to store all its files in the cloud instead of on its own server. Discuss the advantages and disadvantages, and give a recommendation.", m: 6,
+      pts: ["Adv: files accessed from anywhere / any device with internet", "Adv: no need to buy/maintain a server / IT staff", "Adv: provider backs up data / easy to scale storage", "Adv: easy collaboration / sharing", "Dis: needs reliable internet — no access when connection fails", "Dis: data stored by a third party — security/privacy concerns, data breach", "Dis: ongoing subscription costs", "Reasoned conclusion/recommendation linked to the company"],
+      max: "max 4 for one side only; conclusion needed for full marks",
+      trap: "Only advantages (or only disadvantages) is capped at 4. A recommendation with no reason gets no credit.",
+      model: "<p>One advantage is that staff can open the files from any device with an internet connection, so they can work from home <span class='m'>[1]</span>. The company would not need to buy and maintain its own server <span class='m'>[1]</span>, and the provider makes backups so data is less likely to be lost <span class='m'>[1]</span>. However, if the internet connection fails, staff cannot access any files <span class='m'>[1]</span>. The data is held by a third party, so there is a risk of a data breach <span class='m'>[1]</span>. Overall, I recommend cloud storage because a small company saves on hardware and IT staff, provided it has reliable internet and uses strong authentication <span class='m'>[1]</span>.</p>" },
+    { n: "13", cmd: "Describe", q: "<span class='unit-tag'>U4</span> Describe <strong>two</strong> methods of authentication, other than a password, that a bank could use for online banking.", m: 4,
+      pts: ["Biometrics — fingerprint/face recognition on the phone", "Unique physical feature compared with a stored template", "Two-factor authentication — one-time code sent to phone/email", "Code must be entered within a time limit, as well as the password", "Physical/electronic token generating a one-time passcode", "Smart card used with a card reader"],
+      max: "2 methods × (1 name + 1 description)" },
+    { n: "14", cmd: "Explain", q: "<span class='unit-tag'>U5</span> Office workers use computers all day. Identify <strong>two</strong> health problems they could suffer and, for each, explain how it could be prevented.", m: 4,
+      pts: ["RSI / wrist pain", "Prevent: ergonomic keyboard/mouse, wrist rests, regular breaks", "Back/neck pain", "Prevent: adjustable chair with back support, screen at eye level, correct posture", "Eyestrain / headaches", "Prevent: anti-glare screen, regular breaks to look away, good lighting"],
+      max: "2 × (problem + prevention)",
+      trap: "Tripping over cables / electric shock are safety issues, not health issues — 0." },
+    { n: "15", cmd: "Discuss", q: "<span class='unit-tag'>U5</span> Discuss the effects of smart, microprocessor-controlled devices on people’s lifestyles.", m: 4,
+      pts: ["Labour-saving devices give more free time", "Devices can be controlled remotely (heating on before arriving home)", "Energy saving with smart thermostats/lighting", "Improved home security (smart alarms, cameras)", "People may become lazy / less active / unhealthy", "Over-reliance on technology; loss of skills", "Devices can be hacked / privacy concerns"],
+      max: "max 3 for one side only" },
+    { n: "16", cmd: "Describe", q: "<span class='unit-tag'>U6</span> Describe how an expert system is used to diagnose a patient’s illness.", m: 5,
+      pts: ["Doctor/patient enters symptoms via the user interface", "Questions asked (yes/no or multiple-choice)", "Inference engine searches the knowledge base", "Using IF–THEN rules from the rules base", "Possible illnesses displayed with a probability / percentage", "Explanation system shows how the conclusion was reached"],
+      max: "any five" },
+    { n: "17", cmd: "Explain", q: "<span class='unit-tag'>U6</span> Explain how a supermarket’s checkout system uses the barcode on a product to update the stock levels automatically.", m: 5,
+      pts: ["Barcode is scanned by the barcode reader", "Barcode number is used to search the stock file/database", "Price and description are found and sent to the POS terminal", "Stock level for that item is reduced by one", "Stock level is compared with the re-order level", "If at/below re-order level, an order is generated automatically / flagged"],
+      max: "any five" },
+    { n: "18", cmd: "Advantages", q: "<span class='unit-tag'>U6</span> Give <strong>two</strong> advantages and <strong>two</strong> disadvantages to a customer of using internet banking.", m: 4,
+      pts: ["Adv: can bank 24/7", "Adv: no travel time/cost to the bank", "Adv: easy to check balances / transfer money quickly", "Dis: risk of fraud / phishing / hacking", "Dis: needs internet connection and a device", "Dis: less personal service / no face-to-face help", "Dis: easier to overspend / lose track"],
+      max: "2 + 2" },
+    { n: "19", cmd: "Describe", q: "<span class='unit-tag'>U6</span> Describe how computer modelling is used to plan a new set of traffic lights at a busy junction.", m: 4,
+      pts: ["Data collected about traffic flow / number of cars at different times", "Data/rules entered into the model", "Different light timings/sequences tested (what-if)", "Results/queues analysed to find the best timing", "Safer/cheaper than testing on real roads"],
+      max: "any four" },
+    { n: "20", cmd: "Field types", q: "<span class='unit-tag'>U18</span> Refer to the <a href='#p-db'>library table</a>. Give the most suitable field type for: (a) BookID (b) Pages (c) Price (d) Published (e) Available.", m: 5,
+      pts: ["(a) Text / alphanumeric", "(b) Numeric — integer", "(c) Numeric — currency / decimal", "(d) Date/time", "(e) Boolean / logical / Yes/No"] },
+    { n: "21", cmd: "Query", q: "<span class='unit-tag'>U18</span> Write the search criteria to find all <strong>Science or Computing</strong> books that are <strong>available</strong>. Name the fields used.", m: 3,
+      pts: ["Genre = \"Science\" OR Genre = \"Computing\"", "Available = Yes", "Correct AND/OR logic: (Science OR Computing) AND Available — Available=Yes on both OR rows in a query grid"],
+      trap: "Science OR Computing AND Available without brackets/both rows returns unavailable Science books (B105)." },
+    { n: "22", cmd: "Query", q: "<span class='unit-tag'>U18</span> State which record(s) would be returned by: Price <code>&gt;50</code> AND Title <code>Like \"*Code*\"</code>. Explain why B103 <em>Coding for Teens</em> is not returned.", m: 2,
+      pts: ["Only B102 The Last Code is returned", "B103: “Coding” does not contain the letters “Code” (it has “Codi…”), so it does not match *Code*"],
+      trap: "Listing B103 as well — read wildcard criteria letter by letter. This is the discriminator question." },
+    { n: "23", cmd: "Explain", q: "<span class='unit-tag'>U18</span> Explain why BookID is a better primary key than Title.", m: 2,
+      pts: ["BookID is unique for every record", "Two books could have the same title (or a title could be changed/misspelt), so Title might not uniquely identify a record"] }
+  ],
+
+  cards: [
+    { en: "Hardware", ko: "하드웨어", d: "The physical components of a computer system." },
+    { en: "Software", ko: "소프트웨어", d: "Programs/instructions that make the hardware work." },
+    { en: "Application software", ko: "응용 소프트웨어", d: "Software that lets users do tasks, e.g. word processing." },
+    { en: "System software", ko: "시스템 소프트웨어", d: "Software that runs and manages the computer, e.g. OS, utilities, drivers." },
+    { en: "CPU", ko: "중앙처리장치", d: "Processes instructions and data (fetch–decode–execute)." },
+    { en: "RAM", ko: "램 (임의 접근 메모리)", d: "Volatile read/write memory holding data and programs in use." },
+    { en: "ROM", ko: "롬 (읽기 전용 메모리)", d: "Non-volatile read-only memory holding start-up instructions." },
+    { en: "Volatile", ko: "휘발성", d: "Loses its contents when the power is switched off." },
+    { en: "Operating system", ko: "운영 체제", d: "Manages hardware, files, memory, users and provides an interface." },
+    { en: "GUI", ko: "그래픽 사용자 인터페이스", d: "Interface using windows, icons, menus and a pointer." },
+    { en: "CLI", ko: "명령줄 인터페이스", d: "Interface where the user types commands." },
+    { en: "Artificial intelligence", ko: "인공지능", d: "Computers simulating human intelligence — learning, reasoning, recognition." },
+    { en: "Virtual reality", ko: "가상 현실", d: "A fully computer-generated 3D world, usually through a headset." },
+    { en: "Augmented reality", ko: "증강 현실", d: "Digital images laid over a live view of the real world." },
+    { en: "Sensor", ko: "센서", d: "Input device that measures a physical quantity, e.g. temperature." },
+    { en: "Actuator", ko: "액추에이터 (구동기)", d: "Output device that causes movement, e.g. motor, valve." },
+    { en: "OMR", ko: "광학 마크 인식", d: "Reads marks made in set positions on a form." },
+    { en: "OCR", ko: "광학 문자 인식", d: "Converts printed/handwritten text into editable text." },
+    { en: "RFID", ko: "무선 주파수 식별", d: "Reads data from tags using radio waves, without line of sight." },
+    { en: "Solid-state storage", ko: "반도체 저장 장치", d: "Flash memory storage with no moving parts (SSD, USB, memory card)." },
+    { en: "Optical storage", ko: "광학 저장 장치", d: "Data read by a laser from a disc (CD, DVD, Blu-ray)." },
+    { en: "Magnetic storage", ko: "자기 저장 장치", d: "Data stored as magnetised areas (HDD, tape)." },
+    { en: "Router", ko: "라우터", d: "Connects networks (LAN to internet) and directs packets using IP addresses." },
+    { en: "Switch", ko: "스위치", d: "Connects LAN devices; sends data only to the intended device." },
+    { en: "NIC", ko: "네트워크 인터페이스 카드", d: "Hardware that lets a device connect to a network; has a MAC address." },
+    { en: "LAN / WAN", ko: "근거리 / 광역 통신망", d: "Network over a small area / a large geographical area." },
+    { en: "Intranet", ko: "인트라넷", d: "A private network for use only within one organisation." },
+    { en: "Extranet", ko: "엑스트라넷", d: "Part of an intranet that selected outside users can access." },
+    { en: "Cloud computing", ko: "클라우드 컴퓨팅", d: "Storing and accessing data/programs on remote servers over the internet." },
+    { en: "Two-factor authentication", ko: "2단계 인증", d: "Two different types of proof of identity, e.g. password + phone code." },
+    { en: "Biometrics", ko: "생체 인식", d: "Authentication using unique body features: fingerprint, face, iris, voice." },
+    { en: "Firewall", ko: "방화벽", d: "Monitors and controls network traffic; blocks unauthorised access." },
+    { en: "RSI", ko: "반복성 긴장 장애", d: "Repetitive strain injury — pain from repeated movements, e.g. typing." },
+    { en: "Expert system", ko: "전문가 시스템", d: "Software that mimics a human expert using a knowledge base and rules." },
+    { en: "Inference engine", ko: "추론 엔진", d: "Part of an expert system that applies rules to the knowledge base." },
+    { en: "EFTPOS", ko: "전자 자금 이체 판매 시점", d: "Electronic funds transfer at the point of sale — card payment at a till." },
+    { en: "GPS", ko: "위성 위치 확인 시스템", d: "Uses satellite signals to calculate a device’s position." },
+    { en: "Computer model", ko: "컴퓨터 모델", d: "A simulation of a real system used to test ‘what if’ scenarios." },
+    { en: "Primary key", ko: "기본 키", d: "A field that uniquely identifies each record." },
+    { en: "Foreign key", ko: "외래 키", d: "A field linking to the primary key of another table." },
+    { en: "Record / field", ko: "레코드 / 필드", d: "A row (one item) / a column (one attribute) in a table." },
+    { en: "Query", ko: "쿼리 (질의)", d: "A search that selects records matching criteria." }
+  ]
+};
+</script>
+<script src="practice.js"></script>
+</body>
+</html>
