@@ -1,0 +1,11 @@
+{
+  "redirects": [
+    { "source": "/revision_portal.html", "destination": "/archive/spring-2026/revision_portal.html", "permanent": false },
+    { "source": "/StudyGuide_G3.html", "destination": "/archive/spring-2026/StudyGuide_G3.html", "permanent": false },
+    { "source": "/StudyGuide_G4.html", "destination": "/archive/spring-2026/StudyGuide_G4.html", "permanent": false },
+    { "source": "/StudyGuide_G5.html", "destination": "/archive/spring-2026/StudyGuide_G5.html", "permanent": false },
+    { "source": "/StudyGuide_G6.html", "destination": "/archive/spring-2026/StudyGuide_G6.html", "permanent": false },
+    { "source": "/StudyGuide_G7.html", "destination": "/archive/spring-2026/StudyGuide_G7.html", "permanent": false },
+    { "source": "/StudyGuide_G8.html", "destination": "/archive/spring-2026/StudyGuide_G8.html", "permanent": false }
+  ]
+}
