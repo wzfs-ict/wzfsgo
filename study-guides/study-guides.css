@@ -1,0 +1,18 @@
+/* Study guides — extras on top of practice.css */
+.gfilter { font: inherit; width: 100%; max-width: 420px; padding: 8px 12px; margin: 6px 0 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); color: var(--text); }
+.gloss td:nth-child(2) { white-space: nowrap; }
+table.selfcheck td.sc { text-align: center; width: 1%; white-space: nowrap; }
+table.selfcheck td.sc label { cursor: pointer; display: inline-flex; gap: 4px; align-items: center; font-size: .85rem; }
+table.selfcheck td.sc span { display: none; }
+table.selfcheck tr.got td:first-child { color: var(--good); }
+table.selfcheck tr.revise td:first-child { color: var(--bad); font-weight: 600; }
+@media (max-width: 600px) { table.selfcheck td.sc span { display: none; } }
+.guide-cards { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr)); margin-top: 16px; }
+.guide-cards a { text-decoration: none; color: inherit; }
+.guide-cards .card { height: 100%; }
+.guide-cards h3 { margin-top: 0; }
+@media print {
+  .gfilter { display: none; }
+  .model, .callout, .tbl-wrap { break-inside: avoid; }
+  table.selfcheck input { display: none; }
+}
