@@ -439,6 +439,18 @@
       stat(cd + "/" + boxes.length, "Checklist items ticked", boxes.length ? cd / boxes.length : 0);
   }
 
+  function initToolkit() {
+  // answer toolkit: reveal plan points one per click
+  document.querySelectorAll(".tk-next").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var box = document.getElementById(b.dataset.target);
+      var next = box && box.querySelector(".tk-pt[hidden]");
+      if (next) next.hidden = false;
+      if (!box.querySelector(".tk-pt[hidden]")) { b.disabled = true; b.textContent = "All points shown"; }
+    });
+  });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initTheme();
     initChecklists();
@@ -447,6 +459,7 @@
     initExam();
     initCards();
     initSandboxes();
+    initToolkit();
     updateProgress();
     var y = document.getElementById("year");
     if (y) y.textContent = "2026–27";
