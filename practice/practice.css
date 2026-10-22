@@ -361,3 +361,5 @@ footer.foot { text-align: center; color: var(--muted); font-size: .85rem; paddin
 .sl-res.ok { color: var(--good); }
 .sl-res.bad { color: var(--bad); }
 @media print { .sl-bar, .sl-tasks .toolbar { display: none; } }
+.grade-stat { border-width: 2px; }
+.grade-stat .v { font-size: 2rem; line-height: 1.1; }

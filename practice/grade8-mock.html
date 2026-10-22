@@ -53,6 +53,11 @@
 <main>
   <div class="callout tip"><strong>Before you start</strong>Have Inkscape open for Part 3. Choose a version, then press <em>Start</em>. Pace yourself: Part 1 ≈ 10 min · Part 2 ≈ 5 min · Part 3 ≈ 20 min. If you are stuck on Part 1, move on — Part 3 is worth the most.</div>
 
+  <div class="card" style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+    <label>Name <input id="sname" type="text" autocomplete="off" style="font:inherit;padding:6px 10px;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--text)"></label>
+    <label>Class <input id="sclass" type="text" autocomplete="off" size="6" style="font:inherit;padding:6px 10px;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--text)"></label>
+    <span class="ko-line">Your name appears on your printed results.</span>
+  </div>
   <div class="timerbar noprint">
     <div class="ver" role="group" aria-label="Version"><button type="button" class="btn small" data-v="A">Mock A</button><button type="button" class="btn small" data-v="B">Mock B</button></div>
     <span class="clock" id="clock">35:00</span>
@@ -93,12 +98,18 @@
 
   <section class="block results" id="res">
     <div class="sec-head"><span class="num">✓</span><h2>Your results</h2><span class="ko">결과</span></div>
+    <div class="card" id="gradecard" style="display:flex;gap:18px;align-items:center;flex-wrap:wrap;border-width:3px">
+      <div style="text-align:center;min-width:110px"><div id="rg" style="font-size:3.4rem;font-weight:800;line-height:1">–</div><div class="ko-line">Grade</div></div>
+      <div style="flex:1;min-width:220px"><div id="rwho" style="font-weight:700"></div><div><span class="scorebig" id="rt">–</span> <span class="ko-line" id="rtime"></span></div><div id="rgmsg" class="ko-line"></div></div>
+    </div>
+    <div class="tbl-wrap"><table id="bands"><thead><tr><th>Grade</th><th>A*</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>U</th></tr></thead>
+      <tbody><tr><th>Marks / 35</th><td>30–35</td><td>26–29</td><td>22–25</td><td>18–21</td><td>14–17</td><td>11–13</td><td>0–10</td></tr></tbody></table></div>
     <div class="grid three">
       <div class="stat"><div class="v" id="r1">–</div><div class="l">Part 1 XML code / 10</div></div>
       <div class="stat"><div class="v" id="r2">–</div><div class="l">Part 2 tools / 5</div></div>
       <div class="stat"><div class="v" id="r3">–</div><div class="l">Part 3 practical (self-marked) / 20</div></div>
     </div>
-    <div class="card" style="margin-top:12px"><span class="scorebig" id="rt">–</span> <span class="ko-line" id="rtime"></span><p id="radvice"></p></div>
+    <div class="card" style="margin-top:12px"><strong>What to do next</strong><p id="radvice"></p></div>
     <div class="toolbar noprint"><button type="button" class="btn small" onclick="window.print()">🖨 Print my results</button></div>
     <h3>Previous attempts on this computer</h3>
     <div id="history" class="ko-line"></div>
@@ -243,6 +254,13 @@
     document.getElementById("r2").textContent = m[1];
     document.getElementById("r3").textContent = s3;
     document.getElementById("rt").textContent = total + " / 35";
+    var g = window.WZFSGrade(total / 35);
+    var rg = document.getElementById("rg"); rg.textContent = g.g; rg.style.color = g.c;
+    document.getElementById("gradecard").style.borderColor = g.c;
+    document.getElementById("rwho").textContent = [st.name, st.cls ? "Class " + st.cls : "", "Mock " + st.v, new Date(st.end || Date.now()).toLocaleDateString()].filter(Boolean).join(" · ");
+    var next = [[30, "A*"], [26, "A"], [22, "B"], [18, "C"], [14, "D"], [11, "E"]].filter(function (b) { return b[0] > total; }).pop();
+    document.getElementById("rgmsg").textContent = (total < 11 ? "Below E — redo the practice tasks and try Mock " + (st.v === "A" ? "B" : "A") + " again. " : "") + (next ? (next[0] - total) + " more mark" + (next[0] - total === 1 ? "" : "s") + " for grade " + next[1] + "." : "Top grade — excellent!");
+    document.querySelectorAll("#bands td").forEach(function (td, i) { td.style.fontWeight = ["A*","A","B","C","D","E","U"][i] === g.g ? "800" : ""; td.style.background = ["A*","A","B","C","D","E","U"][i] === g.g ? "var(--accent-soft)" : ""; });
     var used = st.start ? Math.min(35 * 60, Math.round(((st.end || Date.now()) - st.start) / 1000)) : null;
     document.getElementById("rtime").textContent = used != null ? "Time used: " + Math.floor(used / 60) + " min " + (used % 60) + " s" : "";
     var adv = [];
@@ -267,13 +285,13 @@
     if (!st.start) st.start = Date.now();
     st.end = st.end || Date.now(); st.done = true;
     var total = results();
-    st.hist.unshift({ v: st.v, t: total, d: new Date().toLocaleString() }); st.hist = st.hist.slice(0, 8);
+    st.hist.unshift({ v: st.v, t: total, g: window.WZFSGrade(total / 35).g, d: new Date().toLocaleString() }); st.hist = st.hist.slice(0, 8);
     save(); hist(); tick();
     if (timer) { clearInterval(timer); timer = null; }
     document.getElementById("res").scrollIntoView({ behavior: "smooth" });
   }
   function hist() {
-    document.getElementById("history").innerHTML = st.hist.length ? st.hist.map(function (h) { return "Mock " + h.v + ": <strong>" + h.t + " / 35</strong> — " + esc(h.d); }).join("<br>") : "None yet.";
+    document.getElementById("history").innerHTML = st.hist.length ? st.hist.map(function (h) { return "Mock " + h.v + ": <strong>" + h.t + " / 35" + (h.g ? " · Grade " + esc(h.g) : "") + "</strong> — " + esc(h.d); }).join("<br>") : "None yet.";
   }
 
   document.querySelectorAll(".ver .btn").forEach(function (b) {
@@ -293,7 +311,7 @@
   });
   document.getElementById("reset").addEventListener("click", function () {
     if (!window.confirm("Start a new attempt? Your answers on this version will be cleared (your score history stays).")) return;
-    var v = st.v, h = st.hist; st = { v: v, ans: {}, rub: {}, hist: h }; save();
+    var v = st.v, h = st.hist, nm = st.name, cl = st.cls; st = { v: v, ans: {}, rub: {}, hist: h, name: nm, cls: cl }; save();
     if (timer) { clearInterval(timer); timer = null; }
     document.querySelector("main").classList.remove("locked");
     document.getElementById("shotview").innerHTML = ""; document.getElementById("shot").value = "";
@@ -304,6 +322,11 @@
     var r = new FileReader();
     r.onload = function () { document.getElementById("shotview").innerHTML = '<img alt="Your screenshot" src="' + r.result + '">'; };
     r.readAsDataURL(f);
+  });
+  ["sname", "sclass"].forEach(function (id) {
+    var el = document.getElementById(id), k = id === "sname" ? "name" : "cls";
+    el.value = st[k] || "";
+    el.addEventListener("input", function () { st[k] = el.value.trim(); save(); if (st.done) results(); });
   });
   if (st.start && !st.done) timer = setInterval(tick, 1000);
   render(); hist();

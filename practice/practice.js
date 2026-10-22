@@ -403,6 +403,15 @@
     });
   }
 
+  /* ---------- grades (WZFS grade guide: A* 30–35, A 26–29, B 22–25, C 18–21, D 14–17, E 11–13 out of 35) ---------- */
+  var BANDS = [[30, "A*", "#1e7d4f"], [26, "A", "#1e7d4f"], [22, "B", "#0e7c86"], [18, "C", "#0e7c86"], [14, "D", "#b7791f"], [11, "E", "#b7791f"], [0, "U", "#b42318"]];
+  function gradeFor(pct) {
+    var m = pct * 35 + 1e-9;
+    for (var i = 0; i < BANDS.length; i++) if (m >= BANDS[i][0]) return { g: BANDS[i][1], c: BANDS[i][2] };
+    return { g: "U", c: "#b42318" };
+  }
+  window.WZFSGrade = gradeFor;
+
   /* ---------- progress panel ---------- */
   function updateProgress() {
     var host = document.getElementById("progress");
@@ -415,7 +424,15 @@
     var boxes = document.querySelectorAll("ul.checklist input");
     var cd = 0; boxes.forEach(function (b) { if (b.checked) cd++; });
     function stat(v, l, pct) { return '<div class="stat"><div class="v">' + v + '</div><div class="l">' + l + '</div><div class="bar"><i style="width:' + Math.round(pct * 100) + '%"></i></div></div>'; }
-    host.innerHTML =
+    var got = qr + br + (ex[0] || 0), max = qt + bt + (ex[1] || 0);
+    var gradeHtml = "";
+    if (max) {
+      var pct = got / max, g = gradeFor(pct);
+      var finished = qa === qt;
+      gradeHtml = '<div class="stat grade-stat" style="border-color:' + g.c + '"><div class="v" style="color:' + g.c + '">' + g.g + '</div><div class="l">' +
+        (finished ? "Your grade" : "Grade so far") + " · " + Math.round(pct * 100) + "% of all marks" + (finished ? "" : " — answer every question for your final grade") + "</div></div>";
+    }
+    host.innerHTML = gradeHtml +
       stat(qr + "/" + qt, "Quiz questions correct", qt ? qr / qt : 0) +
       stat(br + "/" + bt, "Blanks filled correctly", bt ? br / bt : 0) +
       stat(ex[0] + "/" + (ex[1] || 0), "Exam marks (self-marked)", ex[1] ? ex[0] / ex[1] : 0) +
