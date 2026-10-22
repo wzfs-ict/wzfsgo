@@ -363,3 +363,12 @@ footer.foot { text-align: center; color: var(--muted); font-size: .85rem; paddin
 @media print { .sl-bar, .sl-tasks .toolbar { display: none; } }
 .grade-stat { border-width: 2px; }
 .grade-stat .v { font-size: 2rem; line-height: 1.1; }
+
+/* how to write answers */
+.qbreak mark, #p-howto mark { padding: 0 3px; border-radius: 4px; color: inherit; }
+mark.hl-cmd { background: var(--accent-soft); outline: 1px solid var(--accent); }
+mark.hl-mk  { background: var(--gold-soft); outline: 1px solid var(--gold); }
+mark.hl-key { background: var(--good-soft); outline: 1px solid var(--good); }
+mark.hl-ctx { background: var(--surface-2); border-bottom: 2px dashed var(--muted); }
+.howto-ta { width: 100%; box-sizing: border-box; font: inherit; padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); color: var(--text); }
+#p-howto td, #p-howto th { overflow-wrap: anywhere; }
