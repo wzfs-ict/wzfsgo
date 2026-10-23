@@ -6,7 +6,9 @@ Every IGCSE ICT page, question, mark scheme or exam paper must match the **Cambr
 - Use the official 21 topic titles and section numbers. Examples: tables are **13.2 Layout**, not 17; Document production is section 17.
 - **Not in the syllabus:** mail merge and MICR. Do not teach them or use them as answers.
 - Generic file formats (11): css, csv, gif, htm, jpg, pdf, png, rtf, txt, zip, rar.
-- Paper 1: compulsory questions on sections 1–21. Paper 2: sections 17–19. Paper 3: sections 20–21. Both practical papers use the skills in 11–16.
+- Paper 1: compulsory multiple-choice, short-answer and structured questions on sections 1–21. Paper 2: sections 17–19. Paper 3: sections 20–21. Both practical papers use the skills in 11–16. No scripting language is required (21: theory of the behaviour layer only).
+- 1.1 hardware includes the CPU, processor and motherboard; RAM and ROM; and the graphics card, sound card, NIC and camera. Fetch-decode-execute and CU/ALU detail are not required.
+- Always check the detailed subject content and component descriptions, not only the overview table.
 - No brand names in exam-style answers; use the generic term.
 
 ## Site
