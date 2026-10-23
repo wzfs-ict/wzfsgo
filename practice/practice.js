@@ -51,6 +51,11 @@
      item: { t: topic, q: question html, o: [options], a: index, e: explanation }
      ========================================================= */
   var quizState = load("quiz", {}); // id -> chosen index
+  // Cambridge 0417 (2026–2028) syllabus reference badge
+  function sref(x) {
+    return x.ref ? ' <span class="sref" title="Cambridge IGCSE ICT 0417 syllabus 2026–2028, section ' + esc(x.ref) + '">Syllabus ' + esc(x.ref) + "</span>" : "";
+  }
+
   function initQuiz() {
     var host = document.getElementById("quiz");
     if (!host || !P.quiz) return;
@@ -107,7 +112,7 @@
         if (onlyWrong && (chosen == null || chosen === x.a)) return;
         n++;
         var q = el("div", "q");
-        q.innerHTML = '<div class="topic">' + esc(x.t || "") + '</div><div class="qhead"><span class="qn">Q' + n + '.</span><span class="qt">' + x.q + "</span></div>";
+        q.innerHTML = '<div class="topic">' + esc(x.t || "") + sref(x) + '</div><div class="qhead"><span class="qn">Q' + n + '.</span><span class="qt">' + x.q + "</span></div>";
         var opts = el("div", "opts");
         var exp = el("div", "explain");
         exp.style.display = "none";
@@ -165,6 +170,7 @@
 
     P.blanks.forEach(function (x, i) {
       var box = el("div", "blank-item" + (x.code ? " code" : ""));
+      if (x.ref) box.innerHTML = sref(x);
       var line = el("div", "line");
       var parts = x.s.split(/\{\{(.+?)\}\}/);
       var answers = [];
@@ -254,7 +260,7 @@
       var st = examState[x.n] || { text: "", ticks: [] };
       var box = el("div", "exam-q");
       box.innerHTML =
-        (x.cmd ? '<span class="cmd">' + esc(x.cmd) + "</span>" : "") +
+        (x.cmd ? '<span class="cmd">' + esc(x.cmd) + "</span>" : "") + sref(x) +
         '<div class="top"><span class="qn">' + esc(x.n) + '</span><div class="qbody">' + x.q + '</div><span class="marks">[' + x.m + "]</span></div>";
       var ta = document.createElement("textarea");
       ta.placeholder = "Write your answer here — one clear point per mark…";

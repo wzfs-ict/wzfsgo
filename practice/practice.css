@@ -416,3 +416,8 @@ table.tk-frames tr.tint td { background: var(--accent-soft); }
 .tk-pt { background: var(--good-soft); border: 1px solid var(--good); border-radius: 10px; padding: 8px 12px; }
 .tk-pt[hidden] { display: none; }
 .tk-pt .m { float: right; }
+
+/* syllabus reference badge (0417 2026–2028) */
+.sref { display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .02em; color: var(--navy); background: var(--accent-soft); border: 1px solid var(--border); border-radius: 999px; padding: 1px 8px; margin-left: 6px; vertical-align: middle; white-space: nowrap; }
+.blank-item > .sref { margin: 0 0 4px; }
+.sec-head .sref { font-size: .78rem; }

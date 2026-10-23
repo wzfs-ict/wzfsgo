@@ -4,9 +4,11 @@
 Every IGCSE ICT page, question, mark scheme or exam paper must match the **Cambridge IGCSE ICT 0417 syllabus for examination in 2026, 2027 and 2028 (version 3, December 2025)**. That syllabus is the only authority. Revision notes and textbooks may include extra content.
 - Source: the PDF "Cambridge IGCSE 0417 Information and Communication Technology syllabus for examination in 2026, 2027 and 2028.pdf" in the teacher's Google Drive.
 - Use the official 21 topic titles and section numbers. Examples: tables are **13.2 Layout**, not 17; Document production is section 17.
-- **Not in the syllabus:** mail merge and MICR. Do not teach them or use them as answers.
+- **Not in the syllabus:** mail merge, MICR, lossy vs lossless compression as a topic (11.2 is only why to reduce file size and .zip/.rar; .jpg/.png characteristics may mention it), data units (KB/MB) and CU/ALU/fetch-decode-execute. Do not teach them or use them as answers.
 - Generic file formats (11): css, csv, gif, htm, jpg, pdf, png, rtf, txt, zip, rar.
-- Paper 1: compulsory questions on sections 1–21. Paper 2: sections 17–19. Paper 3: sections 20–21. Both practical papers use the skills in 11–16.
+- Paper 1: compulsory multiple-choice, short-answer and structured questions on sections 1–21. Paper 2: sections 17–19. Paper 3: sections 20–21. Both practical papers use the skills in 11–16. No scripting language is required (21: theory of the behaviour layer only).
+- 1.1 hardware includes the CPU, processor and motherboard; RAM and ROM; and the graphics card, sound card, NIC and camera. Fetch-decode-execute and CU/ALU detail are not required.
+- Always check the detailed subject content and component descriptions, not only the overview table.
 - No brand names in exam-style answers; use the generic term.
 
 ## Site
