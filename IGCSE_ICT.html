@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IGCSE ICT 0417 — Fall 2026 | Mr. Joshua's ICT</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/tailwind.css">
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; margin: 0; min-height: 100vh; display: flex; flex-direction: column; }
         .traditional-heading { font-family: 'Merriweather', serif; }
@@ -49,6 +48,17 @@
         </section>
 
         <section>
+            <a href="study-guides/index.html" class="academic-card rounded-2xl p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-4">
+                <div class="flex-1">
+                    <p class="text-xs font-semibold tracking-widest text-amber-500 uppercase">Study Guides &amp; Resource Packs</p>
+                    <h2 class="text-xl md:text-2xl font-bold traditional-heading mt-1">How to understand the question and write the answer</h2>
+                    <p class="text-slate-400 text-sm mt-2">Unit 1 · Unit 2 · Unit 12 · Units 13–16 — command words, sentence frames, model answers, zero-mark traps and English/한국어 glossaries.</p>
+                </div>
+                <span class="text-amber-500 font-semibold whitespace-nowrap">Open the study guides →</span>
+            </a>
+        </section>
+
+        <section>
             <h2 class="text-xl font-bold traditional-heading mb-4">How the qualification is assessed</h2>
             <div class="overflow-x-auto rounded-xl border border-slate-700">
                 <table class="w-full text-sm">
@@ -65,9 +75,10 @@
 
         <section>
             <h2 class="text-xl font-bold traditional-heading mb-4">More revision resources</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <a href="past-papers.html" class="academic-card rounded-xl p-5 block"><h3 class="font-bold">📚 Past Papers &amp; Revision Index</h3><p class="text-slate-400 text-sm mt-1">Every 0417 question paper, mark scheme and source file, 2018–2024.</p></a>
-                <a href="practice/paper3.html" class="academic-card rounded-xl p-5 block"><h3 class="font-bold">✎ Paper 3 Practice</h3><p class="text-slate-400 text-sm mt-1">Spreadsheets and Website Authoring — questions and web lab.</p></a>
+                <a href="practice/paper3.html" class="academic-card rounded-xl p-5 block"><h3 class="font-bold">✎ Paper 3 Practice</h3><p class="text-slate-400 text-sm mt-1">Formula lab (type formulas, see every cell marked), web lab and exam questions.</p></a>
+                <a href="practice/functions.html" class="academic-card rounded-xl p-5 block"><h3 class="font-bold">ƒ Functions Glossary</h3><p class="text-slate-400 text-sm mt-1">Every spreadsheet function in syllabus section 20 — try each one live.</p></a>
                 <a href="archive/spring-2026/IGCSE_ICT.html" class="academic-card rounded-xl p-5 block"><h3 class="font-bold">📦 Spring 2026 Revision Hub</h3><p class="text-slate-400 text-sm mt-1">Paper 2 and 3 skills with real mock marking. Useful for Grade 10.</p></a>
             </div>
         </section>

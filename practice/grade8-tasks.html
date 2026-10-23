@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 8 Vector Practice Tasks</title>
+<meta name="description" content="Grade 8 Vector Graphics weekly practice tasks in Inkscape: missions, steps, success criteria, evidence and exit tickets for Weeks 1–7.">
+<link rel="stylesheet" href="practice.css">
+<style>
+  .mission { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; margin: 14px 0; }
+  .mission h3 { margin: 0 0 4px; }
+  .mission .meta-line { color: var(--muted); font-size: .9rem; margin-bottom: 8px; }
+  .tier { display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); margin-top: 10px; }
+  .tier div { border-radius: 10px; padding: 8px 12px; font-size: .9rem; }
+  .tier .s { background: var(--accent-soft); } .tier .c { background: var(--surface-2); } .tier .x { background: var(--gold-soft); }
+  .tier strong { display: block; font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; }
+  .save { font-family: var(--mono); font-size: .85rem; background: var(--surface-2); padding: 2px 8px; border-radius: 6px; }
+</style>
+</head>
+<body>
+<header class="banner">
+  <div class="wrap">
+    <a class="home" href="grade8.html">← Grade 8 study guide</a>
+    <div class="eyebrow" style="margin-top:10px">G R A D E &nbsp; 8 &nbsp; · &nbsp; V E C T O R &nbsp; G R A P H I C S &nbsp; · &nbsp; P R A C T I C E</div>
+    <h1>Weekly Practice Tasks</h1>
+    <div class="ko">주간 실습 과제</div>
+    <div class="meta"><span class="chip">Inkscape</span><span class="chip">Weeks 1–7</span><span class="chip">Tick each step as you go — it saves in this browser</span><span class="chip">Mr Glen Joshua · WZFS</span></div>
+  </div>
+</header>
+<nav class="topnav" aria-label="Weeks"><div class="wrap">
+  <a href="#w1">W1 SVG</a><a href="#w2">W2 Align</a><a href="#w3">W3 Path ops</a><a href="#w4">W4 Evidence</a><a href="#w5">W5 Nodes</a><a href="#w6">W6 Tracing</a><a href="#w7">W7 Project</a>
+  <span class="sep"></span><a class="prac" href="grade8-mock.html">✎ Mock test</a>
+  <button class="theme-btn" type="button" aria-label="Toggle dark mode">◐</button>
+</div></nav>
+
+<main>
+  <div id="progress" class="progress-panel" aria-live="polite"></div>
+  <div class="callout tip" style="margin-top:12px"><strong>How to use this page</strong>Do one mission at a time. Tick each step when it is done. Save your work with the exact file name shown. Then try the exit ticket — write your answer first, then open the answers.</div>
+  <div class="callout gold"><strong>Shortcuts you use every week</strong><kbd>Ctrl</kbd>+<kbd>D</kbd> duplicate · <kbd>Ctrl</kbd>+<kbd>G</kbd> group · <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd> ungroup · <kbd>Shift</kbd>+<kbd>Ctrl</kbd>+<kbd>A</kbd> Align panel · <kbd>Shift</kbd>+click add to selection · <kbd>Esc</kbd> deselect · <kbd>Ctrl</kbd>+<kbd>Z</kbd> undo</div>
+
+  <!-- ================= WEEK 1 ================= -->
+  <section class="block" id="w1">
+    <div class="sec-head"><span class="num">W1</span><h2>Vector vs bitmap &amp; the SVG file</h2><span class="ko">벡터 vs 비트맵 · SVG</span></div>
+    <div class="mission">
+      <h3>Mission 1 — Zoom test</h3>
+      <div class="meta-line">Skill: vector vs bitmap, resolution independence</div>
+      <ul class="checklist" data-key="w1a">
+        <li>Open any photo (a bitmap) and zoom in to 800%. Look at the edges.</li>
+        <li>In Inkscape draw a circle and zoom in to 800%. Look at the edges.</li>
+        <li>Write one sentence using <strong>whereas</strong> to compare what you saw.</li>
+      </ul>
+    </div>
+    <div class="mission">
+      <h3>Mission 2 — Edit the SVG code</h3>
+      <div class="meta-line">Skill: reading SVG code · <a href="grade8.html#t2">open the live SVG editor</a> or Notepad + a browser</div>
+      <ul class="checklist" data-key="w1b">
+        <li>Change a circle’s <code>fill</code> to a new colour.</li>
+        <li>Make the circle bigger by changing <code>r</code>.</li>
+        <li>Move a rectangle right by changing <code>x</code>.</li>
+        <li>Add a <code>stroke</code> and <code>stroke-width</code> to one shape.</li>
+        <li>Put one shape on top of another by changing the <strong>order</strong> of the lines.</li>
+      </ul>
+    </div>
+    <details class="drop"><summary>Exit ticket — answer first, then open</summary><div class="body">
+      <ol><li>A bitmap image is made of ______. A vector image is made of ______.</li><li>Give one reason a school badge should be a vector, not a photograph file.</li><li>What is the difference between fill and stroke?</li></ol>
+      <div class="model"><div class="label">Answers</div><p>1) pixels / mathematics (objects) · 2) it can be enlarged to any size and stay sharp · 3) fill = inside colour, stroke = outline.</p></div>
+    </div></details>
+  </section>
+
+  <!-- ================= WEEK 2 ================= -->
+  <section class="block" id="w2">
+    <div class="sec-head"><span class="num">W2</span><h2>Precision beats eyeballing</h2><span class="ko">정렬 · 분배 · 그룹</span></div>
+    <div class="mission">
+      <h3>Mission 1 — Coin Trail</h3>
+      <div class="meta-line">Skill: duplicate, Align, Distribute · Save as <span class="save">Surname_W02.svg</span></div>
+      <ul class="checklist" data-key="w2a">
+        <li>Draw one gold coin — a yellow circle with a smaller circle inside. Select both, <kbd>Ctrl</kbd>+<kbd>G</kbd>.</li>
+        <li><kbd>Ctrl</kbd>+<kbd>D</kbd> four times. Drag each copy clear — they land directly on top.</li>
+        <li>Select all five (<kbd>Shift</kbd>+click). Align → <strong>Centre on horizontal axis</strong>.</li>
+        <li>Still selected: Distribute → <strong>Make horizontal gaps equal</strong>.</li>
+      </ul>
+    </div>
+    <div class="mission">
+      <h3>Mission 2 — Robot Squad</h3>
+      <div class="meta-line">Skill: group, ungroup, resize</div>
+      <ul class="checklist" data-key="w2b">
+        <li>Build a robot from rectangles. Select all its parts → Group.</li>
+        <li>Duplicate the robot twice. Shrink two copies into sidekicks.</li>
+        <li>Ungroup the leader and recolour one part.</li>
+        <li>Drag each robot — does it stay in one piece?</li>
+      </ul>
+    </div>
+    <div class="callout warn"><strong>Rule</strong>Select more than one object <em>before</em> touching the panel. One object aligns to nothing. Distribute buttons greyed out = fewer than three objects selected.</div>
+    <div class="tier"><div class="s"><strong>Support</strong>Mission 1 only; three coins is enough to distribute.</div><div class="c"><strong>Core</strong>Both missions, saved as Surname_W02.svg.</div><div class="x"><strong>Stretch</strong>Distribute vertically into a grid; Align relative to Page; find out what <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>D</kbd> does.</div></div>
+    <details class="drop"><summary>Exit ticket — answer first, then open</summary><div class="body">
+      <ol><li>Explain the difference between Align and Distribute. <span class="m">[2]</span></li><li>Five coins, wobbly line, uneven gaps. Which tool first, and why? <span class="m">[2]</span></li><li>What does <kbd>Ctrl</kbd>+<kbd>G</kbd> do, and why is it useful when building a robot? <span class="m">[1]</span></li></ol>
+      <div class="model"><div class="label">Answers</div><p>1) Align lines objects up along an edge or centre; Distribute makes the spaces between them equal. 2) Align first — there is no point evening out gaps in a line that is not straight. 3) It groups objects so they move and resize as one.</p></div>
+    </div></details>
+  </section>
+
+  <!-- ================= WEEK 3 ================= -->
+  <section class="block" id="w3">
+    <div class="sec-head"><span class="num">W3</span><h2>Cut, melt and combine</h2><span class="ko">경로 연산</span></div>
+    <div class="mission">
+      <h3>Mission 3 — Cloud, Moon, Castle Rook</h3>
+      <div class="meta-line">Skill: Path › Union, Path › Difference, stacking order · Save as <span class="save">Surname_W03.svg</span></div>
+      <ul class="checklist" data-key="w3a">
+        <li><strong>The Cloud</strong> — 3 circles + 1 rectangle overlapping → select all → <code>Path › Union</code>.</li>
+        <li><strong>The Moon</strong> — 2 circles, one over the other → select both → <code>Path › Difference</code>.</li>
+        <li><strong>Castle Rook</strong> — draw the tower parts → Align to centre → <code>Path › Union</code>.</li>
+        <li>Draw a cross, place it on the tower → <code>Path › Difference</code> to cut it out.</li>
+        <li>Recolour, group and save.</li>
+      </ul>
+    </div>
+    <div class="callout warn"><strong>The top shape is the cutter</strong>In Difference the shape on top cuts and then disappears. Wrong part cut? Undo, press <kbd>Page Down</kbd> on the top shape and try again. The result keeps the bottom shape’s colour.</div>
+    <div class="tier"><div class="s"><strong>Support</strong>Cloud and Moon only; use two very different colours so the top shape is obvious.</div><div class="c"><strong>Core</strong>All three; drag each one to test it is one object.</div><div class="x"><strong>Stretch</strong>A heart from only Union (two circles + a rotated square); try Intersection and Exclusion; make a keyhole with two Differences.</div></div>
+    <details class="drop"><summary>Exit ticket — answer first, then open</summary><div class="body">
+      <ol><li>In Path › Difference, which shape does the cutting, and what happens to it? <span class="m">[2]</span></li><li>Name the operation that melts shapes into one outline. <span class="m">[1]</span></li><li>Your Difference cut the wrong part away. What do you check first? <span class="m">[2]</span></li></ol>
+      <div class="model"><div class="label">Answers</div><p>1) The top shape cuts, and it is used up / disappears. 2) Union. 3) The stacking order — which shape is on top; fix it with Page Up / Page Down.</p></div>
+    </div></details>
+  </section>
+
+  <!-- ================= WEEK 4 ================= -->
+  <section class="block" id="w4">
+    <div class="sec-head"><span class="num">W4</span><h2>Show your working — first hand-in</h2><span class="ko">증거 모으기</span></div>
+    <div class="mission">
+      <h3>Skills audit — tick what you can do without help</h3>
+      <ul class="checklist" data-key="w4audit">
+        <li>Draw a rectangle and an ellipse</li><li>Change fill colour</li><li>Change stroke colour and width</li><li>Duplicate with <kbd>Ctrl</kbd>+<kbd>D</kbd></li><li>Group and ungroup</li><li>Align into a straight line</li><li>Distribute equal gaps</li><li><code>Path › Union</code></li><li><code>Path › Difference</code></li><li>Change which shape is on top</li><li>Save as <code>.svg</code></li><li>Screenshot into a slide</li>
+      </ul>
+    </div>
+    <div class="mission">
+      <h3>Screenshot portfolio — the hand-in checklist</h3>
+      <div class="meta-line">File: <span class="save">Surname_W04.pptx</span> · Upload it to Schoology</div>
+      <ul class="checklist" data-key="w4hand">
+        <li>Name on slide 1</li>
+        <li>Task 1 slide — Coin Trail, with the <strong>Align panel visible</strong></li>
+        <li>Task 2 slide — Robot Squad, grouped robot selected so the group outline shows</li>
+        <li>Task 3 slide — Cloud and Moon; a sentence says which Path operation made each</li>
+        <li>Task 4 slide — Castle Rook (plus Extension if reached)</li>
+        <li>Every screenshot shows the Inkscape window — not cropped to just the picture</li>
+        <li>No screenshot stretched out of shape (corner handles only)</li>
+        <li>Each sentence names an actual tool, e.g. “I used Path › Union to melt three circles and a rectangle into one cloud.”</li>
+        <li><strong>Uploaded</strong> to Schoology — uploaded is not the same as saved</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= WEEK 5 ================= -->
+  <section class="block" id="w5">
+    <div class="sec-head"><span class="num">W5</span><h2>Bend the maths — nodes and the Bezier pen</h2><span class="ko">노드 · 베지어</span></div>
+    <div class="mission">
+      <h3>Book cover — James and the Giant Peach</h3>
+      <div class="meta-line">Skill: Object to Path, Node tool, corner vs smooth nodes, Bezier pen · Export a PNG before you leave</div>
+      <ul class="checklist" data-key="w5a">
+        <li><strong>Task 1 — Magic Peach:</strong> orange circle → <code>Path › Object to Path</code> (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd>) → <kbd>N</kbd> → drag nodes and handles until it looks lopsided and natural.</li>
+        <li><strong>Task 2 — Leaf:</strong> Bezier pen (<kbd>B</kbd>). <strong>Click, do not drag</strong> to make sharp corners. <kbd>Enter</kbd> to finish.</li>
+        <li><strong>Task 2b:</strong> Node tool — select a few points → <em>Make selected nodes smooth</em>. Leave others sharp.</li>
+        <li><strong>Task 3:</strong> rectangle background; move the peach and leaf on; group those two.</li>
+        <li><strong>Task 3b:</strong> Text tool (<kbd>T</kbd>): <em>James and the Giant Peach</em> / <em>Roald Dahl</em>. <kbd>Page Up</kbd> if anything hides.</li>
+        <li><code>File › Export</code> → PNG → Export As.</li>
+      </ul>
+    </div>
+    <div class="callout warn"><strong>Press N and see no nodes?</strong>You skipped Object to Path. A circle has no editable nodes until it is converted.</div>
+    <div class="tier"><div class="s"><strong>Support</strong>Task 1 only — one convincing peach is a full lesson.</div><div class="c"><strong>Core</strong>All three tasks; at least one smooth and one corner node in the leaf.</div><div class="x"><strong>Stretch</strong>Convert the title text to a path and bend the letters; draw a stem with only smooth nodes.</div></div>
+    <details class="drop"><summary>Exit ticket — answer first, then open</summary><div class="body">
+      <ol><li>You draw a circle and press N, but no nodes appear. What did you forget? <span class="m">[1]</span></li><li>Describe the difference between a corner node and a smooth node. <span class="m">[2]</span></li><li>With the Bezier tool, why click rather than drag? <span class="m">[2]</span></li></ol>
+      <div class="model"><div class="label">Answers</div><p>1) Path › Object to Path (Ctrl+Shift+C). 2) Corner = sharp point, handles move independently; smooth = flowing curve, handles locked in a straight line. 3) Clicking makes sharp points you control and can curve later; dragging makes curves straight away and is harder to control.</p></div>
+    </div></details>
+  </section>
+
+  <!-- ================= WEEK 6 ================= -->
+  <section class="block" id="w6">
+    <div class="sec-head"><span class="num">W6</span><h2>Trace, wrap and outline</h2><span class="ko">따라 그리기 · 경로 위 텍스트</span></div>
+    <div class="mission">
+      <h3>Logo tracing and typography</h3>
+      <div class="meta-line">Skill: layers, opacity, lock, Text › Put on Path, Path › Linked Offset · Export a PNG</div>
+      <ul class="checklist" data-key="w6a">
+        <li>Find a <strong>simple</strong> logo and <code>File › Import</code> it.</li>
+        <li>Layers panel: opacity 50%, then click the <strong>padlock</strong>.</li>
+        <li>Add a new layer above → Bezier (<kbd>B</kbd>) → trace point to point.</li>
+        <li>Circle (stroke on, fill off) + your team name → select <strong>both</strong> → <code>Text › Put on Path</code>.</li>
+        <li>Select the circle → set its stroke to None. The guide vanishes; the curve stays.</li>
+        <li>Group everything → <code>Path › Linked Offset</code> → drag the diamond out → <kbd>Page Down</kbd>.</li>
+        <li>Under your screenshot, write which logo you traced (credit it).</li>
+      </ul>
+    </div>
+    <div class="callout warn"><strong>Copyright rule</strong>Tracing a brand logo to learn the skill is fine for classwork. Selling it, publishing it or claiming it as your own design is not.</div>
+    <div class="tier"><div class="s"><strong>Support</strong>Trace a straight-edged shape (shield, star); skip Linked Offset.</div><div class="c"><strong>Core</strong>All three techniques; guide circle stroke set to None.</div><div class="x"><strong>Stretch</strong>The School Crest; a second line of text curving the other way; two Linked Offsets in different colours.</div></div>
+    <details class="drop"><summary>Exit ticket — answer first, then open</summary><div class="body">
+      <ol><li>Why lower the opacity and lock an imported image before tracing? <span class="m">[2]</span></li><li><code>Text › Put on Path</code> is greyed out. What did you forget? <span class="m">[1]</span></li><li>Name the operation that creates a thick sticker-style outline. <span class="m">[2]</span></li></ol>
+      <div class="model"><div class="label">Answers</div><p>1) Fading lets you see your trace against the original; locking stops it moving so the trace stays lined up. 2) You selected only the text, not the text AND the circle. 3) Path › Linked Offset.</p></div>
+    </div></details>
+  </section>
+
+  <!-- ================= WEEK 7 ================= -->
+  <section class="block" id="w7">
+    <div class="sec-head"><span class="num">W7</span><h2>Your turn — independent vector product</h2><span class="ko">나만의 벡터 작품</span></div>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>1 · Logo</th><th>2 · Icon set</th><th>3 · Illustration</th></tr></thead>
+      <tbody>
+        <tr><td>Logo for <strong>Solar City</strong>, a space-themed theme park</td><td>4–6 matching icons for an app or website</td><td>One detailed scene, character, cover or poster</td></tr>
+        <tr><td>Relevant shapes and colours; must include the park’s name</td><td>All icons share a style: same size, weight, palette</td><td>Built, not traced from one image</td></tr>
+        <tr><td>Must work large <em>and</em> small</td><td>Readable at 32 px</td><td>Foreground and background depth</td></tr>
+        <tr><td>Union, Text on Path, Offset</td><td>Align, Distribute, Difference</td><td>Bezier, nodes, layering</td></tr>
+      </tbody>
+    </table></div>
+    <div class="mission">
+      <h3>Plan · Create · Evaluate</h3>
+      <ul class="checklist" data-key="w7a">
+        <li><strong>Task A — plan on paper:</strong> research real examples, sketch 2–3 ideas, annotate what works.</li>
+        <li><strong>Task A — check:</strong> read the brief again. Does the sketch meet <em>every</em> requirement?</li>
+        <li><strong>Task B — build:</strong> big shapes first → refine with nodes → text last. Use at least <strong>four techniques</strong>.</li>
+        <li><strong>Task B — describe:</strong> name each technique and where it appears, while you still remember.</li>
+        <li><strong>Task C — evaluate:</strong> quote the requirements back — met or not met?</li>
+        <li><strong>Task C — feedback:</strong> show it to someone; write what they said and what you will change.</li>
+      </ul>
+    </div>
+    <div class="model"><div class="label">Evaluation sentence frames</div><ul class="points"><li>The brief required ______. My design meets this because ______.</li><li>I used <strong>Path › Union</strong> to ______, which made ______.</li><li>One requirement I did not fully meet is ______ because ______.</li><li>My classmate said ______, so next time I would ______.</li></ul></div>
+    <div class="callout tip"><strong>Next: Week 8 test</strong>35 minutes — XML code, tool word bank, practical with screenshot. <a href="grade8-mock.html">Try the mock test →</a> (theory + practical, or practical only)</div>
+  </section>
+</main>
+<footer class="foot">Grade 8 Vector Graphics · Weekly practice tasks · Mr Glen Joshua · WZFS · Your ticks are saved only in this browser.</footer>
+<script>window.PRACTICE = { id: "g8-tasks" };</script>
+<script src="practice.js"></script>
+</body>
+</html>

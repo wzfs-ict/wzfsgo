@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 8 Vector Mock Test</title>
+<meta name="description" content="Grade 8 Vector Graphics mock test: 35 minutes, XML code blanks, tool word bank and a practical task — two versions, self-marking.">
+<link rel="stylesheet" href="practice.css">
+<style>
+  .timerbar { position: sticky; top: 44px; z-index: 15; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 10px 14px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; box-shadow: var(--shadow); margin: 12px 0; }
+  .clock { font-family: var(--mono); font-size: 1.6rem; font-weight: 700; color: var(--navy); min-width: 90px; }
+  .clock.low { color: var(--bad); }
+  .pace { font-size: .9rem; color: var(--muted); }
+  .ver { display: flex; gap: 6px; }
+  .shape-q { display: grid; grid-template-columns: 170px 1fr; gap: 14px; align-items: center; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 14px; margin: 10px 0; }
+  @media (max-width: 640px) { .shape-q { grid-template-columns: 1fr; } }
+  .shape-q svg { background: #fff; border: 1px solid var(--border); border-radius: 8px; width: 100%; max-width: 170px; height: auto; }
+  .codeline { font-family: var(--mono); font-size: .9rem; line-height: 2.3; overflow-wrap: anywhere; }
+  .codeline input, .codeline select, .wb select { font-family: var(--mono); font-size: .9rem; padding: 3px 6px; border: none; border-bottom: 2px solid var(--muted); background: var(--surface-2); color: var(--text); border-radius: 4px 4px 0 0; }
+  .wb select { font-family: var(--font); }
+  .right { border-bottom-color: var(--good) !important; background: var(--good-soft) !important; }
+  .wrong { border-bottom-color: var(--bad) !important; background: var(--bad-soft) !important; }
+  .fix { font-size: .82rem; color: var(--good); font-weight: 700; margin-left: 4px; }
+  .wb { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 14px; margin: 8px 0; line-height: 2.2; }
+  .bank { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0; }
+  .bank span { background: var(--accent-soft); color: var(--accent); font-weight: 700; padding: 3px 12px; border-radius: 999px; }
+  .rubric label { display: flex; gap: 10px; align-items: flex-start; padding: 7px 0; border-bottom: 1px solid var(--border); cursor: pointer; }
+  .rubric label input { margin-top: 5px; width: 18px; height: 18px; flex: none; }
+  .rubric .mk { margin-left: auto; font-family: var(--mono); font-weight: 700; color: var(--navy); }
+  .shot img { max-width: 100%; border: 1px solid var(--border); border-radius: 8px; margin-top: 8px; }
+  .results { display: none; }
+  .results.show { display: block; }
+  .scorebig { font-size: 2.4rem; font-weight: 800; color: var(--navy); }
+  .modes { display: flex; gap: 6px; flex-wrap: wrap; }
+  .mcq { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 14px; margin: 10px 0; }
+  .mcq .opts { display: grid; gap: 6px; margin-top: 8px; }
+  .mcq label { display: flex; gap: 8px; align-items: flex-start; padding: 7px 10px; border: 1px solid var(--border); border-radius: 8px; cursor: pointer; }
+  .mcq label.right { border-color: var(--good); background: var(--good-soft); font-weight: 600; }
+  .mcq label.wrong { border-color: var(--bad); background: var(--bad-soft); text-decoration: line-through; }
+  .wq { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 14px; margin: 10px 0; }
+  .wq textarea { width: 100%; box-sizing: border-box; font: inherit; padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface-2); color: var(--text); margin-top: 8px; }
+  .wq .ms { display: none; margin-top: 10px; border-top: 1px dashed var(--border); padding-top: 8px; }
+  .locked .wq .ms { display: block; }
+  .secbar { background: #1F3864; color: #fff; border-radius: 10px; padding: 10px 16px; margin: 22px 0 6px; font-weight: 700; }
+  .secbar span { font-weight: 400; opacity: .9; }
+  .locked .mcq label, .locked .wq textarea { pointer-events: none; }
+  .locked .codeline input, .locked .codeline select, .locked .wb select { pointer-events: none; }
+</style>
+</head>
+<body>
+<header class="banner">
+  <div class="wrap">
+    <a class="home" href="grade8.html">← Grade 8 study guide</a>
+    <div class="eyebrow" style="margin-top:10px">G R A D E &nbsp; 8 &nbsp; · &nbsp; V E C T O R &nbsp; G R A P H I C S &nbsp; · &nbsp; M O C K &nbsp; T E S T</div>
+    <h1>Vector Graphics Mock Test</h1>
+    <div class="ko">벡터 그래픽 모의시험</div>
+    <div class="meta"><span class="chip">Full mock: 50 minutes · 55 marks</span><span class="chip">Section A Theory (20) · Section B Practical (35)</span><span class="chip">Mr Glen Joshua · WZFS</span></div>
+  </div>
+</header>
+<nav class="topnav" aria-label="Sections"><div class="wrap">
+  <a href="#tA">A Theory</a><a href="#p1">B1 XML</a><a href="#p2">B2 Tools</a><a href="#p3">B3 Practical</a><a href="#res">Results</a>
+  <span class="sep"></span><a class="prac" href="grade8-tasks.html">✎ Practice tasks</a>
+  <button class="theme-btn" type="button" aria-label="Toggle dark mode">◐</button>
+</div></nav>
+
+<main>
+  <div class="callout tip"><strong>Before you start</strong>Choose a mode and a version, then press <em>Start</em>. The <strong>full mock</strong> has both parts of the test: <strong>Section A Theory</strong> (multiple choice and written answers, ≈ 15 min) and <strong>Section B Practical</strong> (XML code, tool word bank and the Inkscape task, ≈ 35 min — the same format as the real Week 8 test). Have Inkscape open for B3. If you are stuck, move on — B3 is worth the most.</div>
+
+  <div class="card" style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+    <label>Name <input id="sname" type="text" autocomplete="off" style="font:inherit;padding:6px 10px;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--text)"></label>
+    <label>Class <input id="sclass" type="text" autocomplete="off" size="6" style="font:inherit;padding:6px 10px;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--text)"></label>
+    <span class="ko-line">Your name appears on your printed results.</span>
+  </div>
+  <div class="timerbar noprint">
+    <div class="modes" role="group" aria-label="Mode"><button type="button" class="btn small" data-mode="full">Full</button><button type="button" class="btn small" data-mode="theory">Theory</button><button type="button" class="btn small" data-mode="practical">Practical</button></div>
+    <div class="ver" role="group" aria-label="Version"><button type="button" class="btn small" data-v="A">Mock A</button><button type="button" class="btn small" data-v="B">Mock B</button></div>
+    <span class="clock" id="clock">50:00</span>
+    <button type="button" class="btn primary" id="start">▶ Start</button>
+    <button type="button" class="btn" id="finish">✓ Finish &amp; mark</button>
+    <button type="button" class="btn small" id="reset">↺ New attempt</button>
+    <span class="pace" id="pace">Choose a version and press Start.</span>
+  </div>
+
+  <div class="secbar" id="barA">Section A — Theory <span>· 20 marks · ≈ 15 minutes · 이론</span></div>
+  <section class="block" id="tA">
+    <div class="sec-head"><span class="num">A1</span><h2>Multiple choice</h2><span class="ko">객관식 · 10점</span></div>
+    <p class="lead">Choose one answer for each question. 1 mark each.</p>
+    <div id="mcq"></div>
+    <div class="sec-head" style="margin-top:22px"><span class="num">A2</span><h2>Written answers</h2><span class="ko">서술형 · 10점</span></div>
+    <p class="lead">Write in full sentences. The number in brackets tells you how many points to make — one point per mark. Use the <a href="grade8.html#p-howto">How to write answers</a> frames (because · so · whereas · First, Next, Then). After you finish, tick each mark-scheme point you made.</p>
+    <div id="written"></div>
+  </section>
+  <div class="secbar" id="barB">Section B — Practical <span>· 35 marks · 35 minutes · the real Week 8 test format · 실기</span></div>
+  <section class="block" id="p1">
+    <div class="sec-head"><span class="num">B1</span><h2>XML code fill-in-the-blanks</h2><span class="ko">XML 코드 빈칸 · 10점</span></div>
+    <p class="lead">Look at each shape. Type the missing attribute name or value so the code draws the shape. Do not type the speech marks.</p>
+    <div id="part1"></div>
+  </section>
+
+  <section class="block" id="p2">
+    <div class="sec-head"><span class="num">B2</span><h2>Vector tools knowledge</h2><span class="ko">도구 단어 은행 · 5점</span></div>
+    <p class="lead">Choose the correct tool from the word bank for each sentence.</p>
+    <div class="bank" id="bank"></div>
+    <div id="part2"></div>
+  </section>
+
+  <section class="block" id="p3">
+    <div class="sec-head"><span class="num">B3</span><h2>Computer task &amp; screenshot</h2><span class="ko">실기 과제 · 20점</span></div>
+    <p class="lead">Open Inkscape and follow the steps exactly. When you finish, take a screenshot of the <strong>whole window</strong> (<kbd>PrtSc</kbd> or <kbd>Win</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd>).</p>
+    <div class="card"><h3 style="margin-top:0" id="p3title"></h3><ol class="steps" id="p3steps"></ol></div>
+    <div class="card shot noprint">
+      <h3 style="margin-top:0">Your screenshot</h3>
+      <p class="ko-line">Choose your screenshot to check it against the marking points. It stays on this computer — nothing is uploaded. Submit the real file on Schoology.</p>
+      <input type="file" id="shot" accept="image/*">
+      <div id="shotview"></div>
+    </div>
+    <div class="card rubric">
+      <h3 style="margin-top:0">Self-mark your screenshot — tick only what you can SEE</h3>
+      <div id="rubric"></div>
+    </div>
+  </section>
+
+  <section class="block results" id="res">
+    <div class="sec-head"><span class="num">✓</span><h2>Your results</h2><span class="ko">결과</span></div>
+    <div class="card" id="gradecard" style="display:flex;gap:18px;align-items:center;flex-wrap:wrap;border-width:3px">
+      <div style="text-align:center;min-width:110px"><div id="rg" style="font-size:3.4rem;font-weight:800;line-height:1">–</div><div class="ko-line">Grade</div></div>
+      <div style="flex:1;min-width:220px"><div id="rwho" style="font-weight:700"></div><div><span class="scorebig" id="rt">–</span> <span class="ko-line" id="rtime"></span></div><div id="rgmsg" class="ko-line"></div></div>
+    </div>
+    <div class="tbl-wrap"><table id="bands"><thead><tr><th>Grade</th><th>A*</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>U</th></tr></thead>
+      <tbody><tr id="bandrow"><th>Marks / 35</th><td>30–35</td><td>26–29</td><td>22–25</td><td>18–21</td><td>14–17</td><td>11–13</td><td>0–10</td></tr></tbody></table></div>
+    <div class="grid two" style="margin-top:12px">
+      <div class="stat sA"><div class="v" id="rA">–</div><div class="l">Section A Theory / 20</div></div>
+      <div class="stat sB"><div class="v" id="rB">–</div><div class="l">Section B Practical / 35</div></div>
+    </div>
+    <div class="grid three">
+      <div class="stat sA"><div class="v" id="ra1">–</div><div class="l">A1 Multiple choice / 10</div></div>
+      <div class="stat sA"><div class="v" id="ra2">–</div><div class="l">A2 Written (self-marked) / 10</div></div>
+      <div class="stat sB"><div class="v" id="r1">–</div><div class="l">B1 XML code / 10</div></div>
+      <div class="stat sB"><div class="v" id="r2">–</div><div class="l">B2 Tools / 5</div></div>
+      <div class="stat sB"><div class="v" id="r3">–</div><div class="l">B3 Practical (self-marked) / 20</div></div>
+    </div>
+    <div class="card" style="margin-top:12px"><strong>What to do next</strong><p id="radvice"></p></div>
+    <div class="toolbar noprint"><button type="button" class="btn small" onclick="window.print()">🖨 Print my results</button></div>
+    <h3>Previous attempts on this computer</h3>
+    <div id="history" class="ko-line"></div>
+  </section>
+</main>
+<footer class="foot">Grade 8 Vector Graphics mock test · Mr Glen Joshua · WZFS · Answers and attempts are saved only in this browser.</footer>
+<script>window.PRACTICE = { id: "g8-mock" };</script>
+<script src="practice.js"></script>
+<script>
+(function () {
+  "use strict";
+  /* ---------- test content ----------
+     Part 1 code: [[answer|alt]] = text blank, [[?first,last=last]] = choice blank */
+  var MOCK = {
+    A: {
+      p1: [
+        { title: "1. The red circle", svg: '<circle cx="100" cy="100" r="50" fill="red" stroke="black" stroke-width="4"/>', vb: "0 0 200 200",
+          code: '<circle cx="100" cy="100" [[r]]="50" [[fill]]="red" stroke="black" [[stroke-width]]="4" />' },
+        { title: "2. The blue rectangle", svg: '<rect x="50" y="50" width="200" height="100" fill="blue"/>', vb: "0 0 300 200",
+          code: '<rect [[x]]="50" y="50" [[width]]="200" [[height]]="100" fill="blue" />' },
+        { title: "3. The green ellipse", svg: '<ellipse cx="150" cy="80" rx="100" ry="50" fill="green"/>', vb: "0 0 300 160",
+          code: '<ellipse cx="150" cy="80" [[rx]]="100" [[ry]]="50" fill="green" />' },
+        { title: "4. The black line", svg: '<line x1="20" y1="20" x2="280" y2="120" stroke="black" stroke-width="3"/>', vb: "0 0 300 140",
+          code: '<line x1="20" y1="20" [[x2]]="280" y2="120" [[stroke]]="black" stroke-width="3" />' }
+      ],
+      bank: ["Align", "Distribute", "Union", "Difference", "Text on Path"],
+      p2: [
+        ["To make the empty space between three circles exactly equal, use ", "Distribute", "."],
+        ["To melt two overlapping shapes into one single shape, use Path › ", "Union", "."],
+        ["To line up squares so their bottom edges are perfectly straight, use ", "Align", "."],
+        ["To make your words wrap around a curved line or a circle, use ", "Text on Path", "."],
+        ["To use a top shape to cut a hole in a bottom shape, use Path › ", "Difference", "."]
+      ],
+      p3title: "Mock A — Star, circles and your name",
+      p3steps: ["Draw one large <strong>yellow star</strong> at the top of your canvas.", "Draw <strong>three small blue circles</strong> below the star.", "Select all three circles. Use <strong>Align</strong> to put them in a straight horizontal line.", "Keep the circles selected. Use <strong>Distribute</strong> so the spaces between them are exactly equal.", "Draw a curved line using the <strong>Bezier</strong> tool.", "Type your first and last name using the <strong>Text</strong> tool.", "Select your name <strong>and</strong> the curved line. Use <code>Text › Put on Path</code> to bend your name along the curve."],
+      rubric: [["A star is drawn", 1], ["The star is yellow, large and at the top", 1], ["Three circles are drawn below the star", 1], ["The circles are blue and small", 1], ["The three circles are in a perfectly straight horizontal line (Align)", 3], ["The gaps between the circles are exactly equal (Distribute)", 3], ["A curved line drawn with the Bezier tool", 3], ["First and last name typed with the Text tool", 2], ["The name follows the curve (Text › Put on Path)", 3], ["The screenshot shows the whole window and everything is visible", 2]]
+    },
+    B: {
+      p1: [
+        { title: "1. The orange rounded rectangle", svg: '<rect x="20" y="20" width="160" height="90" rx="15" fill="orange" stroke="black"/>', vb: "0 0 200 130",
+          code: '<rect x="20" y="20" width="160" height="90" [[rx]]="15" [[fill]]="orange" [[stroke]]="black" />' },
+        { title: "2. The green ring (outline only)", svg: '<circle cx="100" cy="70" r="50" fill="none" stroke="green" stroke-width="5"/>', vb: "0 0 200 140",
+          code: '<circle [[cx]]="100" [[cy]]="70" r="50" fill="[[none]]" stroke="green" stroke-width="5" />' },
+        { title: "3. The word Hello", svg: '<text x="20" y="60" font-size="32" fill="navy" font-family="sans-serif">Hello</text>', vb: "0 0 200 90",
+          code: '<[[text]] x="20" y="60" [[font-size]]="32" fill="navy">Hello</text>' },
+        { title: "4. The thick red line — and which shape is on top", svg: '<line x1="10" y1="60" x2="290" y2="60" stroke="red" stroke-width="8"/>', vb: "0 0 300 120",
+          code: '<line x1="10" y1="60" x2="290" y2="60" stroke="red" [[stroke-width]]="8" />   ·   When two shapes overlap, the one written [[?first,last=last]] in the code is drawn on top.' }
+      ],
+      bank: ["Intersection", "Group", "Object to Path", "Linked Offset", "Duplicate"],
+      p2: [
+        ["To keep only the area where two shapes overlap, use Path › ", "Intersection", "."],
+        ["To make five shapes move and resize as one object, use ", "Group", "."],
+        ["Before you can drag the nodes of a circle, use Path › ", "Object to Path", "."],
+        ["To add a thick sticker-style outline behind a design, use Path › ", "Linked Offset", "."],
+        ["To make an exact copy of a shape on top of the original, use ", "Duplicate", "."]
+      ],
+      p3title: "Mock B — Night Sky",
+      p3steps: ["Draw a dark blue rectangle that fills the page as the night sky.", "Make a <strong>cloud</strong>: 3 white circles + 1 rectangle overlapping → <code>Path › Union</code>.", "Duplicate the cloud twice. <strong>Align</strong> the three clouds on one line and <strong>Distribute</strong> them evenly.", "Make a <strong>moon</strong> from two circles with <code>Path › Difference</code>.", "Draw a circle, use <code>Path › Object to Path</code>, then the <strong>Node tool</strong> to bend it into a hill or bush.", "Write <em>Night Sky</em> on a curved path above the hill. Remove the guide line’s stroke.", "Group everything and add a <code>Path › Linked Offset</code> border."],
+      rubric: [["Dark blue background rectangle filling the page", 1], ["Cloud is ONE object made with Path › Union", 3], ["Three clouds in a straight line (Align)", 2], ["Equal gaps between the clouds (Distribute)", 2], ["Moon made with Path › Difference", 3], ["Hill/bush is a node-edited shape, not a perfect circle", 3], ["“Night Sky” follows a curve; the guide line is invisible", 3], ["A Linked Offset border around the grouped design", 2], ["The screenshot shows the whole window and everything is visible", 1]]
+    }
+  };
+
+  /* ---------- Section A theory: mcq [question, options, correct index], wr [question, marks, mark-scheme points] ---------- */
+  var THEORY = {
+    A: {
+      mcq: [
+        ["A vector graphic is stored as…", ["a grid of coloured pixels", "mathematical shapes and instructions", "a compressed photograph", "a list of screen colours"], 1],
+        ["What happens when a bitmap image is enlarged a lot?", ["It stays perfectly sharp", "It becomes pixelated or blurry", "It turns into a vector", "Its file size becomes zero"], 1],
+        ["Which file format is a vector format?", ["JPEG", "PNG", "SVG", "BMP"], 2],
+        ["Which image is best saved as a bitmap?", ["A company logo", "A photograph of a beach", "A road-sign icon", "A simple arrow diagram"], 1],
+        ["The resolution of a bitmap image is…", ["the number of shapes it contains", "the number of pixels per inch", "the number of layers it has", "the length of its file name"], 1],
+        ["Which tool makes the gaps between three shapes exactly equal?", ["Align", "Distribute", "Union", "Group"], 1],
+        ["In SVG code, which attribute sets the colour inside a shape?", ["stroke", "fill", "r", "cx"], 1],
+        ["When you use Path › Difference on two overlapping shapes, which shape is removed?", ["The bottom shape", "The top shape", "Both shapes", "The larger shape"], 1],
+        ["Why would you use Path › Object to Path on a circle?", ["To change its colour", "So its nodes can be moved and edited", "To save it as a PNG", "To group it with other shapes"], 1],
+        ["A node is…", ["a point on a path that controls its shape", "a type of image file", "a colour in the palette", "a layer in the document"], 0]
+      ],
+      wr: [
+        ["Compare a bitmap image with a vector image.", 4, ["Bitmap is made of pixels…", "…whereas a vector is made of shapes/objects stored as maths", "Bitmap becomes pixelated/blurry when enlarged…", "…whereas a vector can be resized without losing quality", "Bitmap file usually larger / vector usually smaller (simple images)", "Bitmap best for photos / vector best for logos and diagrams"]],
+        ["A school wants one logo for its website, a small badge and a large banner. Explain why the logo should be made as a vector graphic.", 3, ["It is stored as mathematical shapes", "So it can be resized from badge to banner size", "Without becoming pixelated / losing quality", "Because the shapes are recalculated at the new size", "Small file size / easy to edit the colours"]],
+        ["Describe how to make a moon (crescent) shape from two circles.", 3, ["Draw two circles", "Overlap them so the top circle covers part of the bottom one", "Select both circles", "Use Path › Difference", "The top circle is cut away, leaving the crescent"]]
+      ]
+    },
+    B: {
+      mcq: [
+        ["A bitmap image is made of…", ["pixels", "nodes", "paths", "formulas"], 0],
+        ["A logo will be printed on a pen and on a huge billboard. What is the main advantage of a vector?", ["It can be scaled without losing quality", "It looks like a photograph", "It always has more colours", "It cannot be edited"], 0],
+        ["Which file format is best for a photograph on a website?", ["SVG", "JPEG", "TXT", "CSV"], 1],
+        ["For a simple two-colour logo, which file is usually smaller?", ["The vector version", "A high-resolution bitmap version", "They are always exactly the same", "A bitmap at any resolution"], 0],
+        ["In <circle cx=\"50\" cy=\"50\" r=\"20\"/>, what does r set?", ["The radius", "The colour red", "The rotation", "The row number"], 0],
+        ["Which SVG element draws a rectangle?", ["<circle>", "<rect>", "<line>", "<text>"], 1],
+        ["What does Path › Union do?", ["Cuts the top shape out of the bottom shape", "Joins overlapping shapes into one shape", "Keeps only where the shapes overlap", "Puts text on a path"], 1],
+        ["Which operation keeps only the area where two shapes overlap?", ["Union", "Difference", "Intersection", "Distribute"], 2],
+        ["The Bezier (pen) tool is used to…", ["draw straight and curved paths by placing nodes", "fill a shape with colour", "line shapes up", "import photographs"], 0],
+        ["Why group objects?", ["So they move and resize together as one", "So they change into a bitmap", "So the file is deleted", "So each object gets a new colour"], 0]
+      ],
+      wr: [
+        ["State two features of a bitmap image.", 2, ["Made of pixels", "Has a fixed resolution", "Becomes pixelated when enlarged", "Good for photographs / lots of detail", "Usually a larger file size"]],
+        ["Explain why a photograph should be saved as a bitmap rather than a vector.", 2, ["A photo has many colours / fine detail / gradients", "Each pixel can store a different colour, so the detail is kept", "As a vector it would need too many shapes / a huge file"]],
+        ["Describe how to put a heading on a curved line in a vector graphics program.", 3, ["Draw a curve with the Bezier tool", "Type the heading with the Text tool", "Select the text and the curve together", "Use Text › Put on Path", "Remove the guide line's stroke so only the text shows"]],
+        ["Describe the difference between Align and Distribute.", 3, ["Align lines objects up along an edge or centre", "So they sit in a straight line", "Distribute makes the gaps between objects equal", "Distribute needs three or more objects"]]
+      ]
+    }
+  };
+  var MODES = { full: { min: 50, label: "Full mock (theory + practical)" }, theory: { min: 15, label: "Theory only" }, practical: { min: 35, label: "Practical only" } };
+
+  var KEY = "wzfs-g8mock";
+  function load() { try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { return {}; } }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) { /* ignore */ } }
+  var st = load();
+  st.v = st.v || "A"; st.mode = MODES[st.mode] ? st.mode : "full"; st.ans = st.ans || {}; st.rub = st.rub || {}; st.wr = st.wr || {}; st.hist = st.hist || [];
+  function hasA() { return st.mode !== "practical"; }
+  function hasB() { return st.mode !== "theory"; }
+  function maxMarks() { return (hasA() ? 20 : 0) + (hasB() ? 35 : 0); }
+  function dur() { return MODES[st.mode].min * 60; }
+  var timer = null;
+  function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+  function norm(s) { return String(s || "").trim().toLowerCase().replace(/["'“”]/g, "").replace(/\s+/g, ""); }
+
+  function render() {
+    var M = MOCK[st.v];
+    document.querySelectorAll(".ver .btn").forEach(function (b) { b.classList.toggle("primary", b.getAttribute("data-v") === st.v); });
+    document.querySelectorAll(".modes .btn").forEach(function (b) { b.classList.toggle("primary", b.getAttribute("data-mode") === st.mode); });
+    ["barA", "tA"].forEach(function (id) { document.getElementById(id).style.display = hasA() ? "" : "none"; });
+    ["barB", "p1", "p2", "p3"].forEach(function (id) { document.getElementById(id).style.display = hasB() ? "" : "none"; });
+    document.querySelectorAll(".stat.sA").forEach(function (e) { e.style.display = hasA() ? "" : "none"; });
+    document.querySelectorAll(".stat.sB").forEach(function (e) { e.style.display = hasB() ? "" : "none"; });
+    // Section A
+    var T = THEORY[st.v];
+    document.getElementById("mcq").innerHTML = T.mcq.map(function (q, qi) {
+      var shift = (qi * 3 + (st.v === "B" ? 1 : 0)) % q[1].length; // mix the position of the right answer
+      return '<div class="mcq"><strong>' + (qi + 1) + ". " + esc(q[0]) + '</strong><div class="opts">' + q[1].map(function (x, pos) {
+        var oi = (pos + shift) % q[1].length, o = q[1][oi], k = st.v + ":mc-" + qi;
+        return '<label data-q="' + qi + '" data-o="' + oi + '"><input type="radio" name="mc-' + qi + '" value="' + oi + '"' + (String(st.ans[k]) === String(oi) ? " checked" : "") + "> <span>" + String.fromCharCode(65 + pos) + ". " + esc(o) + "</span></label>";
+      }).join("") + "</div></div>";
+    }).join("");
+    document.querySelectorAll("#mcq input").forEach(function (r) {
+      r.addEventListener("change", function () { st.ans[st.v + ":" + r.name] = r.value; save(); });
+    });
+    document.getElementById("written").innerHTML = T.wr.map(function (q, qi) {
+      return '<div class="wq"><strong>' + (qi + 1) + ". " + esc(q[0]) + ' <span class="mk">[' + q[1] + ']</span></strong><textarea rows="' + (q[1] + 1) + '" data-id="wr-' + qi + '" aria-label="Your answer"></textarea>' +
+        '<div class="ms rubric"><strong>Mark scheme — tick each point you made (max ' + q[1] + ')</strong>' + q[2].map(function (pt, pi) {
+          return '<label><input type="checkbox" data-w="' + qi + "-" + pi + '"' + (st.wr[st.v + qi + "-" + pi] ? " checked" : "") + "><span>" + esc(pt) + "</span></label>";
+        }).join("") + '<p class="selfmark" data-wq="' + qi + '" style="font-weight:700;color:var(--navy);margin:6px 0 0"></p></div></div>';
+    }).join("");
+    document.querySelectorAll("#written .ms input").forEach(function (cb) {
+      cb.addEventListener("change", function () { st.wr[st.v + cb.getAttribute("data-w")] = cb.checked; save(); wscore(); if (st.done) results(); });
+    });
+    wscore();
+    // Part 1
+    var h = "", n = 0;
+    M.p1.forEach(function (q, qi) {
+      var parts = q.code.split(/\[\[(.+?)\]\]/), line = "";
+      parts.forEach(function (p, i) {
+        if (i % 2 === 0) { line += esc(p); return; }
+        var id = "p1-" + qi + "-" + i; n++;
+        if (p[0] === "?") {
+          var m = /^\?(.+)=(.+)$/.exec(p), opts = m[1].split(",");
+          line += '<select data-id="' + id + '" data-ans="' + esc(m[2]) + '" aria-label="blank"><option value=""></option>' + opts.map(function (o) { return "<option>" + esc(o) + "</option>"; }).join("") + "</select>";
+        } else {
+          var alts = p.split("|");
+          line += '<input type="text" spellcheck="false" autocomplete="off" size="' + Math.max(4, alts[0].length + 1) + '" data-id="' + id + '" data-ans="' + esc(p) + '" aria-label="blank">';
+        }
+        line += '<span class="fix" data-fix="' + id + '"></span>';
+      });
+      h += '<div class="shape-q"><svg viewBox="' + q.vb + '" role="img" aria-label="' + esc(q.title) + '">' + q.svg + '</svg><div><strong>' + esc(q.title) + '</strong><div class="codeline">' + line + "</div></div></div>";
+    });
+    document.getElementById("part1").innerHTML = h;
+    // Part 2
+    document.getElementById("bank").innerHTML = M.bank.map(function (w) { return "<span>" + esc(w) + "</span>"; }).join("");
+    document.getElementById("part2").innerHTML = M.p2.map(function (s, i) {
+      return '<div class="wb">' + (i + 1) + ". " + esc(s[0]) + '<select data-id="p2-' + i + '" data-ans="' + esc(s[1]) + '" aria-label="answer"><option value=""></option>' + M.bank.map(function (w) { return "<option>" + esc(w) + "</option>"; }).join("") + '</select><span class="fix" data-fix="p2-' + i + '"></span>' + esc(s[2]) + "</div>";
+    }).join("");
+    // Part 3
+    document.getElementById("p3title").textContent = M.p3title;
+    document.getElementById("p3steps").innerHTML = M.p3steps.map(function (s) { return "<li>" + s + "</li>"; }).join("");
+    document.getElementById("rubric").innerHTML = M.rubric.map(function (r, i) {
+      return '<label><input type="checkbox" data-r="' + i + '"' + (st.rub[st.v + i] ? " checked" : "") + "><span>" + esc(r[0]) + '</span><span class="mk">[' + r[1] + "]</span></label>";
+    }).join("") + '<p class="selfmark" id="p3score" style="font-weight:700;color:var(--navy);margin-top:8px"></p>';
+    // restore answers
+    document.querySelectorAll("[data-id]").forEach(function (el) {
+      var k = st.v + ":" + el.getAttribute("data-id");
+      if (st.ans[k] != null) el.value = st.ans[k];
+      el.addEventListener("input", function () { st.ans[k] = el.value; save(); });
+      el.addEventListener("change", function () { st.ans[k] = el.value; save(); });
+    });
+    document.querySelectorAll("#rubric input").forEach(function (cb) {
+      cb.addEventListener("change", function () { st.rub[st.v + cb.getAttribute("data-r")] = cb.checked; save(); p3(); if (st.done) results(); });
+    });
+    p3();
+    if (st.done) mark(); else document.getElementById("res").classList.remove("show");
+    tick();
+  }
+  function p3() {
+    var M = MOCK[st.v], s = 0;
+    M.rubric.forEach(function (r, i) { if (st.rub[st.v + i]) s += r[1]; });
+    document.getElementById("p3score").textContent = "Part 3 self-mark: " + s + " / 20";
+    return s;
+  }
+  function wscore() {
+    var T = THEORY[st.v], tot = 0;
+    T.wr.forEach(function (q, qi) {
+      var n = 0; q[2].forEach(function (pt, pi) { if (st.wr[st.v + qi + "-" + pi]) n++; });
+      n = Math.min(n, q[1]); tot += n;
+      var el = document.querySelector('[data-wq="' + qi + '"]'); if (el) el.textContent = "Your mark: " + n + " / " + q[1];
+    });
+    return tot;
+  }
+  function markMcq() {
+    var T = THEORY[st.v], s = 0;
+    T.mcq.forEach(function (q, qi) {
+      var pick = st.ans[st.v + ":mc-" + qi];
+      document.querySelectorAll('#mcq label[data-q="' + qi + '"]').forEach(function (l) {
+        var o = +l.getAttribute("data-o");
+        l.classList.toggle("right", o === q[2]);
+        l.classList.toggle("wrong", String(o) === String(pick) && o !== q[2]);
+      });
+      if (String(pick) === String(q[2])) s++;
+    });
+    return s;
+  }
+  function mark() {
+    var s1 = 0, s2 = 0;
+    document.querySelectorAll("#part1 [data-id], #part2 [data-id]").forEach(function (el) {
+      var ans = el.getAttribute("data-ans"), ok;
+      if (el.tagName === "SELECT") ok = el.value === ans;
+      else ok = ans.split("|").some(function (a) { return norm(a) === norm(el.value); });
+      el.classList.toggle("right", ok); el.classList.toggle("wrong", !ok);
+      var fx = document.querySelector('[data-fix="' + el.getAttribute("data-id") + '"]');
+      if (fx) fx.textContent = ok ? "" : "→ " + ans.split("|")[0];
+      if (ok) { if (el.closest("#part1")) s1++; else s2++; }
+    });
+    document.querySelector("main").classList.add("locked");
+    return [s1, s2];
+  }
+  function results() {
+    var m = mark(), s3 = p3(), a1 = markMcq(), a2 = wscore();
+    var A = a1 + a2, B = m[0] + m[1] + s3, MAX = maxMarks();
+    var total = (hasA() ? A : 0) + (hasB() ? B : 0);
+    document.getElementById("ra1").textContent = a1;
+    document.getElementById("ra2").textContent = a2;
+    document.getElementById("rA").textContent = A + " · " + window.WZFSGrade(A / 20).g;
+    document.getElementById("r1").textContent = m[0];
+    document.getElementById("r2").textContent = m[1];
+    document.getElementById("r3").textContent = s3;
+    document.getElementById("rB").textContent = B + " · " + window.WZFSGrade(B / 35).g;
+    document.getElementById("rt").textContent = total + " / " + MAX;
+    var g = window.WZFSGrade(total / MAX);
+    var cuts = [30, 26, 22, 18, 14, 11].map(function (b) { return Math.ceil(b * MAX / 35 - 1e-9); });
+    document.getElementById("bandrow").innerHTML = "<th>Marks / " + MAX + "</th>" + cuts.map(function (c, i) { return "<td>" + c + "–" + (i ? cuts[i - 1] - 1 : MAX) + "</td>"; }).join("") + "<td>0–" + (cuts[5] - 1) + "</td>";
+    var rg = document.getElementById("rg"); rg.textContent = g.g; rg.style.color = g.c;
+    document.getElementById("gradecard").style.borderColor = g.c;
+    document.getElementById("rwho").textContent = [st.name, st.cls ? "Class " + st.cls : "", "Mock " + st.v + " · " + MODES[st.mode].label, new Date(st.end || Date.now()).toLocaleDateString()].filter(Boolean).join(" · ");
+    var next = [[cuts[0], "A*"], [cuts[1], "A"], [cuts[2], "B"], [cuts[3], "C"], [cuts[4], "D"], [cuts[5], "E"]].filter(function (b) { return b[0] > total; }).pop();
+    document.getElementById("rgmsg").textContent = (total < cuts[5] ? "Below E — redo the practice tasks and try Mock " + (st.v === "A" ? "B" : "A") + " again. " : "") + (next ? (next[0] - total) + " more mark" + (next[0] - total === 1 ? "" : "s") + " for grade " + next[1] + "." : "Top grade — excellent!");
+    document.querySelectorAll("#bands td").forEach(function (td, i) { td.style.fontWeight = ["A*","A","B","C","D","E","U"][i] === g.g ? "800" : ""; td.style.background = ["A*","A","B","C","D","E","U"][i] === g.g ? "var(--accent-soft)" : ""; });
+    var used = st.start ? Math.min(dur(), Math.round(((st.end || Date.now()) - st.start) / 1000)) : null;
+    document.getElementById("rtime").textContent = used != null ? "Time used: " + Math.floor(used / 60) + " min " + (used % 60) + " s" : "";
+    var adv = [];
+    if (hasA() && a1 < 8) adv.push("A1: reread the notes on vector vs bitmap, file formats and the path tools. <a href='grade8.html#p-mcq'>Practise the MCQs</a>.");
+    if (hasA() && a2 < 7) adv.push("A2: one point per mark, and use because / so / whereas. <a href='grade8.html#p-howto'>How to write answers</a> · <a href='grade8.html#p-written'>Written practice</a>.");
+    if (hasB() && m[0] < 8) adv.push("B1: revise the shape attributes — r, cx, cy, width, height, rx, ry, x2, fill, stroke, stroke-width. <a href='grade8.html#t2'>SVG notes</a> · <a href='grade8.html#p-code'>Code lab</a>.");
+    if (hasB() && m[1] < 5) adv.push("B2: learn what each tool does in one line — Align = straight line, Distribute = equal gaps, Union = melt, Difference = top shape cuts. <a href='grade8.html#p-blanks'>Practise the word bank</a>.");
+    if (hasB() && s3 < 15) adv.push("B3: check your screenshot proves every step — the aligned circles, the curve and the text on it must be visible. <a href='grade8-tasks.html'>Redo the practice tasks</a>.");
+    document.getElementById("radvice").innerHTML = adv.length ? adv.join("<br>") : "Excellent — you are ready for the real test. 🎉";
+    document.getElementById("res").classList.add("show");
+    var h0 = st.hist[0];
+    if (st.done && h0 && h0.id === st.start && h0.t !== total) { h0.t = total; h0.g = g.g; save(); hist(); }
+    return total;
+  }
+  function tick() {
+    var c = document.getElementById("clock"), pace = document.getElementById("pace");
+    if (!st.start) { c.textContent = String(MODES[st.mode].min).padStart(2, "0") + ":00"; c.classList.remove("low"); pace.textContent = MODES[st.mode].label + " · " + MODES[st.mode].min + " min · " + maxMarks() + " marks. Choose a version and press Start."; return; }
+    var left = Math.max(0, dur() - Math.floor(((st.end || Date.now()) - st.start) / 1000));
+    c.textContent = String(Math.floor(left / 60)).padStart(2, "0") + ":" + String(left % 60).padStart(2, "0");
+    c.classList.toggle("low", left < 300);
+    var gone = dur() - left, off = hasA() ? 900 : 0;
+    function at(sec) { var r = dur() - sec; return String(Math.floor(r / 60)).padStart(2, "0") + ":00"; }
+    pace.textContent = st.done ? "Finished." :
+      hasA() && gone < 300 ? "Now: A1 (multiple choice) — until " + at(300) :
+      hasA() && gone < 900 ? "Now: A2 (written answers) — until " + at(900) + (hasB() ? ", then Section B" : "") :
+      !hasB() ? "Check your answers, then Finish." :
+      gone < off + 600 ? "Now: B1 (XML code) — until " + at(off + 600) : gone < off + 900 ? "Now: B2 (word bank) — until " + at(off + 900) : "Now: B3 (practical) — screenshot before 00:00";
+    if (left === 0 && !st.done) finish();
+  }
+  function finish() {
+    if (!st.start) st.start = Date.now();
+    st.end = st.end || Date.now(); st.done = true;
+    var total = results();
+    st.hist.unshift({ id: st.start, v: st.v, m: st.mode, x: maxMarks(), t: total, g: window.WZFSGrade(total / maxMarks()).g, d: new Date().toLocaleString() }); st.hist = st.hist.slice(0, 8);
+    save(); hist(); tick();
+    if (timer) { clearInterval(timer); timer = null; }
+    document.getElementById("res").scrollIntoView({ behavior: "smooth" });
+  }
+  function hist() {
+    document.getElementById("history").innerHTML = st.hist.length ? st.hist.map(function (h) { return "Mock " + h.v + (h.m ? " · " + h.m.charAt(0).toUpperCase() + h.m.slice(1) : "") + ": <strong>" + h.t + " / " + (h.x || 35) + (h.g ? " · Grade " + esc(h.g) : "") + "</strong> — " + esc(h.d); }).join("<br>") : "None yet.";
+  }
+
+  document.querySelectorAll(".ver .btn").forEach(function (b) {
+    b.addEventListener("click", function () {
+      if (st.start && !st.done && !window.confirm("Switch version? Your timer keeps running.")) return;
+      st.v = b.getAttribute("data-v"); save(); document.querySelector("main").classList.remove("locked"); render();
+    });
+  });
+  document.querySelectorAll(".modes .btn").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var m = b.getAttribute("data-mode"); if (m === st.mode) return;
+      if (st.start && !window.confirm("Change mode? This starts a new attempt (your score history stays).")) return;
+      var v = st.v, h = st.hist, nm = st.name, cl = st.cls; st = { v: v, mode: m, ans: {}, rub: {}, wr: {}, hist: h, name: nm, cls: cl }; save();
+      if (timer) { clearInterval(timer); timer = null; }
+      document.querySelector("main").classList.remove("locked"); render();
+    });
+  });
+  document.getElementById("start").addEventListener("click", function () {
+    if (!st.start) { st.start = Date.now(); save(); }
+    if (!timer) timer = setInterval(tick, 1000);
+    tick(); document.getElementById(hasA() ? "barA" : "barB").scrollIntoView({ behavior: "smooth" });
+  });
+  document.getElementById("finish").addEventListener("click", function () {
+    if (st.done) { results(); document.getElementById("res").scrollIntoView({ behavior: "smooth" }); return; }
+    if (window.confirm("Finish now and mark your test?")) finish();
+  });
+  document.getElementById("reset").addEventListener("click", function () {
+    if (!window.confirm("Start a new attempt? Your answers on this version will be cleared (your score history stays).")) return;
+    var v = st.v, h = st.hist, nm = st.name, cl = st.cls; st = { v: v, mode: st.mode, ans: {}, rub: {}, wr: {}, hist: h, name: nm, cls: cl }; save();
+    if (timer) { clearInterval(timer); timer = null; }
+    document.querySelector("main").classList.remove("locked");
+    document.getElementById("shotview").innerHTML = ""; document.getElementById("shot").value = "";
+    render();
+  });
+  document.getElementById("shot").addEventListener("change", function (e) {
+    var f = e.target.files && e.target.files[0]; if (!f) return;
+    var r = new FileReader();
+    r.onload = function () { document.getElementById("shotview").innerHTML = '<img alt="Your screenshot" src="' + r.result + '">'; };
+    r.readAsDataURL(f);
+  });
+  ["sname", "sclass"].forEach(function (id) {
+    var el = document.getElementById(id), k = id === "sname" ? "name" : "cls";
+    el.value = st[k] || "";
+    el.addEventListener("input", function () { st[k] = el.value.trim(); save(); if (st.done) results(); });
+  });
+  if (st.start && !st.done) timer = setInterval(tick, 1000);
+  render(); hist();
+})();
+</script>
+</body>
+</html>
