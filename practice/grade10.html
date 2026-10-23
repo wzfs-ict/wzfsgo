@@ -390,15 +390,15 @@
   </table></div>
   <div class="callout gold"><strong>The pattern</strong> The output <em>looked</em> right, but the evidence was missing. When a task says “show evidence of”, take a screenshot of the actual <strong>settings dialog box</strong>, not just the finished page.</div>
 
-  <h3>Mail merge <span class="ko-line">편지 병합</span></h3>
+  <h3>Editing a table <span class="ko-line">표 편집</span></h3>
   <ol class="steps">
-    <li>Create the <strong>master document</strong> (the letter that stays the same for everyone).</li>
-    <li>Link it to the <strong>data source</strong> (e.g. a .csv file or database table of recipients).</li>
-    <li>Insert <strong>merge fields</strong> where personal data goes, e.g. «Title» «Surname».</li>
-    <li><strong>Select / filter recipients</strong> if only some should get the letter (e.g. Town = Weihai).</li>
-    <li><strong>Preview</strong>, then <strong>merge</strong> to a new document or to the printer.</li>
+    <li><strong>Insert or delete</strong> rows and columns exactly where the task says (e.g. “between Germany and China”).</li>
+    <li><strong>Sort</strong> only the data rows — never the title or header row — into ascending or descending order of the named column.</li>
+    <li><strong>Merge cells</strong> to make a heading that spans the columns, then centre-align it.</li>
+    <li>Set <strong>borders / gridlines</strong> to print, add <strong>shading</strong> if asked, and widen columns so <strong>no data wraps</strong>.</li>
+    <li>Apply the named <strong>table style</strong> and check the table is not split over columns or pages.</li>
   </ol>
-  <p class="ko-line">Why? Personalised letters for hundreds of people from one document — saves time and reduces typing errors.</p>
+  <div class="callout tip"><strong>Syllabus 2026–2028</strong> Mail merge is <strong>not</strong> part of the current 0417 syllabus. Focus on page layout, styles, tables, images, headers and footers, and proofing.</div>
 </section>
 
 <!-- ======================================================= CHARTS -->
@@ -617,7 +617,7 @@
       <li>set page layout, breaks, columns, styles, lists, tables, headers and footers</li>
       <li>explain why a house style is used and the limits of a spell checker</li>
       <li>describe validation and verification (visual check, double entry)</li>
-      <li>describe the steps of a mail merge</li>
+      <li>edit a table: insert/delete rows and columns, sort data, merge cells, borders and shading</li>
       <li>choose the right chart type and label it fully</li>
       <li>use a master slide, transitions, animations, speaker notes and handouts</li>
     </ul>
@@ -656,7 +656,7 @@ window.PRACTICE = {
     { t: "Documents", q: "A single line of a paragraph left alone at the top of a page is a…", o: ["widow", "header", "hanging indent", "tab"], a: 0, e: "Widows and orphans should be removed before printing." },
     { t: "Documents", q: "Which check would a spell checker NOT find?", o: ["recieve", "form instead of from", "teh", "becuase"], a: 1, e: "Both words are spelt correctly — only a human proofreader will spot it." },
     { t: "Documents", q: "Typing data twice and comparing the two copies is…", o: ["validation", "double entry verification", "a range check", "proofreading by spell check"], a: 1, e: "Verification checks data is copied correctly." },
-    { t: "Documents", q: "In a mail merge, the letter that stays the same for everyone is the…", o: ["data source", "master document", "merge field", "filter"], a: 1, e: "Merge fields in the master pull data from the data source." },
+    { t: "Documents", q: "Which of these updates automatically when the document changes?", o: ["Your name typed in the footer", "A page number field", "A bold heading", "A table caption typed by hand"], a: 1, e: "Automated fields (page number, date, file name, file path) update by themselves; typed text does not." },
     { t: "Documents", q: "The main reason for a corporate house style is…", o: ["to use more colours", "consistency and a recognisable brand", "to make files bigger", "to avoid spell checking"], a: 1, e: "Every document looks the same and professional." },
     { t: "Charts", q: "Which chart best shows the <strong>percentage</strong> of students in each club?", o: ["Line graph", "Pie chart", "Scatter graph", "Bar chart with no labels"], a: 1, e: "Pie charts show parts of a whole." },
     { t: "Charts", q: "Which chart best shows temperature changes over a month?", o: ["Pie chart", "Line graph", "Pie with extracted segment", "Table"], a: 1, e: "Line graphs show trends over time." },
@@ -682,7 +682,7 @@ window.PRACTICE = {
     { t: "Unit 3", s: "A {{backup}} is a copy of data kept separately in case the original is lost." },
     { t: "Documents", s: "A {{section}} break lets you change to two columns part-way down a page." },
     { t: "Documents", s: "Checking that data has been copied correctly is {{verification}}; checking it is sensible is {{validation}}." },
-    { t: "Documents", s: "In mail merge, «Surname» is a {{merge field|field}}." },
+    { t: "Documents", s: "To show one heading across all three columns of a table, the cells in the first row are {{merged|merge}}." },
     { t: "Charts", s: "A {{pie}} chart shows parts of a whole; a {{line}} graph shows a trend over time." },
     { t: "Presentations", s: "The {{master}} slide sets the background, fonts and logo for every slide." }
   ],
@@ -756,8 +756,8 @@ window.PRACTICE = {
       pts: ["Correctly spelt wrong words are not found (there/their, form/from)", "Names, technical words or other languages may be flagged as errors / wrongly ‘corrected’", "May use the wrong dictionary language (US/UK)", "Cannot check the facts/data are correct", "Cannot check layout, e.g. widows/orphans or missing text"], max: "any three" },
     { n: "25", cmd: "Describe", q: "<span class='unit-tag'>Documents</span> Describe the difference between validation and verification, and give an example of a verification method.", m: 3,
       pts: ["Validation is a computer check that data is sensible/reasonable/allowed", "Verification checks that data has been copied/entered correctly from the source", "Example: visual check (compare with the original) or double entry (typed twice and compared)"] },
-    { n: "26", cmd: "Describe", q: "<span class='unit-tag'>Documents</span> A school is sending a personalised letter to 400 parents. Describe how mail merge would be used.", m: 4,
-      pts: ["Create a master document/letter with the text that is the same for everyone", "Link it to a data source of parent details (e.g. .csv/database)", "Insert merge fields (e.g. «Title» «Surname» «Address») in the master", "Select/filter recipients if needed", "Preview then merge to a new document/printer, producing one letter per parent"], max: "any four" },
+    { n: "26", cmd: "Describe", q: "<span class='unit-tag'>Documents</span> A table of test results in a report must be sorted into descending order of score, and a new row must be added for a student who was absent. Describe how to do this and how to make the title row stand out.", m: 4,
+      pts: ["Select only the data rows (not the title/header rows)", "Sort by the Score column in descending order", "Insert a new row in the correct position and enter the student’s data", "Merge the cells of the title row and centre the text", "Add shading / bold / borders to the title row"], max: "any four" },
     { n: "27", cmd: "Explain", q: "<span class='unit-tag'>Documents</span> A student typed the file name into the footer of a document instead of inserting it as a field. Explain why this is a problem.", m: 2,
       pts: ["A typed file name does not update automatically", "If the file is renamed/moved/saved as a new version, the footer shows the wrong name/path (and in the exam it scores 0)"] },
     { n: "28", cmd: "Explain", q: "<span class='unit-tag'>Charts</span> A teacher wants to show how a student’s test scores changed from September to June. Identify the most suitable chart and explain your choice.", m: 2,
@@ -810,8 +810,8 @@ window.PRACTICE = {
     { en: "House style", ko: "하우스 스타일", d: "An organisation’s fixed fonts, colours, layout and logo rules." },
     { en: "Validation", ko: "유효성 검사", d: "A computer check that data is sensible/allowed." },
     { en: "Verification", ko: "검증", d: "Checking data has been copied correctly — visual check, double entry." },
-    { en: "Mail merge", ko: "편지 병합", d: "Combining a master document with a data source to make personalised documents." },
-    { en: "Merge field", ko: "병합 필드", d: "A placeholder in the master document filled from the data source." },
+    { en: "Merge cells", ko: "셀 병합", d: "Joining two or more table cells into one, e.g. for a heading across all columns." },
+    { en: "Sort (ascending / descending)", ko: "정렬 (오름차순 / 내림차순)", d: "Putting rows in order: A→Z or smallest first (ascending), Z→A or largest first (descending)." },
     { en: "Legend", ko: "범례", d: "Key showing which colour represents which data series." },
     { en: "Non-contiguous data", ko: "비연속 데이터", d: "Data ranges that are not next to each other (selected with Ctrl)." },
     { en: "Master slide", ko: "마스터 슬라이드", d: "Sets the background, fonts, logo and numbers for every slide." },
