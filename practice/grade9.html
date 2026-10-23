@@ -172,10 +172,13 @@
       </ul>
     </div>
     <div class="card">
-      <h3 style="margin-top:0">How compression works</h3>
-      <p>Lossless compression looks for <span class="mark">repetition / patterns</span> and replaces them with short codes: <code>EEEEEEE</code> → <code>E7</code>. A file full of repeated text compresses hugely; a file of random text barely shrinks because there is no pattern to encode.</p>
+      <h3 style="margin-top:0">Compressing with .zip and .rar</h3>
+      <p>A <span class="mark">.zip</span> or <span class="mark">.rar</span> file holds one or more files or folders in a single, smaller file. Unzipping (extracting) gives back every file exactly as it was.</p>
+      <p>Use it when you need to <strong>email</strong> or <strong>upload</strong> many files at once, or to save storage space for files you are not using.</p>
     </div>
   </div>
+  <details class="drop"><summary>Background only — lossy and lossless compression (not a 2026–2028 syllabus heading)</summary><div class="body">
+  <p class="ko-line">Section 11.2 only asks why file size is reduced and how to compress with .zip / .rar. Knowing that .jpg loses some detail and .png keeps it all helps you describe the <strong>characteristics</strong> of those formats (11.1).</p>
   <div class="tbl-wrap"><table>
     <thead><tr><th>Point of comparison</th><th>Lossy 손실 압축</th><th>Lossless 무손실 압축</th></tr></thead>
     <tbody>
@@ -187,9 +190,10 @@
       <tr><th>Suitable for</th><td>Photos, video, music — small losses not noticed</td><td>Text, exam marks, programs, spreadsheets — every bit must stay</td></tr>
     </tbody>
   </table></div>
-  <div class="model"><div class="label">Model “explain” answer — judging the method [2]</div>
-    <p>Lossy compression is suitable for a video because the data removed is unlikely to be noticed by the viewer, <strong>so</strong> a much smaller file is acceptable <span class="m">[1]</span>. It is not suitable for a file of exam marks because removing data would change or lose marks, <strong>which means</strong> the file would be inaccurate <span class="m">[1]</span>.</p>
+  <div class="model"><div class="label">Example</div>
+    <p>Lossy compression is suitable for a video because the data removed is unlikely to be noticed by the viewer, <strong>so</strong> a much smaller file is acceptable. It is not suitable for a file of exam marks because removing data would change or lose marks, <strong>which means</strong> the file would be inaccurate.</p>
   </div>
+  </div></details>
   <h3>Reducing an image’s file size (without compression)</h3>
   <ul class="points">
     <li>Reduce the <span class="mark">resolution</span> — fewer pixels to store.</li>
@@ -342,7 +346,7 @@
     <details class="drop"><summary>Show worked answers</summary><div class="body">
       <ol>
         <li>(430 − 2) ÷ 430 × 100 = <strong>99.5%</strong></li>
-        <li>(430 − 325) ÷ 430 × 100 = <strong>24.4%</strong>. The first file repeats the same sentence, so lossless compression can replace each repeat with a short code; the second is random text with no pattern, so there is almost nothing to encode.</li>
+        <li>(430 − 325) ÷ 430 × 100 = <strong>24.4%</strong>. The first file repeats the same sentence, so compression can replace each repeat with a short code; the second is random text with no pattern, so there is almost nothing to encode.</li>
         <li>4884 ÷ 1024 = <strong>4.77 MB</strong></li>
         <li>6.5 × 1024 = <strong>6,656 KB</strong></li>
         <li>(260 − 73) ÷ 260 × 100 = <strong>71.9%</strong></li>
@@ -359,7 +363,7 @@
   <h3>Toolkit 1/3 · Break the question down in six steps <span class="ko-line">문제 분석 6단계</span></h3>
   <div class="tk-map" role="group" aria-label="Six steps to break down a question"><div class="tk-col l"><div class="tk-card "><span class="tk-n">1</span><div><b>Command word <span class="ko-line">명령어</span></b><p>State = fact · Describe = how · Explain = why · Compare = both + whereas</p></div></div><div class="tk-card "><span class="tk-n">2</span><div><b>Key words <span class="ko-line">핵심어</span></b><p>Circle the ICT term. Is it the one you think? Check similar words.</p></div></div><div class="tk-card "><span class="tk-n">3</span><div><b>Marks <span class="ko-line">배점</span></b><p>[3] = different points. One sentence per mark.</p></div></div></div><div class="tk-centre">THE QUESTION<small>문제</small></div><div class="tk-col r"><div class="tk-card "><span class="tk-n">4</span><div><b>Context <span class="ko-line">상황</span></b><p>Who uses it? Where? Use their words in your answer.</p></div></div><div class="tk-card g"><span class="tk-n">5</span><div><b>Plan, then write <span class="ko-line">계획 · 쓰기</span></b><p>List one point per mark first, then write each as a sentence.</p></div></div><div class="tk-card g"><span class="tk-n">6</span><div><b>Check <span class="ko-line">확인</span></b><p>No “fast / cheap / easy / better” without “because…” or “than…”.</p></div></div></div></div>
   <h3>Toolkit 2/3 · Command words and sentence frames <span class="ko-line">명령어 · 문장 틀</span></h3>
-  <div class="tbl-wrap"><table class="tk-frames"><thead><tr><th>Command word</th><th>What you do</th><th>Sentence frame</th><th>Example from these units</th></tr></thead><tbody><tr><td data-label="Command word"><strong>State · Give · Name</strong><br><span class="ko-line">제시하다</span></td><td data-label="What you do">Write the fact or name only. No reason needed.</td><td data-label="Sentence frame">“___ is used to ___.”</td><td data-label="Example">A .csv file is used to store table data as plain text, with commas between the values.</td></tr><tr><td data-label="Command word"><strong>Describe</strong><br><span class="ko-line">서술하다 (어떻게?)</span></td><td data-label="What you do">Say how — the steps or features, in order.</td><td data-label="Sentence frame">“First ___. Then ___.”</td><td data-label="Example">First, crop away the parts of the image that are not needed. Then reduce the resolution so there are fewer pixels.</td></tr><tr class="tint"><td data-label="Command word"><strong>Explain</strong><br><span class="ko-line">설명하다 (왜?)</span></td><td data-label="What you do">A point <strong>plus</strong> its reason. A point alone is half.</td><td data-label="Sentence frame">“___ because ___.”<br>“___, so ___.”</td><td data-label="Example">Lossy compression is suitable for a video because small losses of detail are not noticed, so the file becomes much smaller.</td></tr><tr><td data-label="Command word"><strong>Compare</strong><br><span class="ko-line">비교하다</span></td><td data-label="What you do">Both things in every sentence.</td><td data-label="Sentence frame">“___, whereas ___.”</td><td data-label="Example">Lossy compression permanently removes some data, whereas lossless compression keeps all the original data.</td></tr><tr><td data-label="Command word"><strong>Advantage · Disadvantage</strong><br><span class="ko-line">장점 · 단점</span></td><td data-label="What you do">Say what is better or worse, than what, and why.</td><td data-label="Sentence frame">“___ is ___er than ___ because ___.”</td><td data-label="Example">An .rtf file is more useful than a .txt file for a report because it keeps formatting such as bold and font size.</td></tr></tbody></table></div><div class="tk-ban">Banned on their own: fast · cheap · easy · better · good → always add “because…” or “than…” <span class="ko-line">(혼자 쓰면 0점!)</span></div>
+  <div class="tbl-wrap"><table class="tk-frames"><thead><tr><th>Command word</th><th>What you do</th><th>Sentence frame</th><th>Example from these units</th></tr></thead><tbody><tr><td data-label="Command word"><strong>State · Give · Name</strong><br><span class="ko-line">제시하다</span></td><td data-label="What you do">Write the fact or name only. No reason needed.</td><td data-label="Sentence frame">“___ is used to ___.”</td><td data-label="Example">A .csv file is used to store table data as plain text, with commas between the values.</td></tr><tr><td data-label="Command word"><strong>Describe</strong><br><span class="ko-line">서술하다 (어떻게?)</span></td><td data-label="What you do">Say how — the steps or features, in order.</td><td data-label="Sentence frame">“First ___. Then ___.”</td><td data-label="Example">First, crop away the parts of the image that are not needed. Then reduce the resolution so there are fewer pixels.</td></tr><tr class="tint"><td data-label="Command word"><strong>Explain</strong><br><span class="ko-line">설명하다 (왜?)</span></td><td data-label="What you do">A point <strong>plus</strong> its reason. A point alone is half.</td><td data-label="Sentence frame">“___ because ___.”<br>“___, so ___.”</td><td data-label="Example">A folder is compressed into a .zip file before it is emailed because attachments have a size limit, so the smaller file can be sent.</td></tr><tr><td data-label="Command word"><strong>Compare</strong><br><span class="ko-line">비교하다</span></td><td data-label="What you do">Both things in every sentence.</td><td data-label="Sentence frame">“___, whereas ___.”</td><td data-label="Example">A .png file supports a transparent background, whereas a .jpg file does not.</td></tr><tr><td data-label="Command word"><strong>Advantage · Disadvantage</strong><br><span class="ko-line">장점 · 단점</span></td><td data-label="What you do">Say what is better or worse, than what, and why.</td><td data-label="Sentence frame">“___ is ___er than ___ because ___.”</td><td data-label="Example">An .rtf file is more useful than a .txt file for a report because it keeps formatting such as bold and font size.</td></tr></tbody></table></div><div class="tk-ban">Banned on their own: fast · cheap · easy · better · good → always add “because…” or “than…” <span class="ko-line">(혼자 쓰면 0점!)</span></div>
   <h3>Toolkit 3/3 · Worked breakdown: Question 9 (Unit 12) <span class="ko-line">예시 분석</span></h3>
   <div class="tk-q">A student <u class="c-key">changes only the width</u> of a photo from 12 cm to 6 cm. <u class="c-cmd">Explain</u> <u class="c-two">what happens to the photo</u> and <u class="c-two">how this should have been avoided</u>. <u class="c-mk">[3]</u></div><div class="tk-chips"><div class="tk-chip"><b>1 Command word <span class="ko-line">명령어</span></b><em>Explain</em> → say what happens <strong>and why</strong>; use “so” or “because”.</div><div class="tk-chip"><b>2 Key word <span class="ko-line">핵심어</span></b>“only the width” → think <strong>aspect ratio</strong> (width : height). Don't confuse it with cropping: nothing is cut off, the picture is squashed.</div><div class="tk-chip"><b>3 Marks <span class="ko-line">배점</span></b>[3] → three different points.</div><div class="tk-chip"><b>4 Parts <span class="ko-line">부분</span></b>Two parts: what happens (2 points) + how to avoid it (1 point). Answer both.</div></div><p><strong>5 Plan: 3 points = 3 sentences</strong> <span class="ko-line">(계획 — 점 하나에 문장 하나)</span></p><div class="tk-plan" id="tk-g9q9"><div class="tk-pt" hidden><span class="m">[1]</span><strong>Point 1 · What changed?</strong><br>Only the width was changed, so the aspect ratio was not kept.</div><div class="tk-pt" hidden><span class="m">[1]</span><strong>Point 2 · What does it look like?</strong><br>This means the photo is distorted — it looks squashed from the sides.</div><div class="tk-pt" hidden><span class="m">[1]</span><strong>Point 3 · How to avoid it?</strong><br>The student should have locked the aspect ratio (or dragged a corner handle) so the height changed in proportion.</div></div><button class="btn primary tk-next" type="button" data-target="tk-g9q9">Show next point (3)</button><div class="callout good"><strong>6 Check · 확인</strong>Both parts answered? ✔ what happens ✔ how to avoid it. “It looks bad” on its own scores 0 — say <em>distorted</em> and why.</div><p class="lead" style="margin-top:8px"><strong>Next step:</strong> Write Question 9 in your own words in <a href="#p-exam">Paper 1 — structured questions</a>, then use steps 1–6 on every other question.</p>
 </section>
@@ -403,12 +407,12 @@
       <li>Make <code>random.txt</code> of a similar size using varied text (e.g. many different paragraphs). <span class="m">[1]</span></li>
       <li>Compress each one into its own <code>.zip</code> file and move both zips into <code>Compressed</code>. <span class="m">[1]</span></li>
       <li>Record the before and after sizes and calculate each percentage reduction, showing working. <span class="m">[2]</span></li>
-      <li>Explain why one file compressed far more than the other, and state whether zipping is lossy or lossless. <span class="m">[1]</span></li>
+      <li>Explain why one file compressed far more than the other, and check that unzipping gives back both files unchanged. <span class="m">[1]</span></li>
     </ul>
     <details class="drop"><summary>Marking points</summary><div class="body"><ul class="points">
       <li>Method: (before − after) ÷ before × 100, then the answer.</li>
       <li>Explanation names the <strong>repetition</strong> in one file and the <strong>absence of a pattern</strong> in the other.</li>
-      <li>Zipping is <strong>lossless</strong> — unzipping returns every file exactly. “Lossy” scores 0 even with a reason.</li>
+      <li>Unzipping returns every file exactly as it was.</li>
     </ul></div></details>
   </div>
 
@@ -468,7 +472,7 @@
       <li>explain what a generic file format is and give reasons for using one</li>
       <li>match .csv, .txt, .rtf, .pdf, .htm, .css, .jpg and .png to a purpose</li>
       <li>compare .txt with .rtf, and .jpg with .png, using “whereas”</li>
-      <li>compare lossy and lossless compression and judge which suits a file</li>
+      <li>explain why files are compressed and compress files or folders with .zip / .rar</li>
       <li>describe three ways to reduce an image’s file size other than compression</li>
       <li>calculate a percentage reduction and convert between KB and MB</li>
       <li>create folders and subfolders, use meaningful names, Save As and export to PDF</li>
@@ -497,10 +501,10 @@ window.PRACTICE = {
     { t: "Unit 11", q: "Which of these is NOT on the 0417 list of generic file formats?", o: [".rtf", ".css", ".gif", ".csv"], a: 2, e: "The list is .csv .txt .rtf .pdf .css .htm .jpg .png." },
     { t: "Unit 11", q: "1 MB is equal to…", o: ["100 KB", "1000 bytes", "1024 KB", "1024 GB"], a: 2, e: "1 MB = 1024 KB; 1 GB = 1024 MB." },
     { t: "Unit 11", q: "Which button lets you save a file with a <strong>different name or format</strong>?", o: ["Save", "Save As", "Print", "Undo"], a: 1, e: "Save overwrites; Save As chooses a new name, location or format." },
-    { t: "Unit 11", q: "Lossy compression…", o: ["permanently removes some data", "restores the original exactly", "never reduces quality", "is used for zip files"], a: 0, e: "Lossy is irreversible — quality may drop." },
-    { t: "Unit 11", q: "Which file should NEVER be saved with lossy compression?", o: ["A holiday video", "A music track", "A file of students’ exam marks", "A photo for a website"], a: 2, e: "Any lost data would change the marks." },
-    { t: "Unit 11", q: "Zipping a folder uses which type of compression?", o: ["Lossy", "Lossless", "Neither", "Both"], a: 1, e: "Unzipping returns every file exactly." },
-    { t: "Unit 11", q: "Why does a text file full of one repeated sentence compress much more than random text?", o: ["It has more words", "Lossless compression replaces repeated patterns with short codes", "It uses lossy compression", "Random text cannot be saved"], a: 1, e: "No repetition = nothing to encode." },
+    { t: "Unit 11", q: "Which file format can hold many files compressed into one file?", o: [".rtf", ".zip", ".png", ".css"], a: 1, e: ".zip and .rar are the compressed-file formats in the syllabus." },
+    { t: "Unit 11", q: "Which is a reason to reduce file sizes before emailing them?", o: ["Email attachments have a size limit", "Smaller files have more colours", "Compressed files cannot be opened", "It adds a password"], a: 0, e: "Smaller files also send and download faster." },
+    { t: "Unit 11", q: "What happens to the files when a .zip file is extracted (unzipped)?", o: ["They are returned exactly as they were", "They lose some detail", "They change to .pdf", "They are deleted"], a: 0, e: "Extracting gives back every file unchanged." },
+    { t: "Unit 11", q: "Which format supports a transparent background for a logo on a web page?", o: [".jpg", ".png", ".txt", ".csv"], a: 1, e: ".png supports transparency; .jpg does not." },
     { t: "Unit 11", q: "Which is NOT a reason to reduce a file’s size?", o: ["Faster upload and download", "Fits within email attachment limits", "Uses less storage", "Makes the image higher quality"], a: 3, e: "Reducing size never increases quality." },
     { t: "Unit 12", q: "To resize an image without distorting it, you should…", o: ["drag a side handle", "maintain the aspect ratio", "crop it", "reduce the colour depth"], a: 1, e: "Lock the aspect ratio or drag a corner handle." },
     { t: "Unit 12", q: "Which edit removes the unwanted outer parts of an image?", o: ["Rotate", "Reflect", "Crop", "Resize"], a: 2, e: "Cropping cuts away the edges." },
@@ -522,7 +526,7 @@ window.PRACTICE = {
     { t: "Unit 11", s: "A document that must keep its layout on every device is exported as {{.pdf}}." },
     { t: "Unit 11", s: "A web page’s content is stored as {{.htm|.html}}; its stylesheet as {{.css}}." },
     { t: "Unit 11", s: "A photograph with lossy compression is usually saved as {{.jpg|.jpeg}}." },
-    { t: "Unit 11", s: "{{Lossy}} compression permanently removes data; {{lossless}} compression restores the original exactly." },
+    { t: "Unit 11", s: "Many files can be compressed into one smaller file using the {{.zip|zip|.rar|rar}} format." },
     { t: "Unit 11", s: "1 GB = {{1024}} MB." },
     { t: "Unit 11", s: "A folder inside another folder is called a {{subfolder|sub-folder}}." },
     { t: "Unit 12", s: "To avoid distortion, resize an image keeping the {{aspect ratio}}." },
@@ -544,12 +548,12 @@ window.PRACTICE = {
     { n: "4", cmd: "Explain", q: "<span class='unit-tag'>U11</span> Explain the differences between a .txt file and a .rtf file.", m: 3,
       pts: [".txt stores plain text only, whereas .rtf can store formatting", ".rtf can hold bold, italic, underline, fonts, sizes and colours; .txt cannot", ".rtf can hold paragraph formatting and bulleted lists; .txt cannot", ".rtf can include images; .txt cannot", ".txt files are smaller than .rtf files with the same words"],
       max: "any three", trap: "A statement about only one format shows no difference — 0." },
-    { n: "5", cmd: "State", q: "<span class='unit-tag'>U11</span> State <strong>two</strong> differences between lossy and lossless compression.", m: 2,
-      pts: ["Lossy permanently removes data, whereas lossless encodes data and restores it when opened", "Lossy is irreversible, whereas lossless returns the original exactly", "Lossy reduces size by more, whereas lossless reduces it by less", "Lossy reduces quality, whereas lossless leaves quality unchanged"],
-      max: "one mark per matched pair", trap: "Describing lossy only, with nothing about lossless, does not show a difference." },
-    { n: "6", cmd: "Explain", q: "<span class='unit-tag'>U11</span> Explain why lossy compression is suitable for a video file but not for a file of exam marks.", m: 2,
-      pts: ["Video: the removed data is unlikely to be noticed by the viewer, so a much smaller file is acceptable", "Exam marks: removing data would change or lose marks, so the file would be inaccurate/unusable"],
-      model: "<p>Lossy compression suits a video because the data removed is unlikely to be noticed, so a much smaller file is acceptable <span class='m'>[1]</span>. It does not suit exam marks because removing data would change or lose marks, which means the file would be inaccurate <span class='m'>[1]</span>.</p>" },
+    { n: "5", cmd: "State", q: "<span class='unit-tag'>U11</span> State <strong>one</strong> characteristic and <strong>one</strong> use of each file format: (a) .gif (b) .rtf", m: 4,
+      pts: ["(a) .gif: bitmap image with a limited number of colours / can be animated", "(a) .gif use: simple animations / icons on web pages", "(b) .rtf: text with formatting (fonts, bold) that most word processors can open", "(b) .rtf use: sharing a formatted document with someone who has different software"],
+      trap: "A brand name of software instead of a format characteristic scores 0." },
+    { n: "6", cmd: "Explain", q: "<span class='unit-tag'>U11</span> A teacher compresses a folder of 25 student files into a .zip file before uploading it to the school’s cloud storage. Explain why.", m: 2,
+      pts: ["The .zip file is smaller, so it uploads faster / uses less storage space", "All 25 files are kept together in one file, so it is easier to upload, send and download"],
+      model: "<p>The .zip file is smaller than the 25 separate files, so it uploads faster and takes less storage space <span class='m'>[1]</span>. All the files are kept together in one file, which means only one item needs to be uploaded and downloaded <span class='m'>[1]</span>.</p>" },
     { n: "7", cmd: "Describe", q: "<span class='unit-tag'>U12</span> Other than using compression, describe <strong>two</strong> ways of reducing the file size of an image.", m: 2,
       pts: ["Reduce the resolution / number of pixels", "Reduce the colour depth / use fewer colours", "Crop the image so there are fewer pixels to store"],
       max: "any two", trap: "“Save it as a JPEG” is compression — the question excludes it, so 0." },
@@ -587,13 +591,12 @@ window.PRACTICE = {
     { en: ".css", ko: "CSS 스타일시트", d: "Cascading Style Sheets — colours, fonts and layout of web pages." },
     { en: ".jpg", ko: "JPEG 이미지", d: "Bitmap with lossy compression; good for photos; no transparency." },
     { en: ".png", ko: "PNG 이미지", d: "Bitmap with lossless compression; supports transparency." },
-    { en: ".zip", ko: "압축 파일", d: "A compressed archive of files/folders — lossless." },
+    { en: ".zip / .rar", ko: "압축 파일", d: "A compressed file holding one or more files or folders; extracting it gives them back unchanged." },
     { en: "Folder / subfolder", ko: "폴더 / 하위 폴더", d: "Containers that organise files in a hierarchy." },
     { en: "Save As", ko: "다른 이름으로 저장", d: "Save with a new name, location or file format." },
     { en: "Export", ko: "내보내기", d: "Save a copy in a different format, e.g. as a PDF." },
     { en: "Compression", ko: "압축", d: "Reducing the size of a file." },
-    { en: "Lossy compression", ko: "손실 압축", d: "Permanently removes data; large reduction; quality may drop." },
-    { en: "Lossless compression", ko: "무손실 압축", d: "Restores the original exactly; smaller reduction; no quality loss." },
+    { en: "File compression", ko: "파일 압축", d: "Reducing file size for storage or sending, e.g. with .zip or .rar." },
     { en: "Bandwidth", ko: "대역폭", d: "How much data can be sent over a connection per second." },
     { en: "Resolution", ko: "해상도", d: "The number of pixels in an image." },
     { en: "Colour depth", ko: "색 깊이", d: "Number of bits used to store each pixel’s colour." },
